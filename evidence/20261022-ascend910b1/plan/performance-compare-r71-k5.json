@@ -1,0 +1,18 @@
+{
+  "schema": "minicpmo-ascend-performance-compare/v1",
+  "campaign": "r71-k5-profiler-free-final-source",
+  "cells": {
+    "1": {
+      "candidate": "/tmp/minicpmo-engine-c1-k5-minicpmo-npu-20261024-engine-c1-k5-r71a",
+      "baseline": "/tmp/minicpmo-vllm-omni-baseline-c1-k5-minicpmo-npu-20261023-vllm-omni-baseline-c1-k5-r29a"
+    },
+    "16": {
+      "candidate": "/tmp/minicpmo-engine-c16-k5-minicpmo-npu-20261024-engine-c16-k5-r71b",
+      "baseline": "/tmp/minicpmo-vllm-omni-baseline-c16-k5-minicpmo-npu-20261023-vllm-omni-baseline-c16-k5-r28b"
+    },
+    "32": {
+      "candidate": "/tmp/minicpmo-engine-c32-k5-minicpmo-npu-20261024-engine-c32-k5-r71c",
+      "baseline": "/tmp/minicpmo-vllm-omni-baseline-c32-k5-minicpmo-npu-20261023-vllm-omni-baseline-c32-k5-r28c"
+    }
+  }
+}

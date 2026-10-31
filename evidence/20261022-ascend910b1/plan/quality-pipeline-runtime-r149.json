@@ -1,0 +1,43 @@
+{
+  "schema": "minicpmo-ascend-quality-pipeline-runtime/v1",
+  "created_at": "2026-10-24T23:53:11+08:00",
+  "quality_runtime": {
+    "path": "evidence/20261022-ascend910b1/plan/quality-validator-runtime-r149.json",
+    "sha256": "278a1bbf69332e58a57846e4b4a75b12e658a37cc40083ea18381a40f7b98295"
+  },
+  "pipeline_runner": {
+    "path": "tools/run_frozen_quality_pipeline_r149.py",
+    "sha256": "a9c9653607658c69a903e5b82a06cc48b66788ccafeedf056d914eb655eb1909",
+    "host_path": "/home/dengyunyang/omni-npu-work/minicpmo-r147/run_frozen_quality_pipeline_r149.py",
+    "container_path": "/tmp/minicpmo-quality-gate-r149/run_frozen_quality_pipeline_r149.py"
+  },
+  "operations": [
+    "build-dref",
+    "verify-dref",
+    "export-bundle",
+    "assemble-report",
+    "freeze-qref"
+  ],
+  "cross_root_rule": "Candidate bundle and report assembly require a content-bound audit proving that the exact D_ref was fully recomputed under the frozen baseline source root. The final path-aware gate independently repeats baseline D_ref verification.",
+  "remote_self_check": {
+    "checked_at": "2026-10-24T23:53:11+08:00",
+    "container_user": "1033:1000",
+    "baseline": {
+      "result": "pass",
+      "source_root": "/tmp/inferrsi-minicpmo-npu-engine-9674df1"
+    },
+    "candidate": {
+      "result": "pass",
+      "source_root": "/tmp/inferrsi-minicpmo-npu-engine-r116-talker-diag"
+    },
+    "frozen_qref": "/tmp/inferrsi-minicpmo-quality-verifier-r34/evals/speech/qref.py",
+    "frozen_verify_report": "/tmp/inferrsi-minicpmo-quality-verifier-r34/evals/speech/verify_report.py"
+  },
+  "tests": {
+    "result": "11 passed",
+    "junit": {
+      "path": "evidence/20261022-ascend910b1/results/quality-pipeline-r149-pytest.xml",
+      "sha256": "a25f74818c09ca586c53da9effdc880500017e2c83b5991b7e14c07653ad45c5"
+    }
+  }
+}

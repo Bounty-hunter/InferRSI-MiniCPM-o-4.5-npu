@@ -1,0 +1,31 @@
+{
+  "schema": "minicpmo-ascend-performance-validator-runtime/v1",
+  "prepared_at": "2026-10-23T20:52:09.5351098+08:00",
+  "supersedes": "evidence/20261022-ascend910b1/plan/performance-validator-runtime-r41.json",
+  "supersede_reason": "Derive the measured vLLM-Omni checkout path from experiment.json.manifest.repos before importing bench.cli, and prove the loader against a real completed cell.",
+  "validator_freeze": "evidence/20261022-ascend910b1/plan/validator-freeze-r32.json",
+  "remote_host": "dengyunyang@121.37.97.96",
+  "container": "dyy",
+  "freeze_root": "/tmp/inferrsi-minicpmo-performance-verifier-r40",
+  "source_root": "/tmp/inferrsi-minicpmo-npu-engine-9674df1",
+  "frozen_files": {
+    "validator/compare.py": "cc3028d94f497f1a1499b9c2e9fdef0bb9b951f1a5ffd5dbef7146dcf258bf39",
+    "bench/stats.py": "1000b20cbceafd250cdb505f187454d7ad8979686015218e9c9471cee1122218",
+    "bench/verify.py": "636fa79df886eb5e6f6302a51b0c94dfbc794847e90a83388d326f735373662c"
+  },
+  "loader": {
+    "path": "tools/run_frozen_performance_validator.py",
+    "sha256": "e8a9805a5633887fb0830bc25b35058bfe629338537880eee1c7b19b12556276"
+  },
+  "preparation": {
+    "path": "tools/prepare_remote_performance_verifier_r40.sh",
+    "sha256": "b602804b79b5fe1f5cd71491d5bea249a2551c1311f4bf3859022ccd4639e0fe"
+  },
+  "identity_rule": "Load only the three frozen r32 modules from freeze_root, import ordinary dependencies from source_root, and set OMNI_VLLM_REPO from each cell's frozen manifest before bench.cli is imported.",
+  "real_cell_preflight": {
+    "cell": "/tmp/minicpmo-vllm-omni-baseline-c1-k5-minicpmo-npu-20261023-vllm-omni-baseline-c1-k5-r29a",
+    "result": "pass",
+    "problems": []
+  },
+  "tests": "26 passed in the r32 validator tests plus the isolated-loader contract tests"
+}

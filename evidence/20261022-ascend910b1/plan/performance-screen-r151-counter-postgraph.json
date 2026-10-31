@@ -1,0 +1,122 @@
+{
+  "schema": "minicpmo-ascend-performance-screen/v1",
+  "campaign": "r151-c16-omni-counter-postgraph-screen",
+  "purpose": "Test whether capturing the Talker head projection, filtering, counter draw, and state update in NPUGraph removes the remaining C16 launch bottleneck before spending a new formal K=10 campaign.",
+  "not_acceptance_evidence": true,
+  "isolation": {
+    "source_root": "/tmp/inferrsi-minicpmo-npu-engine-r150-counter-rng",
+    "derived_root": "/tmp/inferrsi-minicpmo-npu-engine-r151-counter-postgraph",
+    "must_not_modify_campaigns": [
+      "r147-fixed-k10-gpu5-qualified-decoder-ops",
+      "r150-c16-omni-counter-rng-screen"
+    ],
+    "physical_npu": 5,
+    "container": "dyy",
+    "container_identity": "1033:1000",
+    "scheduler_entry": "npu run --gpu-ids 5"
+  },
+  "frozen_inputs": {
+    "model_path": "/dataset/models/MiniCPM-o-4_5",
+    "seed_tts_root": "/dataset/models/seed-tts-eval",
+    "id_set": "eval",
+    "kind": "performance",
+    "concurrency": 16,
+    "seed_index": 0,
+    "run_order_seed": 20261024,
+    "timeout_s": 180,
+    "warmup_timeout_s": 900,
+    "audio": false,
+    "config": "ascend_c16_r151_omni_counter_postgraph"
+  },
+  "source_guard_sha256": {
+    "engine/talker_sampler.py": "82b432f9bbf132b02bf0d69702f240185b657c9129a77f86380b28fe8773ed6e",
+    "engine/runtime/backend_npu.py": "c60134e76d640f884c9ffcc806df6c59e833b98c3d62668cbf9a1201d1ae9428",
+    "engine/runtime/talker_post_graph.py": "884d04c960aad13af0fda0f244d4e9dfdd9f9104460adb72aaeb1b504b1db2ef",
+    "tests/engine/test_talker_sampler.py": "d0fa678e105328702b2a7d49129e869cf35a02ed08ea434d97cd55c8ea189416",
+    "tests/engine/test_npu_backend_hotpath_contract.py": "aefa5a78cca026f31a33ddffe19b910b6db53a41c549fb24e2c971e1f3f99d27",
+    "configs/engine/ascend_c16_r150_omni_counter_rng.json": "51fc917a7ff7bd83a447c7e5816440f3bd232a974a9b42cbb32a4ff9cdffab2a"
+  },
+  "staged_candidate_sha256": {
+    "engine/talker_sampler.py": "82b432f9bbf132b02bf0d69702f240185b657c9129a77f86380b28fe8773ed6e",
+    "engine/runtime/backend_npu.py": "c60134e76d640f884c9ffcc806df6c59e833b98c3d62668cbf9a1201d1ae9428",
+    "engine/runtime/talker_post_graph.py": "884d04c960aad13af0fda0f244d4e9dfdd9f9104460adb72aaeb1b504b1db2ef",
+    "tests/engine/test_talker_sampler.py": "d0fa678e105328702b2a7d49129e869cf35a02ed08ea434d97cd55c8ea189416",
+    "tests/engine/test_npu_backend_hotpath_contract.py": "aefa5a78cca026f31a33ddffe19b910b6db53a41c549fb24e2c971e1f3f99d27",
+    "configs/engine/ascend_c16_r151_omni_counter_postgraph.json": "449c5e8a059081ae36b1caa4b7c983db14a9aed153e311a128e89fb251327b9e"
+  },
+  "screen_tool_sha256": {
+    "tools/capture_r151_postgraph_metrics.py": "99ceeef5db600f3de9597e61c46c5748c95969aad52561053defbeacfdf31331",
+    "tools/evaluate_r151_counter_postgraph_screen.py": "79b7c2b4805c6840521cee1db4aebf08cd6ac44850bb76200eebc8885c19d4f1",
+    "tools/run_r151_counter_postgraph_cell_inner.sh": "d47ac45a4ada4425d604fb228649c58e5ecea9c84adac7ec0ef91227910626fa",
+    "tools/run_remote_r151_c16_counter_postgraph.sh": "5632ae99b50a5def49d14e2ee777539c4295d13dc75bbea23d8c063098d10517",
+    "tests/bench/test_r151_counter_postgraph_screen.py": "755a999fe83023e1b8b85f1beaefe18f68aef47467589a95a4aa959cd529aa0f"
+  },
+  "change": {
+    "talker_sampling_semantics": "omni",
+    "talker_sampling_rng": "counter",
+    "talker_post_graphs": true,
+    "only_config_delta_from_r150": {
+      "talker_post_graphs": [false, true]
+    },
+    "expected_effect": "Replay Talker head projection, repetition penalty, top-k/top-p filtering, counter-RNG categorical draw, and state update inside captured NPUGraphs while preserving the r150 model math and request protocol.",
+    "token_identity_expected": false,
+    "distribution_equivalence_required": true,
+    "speech_quality_revalidation_required": true
+  },
+  "runtime_path_guard": {
+    "audit_artifact": "postgraph_metrics.jsonl",
+    "talker_post_graph_failures": "must be an empty object in every captured snapshot",
+    "talker_post_graph_replays": "must be a non-empty object with a positive integer total in at least one captured snapshot",
+    "capture_period_s": 2.0,
+    "failure_policy": "Fail closed if the audit is missing, malformed, reports any graph failure, or never proves a graph replay."
+  },
+  "historical_guardrail": {
+    "r150_k1_formal_throughput_frames_s": 117.98697781262884,
+    "r150_k1_formal_ttfa_speedup": 2.276739754761153,
+    "r150_k1_throughput_speedup": 1.6994047689041436,
+    "lesson": "Counter RNG alone passed TTFA but did not reach the pre-registered throughput point threshold. r151 must prove the post-graph path actually replayed and must pass the same K=1 then K=3 promotion rules."
+  },
+  "stages": [
+    {
+      "name": "r151a-k1",
+      "k": 1,
+      "job": "minicpmo-npu-20261025-engine-c16-k1-r151a-counter-postgraph",
+      "probe_run": 0,
+      "formal_runs": [1],
+      "promotion": {
+        "candidate_error_rate": 0.0,
+        "all_runs_valid": true,
+        "ttfa_speedup_vs_paired_r147c_run1_min": 2.0,
+        "throughput_frames_s_min": 145.0,
+        "runtime_path_guard": true
+      }
+    },
+    {
+      "name": "r151b-k3",
+      "k": 3,
+      "job": "minicpmo-npu-20261025-engine-c16-k3-r151b-counter-postgraph",
+      "probe_run": 0,
+      "formal_runs": [1, 2, 3],
+      "promotion": {
+        "candidate_error_rate": 0.0,
+        "all_runs_valid": true,
+        "aggregation": "arithmetic_mean_of_paired_run_speedups",
+        "ttfa_speedup_point_estimate_min": 2.0,
+        "throughput_speedup_point_estimate_min": 2.1,
+        "each_run_throughput_speedup_min": 2.0,
+        "runtime_path_guard": true
+      }
+    }
+  ],
+  "after_screen": {
+    "on_failure": "Reject r151 without widening the benchmark or changing frozen inputs.",
+    "on_pass": "Freeze a new full candidate source identity and run formal K=10 evidence under the frozen validator; do not claim acceptance from K=1 or K=3.",
+    "quality": "Run the complete frozen reference/candidate speech quality gate for the promoted source before acceptance."
+  },
+  "acceptance_remains": {
+    "concurrencies": [1, 16, 32],
+    "ttfa_p50_speedup_point_and_one_sided_95_lcb_min": 2.0,
+    "throughput_frames_s_speedup_point_and_one_sided_95_lcb_min": 2.0,
+    "candidate_error_rate": 0.0
+  }
+}

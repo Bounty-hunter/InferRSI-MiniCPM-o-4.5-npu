@@ -1,0 +1,75 @@
+{
+  "schema": "minicpmo-ascend-quality-validator-freeze/v1",
+  "frozen_at": "2026-10-24T10:30:00+08:00",
+  "supersedes": "evidence/20261022-ascend910b1/plan/quality-validator-freeze-r76.json",
+  "supersede_reason": "Before any final candidate quality cell launched, bind candidate generation to the same r125 qualified decoder-op configurations and isolated source root used by the r136 formal K=10 performance campaign. The r76 binding still named r71 configurations and therefore could not prove quality for the actual performance candidate. Dataset, request order, model, evaluator, Q_ref protocol, and acceptance thresholds are unchanged.",
+  "acceptance_plan": {
+    "path": "evidence/20261022-ascend910b1/plan/acceptance.json",
+    "sha256": "a8c88d923c7ae2b7fe6408df1d9d2a27c922e878fdabc5ddad929fad48742a5c"
+  },
+  "validator_files": {
+    "evals/speech/qref.py": "9fb0c2f91e5d0911c03edec52a0a461237f2d1163e0dbd141f29104a69dea523",
+    "evals/speech/verify_report.py": "23b80087bda8d406c8754d1c81bac4527b4ca478a0b26c76f5708b74db32c742",
+    "tools/speech_quality_bundle.py": "0d106ab190110505ba211562de5ff9dd1c3a15b90f5d041883ee7bf6a330d151",
+    "tools/export_speech_quality_bundle.py": "99f8ac2229253bad5736db8d4535a214dc04612b7ae4e9db05196145c2375893",
+    "tools/score_speech_quality_bundle.py": "6be026e74bae6e5c8b1b9bb2452484265101f9c3e8a42b86a683db511426c61e",
+    "tools/assemble_speech_quality_report.py": "941aa132e907508111ef14cc754ec6828a1443bd84a24cb6b2e6b5a3bf73c80b"
+  },
+  "generation_runners": {
+    "tools/run_remote_vllm_omni_quality_cell.sh": "43aa1873525a3b411d2b10cb238ba0a5a23d56853f1b03bb2212cd50dd6271e5",
+    "tools/prepare_remote_r137_quality_reference_gpu2.sh": "1f436b2194559a14b2b6aaa65097c2ae93acf330ed37e7ae6d2d70bf3d992978",
+    "tools/run_remote_engine_quality_bound_r137.sh": "b3a90fef248cc5a07a18b12126957270319941c4ac095d4ac312c8222dea12c3",
+    "tools/prepare_remote_r137_quality_candidate_gpu2.sh": "6a8a48005e0b38a15984f92fb3e9ed73ed491900ea8fd52ca12995b0cb7a6ecc"
+  },
+  "performance_binding": {
+    "plan": "evidence/20261022-ascend910b1/plan/performance-compare-r136-k10.json",
+    "campaign": "r136-fixed-k10-gpu2-qualified-decoder-ops",
+    "physical_device": 2,
+    "quality_reference_waits_for": "/home/dengyunyang/omni-npu-jobs/minicpmo-npu-20261024-engine-c32-k10-r136f"
+  },
+  "baseline_source": {
+    "container_root": "/tmp/vllm-omni-minicpmo-a3-26237d",
+    "model": "/dataset/models/MiniCPM-o-4_5"
+  },
+  "candidate_source": {
+    "container_root": "/tmp/inferrsi-minicpmo-npu-engine-9674df1",
+    "configs": {
+      "1": "ascend_c1_r125_omni_native_rng",
+      "32": "ascend_c32_r125_omni_native_rng"
+    },
+    "decoder_ops": {
+      "thinker": "add-rms",
+      "talker": "reference"
+    },
+    "temporary_runtime_profiler_instrumentation": false
+  },
+  "engine_runner_environment": {
+    "TORCH_DEVICE_BACKEND_AUTOLOAD": "1",
+    "TORCHINDUCTOR_CACHE_DIR": "/tmp/torchinductor_minicpmo-uid-1033",
+    "USER": "minicpmo-uid-1033",
+    "LOGNAME": "minicpmo-uid-1033",
+    "HOME": "/tmp/minicpmo-engine-home-1033",
+    "request_semantics_changed": false
+  },
+  "frozen_cuda_evaluator": {
+    "digest": "630c4def88696b272e901377be31b384a673f24a186213118e511da97de2a5a0",
+    "scorer_commit": "22d4ace88f9547777b819a69d7691204bb9ce847",
+    "remote_bundle": "/data/dyy/code/minicpmo-npu-quality-final-r36",
+    "preflight": "/data/dyy/code/minicpmo-npu-quality-final-r36/results/evaluator-preflight.json",
+    "preflight_result": "digest rebuilt exactly"
+  },
+  "quality_protocol": {
+    "reference": "vLLM-Omni full 1088 rows x seeds 0/1/2 at C1 and C32 on physical Ascend device 2",
+    "candidate": "r125 full 1088 rows x seeds 0/1/2 at C1 and C32 on physical Ascend device 2",
+    "d_ref": "ascend_direct_d_ref/v1 built from each concurrency's three verified baseline cells",
+    "q_ref": "direct_acceptance_baseline frozen only after both verified baseline reports pass absolute floors",
+    "candidate_binding": "every r137 engine quality experiment must declare frozen_refs.speech_qref before launch",
+    "external_scoring": "portable WAV bundles and CUDA score receipts are content-hashed and rejoined to re-verified NPU source cells",
+    "final_gate": "evals.speech.qref gate, overall pass and absolute floors pass at C1 and C32",
+    "request_order": "engine and vLLM-Omni use run-order-seed 20261025 + seed_index"
+  },
+  "tests": {
+    "local_command": ".venv-test/Scripts/python.exe -m pytest tests/evals/test_quality_runner_contract.py tests/evals/test_ascend_direct_qref.py tests/bench/test_frozen_performance_validator.py tests/bench/test_stats_eligibility.py tests/bench/test_ascend_validator.py -q",
+    "local_result": "34 passed in 2.22s"
+  }
+}

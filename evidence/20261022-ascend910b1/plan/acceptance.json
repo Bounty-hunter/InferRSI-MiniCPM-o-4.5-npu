@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-10-22T00:00:00+08:00",
+  "model": {
+    "repo": "openbmb/MiniCPM-o-4_5",
+    "revision": "503e754207c94da6bb26850b4469f367c9ea3582"
+  },
+  "hardware": {
+    "accelerator": "Ascend910B1",
+    "devices_per_stack": 1,
+    "same_physical_device_required": true
+  },
+  "baseline": {
+    "name": "vllm-omni",
+    "checkout_sha": "1051faa3af996b31443e8c751f33a338a94b0a94",
+    "working_tree_must_be_recorded": true
+  },
+  "candidate": {
+    "name": "minicpmo-ascend-engine",
+    "runtime_dependencies_forbidden": ["vllm", "vllm_omni", "sglang", "inferrsi"]
+  },
+  "concurrencies": [1, 16, 32],
+  "workload": {
+    "dataset": "zhaochenyang20/seed-tts-eval",
+    "revision": "8f5e1aa2a35d42f42e940074c1983358b9491f89",
+    "protocol": "closed-loop fixed concurrency",
+    "timeout_s": 180,
+    "cache_policy": "fresh server",
+    "development_runs": 5,
+    "final_runs": 10
+  },
+  "required_gates": {
+    "ttfa_p50_speedup": 2.0,
+    "throughput_frames_s_speedup": 2.0,
+    "one_sided_lcb95": 2.0,
+    "error_rate": 0.0,
+    "speech_quality_gate": "pass"
+  },
+  "reported_metrics": [
+    "ttfa_p50_s",
+    "ttfa_p95_s",
+    "e2e_p50_s",
+    "e2e_p95_s",
+    "throughput_frames_s",
+    "rtf_mean",
+    "error_rate"
+  ]
+}

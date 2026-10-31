@@ -1,0 +1,30 @@
+{
+  "schema": "minicpmo-ascend-validator-freeze/v1",
+  "frozen_at": "2026-10-23T19:53:30+08:00",
+  "acceptance_plan": {
+    "path": "evidence/20261022-ascend910b1/plan/acceptance.json",
+    "sha256": "a8c88d923c7ae2b7fe6408df1d9d2a27c922e878fdabc5ddad929fad48742a5c"
+  },
+  "validator_files": {
+    "validator/compare.py": "cc3028d94f497f1a1499b9c2e9fdef0bb9b951f1a5ffd5dbef7146dcf258bf39",
+    "bench/stats.py": "1000b20cbceafd250cdb505f187454d7ad8979686015218e9c9471cee1122218",
+    "bench/verify.py": "636fa79df886eb5e6f6302a51b0c94dfbc794847e90a83388d326f735373662c"
+  },
+  "final_rules": {
+    "fixed_k": 10,
+    "concurrencies": [1, 16, 32],
+    "headline_metrics": ["ttfa_p50_s", "throughput_frames_s"],
+    "point_min": 2.0,
+    "one_sided_lcb95_min": 2.0,
+    "candidate_error_rate": 0.0,
+    "same_physical_gpu_uuid": true,
+    "same_model_dataset_ids_sampling_and_streaming_protocol": true,
+    "required_candidate_adapter": "engine",
+    "required_baseline_adapter": "vllm-omni",
+    "speech_quality_gate": "pass"
+  },
+  "tests": {
+    "command": ".venv-test/Scripts/python.exe -m pytest tests/bench/test_stats_eligibility.py tests/bench/test_ascend_validator.py -q",
+    "result": "24 passed"
+  }
+}

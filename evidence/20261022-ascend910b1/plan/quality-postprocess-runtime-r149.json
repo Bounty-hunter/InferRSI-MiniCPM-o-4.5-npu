@@ -1,0 +1,55 @@
+{
+  "schema": "minicpmo-ascend-quality-postprocess-runtime/v1",
+  "created_at": "2026-10-24T23:59:47+08:00",
+  "pipeline_runtime": {
+    "path": "evidence/20261022-ascend910b1/plan/quality-pipeline-runtime-r149.json",
+    "sha256": "7d300ac5c6856a1aaa30c6eb4d827d6df5b7caf3e19c804cac4cff5fc90b0372"
+  },
+  "npu_reference_postprocess": {
+    "preparer": {
+      "path": "tools/prepare_remote_r149_quality_postprocess.sh",
+      "sha256": "5d2c7e7c3b4b3636207548df321eefe93fe08a2de97bd6d9314af3d370808d2b",
+      "host_path": "/home/dengyunyang/omni-npu-work/minicpmo-r147/prepare_remote_r149_quality_postprocess.sh"
+    },
+    "chain": {
+      "host_path": "/home/dengyunyang/omni-npu-jobs/minicpmo-chain-quality-reference-postprocess-r149.sh",
+      "sha256": "2b82ae63c018b1513855b3c472a70d2456785bc653ae4f23c2def060a21765e7"
+    },
+    "watcher": "minicpmo-quality-reference-bundles-r149",
+    "checked_at": "2026-10-24T23:59:47+08:00",
+    "state": "alive-waiting-for-r149-reference-ready",
+    "npu_workload": false,
+    "outputs": [
+      "/tmp/minicpmo-quality-gate-r149/artifacts/baseline-c1-dref.json",
+      "/tmp/minicpmo-quality-gate-r149/artifacts/baseline-c1-bundle/manifest.json",
+      "/tmp/minicpmo-quality-gate-r149/artifacts/baseline-c32-dref.json",
+      "/tmp/minicpmo-quality-gate-r149/artifacts/baseline-c32-bundle/manifest.json"
+    ]
+  },
+  "cuda_scoring": {
+    "host": "root@106.15.124.84:31014",
+    "execution_user": "dyy",
+    "runner": {
+      "path": "work/r149-quality-scoring/run-score.sh",
+      "sha256": "a03d9c0c5c951c705b463fe88f9ed808986a887620934b99ce5ecd7578458f80",
+      "remote_path": "/tmp/codex-minicpmo-r149-quality/run-score.sh",
+      "remote_syntax_check": "pass"
+    },
+    "frozen_evaluator": {
+      "root": "/data/dyy/code/minicpmo-npu-quality-final-r36",
+      "digest": "630c4def88696b272e901377be31b384a673f24a186213118e511da97de2a5a0",
+      "scorer_commit": "22d4ace88f9547777b819a69d7691204bb9ce847",
+      "score_runner_sha256": "6be026e74bae6e5c8b1b9bb2452484265101f9c3e8a42b86a683db511426c61e",
+      "preflight": "/data/dyy/code/minicpmo-npu-quality-final-r36/results/evaluator-preflight.json"
+    },
+    "state": "prepared-not-started-awaiting-bundles",
+    "scheduler": "gpu run --gpus 1 --timeout 24h --wait 2h"
+  },
+  "tests": {
+    "result": "13 passed",
+    "junit": {
+      "path": "evidence/20261022-ascend910b1/results/quality-postprocess-r149-pytest.xml",
+      "sha256": "9b29fb7844756d307ddff18b7e23ebae165846071b1d1ce5b45092d67c9ba985"
+    }
+  }
+}

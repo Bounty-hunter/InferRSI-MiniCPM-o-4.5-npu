@@ -1,0 +1,18 @@
+{
+  "schema": "minicpmo-ascend-performance-compare/v1",
+  "campaign": "r78-fixed-k10-gpu1-final-source",
+  "cells": {
+    "1": {
+      "candidate": "/tmp/minicpmo-engine-c1-k10-minicpmo-npu-20261024-engine-c1-k10-r78b",
+      "baseline": "/tmp/minicpmo-vllm-omni-baseline-c1-k10-minicpmo-npu-20261024-vllm-omni-baseline-c1-k10-r78a"
+    },
+    "16": {
+      "candidate": "/tmp/minicpmo-engine-c16-k10-minicpmo-npu-20261024-engine-c16-k10-r78d",
+      "baseline": "/tmp/minicpmo-vllm-omni-baseline-c16-k10-minicpmo-npu-20261024-vllm-omni-baseline-c16-k10-r78c"
+    },
+    "32": {
+      "candidate": "/tmp/minicpmo-engine-c32-k10-minicpmo-npu-20261024-engine-c32-k10-r78f",
+      "baseline": "/tmp/minicpmo-vllm-omni-baseline-c32-k10-minicpmo-npu-20261024-vllm-omni-baseline-c32-k10-r78e"
+    }
+  }
+}

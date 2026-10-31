@@ -1,0 +1,26 @@
+{
+  "schema": "minicpmo-ascend-performance-validator-runtime/v1",
+  "prepared_at": "2026-10-23T20:48:18.7785746+08:00",
+  "validator_freeze": "evidence/20261022-ascend910b1/plan/validator-freeze-r32.json",
+  "remote_host": "dengyunyang@121.37.97.96",
+  "container": "dyy",
+  "freeze_root": "/tmp/inferrsi-minicpmo-performance-verifier-r40",
+  "source_root": "/tmp/inferrsi-minicpmo-npu-engine-9674df1",
+  "self_check": "/tmp/inferrsi-minicpmo-performance-verifier-r40/self-check.json",
+  "frozen_files": {
+    "validator/compare.py": "cc3028d94f497f1a1499b9c2e9fdef0bb9b951f1a5ffd5dbef7146dcf258bf39",
+    "bench/stats.py": "1000b20cbceafd250cdb505f187454d7ad8979686015218e9c9471cee1122218",
+    "bench/verify.py": "636fa79df886eb5e6f6302a51b0c94dfbc794847e90a83388d326f735373662c"
+  },
+  "loader": {
+    "path": "tools/run_frozen_performance_validator.py",
+    "sha256": "7e783d480243ba4db85b9bd0b1996fe9a32b430e004ed30e88897905fb473270"
+  },
+  "preparation": {
+    "path": "tools/prepare_remote_performance_verifier_r40.sh",
+    "sha256": "b602804b79b5fe1f5cd71491d5bea249a2551c1311f4bf3859022ccd4639e0fe"
+  },
+  "identity_rule": "Load only the three frozen r32 modules from freeze_root while importing ordinary dependencies from source_root, so bench.cli.ROOT remains the absolute checkout path bound into the measured cell manifests.",
+  "self_check_result": "pass",
+  "tests": "26 passed in the r32 validator tests plus the isolated-loader contract tests"
+}

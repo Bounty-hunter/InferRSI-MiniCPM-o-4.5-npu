@@ -1,0 +1,98 @@
+{
+  "schema": "minicpmo-ascend-performance-screen/v1",
+  "campaign": "r150-c16-omni-counter-rng-screen",
+  "purpose": "Test whether batching the distribution-equivalent Omni categorical draw removes the C16 native per-request multinomial bottleneck before spending a new formal K=10 campaign.",
+  "not_acceptance_evidence": true,
+  "isolation": {
+    "source_root": "/tmp/inferrsi-minicpmo-npu-engine-r116-talker-diag",
+    "derived_root": "/tmp/inferrsi-minicpmo-npu-engine-r150-counter-rng",
+    "must_not_modify_campaign": "r147-fixed-k10-gpu5-qualified-decoder-ops",
+    "physical_npu": 5,
+    "container": "dyy",
+    "container_identity": "1033:1000",
+    "scheduler_entry": "npu run --gpu-ids 5"
+  },
+  "frozen_inputs": {
+    "model_path": "/dataset/models/MiniCPM-o-4_5",
+    "seed_tts_root": "/dataset/models/seed-tts-eval",
+    "id_set": "eval",
+    "kind": "performance",
+    "concurrency": 16,
+    "seed_index": 0,
+    "run_order_seed": 20261024,
+    "timeout_s": 180,
+    "warmup_timeout_s": 900,
+    "audio": false,
+    "config": "ascend_c16_r150_omni_counter_rng"
+  },
+  "source_guard_sha256": {
+    "engine/talker_sampler.py": "d6d08b417f81df0f8adb045cebc3396d59f9dc2238093af98230fd4cc0b30a04",
+    "engine/runtime/backend_npu.py": "392e50ed56bf1d9e64cff7ba078f70c9a7e04c13580536aaab1fca932992e33a",
+    "tests/engine/test_talker_sampler.py": "cf58ed05c2bcce8dffd42d559e53527dc908f580626d5e8c420f78cfaaf28b86",
+    "configs/engine/ascend_c16_r125_omni_native_rng.json": "e4b1c60dce87cd58bb0e531ff2ffe89d8dc4f31a264aeefd3c04461d2316ebe4"
+  },
+  "staged_candidate_sha256": {
+    "engine/talker_sampler.py": "82b432f9bbf132b02bf0d69702f240185b657c9129a77f86380b28fe8773ed6e",
+    "engine/runtime/backend_npu.py": "c60134e76d640f884c9ffcc806df6c59e833b98c3d62668cbf9a1201d1ae9428",
+    "tests/engine/test_talker_sampler.py": "d0fa678e105328702b2a7d49129e869cf35a02ed08ea434d97cd55c8ea189416",
+    "tests/engine/test_npu_backend_hotpath_contract.py": "aefa5a78cca026f31a33ddffe19b910b6db53a41c549fb24e2c971e1f3f99d27",
+    "configs/engine/ascend_c16_r150_omni_counter_rng.json": "51fc917a7ff7bd83a447c7e5816440f3bd232a974a9b42cbb32a4ff9cdffab2a"
+  },
+  "change": {
+    "talker_sampling_semantics": "omni",
+    "talker_sampling_rng": "counter",
+    "talker_post_graphs": false,
+    "expected_effect": "Replace up to concurrency multiplied by talker_k native multinomial launches with the existing batched counter draw without changing filtering, categorical probabilities, requests, or model math.",
+    "inactive_capability_note": "The staged backend narrows the post-graph guard to native RNG state, but r150 keeps talker_post_graphs=false; this branch is not exercised by r150 and is reserved for a separately configured follow-up.",
+    "token_identity_expected": false,
+    "distribution_equivalence_required": true,
+    "speech_quality_revalidation_required": true
+  },
+  "historical_guardrail": {
+    "source": "evidence/20261022-ascend910b1/results/candidate-source-freeze-r100.json",
+    "r93_k1_throughput_frames_s": 146.5713620601003,
+    "r98_k3_run1_throughput_frames_s": 133.41334292313664,
+    "lesson": "A single C16 probe previously crossed the point threshold and then failed its K=3 stability recheck; r150 therefore cannot promote from K=1 alone. These superseded runs are rationale only and are not mixed into r150 evidence."
+  },
+  "stages": [
+    {
+      "name": "r150a-k1",
+      "k": 1,
+      "job": "minicpmo-npu-20261025-engine-c16-k1-r150a-counter-rng",
+      "probe_run": 0,
+      "formal_runs": [1],
+      "promotion": {
+        "candidate_error_rate": 0.0,
+        "all_runs_valid": true,
+        "ttfa_speedup_vs_paired_r147c_run1_min": 2.0,
+        "throughput_frames_s_min": 145.0
+      }
+    },
+    {
+      "name": "r150b-k3",
+      "k": 3,
+      "job": "minicpmo-npu-20261025-engine-c16-k3-r150b-counter-rng",
+      "probe_run": 0,
+      "formal_runs": [1, 2, 3],
+      "promotion": {
+        "candidate_error_rate": 0.0,
+        "all_runs_valid": true,
+        "aggregation": "arithmetic_mean_of_paired_run_speedups",
+        "ttfa_speedup_point_estimate_min": 2.0,
+        "throughput_speedup_point_estimate_min": 2.1,
+        "each_run_throughput_speedup_min": 2.0
+      }
+    }
+  ],
+  "after_screen": {
+    "on_failure": "Reject r150 without widening the benchmark or changing frozen inputs.",
+    "on_pass": "Freeze a new full candidate source identity and run formal K=10 evidence under the frozen validator; do not claim acceptance from K=1 or K=3.",
+    "quality": "Run the complete frozen reference/candidate speech quality gate for the promoted source before acceptance."
+  },
+  "acceptance_remains": {
+    "concurrencies": [1, 16, 32],
+    "ttfa_p50_speedup_point_and_one_sided_95_lcb_min": 2.0,
+    "throughput_frames_s_speedup_point_and_one_sided_95_lcb_min": 2.0,
+    "candidate_error_rate": 0.0
+  }
+}

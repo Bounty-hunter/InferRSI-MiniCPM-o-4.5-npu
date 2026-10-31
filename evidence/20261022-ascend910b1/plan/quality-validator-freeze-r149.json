@@ -1,0 +1,121 @@
+{
+  "schema": "minicpmo-ascend-quality-validator-freeze/v1",
+  "frozen_at": "2026-10-24T23:34:30+08:00",
+  "supersedes": "evidence/20261022-ascend910b1/plan/quality-validator-freeze-r137.json",
+  "supersede_reason": "Before any r149 quality cell launched, bind the unchanged frozen speech protocol to the user-authorized fresh GPU 5 campaign, the r147 performance evidence, and the exact r147 candidate source root. The r137 freeze named physical device 2, the r136 campaign, and a different source-root path, so it cannot by itself prove speech quality for the r147 headline candidate. Dataset, request set and order, sampling policy, model revision, evaluator, Q_ref protocol, and acceptance thresholds remain unchanged.",
+  "acceptance_plan": {
+    "path": "evidence/20261022-ascend910b1/plan/acceptance.json",
+    "sha256": "a8c88d923c7ae2b7fe6408df1d9d2a27c922e878fdabc5ddad929fad48742a5c"
+  },
+  "validator_files": {
+    "evals/speech/qref.py": "9fb0c2f91e5d0911c03edec52a0a461237f2d1163e0dbd141f29104a69dea523",
+    "evals/speech/verify_report.py": "23b80087bda8d406c8754d1c81bac4527b4ca478a0b26c76f5708b74db32c742",
+    "tools/speech_quality_bundle.py": "0d106ab190110505ba211562de5ff9dd1c3a15b90f5d041883ee7bf6a330d151",
+    "tools/export_speech_quality_bundle.py": "99f8ac2229253bad5736db8d4535a214dc04612b7ae4e9db05196145c2375893",
+    "tools/score_speech_quality_bundle.py": "6be026e74bae6e5c8b1b9bb2452484265101f9c3e8a42b86a683db511426c61e",
+    "tools/assemble_speech_quality_report.py": "941aa132e907508111ef14cc754ec6828a1443bd84a24cb6b2e6b5a3bf73c80b"
+  },
+  "generation_runners": {
+    "reference_chain": {
+      "host_path": "/home/dengyunyang/omni-npu-work/minicpmo-r147/chain_quality_reference_gpu5_r149.sh",
+      "sha256": "7a79fad2a3c06f912e9f53083d7090e25c8568aff24eee60870e2fafc8dbd55d"
+    },
+    "reference_cell": {
+      "host_path": "/home/dengyunyang/omni-npu-jobs/minicpmo-npu-20261024-vllm-omni-quality-c1-s0-r149a/run_cell.sh",
+      "sha256": "3dfaf3faa9e5641cb4c0bb6f9f82dce8e43194dd166c7f50b4b3cad8d33e0b50"
+    },
+    "remote_job": {
+      "host_path": "/home/dengyunyang/omni-npu-jobs/minicpmo-npu-20261024-vllm-omni-quality-c1-s0-r149a/remote-job.sh",
+      "sha256": "cc7a03b5d84c555d75c11cc69ff1a8a01117899037c60947baadf4e533b02e49"
+    },
+    "device_group_wrapper": {
+      "host_path": "/home/dengyunyang/omni-npu-jobs/minicpmo-npu-20261024-vllm-omni-quality-c1-s0-r149a/run_with_npu_device_group.sh",
+      "sha256": "acfd60a9ff782b10dad0bc22008049fffed38b3f00adbd0d0ba3f90f36266100"
+    },
+    "candidate_cell": {
+      "path": "tools/run_remote_engine_quality_bound_r149.sh",
+      "host_path": "/home/dengyunyang/omni-npu-work/minicpmo-r147/run_remote_engine_quality_bound_r149.sh",
+      "sha256": "a7d54a4a0f15808a30e07051a2a64fee6109d51fff5f60aecea53dd685091834"
+    },
+    "candidate_preparer": {
+      "path": "tools/prepare_remote_r149_quality_candidate_gpu5.sh",
+      "host_path": "/home/dengyunyang/omni-npu-work/minicpmo-r147/prepare_remote_r149_quality_candidate_gpu5.sh",
+      "sha256": "d48c6db759dbe1c0b481383d1c25addd8fd46b0603bcebafed46e74a41089aa9"
+    }
+  },
+  "performance_binding": {
+    "plan": "evidence/20261022-ascend910b1/plan/performance-compare-r147-k10.json",
+    "sha256": "682efb057357a06bd010f1b1915c8cd2d788d5cf3ed529307f9353e96927de1f",
+    "campaign": "r147-fixed-k10-gpu5-qualified-decoder-ops",
+    "physical_device": 5,
+    "performance_gate": "/home/dengyunyang/omni-npu-jobs/minicpmo-performance-only-r148.pass"
+  },
+  "hardware_binding": {
+    "physical_device": 5,
+    "gpu_uuid": "ascend-pci-0000:41:00.0",
+    "devices_per_stack": 1
+  },
+  "baseline_source": {
+    "container_root": "/tmp/inferrsi-minicpmo-npu-engine-9674df1",
+    "commit": "9674df1bbeab13809064405240dd01b8949df3d5",
+    "diff_sha256": "885f45b3c685fee986d331fb9338b3c509eb4829548d29efac8eeb7306f7ad3c",
+    "vllm_omni_root": "/tmp/vllm-omni-minicpmo-a3-26237d",
+    "model": "/dataset/models/MiniCPM-o-4_5"
+  },
+  "candidate_source": {
+    "container_root": "/tmp/inferrsi-minicpmo-npu-engine-r116-talker-diag",
+    "commit": "9674df1bbeab13809064405240dd01b8949df3d5",
+    "diff_sha256": "13c537369e19353789391767f64463b6e17c0470a51da6dfa19a110de226860d",
+    "configs": {
+      "1": {
+        "name": "ascend_c1_r125_omni_native_rng",
+        "sha256": "ca1a8f7496f90dfefcc5360c42be9bd00f829997d8258a35c5970aef92be84c6"
+      },
+      "32": {
+        "name": "ascend_c32_r125_omni_native_rng",
+        "sha256": "a22da22e6f4eb730f618c8f3b62cdbb68e7dbb142b30659aee786b2536e0da48"
+      }
+    },
+    "decoder_ops": {
+      "thinker": "add-rms",
+      "talker": "reference"
+    },
+    "temporary_runtime_profiler_instrumentation": false
+  },
+  "engine_runner_environment": {
+    "TORCH_DEVICE_BACKEND_AUTOLOAD": "1",
+    "TORCHINDUCTOR_CACHE_DIR": "/tmp/torchinductor_minicpmo-uid-1033",
+    "USER": "minicpmo-uid-1033",
+    "LOGNAME": "minicpmo-uid-1033",
+    "HOME": "/tmp/minicpmo-engine-home-1033",
+    "request_semantics_changed": false
+  },
+  "frozen_cuda_evaluator": {
+    "digest": "630c4def88696b272e901377be31b384a673f24a186213118e511da97de2a5a0",
+    "scorer_commit": "22d4ace88f9547777b819a69d7691204bb9ce847",
+    "remote_bundle": "/data/dyy/code/minicpmo-npu-quality-final-r36",
+    "preflight": "/data/dyy/code/minicpmo-npu-quality-final-r36/results/evaluator-preflight.json",
+    "preflight_result": "digest rebuilt exactly"
+  },
+  "quality_protocol": {
+    "reference": "vLLM-Omni full 1088 rows x seeds 0/1/2 at C1 and C32 on physical Ascend device 5",
+    "candidate": "r147 headline engine full 1088 rows x seeds 0/1/2 at C1 and C32 on physical Ascend device 5",
+    "d_ref": "ascend_direct_d_ref/v1 built from each concurrency's three independently verified baseline cells",
+    "q_ref": "direct_acceptance_baseline frozen only after both independently verified baseline reports pass absolute floors",
+    "candidate_binding": "every r149 engine quality experiment must declare frozen_refs.speech_qref before launch",
+    "external_scoring": "portable WAV bundles and CUDA score receipts are content-hashed and rejoined to independently re-verified NPU source cells",
+    "final_gate": "frozen evals.speech.qref gate, overall pass and absolute floors pass at C1 and C32",
+    "request_order": "engine and vLLM-Omni use run-order-seed 20261025 + seed_index"
+  },
+  "verification_routing": {
+    "reason": "The two formal stacks intentionally record different immutable bench source-root paths.",
+    "rule": "Re-verify every baseline cell and report under baseline_source.container_root and every candidate cell and report under candidate_source.container_root with the frozen validator files. Only after both sides pass may the frozen Q_ref statistics and comparative speech gate be evaluated. A source-root mismatch must never be waived, and no measured artifact may be rewritten."
+  },
+  "prelaunch_audit": {
+    "checked_at": "2026-10-24T23:34:30+08:00",
+    "reference_jobs": ["r149a", "r149b", "r149c", "r149d", "r149e", "r149f"],
+    "state": "prepared-unstarted",
+    "candidate_jobs_exist": false,
+    "candidate_runner_state": "uploaded, hash-checked, bash -n passed, not executed"
+  }
+}
