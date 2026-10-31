@@ -20,6 +20,77 @@ See [`docs/current-status-2026-10-30.md`](docs/current-status-2026-10-30.md) and
 [Why the target is not met yet](docs/performance-gap.md) ·
 [Test results](docs/testing.md)
 
+## Why this engine can be faster
+
+The advantage comes from controlling the speech pipeline as one workload instead of treating Thinker, Talker and
+Code2Wav as unrelated generic stages. The design targets the dominant costs observed in the baseline traces:
+
+| Bottleneck | Dedicated engine design | Expected effect |
+|---|---|---|
+| Host launch and graph overhead | Fixed-shape NPU graph buckets for Thinker/Talker/DiT/HiFT, plus K-step Talker graph blocks | Fewer Python launches and fewer shape/capture transitions per generated audio window |
+| Cross-stage handoff | Thinker hidden states, Talker KV and sampler state stay in the same runtime; the Talker is updated in place | Less process/RPC/host serialization and less repeated tensor materialization |
+| KV growth under concurrency | Paged KV pools with explicit lifetime commitments, page reuse and admission backpressure | Ragged concurrent requests do not require a full dense KV allocation or late eviction |
+| Token2Wav launch pressure | Batched streaming windows, fixed `chunk25`, cached flow/HiFT shapes and device-side sampling where supported | More audio windows are processed per accelerator launch and the first playable window can start earlier |
+| Scheduling interference | A dedicated engine owner, bounded prefill budgets, a first-chunk lane and fair graph-capture gating | Continuing streams retain playback slack while new work cannot starve a capture operation |
+| CPU/device synchronization | Queued copies and ordered plan submission; no unnecessary scalar observation in the hot path | The host can enqueue the next stage while the NPU is executing the current stage |
+
+The historical L20X trace explains why this architecture can beat vLLM-Omni at high concurrency: its generic eager
+Code2Wav path plateaued around 330–425 audio frames/s, so RTF reached about 1 at C16 and 2 at C32. The dedicated
+runtime uses graph-captured, batched Token2Wav windows and keeps the pipeline streaming. That is an architectural
+explanation, not a promise that every candidate revision wins every tier.
+
+The latest Ascend campaign is the honest qualification boundary. The selected r292 candidate improved the matched
+r258 reference at C1, C4 and C16, but regressed at C8 and C32. Therefore the public snapshot documents the mechanisms
+and evidence while keeping r258 as the engineering reference; it does not claim a uniformly faster released engine.
+
+## Precision, parity and speech quality
+
+Performance changes are accepted only when they preserve the model contract. The repository checks or records:
+
+- the pinned MiniCPM-o 4.5 revision, prompt construction and reference-audio identity;
+- Thinker/Talker token and KV parity tests, sampler ordering, counter-based per-request RNG, EOS handling and graph
+  fallback paths;
+- fixed precision, sampling, six flow-matching steps, `chunk25`, request IDs and native warmup semantics for a
+  benchmark comparison;
+- streamed 24 kHz mono PCM output, with WER, speaker similarity, UTMOS, silence, repetition and truncation checks.
+
+The engine is allowed to produce codec tokens that are not bit-for-bit identical to vLLM-Omni, but that is a quality
+tradeoff subject to the frozen speech gates. In the older GPU `track_s_fast_r16` profile, the stage-0 HiFT transpose
+convolution was kept in FP32 because an all-TF32 variant exceeded the numerical error bound; the three-seed C1/C32
+screen passed absolute floors, while the comparative UTMOS gate remained separate. In the latest Ascend r292
+development screen, all comparative differences stayed within the configured margins, but the small 16-row screen did
+not satisfy every absolute WER/UTMOS floor and the final frozen speech gate was not run. No precision reduction or
+quality-threshold change is hidden behind the performance numbers.
+
+## How RSI produced the optimizations
+
+RSI is used as an evidence loop rather than as a list of unverified tricks:
+
+1. Freeze the model revision, request IDs, sampling, chunk size and acceptance gates.
+2. Measure the unmodified path with the repository-native benchmark and stage markers.
+3. Profile the earliest demonstrated cause of a bubble: host waits, graph capture contention, copies, queueing or
+   shape churn. InferRSI mechanisms are hypotheses; they are reimplemented for this engine and do not inherit an
+   external speedup claim.
+4. Change one mechanism at a time in an isolated engine tree, keep eager fallbacks, and run focused numerical and
+   concurrency tests before serving traffic.
+5. Re-run the same native workload, reverse-check promising candidates, then apply speech quality and statistical
+   gates. A regression or a failed runtime is retained as evidence and rejected.
+
+The latest ten-round profiling campaign illustrates the loop:
+
+| RSI iteration | Hypothesis | Evidence-based decision |
+|---|---|---|
+| Fair capture gate | Stop new non-nested readers from starving a capture writer | Capture wait fell, but some wait moved to engine readers; retained for combination testing |
+| HiFT startup warmup | Move one-time graph work out of the first request | Startup work was isolated, but served gain was not established |
+| Euler startup warmup | Pre-capture common Euler shapes | CANN task-group failure and service crash; rejected |
+| Dynamic task-update exclusion | Serialize a problematic update region | Host wait expanded to 13.8 s; clear regression; rejected |
+| First-audio priority | Process `sample_offset==0` windows before continuation windows | Best preliminary candidate, but matched validation showed small gains and C8/C32 regressions |
+| Dense page-index reuse | Cache immutable page-ID tensors | Avoided repeated constructions, but did not improve end-to-end service metrics |
+
+This process is why the repository contains both accepted mechanisms and negative results: a faster microbenchmark,
+shorter lock wait or fewer object constructions is not enough unless the unprofiled native server improves without
+breaking parity or speech quality.
+
 ## Quickstart
 
 Requires Linux, Python 3.12, CANN/torch-npu, and one Ascend 910B1. Run the complete server lifetime under the local
@@ -54,11 +125,26 @@ Text arrives as `{"modality": "text", "choices": [{"delta": {"content": ...}}]}`
 repetition penalty 1.05 over 16 frames); `talker_sampling` overrides it per request. Image, audio and video inputs use
 the usual `image_url`, `input_audio`/`audio_url` and `video_url` content parts. See [API and request flow](docs/architecture.md).
 
-## Performance
+## Performance evidence
 
-The current Ascend development signal uses one 910B1, a shared reference voice, a 16-token Thinker cap and a
+An earlier Ascend development signal used one 910B1, a shared reference voice, a 16-token Thinker cap and a
 128-token Talker cap. Each engine row is the mean of five fresh-process runs; the vLLM-Omni comparator is one
-successful development run and therefore does **not** satisfy the frozen statistical protocol.
+successful development run and therefore does **not** satisfy the frozen statistical protocol. It is retained as
+historical development evidence, separate from the latest r295 native C1–C32 comparison in
+[`docs/current-status-2026-10-30.md`](docs/current-status-2026-10-30.md).
+
+Latest r295 native matched comparison (single-run point estimates; positive values mean improvement over r258):
+
+| C | TTFP ms | RTF | request/s | Change vs. r258: TTFP / RTF / throughput |
+|---:|---:|---:|---:|---:|
+| 1 | 675.38 | 0.27712 | 0.83926 | +2.11% / +0.26% / +0.37% |
+| 4 | 1665.90 | 0.63760 | 1.43391 | +0.81% / +3.52% / +1.50% |
+| 8 | 2627.45 | 1.01047 | 1.90201 | -3.53% / -1.75% / -3.35% |
+| 16 | 3539.66 | 1.32953 | 2.71455 | +1.33% / +2.99% / +1.83% |
+| 32 | 6315.01 | 2.27891 | 2.91337 | -1.64% / -0.38% / -6.07% |
+
+The two fresh services processed 1,984 native requests with zero request errors. These numbers have no frozen
+one-sided 95% LCB; C8/C32 regressions mean this candidate is not promoted as the default.
 
 | C | Engine E2E P50 | vLLM-Omni E2E P50 | E2E reduction | Engine throughput | vLLM-Omni throughput | Throughput gain |
 |---:|---:|---:|---:|---:|---:|---:|
@@ -66,7 +152,7 @@ successful development run and therefore does **not** satisfy the frozen statist
 | 16 | 5.119 s | 14.531 s | 64.8% | 11.639 audio-s/s | 3.646 audio-s/s | 219.2% |
 | 32 | 7.082 s | 23.039 s | 69.3% | 16.239 audio-s/s | 4.046 audio-s/s | 301.3% |
 
-All 15 candidate runs completed with zero request failures. The selected profile uses FP16 flow, Thinker/Talker
+All 15 candidate runs in this earlier screen completed with zero request failures. The selected profile uses FP16 flow, Thinker/Talker
 NPUGraphs, threaded Token2Wav with a 10 ms bounded first-batch window, Euler/HiFT graphs, `first_chunk=25`, and six
 flow-matching steps. Its 16-row Seed-TTS quality screen passed the absolute WER/SIM/UTMOS floors; the required
 1088-row × three-seed quality gate is still outstanding.
