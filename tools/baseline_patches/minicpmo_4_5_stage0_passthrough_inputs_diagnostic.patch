@@ -1,0 +1,77 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index 5acc4aa97..e941876c0 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -774,53 +774,14 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+         2) Talker (model_stage="tts"): native MiniCPMTTS AR → codec deltas.
+         """
+         if self.model_stage == "llm":
+-            # Normalize to batched inputs if caller provides 1D/2D unbatched tensors
+-            # TODO: Remove this hack when NPU supports batched inputs properly
+-            added_batch_dim = False
+-            if input_ids is not None and input_ids.ndim == 1:
+-                input_ids = input_ids.unsqueeze(0)
+-                added_batch_dim = True
+-            if positions is not None and positions.ndim == 1:
+-                positions = positions.unsqueeze(0)
+-                added_batch_dim = True
+-            if inputs_embeds is not None and inputs_embeds.ndim == 2:
+-                inputs_embeds = inputs_embeds.unsqueeze(0)
+-                added_batch_dim = True
+-            thinker_dev = self._module_device(self.thinker)
+-
+-            # if input_ids is None, set it to a zero tensor
+-            if input_ids is None:
+-                input_ids = torch.zeros(inputs_embeds.shape[1], dtype=torch.long, device=thinker_dev).unsqueeze(0)
+-                added_batch_dim = True
+-
+-            # Ensure inputs on thinker's device
+-            if input_ids is not None and input_ids.device != thinker_dev:
+-                input_ids = input_ids.to(thinker_dev)
+-            if positions is not None and positions.device != thinker_dev:
+-                positions = positions.to(thinker_dev)
+-            if inputs_embeds is not None and inputs_embeds.device != thinker_dev:
+-                inputs_embeds = inputs_embeds.to(thinker_dev)
+-
+-            if current_omni_platform.is_npu():
+-                # TODO: remove this hack when NPU supports batched inputs properly
+-                thinker_input_ids = input_ids[0] if input_ids is not None and added_batch_dim else input_ids
+-                thinker_positions = positions[0] if positions.ndim > 1 else positions
+-                thinker_inputs_embeds = (
+-                    inputs_embeds[0] if inputs_embeds is not None and added_batch_dim else inputs_embeds
+-                )
+-            else:
+-                thinker_input_ids = input_ids[0] if input_ids is not None and added_batch_dim else input_ids
+-                thinker_positions = positions[0] if positions is not None and added_batch_dim else positions
+-                thinker_inputs_embeds = (
+-                    inputs_embeds[0] if inputs_embeds is not None and added_batch_dim else inputs_embeds
+-                )
+-
+-            # Run thinker
++            # The model runner already supplies packed token rows on the model
++            # device. Preserve their ranks and the complete MRoPE position
++            # tensor exactly as the registered MiniCPMO model does.
+             thinker_output = self.thinker(
+-                input_ids=thinker_input_ids,
+-                positions=thinker_positions,
++                input_ids=input_ids,
++                positions=positions,
+                 intermediate_tensors=intermediate_tensors,
+-                inputs_embeds=thinker_inputs_embeds,
++                inputs_embeds=inputs_embeds,
+                 **kwargs,
+             )
+ 
+@@ -843,9 +804,9 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+             # Return hidden states with latent in multimodal_outputs for stage_input_processors
+             multimodal_outputs = {"latent": text_hidden_states}
+             # Keep per-forward row identities alongside the latent payload.
+-            if thinker_input_ids is not None and thinker_positions is not None:
+-                multimodal_outputs["latent_input_ids"] = thinker_input_ids.reshape(-1, 1)
+-                multimodal_outputs["latent_positions"] = thinker_positions.reshape(-1, 1)
++            if input_ids is not None and positions is not None:
++                multimodal_outputs["latent_input_ids"] = input_ids.reshape(-1, 1)
++                multimodal_outputs["latent_positions"] = positions.reshape(-1, 1)
+ 
+             runtime_info = kwargs.get("runtime_additional_information")
+             if runtime_info and isinstance(runtime_info, list) and len(runtime_info) > 0:

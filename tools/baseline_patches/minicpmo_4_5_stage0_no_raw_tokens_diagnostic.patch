@@ -1,0 +1,13 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index bf91b99de..44ed2aa0b 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -174,7 +174,7 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+             raise ValueError("MiniCPM-o MRv2 Thinker requires async_chunk: false for its full llm2tts payload")
+         # The Thinker's row ledger needs real token identities even when
+         # embeddings are supplied, including during CUDA graph capture/replay.
+-        self.requires_raw_input_tokens = self.model_stage == "llm"
++        self.requires_raw_input_tokens = False
+ 
+         if self.model_stage == "llm":
+             # Initialize thinker model (image preprocessing + vision encoder + 3D resampler)

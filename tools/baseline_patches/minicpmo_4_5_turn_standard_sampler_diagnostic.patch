@@ -1,0 +1,18 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index 5acc4aa97..81c11dd6f 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -262,7 +262,12 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+         )
+ 
+         self._language_model_names = ["model"]
+-        self.prefer_model_sampler = self.model_stage in {"llm", "tts"}
++        # The Thinker owns sampling policy only for the duplex protocol. Turn
++        # mode must keep vLLM's standard sampler, just like the registered
++        # MiniCPMO architecture used by the working control run.
++        self.prefer_model_sampler = self.model_stage == "tts" or (
++            self.model_stage == "llm" and getattr(vllm_config.model_config, "session_mode", "turn") == "duplex"
++        )
+         # Both AR stages require model-specific embeddings.  The Thinker uses
+         # preprocess for duplex audio, while the Talker converts the
+         # tts_token_ids/tts_hidden_states handoff into its conditioning

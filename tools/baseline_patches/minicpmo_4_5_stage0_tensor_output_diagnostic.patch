@@ -1,0 +1,29 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index 5acc4aa97..a57f4e40f 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -834,7 +834,7 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+             if text_hidden_states.ndim == 3 and text_hidden_states.shape[0] == 1:
+                 text_hidden_states = text_hidden_states.squeeze(0)
+ 
+-            if getattr(self, "_use_v2_model_runner", False):
++            if getattr(self, "_use_v2_model_runner", False) or current_omni_platform.is_npu():
+                 # FULL graphs return tensors. The row ledger is reconstructed
+                 # from this step's live input batch after replay, never from
+                 # Python values or token buffers captured during warmup.
+@@ -920,8 +920,13 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+         return sampler, None
+ 
+     def make_omni_output(self, model_outputs, **kwargs):
+-        if self.model_stage != "tts":
+-            return model_outputs
++        if self.model_stage == "llm":
++            if isinstance(model_outputs, OmniOutput):
++                return model_outputs
++            return OmniOutput(
++                text_hidden_states=model_outputs,
++                multimodal_outputs={"latent": model_outputs},
++            )
+         return self.talker.make_omni_output(model_outputs, **kwargs)
+ 
+     def compute_logits(self, hidden_states: torch.Tensor | OmniOutput) -> torch.Tensor | None:

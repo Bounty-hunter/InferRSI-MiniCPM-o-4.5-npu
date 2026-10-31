@@ -1,0 +1,18 @@
+{
+  "backend": "engine.runtime.backend_npu:AscendTrackSBackend",
+  "device": "npu:0",
+  "max_live": 32,
+  "thinker_pages": 512,
+  "talker_pages": 768,
+  "page_size": 128,
+  "float16_flow": false,
+  "fused_decoder_ops": true,
+  "talker_k": 4,
+  "talker_k_max": 8,
+  "first_chunk": 8,
+  "use_graphs": false,
+  "prefill_token_budget": 2048,
+  "prefill_max_age_ms": 250.0,
+  "talker_start_budget": 1024,
+  "t2w_policy": "edf"
+}

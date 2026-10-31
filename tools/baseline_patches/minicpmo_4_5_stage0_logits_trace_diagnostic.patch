@@ -1,0 +1,39 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index 5acc4aa97..1402a02ef 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -929,8 +929,32 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+         if isinstance(hidden_states, OmniOutput):
+             hidden_states = hidden_states.text_hidden_states
+ 
+-        # Use model for logits computation
+-        return self.model.compute_logits(hidden_states)
++        # Use model for logits computation. This bounded diagnostic records
++        # whether token 0 already wins before the runner's sampler/bookkeeping.
++        logits = self.model.compute_logits(hidden_states)
++        if self.model_stage == "llm" and logits is not None:
++            trace_step = int(getattr(self, "_stage0_logits_trace_step", 0))
++            if trace_step < 4 and logits.ndim == 2 and logits.shape[0] > 0:
++                hidden_row = hidden_states.reshape(-1, hidden_states.shape[-1])[-1].float()
++                logits_row = logits[0].float()
++                top_values, top_ids = torch.topk(logits_row, k=min(5, logits_row.shape[-1]))
++                logger.warning(
++                    "MINICPMO_STAGE0_LOGITS_TRACE step=%d prefer_model_sampler=%s "
++                    "hidden_shape=%s hidden_min=%.6f hidden_max=%.6f hidden_mean=%.6f "
++                    "logits_shape=%s top_ids=%s top_values=%s token0=%.6f",
++                    trace_step,
++                    bool(getattr(self, "prefer_model_sampler", False)),
++                    tuple(hidden_states.shape),
++                    float(hidden_row.min().item()),
++                    float(hidden_row.max().item()),
++                    float(hidden_row.mean().item()),
++                    tuple(logits.shape),
++                    top_ids.detach().cpu().tolist(),
++                    top_values.detach().cpu().tolist(),
++                    float(logits_row[0].item()),
++                )
++            self._stage0_logits_trace_step = trace_step + 1
++        return logits
+ 
+     def on_requests_finished(self, finished_req_ids: set[str] | list[str]) -> None:
+         request_sessions = getattr(self, "_minicpmo45_duplex_request_sessions", None)

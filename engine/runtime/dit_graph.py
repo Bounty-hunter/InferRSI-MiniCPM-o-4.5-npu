@@ -1,0 +1,529 @@
+"""CUDA graphs of the Token2Wav DiT estimator call (all blocks) at bucketed shapes.
+
+One graph per ``(rows, T, L)``: ``rows`` = 2 x batch (CFG rows, padded to a bucket), ``T`` = frames of a steady
+window, ``L`` = the cache length bucket.  All graphs share one input arena and one output arena (contiguous prefix views)
+and one memory pool, so memory is that of the largest shape, not the sum; inputs are copied in before each replay and the
+outputs must be consumed (copied) before the next one.  Padding rows attend to their own new frames only, so they never produce NaNs; padded keys are masked.
+
+The eager path (``DiT.forward_chunk`` with a key mask, ``BatchedToken2Wav._estimator``) is the reference; graph replay
+runs the same kernels.
+"""
+
+from __future__ import annotations
+
+from contextlib import nullcontext
+
+import torch
+
+ROW_BUCKETS = (2, 4, 8, 16, 32, 64)
+# Cache-length buckets: graphs captured in sequence do not reuse each other's pool memory (~1.7-4 GB each at 64 rows),
+# so few buckets; attention over padded keys costs little next to the block GEMMs.
+L_BUCKETS = (512, 1024)
+STEADY_T = (16, 50, 100)  # ramped first, reference 25-token, and C1 coalesced 50-token windows
+FINAL_T = (50, 56)  # final windows (at most 27 tokens -> 54 frames), padded: their caches are never read
+SETUP_T = (256, 512, 768, 1024)  # prompt setups (no cache), padded: conv caches gathered at the real end
+MAX_L = L_BUCKETS[-1]
+# rows (2 x requests) per call for each frame count; setup graphs are large (whole prompts), so fewer rows
+ROW_LIMIT = {
+    **{t: 16 for t in FINAL_T},
+    **{t: ROW_BUCKETS[-1] for t in STEADY_T},
+    16: 16,
+    100: 2,  # 50-token continuation is a C1 throughput specialization (two CFG rows)
+    256: 16,
+    512: 8,
+    768: 4,
+    1024: 4,
+}
+
+
+def bucket(n: int, buckets) -> int:
+    for b in buckets:
+        if b >= n:
+            return b
+    raise ValueError(f"{n} exceeds the largest bucket {buckets[-1]}")
+
+
+def l_bucket(n: int) -> int:
+    return 0 if n == 0 else bucket(n, L_BUCKETS)
+
+
+class EstimatorGraphs:
+    """``eager_fn(est, x, mu, temb, spks, cond, cnn, att, mask)`` takes the timestep embedding (computed outside the graph:
+    ``TimestepEmbedder`` builds its frequency table on the host)."""
+
+    def __init__(self, est, eager_fn, dtype, autocast_dtype, graph_t=STEADY_T + FINAL_T + SETUP_T, max_rows: int = ROW_BUCKETS[-1],
+                 max_l: int = MAX_L, fallback_fn=None):
+        """``fallback_fn`` runs shapes outside the graph set (default ``eager_fn``); pass the uncompiled estimator when
+        ``eager_fn`` is inductor-compiled, or every new shape (large setup batches, long prompts) recompiles."""
+        self.est, self.eager_fn, self.dtype, self.autocast_dtype = est, eager_fn, dtype, autocast_dtype
+        self.fallback_fn = fallback_fn or eager_fn
+        self.graphs: dict[tuple[int, int, int], tuple] = {}
+        self.pool = torch.cuda.graph_pool_handle()
+        self.graph_t, self.max_rows, self.max_l = tuple(graph_t), max_rows, max_l
+        self._arena: dict[str, torch.Tensor] = {}
+        self.counts = {"graph": 0, "eager": 0, "eager_reasons": {}}
+        self._last = None  # (key, rows, L) of the previous replay: its non-step inputs are still in place
+        p = next(est.parameters())
+        self.depth, self.nh = len(est.blocks), est.blocks[0].attn.num_heads
+        self.dk2 = 2 * est.blocks[0].attn.head_dim
+        self.cnn_c = est.blocks[0].conv.in_channels + est.blocks[0].conv.out_channels
+        self.mel = est.in_proj.in_features // 4
+        self.hidden = est.in_proj.out_features
+        self.device = p.device
+
+    def _view(self, name: str, shape: tuple, dtype) -> torch.Tensor:
+        """A contiguous view of the shared input arena (every graph's static inputs alias it; replays are sequential and
+        inputs are written right before each replay)."""
+        n = 1
+        for d in shape:
+            n *= d
+        buf = self._arena.get(name)
+        if buf is None or buf.numel() < n:
+            raise RuntimeError(f"arena {name} too small for {shape}")
+        return buf[:n].view(shape)
+
+    def _shapes(self):
+        for T in self.graph_t:
+            for rows in ROW_BUCKETS:
+                if rows > min(self.max_rows, ROW_LIMIT.get(T, self.max_rows)):
+                    break
+                for L in ((0,) if T in SETUP_T else L_BUCKETS):
+                    if L <= self.max_l:
+                        yield rows, T, L
+
+    def _alloc_arena(self) -> None:
+        sizes = {}
+        for rows, T, L in self._shapes():
+            need = {"x": rows * self.mel * T, "mu": rows * self.mel * T, "t": rows * self.hidden, "spks": rows * self.mel,
+                    "cond": rows * self.mel * T, "cnn": self.depth * rows * self.cnn_c * 2, "att": self.depth * rows * self.nh * max(L, 1) * self.dk2,
+                    "o_dphi": rows * self.mel * T, "o_cnn": self.depth * rows * self.cnn_c * 2, "o_att": self.depth * rows * self.nh * (T + L) * self.dk2}
+            for k, n in need.items():
+                sizes[k] = max(sizes.get(k, 0), n)
+            sizes["mask"] = max(sizes.get("mask", 0), rows * T * (T + L))
+            sizes["tr"] = max(sizes.get("tr", 0), rows)
+        for k, n in sizes.items():
+            dt = torch.bool if k == "mask" else torch.int64 if k == "tr" else self.dtype
+            self._arena[k] = torch.zeros(n, dtype=dt, device=self.device)
+
+    def _static(self, rows: int, T: int, L: int) -> dict:
+        if not self._arena:
+            self._alloc_arena()
+        v = lambda name, *shape, dt=None: self._view(name, shape, dt or self.dtype)  # noqa: E731
+        mask = v("mask", rows, T, T + L, dt=torch.bool)
+        mask.zero_()
+        mask[:, :, :T] = True
+        tr = v("tr", rows, dt=torch.int64)
+        tr.fill_(T)
+        return {"x": v("x", rows, self.mel, T), "mu": v("mu", rows, self.mel, T), "t": v("t", rows, 1, self.hidden), "spks": v("spks", rows, self.mel),
+                "cond": v("cond", rows, self.mel, T), "cnn": v("cnn", self.depth, rows, self.cnn_c, 2),
+                "att": v("att", self.depth, rows, self.nh, L, self.dk2), "mask": mask, "tr": tr}
+
+    def supports(self, n_rows: int, T: int, L: int) -> bool:
+        if T not in self.graph_t or n_rows > min(self.max_rows, ROW_LIMIT.get(T, self.max_rows)):
+            return False
+        return L == 0 if T in SETUP_T else L <= self.max_l
+
+    @torch.inference_mode()
+    def capture_all(self) -> int:
+        """Capture every (rows bucket, steady T, L bucket) graph now; returns the count."""
+        for rows, T, L in self._shapes():
+            self.capture(rows, T, L)
+        return len(self.graphs)
+
+    @torch.inference_mode()
+    def _capture(self, key):
+        rows, T, L = key
+        s = self._static(rows, T, L)
+        args = (s["x"], s["mu"], s["t"], s["spks"], s["cond"], s["cnn"], s["att"], s["mask"], s["tr"])
+        v = lambda name, *shape: self._view(name, shape, self.dtype)  # noqa: E731
+        out = (v("o_dphi", rows, self.mel, T), v("o_cnn", self.depth, rows, self.cnn_c, 2), v("o_att", self.depth, rows, self.nh, T + L, self.dk2))
+        with torch.amp.autocast(self.device.type, dtype=self.autocast_dtype,
+                                enabled=self.autocast_dtype != torch.float32):
+            self.eager_fn(self.est, *args, out=out)  # warm-up (lazy init, cuBLAS handles, compilation) outside the capture
+            torch.cuda.synchronize()
+            g = torch.cuda.CUDAGraph()
+            with torch.cuda.graph(g, pool=self.pool, capture_error_mode="thread_local"):
+                self.eager_fn(self.est, *args, out=out)  # results land in the shared output arena
+        torch.cuda.synchronize()
+        self.graphs[key] = (g, s, out)
+        return self.graphs[key]
+
+    def capture(self, rows: int, T: int, L: int) -> None:
+        key = (rows, T, L)
+        if key not in self.graphs:
+            self._capture(key)
+
+    @torch.inference_mode()
+    def stage(self, n: int, T: int, L: int):
+        """For callers that write each step's caches straight into the graph inputs (no all-steps staging tensor):
+        returns (att view [depth, rows, nh, Lb, dk2], cnn view [depth, rows, c, 2]); then call with ``cnn=att=None``
+        and ``staged_len=L``."""
+        key = (bucket(n, ROW_BUCKETS), T, l_bucket(L))
+        if key not in self.graphs:
+            self._capture(key)
+        _, s, _ = self.graphs[key]
+        return s["att"], s["cnn"]
+
+    @torch.inference_mode()
+    def __call__(self, x, mu, t, spks, cond, cnn, att, mask, tr, temb=None, same=False, staged_len=None):
+        """Same contract as the eager estimator call; ``x`` etc. have ``n_rows <= rows bucket`` rows and cache length L.
+
+        ``temb``: the timestep embedding [rows, 1, hidden] when the caller computed it (all steps at once).  ``same``:
+        mu, spks, cond, mask and tr are the previous call's (the later Euler steps of one window): not copied again.
+        """
+        n, T = x.shape[0], x.shape[2]
+        L = att.shape[3] if att is not None else staged_len
+        if temb is not None:
+            t = temb
+        else:
+            with torch.amp.autocast("cuda", dtype=self.autocast_dtype):
+                t = self.est.t_embedder(t).unsqueeze(1)
+        if not self.supports(n, T, L):
+            self.counts["eager"] += 1
+            r = f"rows={n} T={T} L={L}"
+            self.counts["eager_reasons"][r] = self.counts["eager_reasons"].get(r, 0) + 1
+            with torch.amp.autocast("cuda", dtype=self.autocast_dtype):
+                return self.fallback_fn(self.est, x, mu, t, spks, cond, cnn, att, mask, tr)
+        key = (bucket(n, ROW_BUCKETS), T, l_bucket(L))
+        if key not in self.graphs:
+            self._capture(key)
+        self.counts["graph"] += 1
+        g, s, out = self.graphs[key]
+        rows, _, Lb = key
+        same = same and self._last == (key, n, L)
+        self._last = (key, n, L)
+        s["x"][:n].copy_(x)
+        s["t"][:n].copy_(t)
+        if att is not None:  # else staged by the caller (stage())
+            s["cnn"][:, :n].copy_(cnn)
+            s["att"][:, :n, :, :L].copy_(att)
+        if same:  # the rest of the inputs are this window's previous step's
+            g.replay()
+            dphi, new_cnn, new_att = out
+            return dphi[:n], new_cnn[:, :n], new_att[:, :n, :, :T + L]
+        s["mu"][:n].copy_(mu)
+        s["spks"][:n].copy_(spks)
+        s["cond"][:n].copy_(cond)
+        if Lb > L and att is not None:
+            s["att"][:, :n, :, L:].zero_()
+        s["tr"][:n].copy_(tr)
+        s["tr"][n:] = T
+        s["mask"][:n, :, :T].copy_(mask[:, :, :T])  # new frames, then the cache at offset T (padded to the bucket)
+        s["mask"][:n, :, T:T + L].copy_(mask[:, :, T:])
+        s["mask"][:n, :, T + L:] = False
+        if rows > n:  # padding rows: their own new frames only
+            s["mask"][n:] = False
+            s["mask"][n:, :, :T] = True
+        g.replay()
+        dphi, new_cnn, new_att = out
+        return dphi[:n], new_cnn[:, :n], new_att[:, :n, :, :T + L]  # new frames then the real cache (padding after)
+
+
+class EncoderGraphs:
+    """CUDA graphs of the flow encoder's chunk forward (``token2wav_batch._encoder_core``) for steady windows.
+
+    Keys ``(rows, L1)``: rows padded to a bucket, the first-stack cache length padded (on the left, masked) to a bucket;
+    the window is 28 tokens (25 plus 3 lookahead), not final.  Inputs and outputs share arenas across graphs.
+    """
+
+    ROWS = (1, 2, 4, 8, 16, 32)
+    L1 = (128, 256, 384, 512)
+    TOKENS = (11, 28, 53)  # ramped first, reference 25 + 3, and coalesced 50 + 3 windows
+    ROW_LIMIT = {11: 8, 28: 32, 53: 1}
+
+    def __init__(self, enc, core_fn, autocast_dtype):
+        self.enc, self.core_fn, self.autocast_dtype = enc, core_fn, autocast_dtype
+        self.graphs: dict[tuple[int, int], tuple] = {}
+        p = next(enc.parameters())
+        self.device = p.device
+        self.accel = getattr(torch, self.device.type)
+        self.pool = self.accel.graph_pool_handle()
+        self.failures: dict[tuple[int, int, int], str] = {}
+        self.dtype = p.dtype  # caches are stored in the module dtype
+        self.d1, self.d2 = len(enc.encoders), len(enc.up_encoders)
+        a = enc.encoders[0].self_attn
+        self.nh, self.dk2, self.c = a.h, 2 * a.d_k, enc._output_size
+        self.s, self.look = enc.up_layer.stride, enc.pre_lookahead_layer.pre_lookahead_len
+        self.cnn_t = 2 + 2 * self.s
+        self._arena: dict[str, torch.Tensor] = {}
+
+    def l_bucket(self, n: int) -> int:
+        return bucket(n, self.L1)
+
+    def supports(self, rows: int, tokens: int, off1: int, last: bool) -> bool:
+        if last or tokens not in self.TOKENS or rows > self.ROW_LIMIT[tokens] or off1 > self.L1[-1]:
+            return False
+        return (bucket(rows, self.ROWS), self.l_bucket(off1), tokens) not in self.failures
+
+    def _keys(self):
+        for tok in self.TOKENS:
+            for rows in self.ROWS:
+                if rows > self.ROW_LIMIT[tok]:
+                    break
+                for L1 in self.L1:
+                    yield rows, L1, tok
+
+    def _dims(self, rows, L1, tok):
+        T1 = tok - self.look
+        T2, L2 = T1 * self.s, L1 * self.s
+        return {"xs": ((rows, tok, self.c), None), "cnn": ((rows, self.c, self.cnn_t), torch.float32),
+                "A1": ((self.d1, rows, self.nh, L1, self.dk2), self.dtype), "m1": ((rows, T1, L1 + T1), torch.bool),
+                "A2": ((self.d2, rows, self.nh, L2, self.dk2), self.dtype), "m2": ((rows, T2, L2 + T2), torch.bool),
+                "o_xs": ((rows, T2, self.c), None), "o_new1": ((self.d1, rows, self.nh, L1 + T1, self.dk2), None),
+                "o_new2": ((self.d2, rows, self.nh, L2 + T2, self.dk2), None), "o_cnn": ((rows, self.c, self.cnn_t), torch.float32)}
+
+    def _view(self, name, shape, dtype):
+        n = 1
+        for d in shape:
+            n *= d
+        buf = self._arena.get((name, dtype))
+        if buf is None or buf.numel() < n:
+            raise RuntimeError(f"encoder arena {name} too small")
+        return buf[:n].view(shape)
+
+    def _alloc(self, dtypes: dict) -> None:
+        sizes = {}
+        for rows, L1, tok in self._keys():
+            for name, (shape, _) in self._dims(rows, L1, tok).items():
+                n = 1
+                for d in shape:
+                    n *= d
+                key = (name, dtypes[name])
+                sizes[key] = max(sizes.get(key, 0), n)
+        for (name, dt), n in sizes.items():
+            self._arena[(name, dt)] = torch.zeros(n, dtype=dt, device=self.device)
+
+    @torch.inference_mode()
+    def _capture(self, rows: int, L1: int, tok: int, dtypes: dict):
+        if not self._arena:
+            self._alloc(dtypes)
+        st = {name: self._view(name, shape, dtypes[name]) for name, (shape, _) in self._dims(rows, L1, tok).items()}
+        st["m1"].fill_(True)
+        st["m2"].fill_(True)
+        st["valid"] = torch.full((rows,), tok, dtype=torch.int64, device=self.device)
+        args = (st["xs"], st["cnn"], st["A1"], st["m1"], st["A2"], st["m2"], False, st["valid"])
+        out = (st["o_xs"], st["o_new1"], st["o_new2"], st["o_cnn"])
+        with torch.amp.autocast(self.device.type, dtype=self.autocast_dtype,
+                                enabled=self.autocast_dtype != torch.float32):
+            self.core_fn(self.enc, *args, out=out)
+            self.accel.synchronize()
+            graph_class = getattr(self.accel, "CUDAGraph", None) or getattr(self.accel, "NPUGraph")
+            g = graph_class()
+            with self.accel.graph(g, pool=self.pool, capture_error_mode="thread_local"):
+                self.core_fn(self.enc, *args, out=out)
+        self.accel.synchronize()
+        self.graphs[(rows, L1, tok)] = (g, st, out)
+
+    @torch.inference_mode()
+    def capture_all(self, xs_dtype, cnn_dtype, att_dtype) -> int:
+        """Capture every key with dummy inputs of the dtypes real calls use."""
+        for rows, L1, tok in self._keys():
+            if (rows, L1, tok) in self.graphs:
+                continue
+            T1 = tok - self.look
+            z = lambda shape, dt: torch.zeros(shape, dtype=dt, device=self.device)  # noqa: E731
+            self(z((rows, tok, self.c), xs_dtype), z((rows, self.c, self.cnn_t), cnn_dtype),
+                 z((self.d1, rows, self.nh, L1, self.dk2), att_dtype), torch.ones(rows, T1, L1 + T1, dtype=torch.bool, device=self.device),
+                 z((self.d2, rows, self.nh, L1 * self.s, self.dk2), att_dtype),
+                 torch.ones(rows, T1 * self.s, (L1 + T1) * self.s, dtype=torch.bool, device=self.device), False)
+        return len(self.graphs)
+
+    @torch.inference_mode()
+    def __call__(self, xs, cnns, A1, mask1, A2, mask2, last, valid=None):
+        n, L1, tok = xs.shape[0], A1.shape[3], xs.shape[1]
+        rows = bucket(n, self.ROWS)
+        key = (rows, L1, tok)
+        if key in self.failures:
+            with torch.amp.autocast(self.device.type, dtype=self.autocast_dtype,
+                                    enabled=self.autocast_dtype != torch.float32):
+                return self.core_fn(self.enc, xs, cnns, A1, mask1, A2, mask2, last, valid)
+        if key not in self.graphs:
+            # output dtypes follow the eager run (autocast): learn them once from an eager call
+            with torch.amp.autocast(self.device.type, dtype=self.autocast_dtype,
+                                    enabled=self.autocast_dtype != torch.float32):
+                ref = self.core_fn(self.enc, xs, cnns, A1, mask1, A2, mask2, last, valid)
+            dtypes = {"xs": xs.dtype, "cnn": cnns.dtype, "A1": A1.dtype, "m1": torch.bool, "A2": A2.dtype, "m2": torch.bool,
+                      "o_xs": ref[0].dtype, "o_new1": ref[1].dtype, "o_new2": ref[2].dtype, "o_cnn": ref[3].dtype}
+            try:
+                self._capture(rows, L1, tok, dtypes)
+            except Exception as exc:
+                self.failures[key] = f"{type(exc).__name__}: {exc}"
+            return ref
+        g, st, out = self.graphs[(rows, L1, tok)]
+        st["xs"][:n].copy_(xs)
+        st["cnn"][:n].copy_(cnns)
+        st["A1"][:, :n].copy_(A1)
+        st["A2"][:, :n].copy_(A2)
+        st["m1"][:n].copy_(mask1)
+        st["m2"][:n].copy_(mask2)
+        if valid is not None:
+            st["valid"][:n].copy_(valid)
+        else:
+            st["valid"][:n] = tok
+        st["valid"][n:] = tok
+        if rows > n:
+            st["m1"][n:] = True
+            st["m2"][n:] = True
+        g.replay()
+        return out[0][:n], out[1][:, :n], out[2][:, :n], out[3][:n]
+
+
+class EulerGraphs:
+    """Whole-Euler CUDA graphs: all ``steps`` estimator calls and Euler updates of one steady window in one replay.
+
+    Keys ``(rows, T, L)`` as for ``EstimatorGraphs`` (rows = 2 x requests, CFG).  The caller writes the padded caches
+    straight into the input arena (``att``/``cnn`` [steps, depth, rows, ...]) and reads the new caches straight from the
+    output arena, so the caches are copied once each way per window instead of once per step plus once per window.
+    The solver loop inside the graph is the reference's (cosine t schedule, t accumulated by ``t + dt``, CFG combine);
+    the timestep embeddings come from the same recurrence, computed per key at capture (they do not depend on inputs).
+    Padded cache positions may hold stale finite values: they are masked.
+    """
+
+    MEM_ROWS = {512: 16, 1024: 8}  # largest rows per cache bucket (arena memory; larger batches use the per-step graphs)
+    SETUP_ROWS = 2  # prompt graphs are per-request; batching setup remains on the eager/per-step path
+
+    def __init__(self, cfm, est_fn, dtype, autocast_dtype, steps: int, graph_t=STEADY_T):
+        self.cfm, self.est, self.est_fn = cfm, cfm.estimator, est_fn
+        self.dtype, self.autocast_dtype, self.steps, self.graph_t = dtype, autocast_dtype, steps, tuple(graph_t)
+        # The persistent attention arenas dominate these limits.  FP16 uses
+        # half their bytes, so it can double the row capacity without
+        # exceeding the proven FP32 envelope on a 64 GiB 910B1.
+        self.mem_rows = {512: 32, 1024: 16} if dtype == torch.float16 else dict(self.MEM_ROWS)
+        e = self.est
+        self.depth, self.nh, self.dk2 = len(e.blocks), e.blocks[0].attn.num_heads, 2 * e.blocks[0].attn.head_dim
+        self.cnn_c = e.blocks[0].conv.in_channels + e.blocks[0].conv.out_channels
+        self.mel, self.hidden = e.in_proj.in_features // 4, e.in_proj.out_features
+        self.device = next(e.parameters()).device
+        self.accel = getattr(torch, self.device.type)
+        self.graphs: dict[tuple[int, int, int], tuple] = {}
+        self.failures: dict[tuple[int, int, int], str] = {}
+        self.pool = self.accel.graph_pool_handle()
+        self.arena: dict[str, torch.Tensor] = {}
+        self.capture_context = nullcontext
+
+    def supports(self, rows: int, T: int, L: int) -> bool:
+        try:
+            Lb = l_bucket(L) if L > 0 else 0
+        except ValueError:
+            # Long reference caches are valid eager inputs.  A graph bucket
+            # miss must select the exact eager path, not abort the worker.
+            return False
+        if T not in self.graph_t:
+            return False
+        if Lb == 0:
+            if T not in SETUP_T or rows > self.SETUP_ROWS:
+                return False
+        elif Lb not in self.mem_rows or T in SETUP_T or rows > self.mem_rows[Lb]:
+            return False
+        return self.key(rows, T, L) not in self.failures
+
+    def max_requests(self, cache_length: int) -> int:
+        """Largest request microbatch whose CFG rows fit the Euler arena."""
+        if cache_length <= 0:
+            return self.SETUP_ROWS // 2
+        try:
+            return self.mem_rows.get(l_bucket(cache_length), 0) // 2
+        except ValueError:
+            return 0
+
+    def _shapes(self):
+        for T in self.graph_t:
+            cache_shapes = ((0, self.SETUP_ROWS),) if T in SETUP_T else self.mem_rows.items()
+            for Lb, rmax in cache_shapes:
+                for rows in ROW_BUCKETS:
+                    if rows <= rmax:
+                        yield rows, T, Lb
+
+    def _alloc(self) -> None:
+        S, D = self.steps, self.depth
+        need: dict[str, int] = {}
+        for rows, T, Lb in self._shapes():
+            for k, n in {"x0": rows // 2 * self.mel * T, "mu": rows * self.mel * T, "spks": rows * self.mel, "cond": rows * self.mel * T,
+                         "cnn": S * D * rows * self.cnn_c * 2, "att": S * D * rows * self.nh * Lb * self.dk2,
+                         "o_x": rows // 2 * self.mel * T, "o_cnn": S * D * rows * self.cnn_c * 2,
+                         "o_att": S * D * rows * self.nh * (T + Lb) * self.dk2, "dphi": rows * self.mel * T}.items():
+                need[k] = max(need.get(k, 0), n)
+            need["mask"] = max(need.get("mask", 0), rows * T * (T + Lb))
+            need["tr"] = max(need.get("tr", 0), rows)
+        for k, n in need.items():
+            dt = torch.bool if k == "mask" else torch.int64 if k == "tr" else self.dtype
+            self.arena[k] = torch.zeros(n, dtype=dt, device=self.device)
+
+    def views(self, rows: int, T: int, Lb: int) -> dict:
+        if not self.arena:
+            self._alloc()
+        S, D = self.steps, self.depth
+
+        def v(name, *shape):
+            n = 1
+            for d in shape:
+                n *= d
+            return self.arena[name][:n].view(shape)
+
+        return {"x0": v("x0", rows // 2, self.mel, T), "mu": v("mu", rows, self.mel, T), "spks": v("spks", rows, self.mel),
+                "cond": v("cond", rows, self.mel, T), "cnn": v("cnn", S, D, rows, self.cnn_c, 2), "att": v("att", S, D, rows, self.nh, Lb, self.dk2),
+                "mask": v("mask", rows, T, T + Lb), "tr": v("tr", rows), "o_x": v("o_x", rows // 2, self.mel, T),
+                "o_cnn": v("o_cnn", S, D, rows, self.cnn_c, 2), "o_att": v("o_att", S, D, rows, self.nh, T + Lb, self.dk2),
+                "dphi": v("dphi", rows, self.mel, T)}
+
+    def _tembs(self, rows: int) -> torch.Tensor:
+        """The timestep embedding of every step, from the solver's own t recurrence ([steps, rows, 1, hidden])."""
+        steps, dt_ = self.steps, self.dtype
+        t_span = torch.linspace(0, 1, steps + 1, device=self.device, dtype=dt_)
+        t_span = 1 - torch.cos(t_span * 0.5 * torch.pi)
+        t, dt = t_span[0].unsqueeze(0), t_span[1] - t_span[0]
+        out = []
+        with torch.amp.autocast(self.device.type, dtype=self.autocast_dtype,
+                                enabled=self.autocast_dtype != torch.float32):
+            for step in range(1, steps + 1):
+                out.append(self.est.t_embedder(t.repeat(rows)).unsqueeze(1))
+                t = t + dt
+                if step < steps:
+                    dt = t_span[step + 1] - t
+        return torch.stack(out)
+
+    def _body(self, w: dict, temb: torch.Tensor) -> None:
+        cfm, steps = self.cfm, self.steps
+        t_span = torch.linspace(0, 1, steps + 1, device=self.device, dtype=self.dtype)
+        t_span = 1 - torch.cos(t_span * 0.5 * torch.pi)
+        t, dt = t_span[0].unsqueeze(0), t_span[1] - t_span[0]
+        x = w["x0"]
+        for step in range(1, steps + 1):
+            self.est_fn(self.est, x.repeat(2, 1, 1), w["mu"], temb[step - 1], w["spks"], w["cond"], w["cnn"][step - 1], w["att"][step - 1],
+                        w["mask"], w["tr"], out=(w["dphi"], w["o_cnn"][step - 1], w["o_att"][step - 1]))
+            d, u = w["dphi"].chunk(2, dim=0)
+            x = x + dt * ((1.0 + cfm.inference_cfg_rate) * d - cfm.inference_cfg_rate * u)
+            t = t + dt
+            if step < steps:
+                dt = t_span[step + 1] - t
+        w["o_x"].copy_(x)
+
+    @torch.inference_mode()
+    def capture(self, rows: int, T: int, Lb: int) -> None:
+        key = (rows, T, Lb)
+        if key in self.graphs:
+            return
+        with self.capture_context():
+            w = self.views(rows, T, Lb)
+            w["mask"].zero_()
+            w["mask"][:, :, :T] = True
+            w["tr"].fill_(T)
+            temb = self._tembs(rows)
+            with torch.amp.autocast(self.device.type, dtype=self.autocast_dtype,
+                                    enabled=self.autocast_dtype != torch.float32):
+                self._body(w, temb)
+                self.accel.synchronize()
+                graph_class = getattr(self.accel, "CUDAGraph", None) or getattr(self.accel, "NPUGraph")
+                g = graph_class()
+                with self.accel.graph(g, pool=self.pool, capture_error_mode="thread_local"):
+                    self._body(w, temb)
+            self.accel.synchronize()
+            self.graphs[key] = (g, w, temb)
+
+    def capture_all(self) -> int:
+        for k in self._shapes():
+            self.capture(*k)
+        return len(self.graphs)
+
+    def key(self, rows: int, T: int, L: int) -> tuple[int, int, int]:
+        return bucket(rows, ROW_BUCKETS), T, l_bucket(L)

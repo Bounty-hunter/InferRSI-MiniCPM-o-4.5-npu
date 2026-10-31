@@ -1,0 +1,10 @@
+{
+  "backend": "engine.runtime.backend_npu:AscendTrackSBackend",
+  "device": "npu:0",
+  "max_live": 1,
+  "thinker_pages": 64,
+  "talker_pages": 128,
+  "page_size": 128,
+  "float16_flow": false,
+  "fused_decoder_ops": true
+}

@@ -1,0 +1,142 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_tts.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_tts.py
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_tts.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_tts.py
+@@ -15,6 +15,7 @@ Pipeline:
+ """
+ 
+ from collections.abc import Iterable, Mapping, Sequence
++import os
+ from dataclasses import replace
+ from types import SimpleNamespace
+ from typing import Any
+@@ -370,5 +371,8 @@ class MiniCPMO45OmniTTSForConditionalGeneration(nn.Module, SupportsPP):
+         self._pending_force_eos_rows: list[bool] | None = None
+         self._penalty_histories: list[torch.Tensor] | None = None
++        self._token_eos_diagnostic = os.environ.get("MINICPMO45_TOKEN_EOS_DIAGNOSTIC") == "1"
++        self._diagnostic_logits_step = 0
++        self._diagnostic_sample_step = 0
+         # Host copies of this step's decode input ids, keyed by request id:
+         # make_omni_output reads them for EOS detection and penalty history.
+         self._decode_codec_ids: dict[str, tuple[_HostCodecIds, int]] = {}
+@@ -733,6 +737,20 @@ class MiniCPMO45OmniTTSForConditionalGeneration(nn.Module, SupportsPP):
+                 "min_tokens": min_tokens,
+                 "turn_end_drain": bool(native_duplex and isinstance(meta, Mapping) and bool(meta.get("turn_end"))),
+             }
++            if self._token_eos_diagnostic:
++                logger.warning(
++                    "MINICPMO45_TOKEN_EOS talker_condition request=%s ids=%s hidden_shape=%s "
++                    "condition_shape=%s target_len=%d offset=%d span=%d max_tokens=%d min_tokens=%s",
++                    request_id,
++                    token_ids.detach().to(device="cpu", dtype=torch.long).reshape(-1).tolist(),
++                    tuple(hidden_states.shape),
++                    tuple(full_embeds.shape),
++                    target_len,
++                    offset,
++                    span_len,
++                    max_tokens,
++                    min_tokens,
++                )
+             if retained_codes:
+                 state["recent_codes"] = retained_codes
+             request_states = getattr(self, "_request_audio_states", None)
+@@ -1069,7 +1084,24 @@ class MiniCPMO45OmniTTSForConditionalGeneration(nn.Module, SupportsPP):
+                 state["finished"] = True
+             force_eos_rows[index] = chunk_done
+             mask_eos_rows[index] = not force_eos_rows[index] and (
+                 (min_tokens is not None and step < int(min_tokens))
+                 or (bool(state.get("turn_end_drain")) and _turn_end_boundary_eos_masked(step))
+             )
++            if self._token_eos_diagnostic and (
++                step <= 16 or step in {32, 64, 128, 256, 512, 1024, 1536, 2047}
++            ):
++                delta = None
++                if isinstance(audio, torch.Tensor) and audio.numel() > 0:
++                    delta = audio.reshape(-1).tolist()
++                logger.warning(
++                    "MINICPMO45_TOKEN_EOS codec_feedback request=%s step=%d delta=%s "
++                    "recent=%s force=%s mask=%s finished=%s",
++                    request_id,
++                    step,
++                    delta,
++                    state.get("recent_codes"),
++                    force_eos_rows[index],
++                    mask_eos_rows[index],
++                    state.get("finished"),
++                )
+             terminal_flags[index] = torch.tensor(chunk_done, dtype=torch.bool)
+@@ -1164,6 +1191,25 @@ class MiniCPMO45OmniTTSForConditionalGeneration(nn.Module, SupportsPP):
+         if hidden_states.numel() == 0:
+             return hidden_states.new_empty((0, int(self._num_audio_tokens)))
+         logits = self.head_code[0](hidden_states).float()
++        if self._token_eos_diagnostic:
++            self._diagnostic_logits_step += 1
++            diagnostic_step = self._diagnostic_logits_step
++            if diagnostic_step <= 16 or diagnostic_step in {32, 64, 128, 256, 512, 1024, 1536, 2048}:
++                eos_id = int(self._codec_eos_id)
++                eos_logits = logits[:, eos_id]
++                eos_ranks = (logits > eos_logits.unsqueeze(1)).sum(dim=1) + 1
++                top_values, top_ids = torch.topk(logits, min(5, logits.shape[-1]), dim=-1)
++                logger.warning(
++                    "MINICPMO45_TOKEN_EOS logits step=%d rows=%d eos_id=%d eos_logits=%s "
++                    "eos_ranks=%s top_ids=%s top_logits=%s",
++                    diagnostic_step,
++                    logits.shape[0],
++                    eos_id,
++                    eos_logits.detach().cpu().tolist(),
++                    eos_ranks.detach().cpu().tolist(),
++                    top_ids.detach().cpu().tolist(),
++                    top_values.detach().cpu().tolist(),
++                )
+         force_eos = self._force_eos_rows
+         mask_eos = self._mask_eos_rows
+         self._force_eos_rows = None
+@@ -1205,7 +1252,19 @@ class MiniCPMO45OmniTTSForConditionalGeneration(nn.Module, SupportsPP):
+         force_eos = self._pending_force_eos_rows
+         self._pending_force_eos_rows = None
+         output = Sampler()(logits, sampling_metadata)
+-        return self._force_eos_on_sampled_ids(output, force_eos)
++        output = self._force_eos_on_sampled_ids(output, force_eos)
++        if self._token_eos_diagnostic:
++            self._diagnostic_sample_step += 1
++            diagnostic_step = self._diagnostic_sample_step
++            if diagnostic_step <= 16 or diagnostic_step in {32, 64, 128, 256, 512, 1024, 1536, 2048}:
++                sampled = getattr(output, "sampled_token_ids", None)
++                logger.warning(
++                    "MINICPMO45_TOKEN_EOS sample step=%d ids=%s force=%s",
++                    diagnostic_step,
++                    sampled.detach().cpu().reshape(-1).tolist() if isinstance(sampled, torch.Tensor) else None,
++                    force_eos,
++                )
++        return output
+ 
+     def _apply_codec_repetition_penalty(self, logits, sampling_metadata):
+         """Score MiniCPMTTS.generate's windowed codec penalty, not vLLM's.
+diff --git a/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py b/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
+--- a/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
+@@ -3,5 +3,6 @@
+ """MiniCPM-o 4.5 Thinker-to-Talker and Talker-to-Code2Wav bridges."""
+ 
+ import logging
++import os
+ from collections.abc import Mapping, Sequence
+ from typing import Any
+@@ -1041,5 +1042,18 @@ def llm2tts(
+             set_ref_audio(model_intermediate_buffer, _to_transport_list(ref_waveform), ref_sr)
+         handoff_hidden = _to_transport_list(tts_hidden_slice) if tts_hidden_slice is not None else None
++        if os.environ.get("MINICPMO45_TOKEN_EOS_DIAGNOSTIC") == "1":
++            logger.warning(
++                "MINICPMO45_TOKEN_EOS bridge request=%s prompt_len=%d output_len=%d "
++                "hidden_shape=%s bos_idx=%s eos_idx=%s handoff_ids=%s handoff_hidden=%s",
++                llm_output.request_id,
++                prompt_token_ids_len,
++                len(llm_output_ids),
++                tuple(thinker_hidden_states.shape),
++                tts_bos_idx,
++                tts_eos_idx,
++                handoff_ids,
++                len(handoff_hidden) if handoff_hidden is not None else None,
++            )
+         native_turn_end_handoff = False
+         if is_native_duplex_handoff:
+             turn_eos_id = special_token_ids.get("turn_eos_token_id")

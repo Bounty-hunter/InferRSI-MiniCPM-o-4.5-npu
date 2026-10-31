@@ -1,0 +1,38 @@
+{
+  "kind": "performance",
+  "gpu": 0,
+  "concurrencies": [1, 16, 32],
+  "k": 5,
+  "id_set": "eval",
+  "seed_index": 0,
+  "timeout_s": 180.0,
+  "warmup_timeout_s": 900.0,
+  "run_order_seed": 20261023,
+  "save_audio": false,
+  "configs": [
+    {
+      "adapter": "engine",
+      "config": "ascend_graph_v1",
+      "label": "s6",
+      "mps": "off",
+      "env": {
+        "ENGINE_PYTHON": "/usr/local/python3.12.13/bin/python"
+      }
+    },
+    {
+      "adapter": "vllm-omni",
+      "config": "minicpmo_4_5_turn.yaml",
+      "label": "stage2-b2",
+      "mps": "off",
+      "env": {
+        "OMNI_VLLM_PYTHON": "/usr/local/python3.12.13/bin/python"
+      },
+      "extra": [
+        "--limit-mm-per-prompt",
+        "{\"image\":0,\"video\":0,\"audio\":0}",
+        "--stage-overrides",
+        "{\"0\":{\"compilation_config\":{\"pass_config\":{\"fuse_norm_quant\":false}},\"additional_config\":{\"ascend_compilation_config\":{\"fuse_norm_quant\":false}}},\"1\":{\"compilation_config\":{\"pass_config\":{\"fuse_norm_quant\":false}},\"additional_config\":{\"ascend_compilation_config\":{\"fuse_norm_quant\":false}}},\"2\":{\"compilation_config\":{\"pass_config\":{\"fuse_norm_quant\":false}},\"additional_config\":{\"ascend_compilation_config\":{\"fuse_norm_quant\":false}},\"max_num_seqs\":2}}"
+      ]
+    }
+  ]
+}

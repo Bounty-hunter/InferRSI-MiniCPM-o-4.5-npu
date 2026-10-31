@@ -1,0 +1,143 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index 5acc4aa97..8e93e25a3 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -449,7 +449,27 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+     ) -> torch.Tensor:
+         if self.model_stage == "tts":
+             return self.get_input_embeddings(input_ids)
+-        return super().embed_input_ids(input_ids, multimodal_embeddings, is_multimodal=is_multimodal)
++        embeddings = self.get_input_embeddings(input_ids, multimodal_embeddings)
++        if input_ids.numel() == 144 and not getattr(self, "_embedding_route_trace_done", False):
++            traced = embeddings.float()
++            logger.warning(
++                "MINICPMO_OUTER_EMBED_ROUTE input_shape=%s input_min=%d input_max=%d "
++                "input_nonzero=%d is_multimodal=%s mm_embeddings=%s output_shape=%s "
++                "output_min=%.6f output_max=%.6f output_mean=%.6f output_nonzero=%d",
++                tuple(input_ids.shape),
++                int(input_ids.min().item()),
++                int(input_ids.max().item()),
++                int(torch.count_nonzero(input_ids).item()),
++                None if is_multimodal is None else tuple(is_multimodal.shape),
++                None if multimodal_embeddings is None else len(multimodal_embeddings),
++                tuple(traced.shape),
++                float(traced.min().item()),
++                float(traced.max().item()),
++                float(traced.mean().item()),
++                int(torch.count_nonzero(traced).item()),
++            )
++            self._embedding_route_trace_done = True
++        return embeddings
+ 
+     def preprocess(
+         self,
+@@ -815,6 +835,34 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+                     inputs_embeds[0] if inputs_embeds is not None and added_batch_dim else inputs_embeds
+                 )
+ 
++            trace_step = int(getattr(self, "_stage0_forward_trace_step", 0))
++            trace_input = False
++            if trace_step < 4:
++                ids_nonzero = (
++                    thinker_input_ids is not None and int(torch.count_nonzero(thinker_input_ids).item()) > 0
++                )
++                embeds_nonzero = (
++                    thinker_inputs_embeds is not None
++                    and int(torch.count_nonzero(thinker_inputs_embeds).item()) > 0
++                )
++                trace_input = bool(ids_nonzero or embeds_nonzero)
++                if trace_input:
++                    embed_row = thinker_inputs_embeds.float() if thinker_inputs_embeds is not None else None
++                    logger.warning(
++                        "MINICPMO_STAGE0_FORWARD_INPUT step=%d input_shape=%s input_min=%s input_max=%s "
++                        "input_nonzero=%s embed_shape=%s embed_min=%s embed_max=%s embed_mean=%s embed_nonzero=%s",
++                        trace_step,
++                        None if thinker_input_ids is None else tuple(thinker_input_ids.shape),
++                        None if thinker_input_ids is None else int(thinker_input_ids.min().item()),
++                        None if thinker_input_ids is None else int(thinker_input_ids.max().item()),
++                        None if thinker_input_ids is None else int(torch.count_nonzero(thinker_input_ids).item()),
++                        None if embed_row is None else tuple(embed_row.shape),
++                        None if embed_row is None else float(embed_row.min().item()),
++                        None if embed_row is None else float(embed_row.max().item()),
++                        None if embed_row is None else float(embed_row.mean().item()),
++                        None if embed_row is None else int(torch.count_nonzero(embed_row).item()),
++                    )
++
+             # Run thinker
+             thinker_output = self.thinker(
+                 input_ids=thinker_input_ids,
+@@ -829,6 +877,19 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+             else:
+                 text_hidden_states = thinker_output
+ 
++            if trace_input:
++                output_row = text_hidden_states.float()
++                logger.warning(
++                    "MINICPMO_STAGE0_FORWARD_OUTPUT step=%d shape=%s min=%.6f max=%.6f mean=%.6f nonzero=%d",
++                    trace_step,
++                    tuple(output_row.shape),
++                    float(output_row.min().item()),
++                    float(output_row.max().item()),
++                    float(output_row.mean().item()),
++                    int(torch.count_nonzero(output_row).item()),
++                )
++                self._stage0_forward_trace_step = trace_step + 1
++
+             # Prepare hidden states for downstream stages
+             # Ensure correct shape: (seq_len, hidden_dim)
+             if text_hidden_states.ndim == 3 and text_hidden_states.shape[0] == 1:
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_llm.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_llm.py
+index 5ca3af238..e876ef241 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_llm.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_llm.py
+@@ -5075,7 +5075,37 @@ class MiniCPMO45OmniLLMForConditionalGeneration(nn.Module, SupportsMultiModal, S
+         multimodal_embeddings: MultiModalEmbeddings | None = None,
+     ) -> torch.Tensor:
+         """Get input embeddings combining text and multimodal features."""
+-        inputs_embeds = self.llm.get_input_embeddings(input_ids)
++        inputs_embeds = self.llm.embed_input_ids(input_ids)
++
++        if input_ids.numel() == 144 and not getattr(self, "_embedding_weight_trace_done", False):
++            weight = self.llm.model.embed_tokens.weight
++            valid_ids = torch.unique(input_ids.flatten())
++            valid_ids = valid_ids[(valid_ids >= 0) & (valid_ids < weight.shape[0])]
++            selected = weight.index_select(0, valid_ids).float()
++            traced = inputs_embeds.float()
++            logger.warning(
++                "MINICPMO_INNER_EMBED_WEIGHT input_shape=%s input_min=%d input_max=%d "
++                "input_nonzero=%d unique_valid_ids=%d weight_shape=%s weight_dtype=%s "
++                "selected_min=%.6f selected_max=%.6f selected_mean=%.6f selected_nonzero=%d "
++                "output_shape=%s output_min=%.6f output_max=%.6f output_mean=%.6f output_nonzero=%d",
++                tuple(input_ids.shape),
++                int(input_ids.min().item()),
++                int(input_ids.max().item()),
++                int(torch.count_nonzero(input_ids).item()),
++                int(valid_ids.numel()),
++                tuple(weight.shape),
++                weight.dtype,
++                float(selected.min().item()),
++                float(selected.max().item()),
++                float(selected.mean().item()),
++                int(torch.count_nonzero(selected).item()),
++                tuple(traced.shape),
++                float(traced.min().item()),
++                float(traced.max().item()),
++                float(traced.mean().item()),
++                int(torch.count_nonzero(traced).item()),
++            )
++            self._embedding_weight_trace_done = True
+ 
+         if multimodal_embeddings is not None and len(multimodal_embeddings) != 0:
+             unk_token_id = 128244
+@@ -5164,6 +5194,11 @@ class MiniCPMO45OmniLLMForConditionalGeneration(nn.Module, SupportsMultiModal, S
+             stripped = [(k.replace("llm.", "", 1), v) for k, v in language_model_weights]
+             lm_loaded = self.llm.load_weights(stripped)
+             loaded_weights.update("llm." + k for k in lm_loaded)
++            logger.warning(
++                "MINICPMO_EMBED_LOAD requested=%s loaded=%s",
++                any(k == "llm.model.embed_tokens.weight" for k, _ in language_model_weights),
++                "model.embed_tokens.weight" in lm_loaded,
++            )
+ 
+         # --- 音频编码器 (apm) ---
+         if self.apm is not None and apm_weights:

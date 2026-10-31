@@ -1,0 +1,10 @@
+# Development-only vLLM-Omni baseline overlay.  The frozen checkout remains
+# untouched; mel widths are zero-padded into 16-frame buckets before the NPU
+# exact-shape CFM graph runner builds its cache.  This changes capture-key
+# reuse, not the model, request set, sampling parameters, or output trimming.
+base_config: /vllm-workspace/vllm-omni/vllm_omni/deploy/minicpmo_4_5_turn.yaml
+
+connectors:
+  connector_of_shared_memory:
+    extra:
+      cfm_graph_bucket_frames: 16

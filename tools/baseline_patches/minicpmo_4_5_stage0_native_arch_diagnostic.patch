@@ -1,0 +1,12 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/pipeline.py b/vllm_omni/model_executor/models/minicpmo_4_5/pipeline.py
+index e6f0db905..e4b2500fb 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/pipeline.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/pipeline.py
+@@ -57,6 +57,7 @@ MINICPMO_4_5_PIPELINE = PipelineConfig(
+     stages=(
+         StagePipelineConfig(
+             stage_id=0,
++            model_arch="MiniCPMO",
+             model_stage="llm",
+             execution_type=StageExecutionType.LLM_AR,
+             input_sources=(),

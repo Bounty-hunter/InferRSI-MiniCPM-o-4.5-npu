@@ -1,0 +1,13 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index bf91b99de..ab579baad 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -183,7 +183,7 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+                 prefix=maybe_prefix(prefix, "thinker"),
+                 hf_config=config,
+                 # Use registry architecture key
+-                architectures=["MiniCPMO45OmniLLMForConditionalGeneration"],
++                architectures=["MiniCPMO"],
+             )
+             self.model = self.thinker
+             self.talker = None

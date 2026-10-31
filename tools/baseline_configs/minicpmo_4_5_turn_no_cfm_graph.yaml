@@ -1,0 +1,17 @@
+# Development-only vLLM-Omni baseline overlay.  The frozen checkout remains
+# untouched; this disables lazy CFM graph capture to test whether fresh-server
+# warmup/measurement failures are capture overhead rather than steady-state
+# compute capacity.
+base_config: /vllm-workspace/vllm-omni/vllm_omni/deploy/minicpmo_4_5_turn.yaml
+
+connectors:
+  connector_of_shared_memory:
+    extra:
+      enable_cfm_graph: false
+
+platforms:
+  npu:
+    stages:
+      - stage_id: 2
+        additional_config:
+          code2wav_enable_npu_graph: false

@@ -1,0 +1,15 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index 5acc4aa97..b07d47730 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -268,9 +268,7 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+         # tts_token_ids/tts_hidden_states handoff into its conditioning
+         # embeddings and initializes request-local codec generation state.
+         is_duplex = getattr(vllm_config.model_config, "session_mode", "turn") == "duplex"
+-        self.has_preprocess = (
+-            self.model_stage == "tts" or not self._use_v2_model_runner or (self.model_stage == "llm" and is_duplex)
+-        )
++        self.has_preprocess = self.model_stage == "tts" or (self.model_stage == "llm" and is_duplex)
+         # The duplex Thinker also serves media chat requests, whose image,
+         # audio and video features come from the native MRv2 encoder.
+         self.preprocess_keeps_mm_inputs = self.model_stage == "llm" and is_duplex and self._use_v2_model_runner

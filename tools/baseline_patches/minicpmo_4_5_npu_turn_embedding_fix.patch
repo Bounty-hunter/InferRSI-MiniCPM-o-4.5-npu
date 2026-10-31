@@ -1,0 +1,39 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index 5acc4aa97..5e5cbed43 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -268,8 +268,11 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+         # tts_token_ids/tts_hidden_states handoff into its conditioning
+         # embeddings and initializes request-local codec generation state.
+         is_duplex = getattr(vllm_config.model_config, "session_mode", "turn") == "duplex"
++        is_npu = getattr(getattr(vllm_config, "device_config", None), "device_type", None) == "npu"
+         self.has_preprocess = (
+-            self.model_stage == "tts" or not self._use_v2_model_runner or (self.model_stage == "llm" and is_duplex)
++            self.model_stage == "tts"
++            or (self.model_stage == "llm" and is_duplex)
++            or (not self._use_v2_model_runner and not is_npu)
+         )
+         # The duplex Thinker also serves media chat requests, whose image,
+         # audio and video features come from the native MRv2 encoder.
+@@ -449,7 +452,7 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+     ) -> torch.Tensor:
+         if self.model_stage == "tts":
+             return self.get_input_embeddings(input_ids)
+-        return super().embed_input_ids(input_ids, multimodal_embeddings, is_multimodal=is_multimodal)
++        return self.get_input_embeddings(input_ids, multimodal_embeddings)
+ 
+     def preprocess(
+         self,
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_llm.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_llm.py
+index 5ca3af238..7520fcb89 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_llm.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_llm.py
+@@ -5075,7 +5075,7 @@ class MiniCPMO45OmniLLMForConditionalGeneration(nn.Module, SupportsMultiModal, S
+         multimodal_embeddings: MultiModalEmbeddings | None = None,
+     ) -> torch.Tensor:
+         """Get input embeddings combining text and multimodal features."""
+-        inputs_embeds = self.llm.get_input_embeddings(input_ids)
++        inputs_embeds = self.llm.embed_input_ids(input_ids)
+ 
+         if multimodal_embeddings is not None and len(multimodal_embeddings) != 0:
+             unk_token_id = 128244
