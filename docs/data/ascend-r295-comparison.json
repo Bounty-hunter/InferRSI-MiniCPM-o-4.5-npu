@@ -1,0 +1,272 @@
+{
+  "schema": 1,
+  "measurement_date": "2026-10-30",
+  "hardware": "One Ascend 910B1 (A2) per service",
+  "candidate": "r292 candidate (not promoted)",
+  "control": "r258 engineering reference",
+  "historical_omni": "Previously frozen Ascend vLLM-Omni baseline, r185/r240; not rerun with r295",
+  "workload": "Seed-TTS en; chunk25; native two warmups per tier; 32/64/128/256/512 measured requests",
+  "uncertainty": "Single-run point estimates; no confidence intervals or frozen LCB; final speech gate not passed",
+  "source_artifact": "rsi-r295-suite/comparison.json",
+  "source_sha256": "bc0512064d1cc7c9f3f4f07234a10bcccd718777096c6d9769ffbdc1fae50bc7",
+  "measurements": [
+    {
+      "concurrency": 1,
+      "control": {
+        "concurrency": 1,
+        "window": 1,
+        "ttfp_ms": 689.9373570049647,
+        "rtf": 0.2778477969287965,
+        "req_s": 0.8361393788881096,
+        "failed": 0,
+        "completed": 32,
+        "input_tokens": 4411,
+        "audio_duration_s": 138.24,
+        "server_ready_s": 53.03659739717841
+      },
+      "candidate": {
+        "concurrency": 1,
+        "window": 1,
+        "ttfp_ms": 675.3765993344132,
+        "rtf": 0.2771234519705586,
+        "req_s": 0.8392628299465865,
+        "failed": 0,
+        "completed": 32,
+        "input_tokens": 4411,
+        "audio_duration_s": 139.12,
+        "server_ready_s": 52.03709425218403
+      },
+      "historical_omni": {
+        "ttfp_ms": 860.236025910126,
+        "rtf": 0.3114664055672891,
+        "req_s": 0.8021814942925757,
+        "failed": 0,
+        "completed": 32,
+        "measurement_date": "20261026-150221"
+      },
+      "benefit_percent": {
+        "matched_r258": {
+          "ttfp_ms": 2.1104463358470937,
+          "rtf": 0.2606984709774607,
+          "req_s": 0.37355626793111885
+        },
+        "historical_omni": {
+          "ttfp_ms": 21.48938442564439,
+          "rtf": 11.02621437910133,
+          "req_s": 4.622561841408723
+        }
+      }
+    },
+    {
+      "concurrency": 4,
+      "control": {
+        "concurrency": 4,
+        "window": 1,
+        "ttfp_ms": 1679.5312086615013,
+        "rtf": 0.6608326457966998,
+        "req_s": 1.4126665495652702,
+        "failed": 0,
+        "completed": 64,
+        "input_tokens": 8856,
+        "audio_duration_s": 283.72,
+        "server_ready_s": 53.03659739717841
+      },
+      "candidate": {
+        "concurrency": 4,
+        "window": 1,
+        "ttfp_ms": 1665.9014233591734,
+        "rtf": 0.6376035749447211,
+        "req_s": 1.4339110322254716,
+        "failed": 0,
+        "completed": 64,
+        "input_tokens": 8856,
+        "audio_duration_s": 285.0,
+        "server_ready_s": 52.03709425218403
+      },
+      "historical_omni": {
+        "ttfp_ms": 1507.570117842988,
+        "rtf": 0.6566895026632786,
+        "req_s": 1.4700408606265114,
+        "failed": 0,
+        "completed": 64,
+        "measurement_date": "20261026-150351"
+      },
+      "benefit_percent": {
+        "matched_r258": {
+          "ttfp_ms": 0.8115231936172362,
+          "rtf": 3.515121566667412,
+          "req_s": 1.5038568490730597
+        },
+        "historical_omni": {
+          "ttfp_ms": -10.502417343129867,
+          "rtf": 2.90638538322181,
+          "req_s": -2.4577431395778837
+        }
+      }
+    },
+    {
+      "concurrency": 8,
+      "control": {
+        "concurrency": 8,
+        "window": 1,
+        "ttfp_ms": 2537.9218009547913,
+        "rtf": 0.9930548879540863,
+        "req_s": 1.9678918820215074,
+        "failed": 0,
+        "completed": 128,
+        "input_tokens": 17646,
+        "audio_duration_s": 533.68,
+        "server_ready_s": 53.03659739717841
+      },
+      "candidate": {
+        "concurrency": 8,
+        "window": 1,
+        "ttfp_ms": 2627.4484549066983,
+        "rtf": 1.010473580588473,
+        "req_s": 1.9020099194337048,
+        "failed": 0,
+        "completed": 128,
+        "input_tokens": 17646,
+        "audio_duration_s": 540.92,
+        "server_ready_s": 52.03709425218403
+      },
+      "historical_omni": {
+        "ttfp_ms": 2177.5566085634637,
+        "rtf": 1.1690455984593524,
+        "req_s": 1.729959711104574,
+        "failed": 0,
+        "completed": 128,
+        "measurement_date": "20261026-150546"
+      },
+      "benefit_percent": {
+        "matched_r258": {
+          "ttfp_ms": -3.527557622863964,
+          "rtf": -1.7540513465749363,
+          "req_s": -3.3478446244783355
+        },
+        "historical_omni": {
+          "ttfp_ms": -20.66039728078659,
+          "rtf": 13.564228639144304,
+          "req_s": 9.945330357969851
+        }
+      }
+    },
+    {
+      "concurrency": 16,
+      "control": {
+        "concurrency": 16,
+        "window": 1,
+        "ttfp_ms": 3587.3695833397505,
+        "rtf": 1.3705658383976058,
+        "req_s": 2.6656635055368527,
+        "failed": 0,
+        "completed": 256,
+        "input_tokens": 35331,
+        "audio_duration_s": 1141.32,
+        "server_ready_s": 53.03659739717841
+      },
+      "candidate": {
+        "concurrency": 16,
+        "window": 1,
+        "ttfp_ms": 3539.663650240982,
+        "rtf": 1.329534217631662,
+        "req_s": 2.7145454925679107,
+        "failed": 0,
+        "completed": 256,
+        "input_tokens": 35331,
+        "audio_duration_s": 1145.6,
+        "server_ready_s": 52.03709425218403
+      },
+      "historical_omni": {
+        "ttfp_ms": 3621.157383575337,
+        "rtf": 2.0909139361284357,
+        "req_s": 1.8107535128303829,
+        "failed": 0,
+        "completed": 256,
+        "measurement_date": "20261028-100439"
+      },
+      "benefit_percent": {
+        "matched_r258": {
+          "ttfp_ms": 1.3298304507102232,
+          "rtf": 2.993772325006716,
+          "req_s": 1.8337643490832667
+        },
+        "historical_omni": {
+          "ttfp_ms": 2.250488578706633,
+          "rtf": 36.413728242997635,
+          "req_s": 49.912479712648114
+        }
+      }
+    },
+    {
+      "concurrency": 32,
+      "control": {
+        "concurrency": 32,
+        "window": 1,
+        "ttfp_ms": 6213.357356062261,
+        "rtf": 2.2703103881065365,
+        "req_s": 3.1016795112235487,
+        "failed": 0,
+        "completed": 512,
+        "input_tokens": 70702,
+        "audio_duration_s": 2359.24,
+        "server_ready_s": 53.03659739717841
+      },
+      "candidate": {
+        "concurrency": 32,
+        "window": 1,
+        "ttfp_ms": 6315.011259734092,
+        "rtf": 2.2789074090776875,
+        "req_s": 2.9133683862794504,
+        "failed": 0,
+        "completed": 512,
+        "input_tokens": 70702,
+        "audio_duration_s": 2388.4,
+        "server_ready_s": 52.03709425218403
+      },
+      "historical_omni": {
+        "ttfp_ms": 14992.286003465779,
+        "rtf": 4.934745041629215,
+        "req_s": 1.4472808580930205,
+        "failed": 0,
+        "completed": 512,
+        "measurement_date": "20261028-101116"
+      },
+      "benefit_percent": {
+        "matched_r258": {
+          "ttfp_ms": -1.636054355905503,
+          "rtf": -0.37867161319387055,
+          "req_s": -6.0712631418780365
+        },
+        "historical_omni": {
+          "ttfp_ms": 57.87826313962896,
+          "rtf": 53.81914587576541,
+          "req_s": 101.29944854782296
+        }
+      }
+    }
+  ],
+  "baseline_identity": {
+    "vllm_version": "0.32.0+empty",
+    "vllm_omni_package_version": "0.1.dev1+g5b5eb49cd.npu",
+    "vllm_omni_git_sha": "5b5eb49cdc95af80d4d2c1270055096e32ad87da",
+    "versions": {
+      "vllm": "0.32.0+empty",
+      "vllm-ascend": "0.19.1rc2.dev2959+g450e55698",
+      "vllm-omni": "0.1.dev1+g5b5eb49cd.npu",
+      "torch": "2.10.0+cpu",
+      "torch-npu": "2.10.0.post4",
+      "transformers": "5.19.0"
+    },
+    "note": "0.32.0 is the vLLM runtime version, not the recorded vLLM-Omni package version.",
+    "baseline_summary_sha256": {
+      "r185": "9b42bc987c7228e226f3bd8030b20af9a62adaf639d0fc357878596eb7ca9e89",
+      "r240": "a66e7f48b00e189f81d6b182366e72fe4120ff026cda1d64a36a3c0d4b599881"
+    }
+  },
+  "engine_identity": {
+    "name": "r292 benchmark candidate",
+    "engine_tree_sha256": "7d0c96eeadccf88c98872ea48f9149e60085c483b5c046c0a2063906db17f780",
+    "promoted_to_default": false
+  }
+}
