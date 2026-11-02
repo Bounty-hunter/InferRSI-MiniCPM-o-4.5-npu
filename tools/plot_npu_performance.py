@@ -16,10 +16,6 @@ METRICS = (
     ('rtf', 'Real-time factor', 'RTF · lower is better'),
     ('req_s', 'Request throughput', 'request/s · higher is better'),
 )
-SERIES = (
-    ('historical_omni', 'vLLM-Omni (vLLM 0.32.0)', '#2563eb', '--', '^'),
-    ('candidate', 'Dedicated NPU engine (r292 candidate)', '#ea580c', '-', 'o'),
-)
 
 
 def configure_axes(ax, x):
@@ -56,17 +52,30 @@ def finish(fig, axes, title, subtitle, legend, footnote, output):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--data', type=Path, default=ROOT/'docs/data/ascend-r295-comparison.json')
+    current = ROOT/'docs/data/ascend-v0320-comparison.json'
+    parser.add_argument('--data', type=Path, default=current if current.exists() else ROOT/'docs/data/ascend-r295-comparison.json')
     parser.add_argument('--out-dir', type=Path, default=ROOT/'docs/figures')
     args = parser.parse_args()
     data = json.loads(args.data.read_text(encoding='utf-8'))
     rows = data['measurements']
+    baseline_key = data.get('baseline_key', 'historical_omni')
+    baseline_label = data.get('baseline_label', 'vLLM-Omni (vLLM 0.32.0)')
+    official_tag = data.get('baseline_identity', {}).get('git_tag') == 'v0.32.0'
+    provenance = ('Omni: official v0.32.0 tag, commit 5917730a; vLLM 0.32.0. Both services measured Nov 2 with the same tag CLI.'
+                  if official_tag else
+                  'Omni: main@5b5eb49c, vLLM 0.32.0; recorded Oct 26–28. Engine: r292 candidate, measured Oct 30.')
+    scope_note = ('Each service: 992 requests, 0 errors; one fresh process, fixed five-tier order, 2 native warmups per tier.'
+                  if official_tag else 'Previously frozen Omni baseline, not a simultaneous rerun.')
+    compute_note = ('Flow budget differs: Omni FP32 / 10 steps; engine FP16 / 6 steps. Not an equal-precision or quality-qualified speedup.'
+                    if official_tag else 'Single-run points; no frozen statistical or final speech-gate acceptance.')
+    series = ((baseline_key, baseline_label, '#2563eb', '--', '^'),
+              ('candidate', 'Dedicated NPU engine (r292 candidate)', '#ea580c', '-', 'o'))
     x = [row['concurrency'] for row in rows]
     assert x == [1, 4, 8, 16, 32]
     for row in rows:
-        for variant in ('candidate', 'control', 'historical_omni'):
+        for variant in ('candidate', baseline_key):
             assert row[variant]['failed'] == 0
-        for reference, key in (('control', 'matched_r258'), ('historical_omni', 'historical_omni')):
+        for reference, key in ((baseline_key, baseline_key),):
             for metric, *_ in METRICS:
                 a, b = row[reference][metric], row['candidate'][metric]
                 gain = (b/a-1)*100 if metric == 'req_s' else (1-b/a)*100
@@ -79,7 +88,7 @@ def main():
     args.out_dir.mkdir(parents=True, exist_ok=True)
     fig, axes = plt.subplots(1, 3, figsize=(16, 6))
     for ax, (metric, title, ylabel) in zip(axes, METRICS):
-        for variant, label, color, linestyle, marker in SERIES:
+        for variant, label, color, linestyle, marker in series:
             ax.plot(x, [r[variant][metric] for r in rows], label=label, color=color,
                     linestyle=linestyle, marker=marker, linewidth=2.4,
                     markersize=6, markeredgecolor='white', markeredgewidth=0.8)
@@ -91,15 +100,14 @@ def main():
             ax.yaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}'))
     finish(fig, axes, 'MiniCPM-o 4.5 | Ascend performance curves',
            'One Ascend 910B1 (A2) per service · Seed-TTS English · chunk25 · 32 / 64 / 128 / 256 / 512 requests', 2,
-           'Omni: main@5b5eb49c, vLLM 0.32.0; recorded Oct 26–28. Engine: r292 candidate, measured Oct 30. Both: 0 request errors.\n'
-           'Previously frozen Omni baseline, not a simultaneous rerun. Single-run points; no confidence intervals / frozen LCB or final speech-gate pass.',
+           provenance+'\n'+scope_note+' Single-run points.\n'+compute_note,
            args.out_dir/'npu-performance-curves')
 
     fig, axes = plt.subplots(1, 3, figsize=(16, 6))
     titles = ('TTFP reduction', 'RTF reduction', 'Throughput increase')
     for ax, (metric, *_), title in zip(axes, METRICS, titles):
         for key, label, color, linestyle, marker in (
-            ('historical_omni', 'Dedicated NPU engine vs. vLLM-Omni (vLLM 0.32.0)', '#ea580c', '-', 'o'),
+            (baseline_key, 'Dedicated NPU engine vs. '+baseline_label, '#ea580c', '-', 'o'),
         ):
             ax.plot(x, [r['benefit_percent'][key][metric] for r in rows],
                     label=label, color=color, linestyle=linestyle, marker=marker,
@@ -110,15 +118,17 @@ def main():
         ax.set_ylabel('Improvement (%) · positive is better')
         ax.set_title(title, loc='left', fontsize=13, fontweight='bold', pad=12)
         for row in rows:
-            value = row['benefit_percent']['historical_omni'][metric]
+            value = row['benefit_percent'][baseline_key][metric]
+            label_offset = -18 if value < 0 or row['concurrency'] == 4 else 10
             ax.annotate(f'{value:+.1f}%', (row['concurrency'], value),
-                        xytext=(0, 10 if value >= 0 else -16), textcoords='offset points',
+                        xytext=(0, label_offset), textcoords='offset points',
                         ha='center', fontsize=9, color='#9a3412')
         ax.margins(y=0.22)
     finish(fig, axes, 'MiniCPM-o 4.5 | Relative improvements',
            'Independent NPU engine vs. vLLM-Omni · same Ascend workload · negative values show regressions', 1,
-           'Latency / RTF: (1 − candidate/reference) × 100%; throughput: (candidate/reference − 1) × 100%.\n'
-           'Omni: main@5b5eb49c with vLLM 0.32.0, recorded earlier. These are system comparisons, not isolated RSI gains or final acceptance.',
+           'Latency / RTF: (1 − candidate/reference) × 100%; throughput: (candidate/reference − 1) × 100%.\n'+
+           ('Official v0.32.0 tag / 5917730a; both measured Nov 2. ' if official_tag else 'Earlier Omni main@5b5eb49c baseline. ')+
+           'System comparisons, not isolated RSI gains or final acceptance.\n'+compute_note,
            args.out_dir/'npu-improvement-curves')
     print('Saved performance and improvement curves as SVG and PNG:', args.out_dir)
 

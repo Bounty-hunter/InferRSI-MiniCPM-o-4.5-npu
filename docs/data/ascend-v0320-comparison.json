@@ -1,0 +1,198 @@
+{
+  "schema": 2,
+  "measurement_date": "2026-11-02",
+  "hardware": "One Ascend 910B1 (A2) per service",
+  "candidate": "Unchanged r292 benchmark candidate, measured with v0.32.0 CLI",
+  "baseline_key": "omni",
+  "baseline_label": "vLLM-Omni v0.32.0",
+  "baseline_identity": {
+    "git_tag": "v0.32.0",
+    "git_tag_object": "151b80ecfb0184d408ab206e0bafd73aad7a5e51",
+    "git_commit": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+    "vllm_runtime_version": "0.32.0+empty",
+    "reported_source_version": "0.1.dev1+g5b5eb49cd.npu",
+    "installed_distribution_versions": {
+      "vllm": "0.32.0+empty",
+      "vllm-ascend": "0.19.1rc2.dev2959+g450e55698",
+      "vllm-omni": "0.1.dev1+g5b5eb49cd.npu",
+      "torch": "2.10.0+cpu",
+      "torch-npu": "2.10.0.post4",
+      "transformers": "5.19.0"
+    },
+    "note": "Distribution metadata comes from the reused editable environment; the verified Git tag identifies the executed source.",
+    "source_clean": true
+  },
+  "engine_identity": {
+    "engine_tree_sha256": "7d0c96eeadccf88c98872ea48f9149e60085c483b5c046c0a2063906db17f780",
+    "config_sha256": "3fe1dd286a25caaf65053c860ce307589395fc1f1aeb10337e409e4fdac3a0d0",
+    "promoted_to_default": false
+  },
+  "workload": "Seed-TTS en; chunk25; fixed C1/C4/C8/C16/C32 order; 32/64/128/256/512 measured requests; native two warmups per tier",
+  "official_client_git_commit": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+  "total_measured_requests": 1984,
+  "measured_errors": 0,
+  "internal_compute": {
+    "omni": {
+      "flow_precision": "FP32 (unmodified tag defaults)",
+      "flow_steps": 10
+    },
+    "candidate": {
+      "flow_precision": "FP16",
+      "flow_steps": 6
+    },
+    "scope": "Same benchmark inputs and client, different internal precision and solver budget; not a lossless same-precision speedup."
+  },
+  "uncertainty": "Single-run points; frozen statistical and speech-quality acceptance not completed",
+  "measurements": [
+    {
+      "concurrency": 1,
+      "omni": {
+        "ttfp_ms": 1077.5061729946174,
+        "rtf": 0.3958634562300245,
+        "req_s": 0.630742327713575,
+        "completed": 32,
+        "failed": 0,
+        "input_tokens": 4411,
+        "audio_duration_s": 130.28
+      },
+      "candidate": {
+        "ttfp_ms": 684.3855691840872,
+        "rtf": 0.2752115975564421,
+        "req_s": 0.846226218552171,
+        "completed": 32,
+        "failed": 0,
+        "input_tokens": 4411,
+        "audio_duration_s": 138.4
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": 36.48430177601348,
+          "rtf": 30.4781501739517,
+          "req_s": 34.16353737027917
+        }
+      }
+    },
+    {
+      "concurrency": 4,
+      "omni": {
+        "ttfp_ms": 2131.1682624946116,
+        "rtf": 0.8351138445389832,
+        "req_s": 1.175105758803404,
+        "completed": 64,
+        "failed": 0,
+        "input_tokens": 8856,
+        "audio_duration_s": 268.88
+      },
+      "candidate": {
+        "ttfp_ms": 1768.0249166442081,
+        "rtf": 0.6737046874872256,
+        "req_s": 1.3364692945063263,
+        "completed": 64,
+        "failed": 0,
+        "input_tokens": 8856,
+        "audio_duration_s": 288.6
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": 17.03963747214078,
+          "rtf": 19.32780280284565,
+          "req_s": 13.731830900670339
+        }
+      }
+    },
+    {
+      "concurrency": 8,
+      "omni": {
+        "ttfp_ms": 3221.953582535207,
+        "rtf": 1.422146553705705,
+        "req_s": 1.4306363163523104,
+        "completed": 128,
+        "failed": 0,
+        "input_tokens": 17646,
+        "audio_duration_s": 516.0
+      },
+      "candidate": {
+        "ttfp_ms": 2626.475066492276,
+        "rtf": 1.0107239431863213,
+        "req_s": 1.917350031842299,
+        "completed": 128,
+        "failed": 0,
+        "input_tokens": 17646,
+        "audio_duration_s": 536.92
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": 18.481908593306805,
+          "rtf": 28.929691489764863,
+          "req_s": 34.02078571100176
+        }
+      }
+    },
+    {
+      "concurrency": 16,
+      "omni": {
+        "ttfp_ms": 5785.640200141643,
+        "rtf": 2.3811466471926157,
+        "req_s": 1.6026326176874113,
+        "completed": 256,
+        "failed": 0,
+        "input_tokens": 35331,
+        "audio_duration_s": 1095.04
+      },
+      "candidate": {
+        "ttfp_ms": 4181.122357185814,
+        "rtf": 1.5482860865746464,
+        "req_s": 2.3413125877761223,
+        "completed": 256,
+        "failed": 0,
+        "input_tokens": 35331,
+        "audio_duration_s": 1155.88
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": 27.732762277829647,
+          "rtf": 34.977289685199196,
+          "req_s": 46.09165955667505
+        }
+      }
+    },
+    {
+      "concurrency": 32,
+      "omni": {
+        "ttfp_ms": 15420.539173946963,
+        "rtf": 4.774957105660377,
+        "req_s": 1.5574464725555384,
+        "completed": 512,
+        "failed": 0,
+        "input_tokens": 70702,
+        "audio_duration_s": 2258.44
+      },
+      "candidate": {
+        "ttfp_ms": 6338.580486921273,
+        "rtf": 2.2923024717450495,
+        "req_s": 3.0396228149126268,
+        "completed": 512,
+        "failed": 0,
+        "input_tokens": 70702,
+        "audio_duration_s": 2361.16
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": 58.89520842675644,
+          "rtf": 51.99323426324216,
+          "req_s": 95.16708076169431
+        }
+      }
+    }
+  ],
+  "evidence_sha256": {
+    "baseline/summary.json": "9dc88392adecccc5c2b08c72242b74f07c5153eee68ab83228129134c0ac0af8",
+    "baseline/server-command.json": "96e86fb2741bf8080de753e3e405c46ec473cc77dad4bc3ea81ff05ed835bfee",
+    "baseline/input-sha256.json": "03f76defd888e13332a24c13209ec2a9bb57c1cf7b42a0b94ee5b077c57d6e36",
+    "baseline/server-exit-code.json": "303a7cba26142400e3114108f320d64f0b3d5a6b834d33dce52a5c923ef54260",
+    "candidate/summary.json": "9686e840b6ea0a0345bc7700fd9ff3925ccdbe32e5240829196df80fffc41694",
+    "candidate/server-command.json": "ceba732c0634edd2460df5d5c20a8f05fc0ea4c6642b0f4793f4a62e50005e67",
+    "candidate/input-sha256.json": "4a0f5beffabd6ac056d3d5b4f0c444bbd0120c249913748ff63a5e4a10f7262e",
+    "candidate/server-exit-code.json": "8269506139eb1907bd9c458c37c782a3e9fb6e328a90172a2296b4c46f18be77"
+  }
+}

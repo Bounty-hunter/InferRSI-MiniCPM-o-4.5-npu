@@ -1,0 +1,42 @@
+[
+  {
+    "tag": "c1-w1",
+    "concurrency": 1,
+    "window": 1,
+    "begin_ns": 1793586217193646944,
+    "end_ns": 1793586304539593950,
+    "native_warmups": 2
+  },
+  {
+    "tag": "c4-w1",
+    "concurrency": 4,
+    "window": 1,
+    "begin_ns": 1793586304884817207,
+    "end_ns": 1793586396667333373,
+    "native_warmups": 2
+  },
+  {
+    "tag": "c8-w1",
+    "concurrency": 8,
+    "window": 1,
+    "begin_ns": 1793586396696360888,
+    "end_ns": 1793586505476386326,
+    "native_warmups": 2
+  },
+  {
+    "tag": "c16-w1",
+    "concurrency": 16,
+    "window": 1,
+    "begin_ns": 1793586505506203591,
+    "end_ns": 1793586658628689727,
+    "native_warmups": 2
+  },
+  {
+    "tag": "c32-w1",
+    "concurrency": 32,
+    "window": 1,
+    "begin_ns": 1793586658677336312,
+    "end_ns": 1793586870243846668,
+    "native_warmups": 2
+  }
+]

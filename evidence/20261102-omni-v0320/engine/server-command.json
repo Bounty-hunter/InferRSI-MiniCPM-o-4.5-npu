@@ -1,0 +1,10 @@
+[
+  "/workspace/minicpmo-r182/venv/bin/python",
+  "/workspace/minicpmo-r182/rsi-r286-r295/entry.py",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "18972",
+  "--config",
+  "/workspace/minicpmo-r182/rsi-r286-r295/config-r292.json"
+]

@@ -1,0 +1,19 @@
+{
+  "round": 295,
+  "artifact": "candidate-v0320-client-20261102",
+  "engine": "engine-r292-first-audio-priority",
+  "config": "rsi-r286-r295/config-r292.json",
+  "engine_sha256": "7d0c96eeadccf88c98872ea48f9149e60085c483b5c046c0a2063906db17f780",
+  "port": 18972,
+  "concurrencies": [
+    1,
+    4,
+    8,
+    16,
+    32
+  ],
+  "repeat": 1,
+  "tests": [],
+  "benchmark_git_tag": "v0.32.0",
+  "benchmark_git_commit": "5917730a4b02aedb44d374173cdc1b10484ccd52"
+}

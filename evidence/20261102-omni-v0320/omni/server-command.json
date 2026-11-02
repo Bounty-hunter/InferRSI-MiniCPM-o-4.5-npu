@@ -1,0 +1,21 @@
+[
+  "/workspace/minicpmo-r182/venv/bin/python",
+  "-m",
+  "vllm_omni.entrypoints.cli.main",
+  "serve",
+  "/dataset/models/MiniCPM-o-4_5",
+  "--omni",
+  "--host",
+  "127.0.0.1",
+  "--port",
+  "18332",
+  "--served-model-name",
+  "openbmb/MiniCPM-o-4_5",
+  "--deploy-config",
+  "/workspace/minicpmo-r182/vllm-omni-v0320-20261102/vllm_omni/deploy/minicpmo_4_5.yaml",
+  "--trust-remote-code",
+  "--stage-init-timeout",
+  "900",
+  "--init-timeout",
+  "1800"
+]
