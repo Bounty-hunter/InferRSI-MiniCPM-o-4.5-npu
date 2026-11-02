@@ -18,6 +18,7 @@ class GraphLaunchGate:
         self._condition = threading.Condition()
         self._active_launches = 0
         self._capturing = False
+        self._capture_waiters = 0
         self._capture_owner: int | None = None
         self._local = threading.local()
 
@@ -26,7 +27,9 @@ class GraphLaunchGate:
         """Enter an ordinary accelerator-launch region (shared/read mode)."""
         owner = threading.get_ident()
         with self._condition:
-            while self._capturing and self._capture_owner != owner:
+            while ((self._capturing and self._capture_owner != owner)
+                   or (self._capture_waiters and not getattr(self._local, "launch_depth", 0)
+                       and self._capture_owner != owner)):
                 self._condition.wait()
             self._active_launches += 1
             self._local.launch_depth = getattr(self._local, "launch_depth", 0) + 1
@@ -52,8 +55,16 @@ class GraphLaunchGate:
             else:
                 own_launches = getattr(self._local, "launch_depth", 0)
                 self._active_launches -= own_launches
-                while self._capturing or self._active_launches:
-                    self._condition.wait()
+                self._capture_waiters += 1
+                try:
+                    while self._capturing or self._active_launches:
+                        self._condition.wait()
+                except BaseException:
+                    self._active_launches += own_launches
+                    raise
+                finally:
+                    self._capture_waiters -= 1
+                    self._condition.notify_all()
                 self._capturing = True
                 self._capture_owner = owner
                 self._local.capture_depth = 1

@@ -1,0 +1,120 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -80,6 +80,7 @@
+         thinker_prefix_cache_min_tokens: int = 64,
+         thinker_prefix_cache_min_live: int = 1,
+         t2w_first_audio_priority: bool = False,
++        t2w_fixed_modulation: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -189,6 +190,10 @@
+                 self.t2w.n_timesteps,
+                 graph_t=tuple(dict.fromkeys(STEADY_T + FINAL_T + SETUP_T)),
+             )
++        if t2w_fixed_modulation:
++            if self.t2w_batch.euler is None or t2w_npu_fused_variant != "hybrid":
++                raise ValueError("fixed modulation requires hybrid Euler graphs")
++            self.t2w_batch.euler.fixed_modulation = True
+         # Eager flow caches are large at long reference lengths.  Eight rows
+         # keep one Euler step's workspace bounded while preserving useful NPU
+         # batching; completed microbatches retain only request-owned caches.
+--- a/engine/runtime/dit_fused_npu.py
++++ b/engine/runtime/dit_fused_npu.py
+@@ -261,6 +261,7 @@
+     pack_qkv: bool,
+     add_layer_norm: bool,
+     im2col_conv: bool,
++    modulation: torch.Tensor | None = None,
+ ):
+     frames = int(x.shape[2])
+     if out is None:
+@@ -270,7 +271,7 @@
+             att_cache.new_empty(att_cache.shape[:3] + (frames + att_cache.shape[3], att_cache.shape[4])),
+         )
+     estimator_input = torch.cat((x, mu, spks.unsqueeze(-1).expand(-1, -1, frames), cond), dim=1)
+-    modulation = dit_modulation(est, t[:1])
++    modulation = dit_modulation(est, t[:1]) if modulation is None else modulation
+     blocks = est.blocks
+     depth = len(blocks)
+     conv1, conv2 = blocks[0].conv.block[1], blocks[0].conv.block[6]
+@@ -379,7 +380,7 @@
+     )
+ 
+ 
+-def estimator_temb_hybrid_npu(est, x, mu, t, spks, cond, cnn_cache, att_cache, mask, tr, out=None):
++def estimator_temb_hybrid_npu(est, x, mu, t, spks, cond, cnn_cache, att_cache, mask, tr, out=None, *, modulation=None):
+     """Use packed QKV below the unstable C8 CFG bucket.
+ 
+     The official C8 workload reaches 16 CFG rows.  Sustained graph replay of
+@@ -390,7 +391,7 @@
+     """
+     return _estimator_temb_configured_npu(
+         est, x, mu, t, spks, cond, cnn_cache, att_cache, mask, tr, out,
+-        pack_qkv=int(x.shape[0]) < 16, add_layer_norm=False, im2col_conv=False,
++        pack_qkv=int(x.shape[0]) < 16, add_layer_norm=False, im2col_conv=False, modulation=modulation,
+     )
+ 
+ 
+--- a/engine/runtime/dit_graph.py
++++ b/engine/runtime/dit_graph.py
+@@ -384,6 +384,8 @@
+ 
+     def __init__(self, cfm, est_fn, dtype, autocast_dtype, steps: int, graph_t=STEADY_T):
+         self.cfm, self.est, self.est_fn = cfm, cfm.estimator, est_fn
++        self.fixed_modulation = False
++        self.modulation_tables = {}
+         self.dtype, self.autocast_dtype, self.steps, self.graph_t = dtype, autocast_dtype, steps, tuple(graph_t)
+         # The persistent attention arenas dominate these limits.  FP16 uses
+         # half their bytes, so it can double the row capacity without
+@@ -482,7 +484,7 @@
+                     dt = t_span[step + 1] - t
+         return torch.stack(out)
+ 
+-    def _body(self, w: dict, temb: torch.Tensor) -> None:
++    def _body(self, w: dict, temb: torch.Tensor, modulation=None) -> None:
+         cfm, steps = self.cfm, self.steps
+         t_span = torch.linspace(0, 1, steps + 1, device=self.device, dtype=self.dtype)
+         t_span = 1 - torch.cos(t_span * 0.5 * torch.pi)
+@@ -490,7 +492,8 @@
+         x = w["x0"]
+         for step in range(1, steps + 1):
+             self.est_fn(self.est, x.repeat(2, 1, 1), w["mu"], temb[step - 1], w["spks"], w["cond"], w["cnn"][step - 1], w["att"][step - 1],
+-                        w["mask"], w["tr"], out=(w["dphi"], w["o_cnn"][step - 1], w["o_att"][step - 1]))
++                        w["mask"], w["tr"], out=(w["dphi"], w["o_cnn"][step - 1], w["o_att"][step - 1]),
++                        **({"modulation": modulation[step - 1]} if modulation is not None else {}))
+             d, u = w["dphi"].chunk(2, dim=0)
+             x = x + dt * ((1.0 + cfm.inference_cfg_rate) * d - cfm.inference_cfg_rate * u)
+             t = t + dt
+@@ -511,12 +514,19 @@
+             temb = self._tembs(rows)
+             with torch.amp.autocast(self.device.type, dtype=self.autocast_dtype,
+                                     enabled=self.autocast_dtype != torch.float32):
+-                self._body(w, temb)
++                modulation = None
++                if self.fixed_modulation:
++                    from engine.runtime.dit_fused_npu import dit_modulation
++                    # The solver's original temb tensor and model weights are
++                    # constant for this key. Keep every table alive for replay.
++                    modulation = torch.stack([dit_modulation(self.est, step[:1]) for step in temb])
++                    self.modulation_tables[key] = modulation
++                self._body(w, temb, modulation)
+                 self.accel.synchronize()
+                 graph_class = getattr(self.accel, "CUDAGraph", None) or getattr(self.accel, "NPUGraph")
+                 g = graph_class()
+                 with self.accel.graph(g, pool=self.pool, capture_error_mode="thread_local"):
+-                    self._body(w, temb)
++                    self._body(w, temb, modulation)
+             self.accel.synchronize()
+             self.graphs[key] = (g, w, temb)
+ 
+--- a/config-r292.json
++++ b/config-r304.json
+@@ -38,5 +38,6 @@
+   "thinker_prefix_cache": true,
+   "thinker_prefix_cache_min_tokens": 64,
+   "thinker_prefix_cache_min_live": 9,
+-  "t2w_first_audio_priority": true
++  "t2w_first_audio_priority": true,
++  "t2w_fixed_modulation": true
+ }

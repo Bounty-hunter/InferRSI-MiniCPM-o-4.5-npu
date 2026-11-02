@@ -1,0 +1,26 @@
+{
+  "tag": "r305",
+  "engine": "engine-r305",
+  "config": "config-r305.json",
+  "engine_sha256": "fb497b67c1808ddb65c02541dbe8e646a00b28eab14e602c424c1f88b8cec14b",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19106,
+  "runner": "run_lowc.py",
+  "quality_first": true,
+  "quality_reference": "control-lowc",
+  "require_exact_thinker": true,
+  "hypothesis": "Generic prompt-lookup speculative greedy verification: proposal only from already-generated ngram matches, target model verifies all tokens, rejects wrong suffix and truncates unused KV",
+  "origin": "r296/r299 first-text wait dominates; independent algorithmic idea, bounded replay/dependency-closure knowledge used for KV ownership and rejection",
+  "parent": "control-lowc",
+  "lowc_verification_note": "Packed append-prefill verification explicitly qualifies batched backend even when ordinary prefix-cache lane disabled it below9; target token parity remains mandatory before native timing"
+}

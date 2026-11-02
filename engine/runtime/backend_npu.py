@@ -59,6 +59,8 @@ class AscendTrackSBackend(TrackSBackend):
         talker_sampling_rng: str = "auto",
         t2w_cache_offload: bool = False,
         t2w_euler_graphs: bool = False,
+        t2w_npu_fused_body: bool = False,
+        t2w_npu_fused_variant: str = "full",
         t2w_hift_graphs: bool = False,
         t2w_hift_decode_tf32=False,
         t2w_encoder_graphs: bool = False,
@@ -72,6 +74,13 @@ class AscendTrackSBackend(TrackSBackend):
         timeline_markers: bool = False,
         profile_stages: bool = False,
         stage_trace_dir: str | None = None,
+        talker_full_block_graphs: bool = False,
+        talker_full_block_warmup: bool = False,
+        thinker_prefix_cache: bool = False,
+        thinker_prefix_cache_min_tokens: int = 64,
+        thinker_prefix_cache_min_live: int = 1,
+        t2w_first_audio_priority: bool = False,
+        thinker_prompt_lookup_max_tokens: int = 0,
         **_future_track_s_options,
     ):
         if torch.device(device).type != "npu":
@@ -84,8 +93,16 @@ class AscendTrackSBackend(TrackSBackend):
             raise ValueError("t2w_batch_wait_min_active must be positive")
         if t2w_batch_min_ready is not None and int(t2w_batch_min_ready) < 1:
             raise ValueError("t2w_batch_min_ready must be positive when set")
+        if t2w_npu_fused_body and not t2w_euler_graphs:
+            raise ValueError("t2w_npu_fused_body requires t2w_euler_graphs")
+        if t2w_npu_fused_variant not in ("full", "qkv", "hybrid"):
+            raise ValueError("t2w_npu_fused_variant must be 'full', 'qkv', or 'hybrid'")
         if float(prompt_setup_wait_ms) < 0:
             raise ValueError("prompt_setup_wait_ms must be non-negative")
+        if int(thinker_prefix_cache_min_tokens) < 1:
+            raise ValueError("thinker_prefix_cache_min_tokens must be positive")
+        if int(thinker_prefix_cache_min_live) < 1:
+            raise ValueError("thinker_prefix_cache_min_live must be positive")
         import torch_npu  # noqa: F401
         from transformers import AutoTokenizer
 
@@ -150,9 +167,24 @@ class AscendTrackSBackend(TrackSBackend):
             from engine.runtime.dit_graph import FINAL_T, SETUP_T, STEADY_T, EulerGraphs
 
             est = self.t2w.flow.decoder.estimator
+            estimator_fn = BatchedToken2Wav._estimator_temb
+            if t2w_npu_fused_body:
+                from engine.runtime.dit_fused_npu import (
+                    estimator_temb_fused_npu,
+                    estimator_temb_hybrid_npu,
+                    estimator_temb_qkv_npu,
+                    prepare_estimator,
+                )
+
+                prepare_estimator(est, pack_convs=t2w_npu_fused_variant == "full")
+                estimator_fn = {
+                    "full": estimator_temb_fused_npu,
+                    "hybrid": estimator_temb_hybrid_npu,
+                    "qkv": estimator_temb_qkv_npu,
+                }[t2w_npu_fused_variant]
             self.t2w_batch.euler = EulerGraphs(
                 self.t2w.flow.decoder,
-                BatchedToken2Wav._estimator_temb,
+                estimator_fn,
                 next(est.parameters()).dtype,
                 self.t2w_batch.dtype,
                 self.t2w.n_timesteps,
@@ -162,6 +194,8 @@ class AscendTrackSBackend(TrackSBackend):
         # keep one Euler step's workspace bounded while preserving useful NPU
         # batching; completed microbatches retain only request-owned caches.
         self.t2w_batch.max_flow_streams = 16 if float16_flow else 8
+        self.t2w_npu_fused_body = bool(t2w_npu_fused_body)
+        self.t2w_npu_fused_variant = str(t2w_npu_fused_variant) if t2w_npu_fused_body else "reference"
         self.t2w_batch.offload_flow_cache = bool(t2w_cache_offload)
         self.frontend = MultimodalFrontend(model_dir, device=device)
         gc.collect()
@@ -178,6 +212,7 @@ class AscendTrackSBackend(TrackSBackend):
             use_graphs=use_graphs,
             graph_max_batch=graph_max_batch,
             graph_max_blocks=64,
+            batch_append_prefill=thinker_prefix_cache,
         )
         self.arun = NpuDecoderRunner(
             self.talker.w,
@@ -199,6 +234,10 @@ class AscendTrackSBackend(TrackSBackend):
         if self.t2w_batch.hift_graphs is not None:
             self.t2w_batch.hift_graphs.capture_context = self._graph_capture_context
         torch.npu.empty_cache()
+        if int(thinker_prompt_lookup_max_tokens) < 0:
+            raise ValueError("thinker_prompt_lookup_max_tokens must be non-negative")
+        self.thinker_prompt_lookup_max_tokens = int(thinker_prompt_lookup_max_tokens)
+        self.thinker_prompt_lookup_stats = dict(verification_calls=0,draft_tokens=0,matched_draft_tokens=0,target_tokens=0,kv_fallbacks=0)
         self.device, self.max_live = device, max_live
         if int(talker_min_new_tokens) < 0:
             raise ValueError("talker_min_new_tokens must be >= 0")
@@ -244,10 +283,35 @@ class AscendTrackSBackend(TrackSBackend):
             self.stage_trace_dir.mkdir(parents=True, exist_ok=True)
         self.timelines = {}
         self.tick_profile = {}
+        self.talker_full_block_graphs_enabled = bool(talker_full_block_graphs)
+        # Exact row=3 full-block replay regresses the native C4 workload even
+        # though it is numerically correct.  Keep that cohort on the original
+        # eager graph-lane path; row=5/6/7 remove the measured C8/C16 fallback.
+        self.talker_full_block_graph_batches = tuple(
+            batch for batch in (1, 2, 4, 5, 6, 7, 8)
+            if batch <= self.arun.graph_max_batch
+        )
+        self.talker_full_block_graphs = {}
+        self.talker_full_block_replays = {}
+        self.talker_full_block_warmup_s = {}
         self.split_threads = False
         self.tick_overlap = False
         self.t2wp = None
         self.audio_live = {}
+        self.thinker_prefix_cache = bool(thinker_prefix_cache)
+        self.thinker_prefix_cache_min_tokens = int(thinker_prefix_cache_min_tokens)
+        self.thinker_prefix_cache_min_live = int(thinker_prefix_cache_min_live)
+        # Negative graph-padding sequences start at -1.  Keep the retained
+        # prompt KV well outside that namespace.
+        self._thinker_prefix_seq = -1_000_000_001
+        self._thinker_prefix_ids: tuple[int, ...] | None = None
+        self._thinker_prefix_stats = {
+            "hits": 0,
+            "misses": 0,
+            "tokens_reused": 0,
+            "tokens_computed": 0,
+            "requests_bypassed_below_min_live": 0,
+        }
         self.sched = {"prefill_token_budget": None, "prefill_tokens_tick_max": 0,
                       "prefill_chunked_ticks": 0, "prefill_kv_wait_ticks": 0,
                       "talker_starts_deferred_ticks": 0, "talker_kv_wait_ticks": 0}
@@ -273,7 +337,11 @@ class AscendTrackSBackend(TrackSBackend):
         self.live: dict[int, LiveS] = {}
         self._next = 0
         self._lock = threading.Lock()
+        if talker_full_block_warmup:
+            self._warm_full_talker_blocks()
         self.thread = threading.Thread(target=self._run, daemon=True, name="npu-engine")
+        self.t2w_first_audio_priority = bool(t2w_first_audio_priority)
+        self.t2w_first_audio_priority_stats = {"batches": 0, "reordered": 0}
         self.thread.start()
         if self.prompt_setup_batching:
             self.prompt_setup_thread = threading.Thread(
@@ -285,6 +353,47 @@ class AscendTrackSBackend(TrackSBackend):
         if self.t2w_threaded:
             self.t2w_thread = threading.Thread(target=self._run_t2w, daemon=True, name="npu-token2wav")
             self.t2w_thread.start()
+
+    def _warm_full_talker_blocks(self) -> None:
+        """Build configured static buckets before starting service workers.
+
+        These are deterministic dummy graph inputs, not dataset requests. No
+        global RNG is consumed and all temporary sequence pages are released
+        after synchronizing their last replay. Real inputs are rebound before
+        every subsequent graph use, including their block tables and sampler
+        state. Unsupported shapes still use the original correctness path.
+        """
+        if not (self.talker_full_block_graphs_enabled and self.cfg.rng == "counter"
+                and self.arun.use_graphs and self.arun.static_shape_attention):
+            return
+        import time
+
+        from engine.runtime.talker_block_graph import NpuTalkerBlockGraph
+        from engine.talker_sampler import DecodeState
+
+        with torch.inference_mode():
+            for batch in self.talker_full_block_graph_batches:
+                seqs = [-10_000 - index for index in range(batch)]
+                if not self.akv.can_fit({seq: self.talker_k for seq in seqs}):
+                    continue
+                started = time.perf_counter()
+                try:
+                    for seq in seqs:
+                        self.akv.reserve(seq, self.talker_k)
+                    state = DecodeState.new(list(range(batch)), self.cfg, self.device)
+                    feeds = torch.zeros(batch, dtype=torch.long, device=self.device)
+                    graph = NpuTalkerBlockGraph(self.arun, self.talker.code_embed, self.talker.head,
+                                                self.talker.cfg.eos, self.cfg, batch, self.talker_k)
+                    graph.run(feeds, state, [0] * batch, [list(self.akv.pages[seq]) for seq in seqs])
+                    torch.npu.synchronize()
+                    self.talker_full_block_graphs[(batch, self.talker_k)] = graph
+                    self.talker_full_block_warmup_s[batch] = time.perf_counter() - started
+                finally:
+                    # No replay may retain a write to a returned physical page.
+                    torch.npu.synchronize()
+                    for seq in seqs:
+                        if seq in self.akv.pages:
+                            self.akv.release(seq)
 
     def _prepare(self, ref: bytes):
         """Prepare one immutable reference prompt for a shared future."""
@@ -510,6 +619,8 @@ class AscendTrackSBackend(TrackSBackend):
                 "t2w_timesteps": self.t2w.n_timesteps,
                 "t2w_euler_graph_failures": ({str(k): v for k, v in self.t2w_batch.euler.failures.items()}
                                                if self.t2w_batch.euler else {}),
+                "t2w_npu_fused_body": self.t2w_npu_fused_body,
+                "t2w_npu_fused_variant": self.t2w_npu_fused_variant,
                 "t2w_hift_graph_failures": ({str(k): v for k, v in self.t2w_batch.hift_graphs.failures.items()}
                                               if self.t2w_batch.hift_graphs else {}),
                 "t2w_encoder_graph_failures": ({str(k): v for k, v in self.t2w_batch.enc_graphs.failures.items()}
@@ -541,7 +652,21 @@ class AscendTrackSBackend(TrackSBackend):
                                                 if self.talker_post_graphs is not None else {}),
                 "talker_post_graph_replays": (dict(self.talker_post_graphs.replays)
                                                if self.talker_post_graphs is not None else {}),
+                "talker_full_block_graphs_enabled": self.talker_full_block_graphs_enabled,
+                "talker_full_block_graph_batches": list(self.talker_full_block_graph_batches),
+                "talker_full_block_graphs": [list(key) for key in self.talker_full_block_graphs],
+                "talker_full_block_replays": dict(self.talker_full_block_replays),
+                "talker_full_block_warmup_s": dict(self.talker_full_block_warmup_s),
+                "t2w_first_audio_priority": self.t2w_first_audio_priority,
+                "t2w_first_audio_priority_stats": dict(self.t2w_first_audio_priority_stats),
                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+                "thinker_prefix_cache_stats": dict(self._thinker_prefix_stats),
+                "thinker_batch_append_prefill": self.trun.batch_append_prefill,
+                "thinker_batch_append_prefill_failures": list(self.trun.batch_append_prefill_failures),
                 "talker_graph_buckets": sorted(self.arun.decode_graphs),
                 "prompt_cache_entries": prompt_entries, "prompt_cache_refs": prompt_refs,
                 "thinker_kv_pages_used": self.tkv.used_pages,
@@ -608,15 +733,33 @@ class AscendTrackSBackend(TrackSBackend):
                                       "completion_tokens": len(lv.generated),
                                       "audio_frames": lv.frames})
 
-    def _thinker_step(self, rows: list[LiveS]) -> None:
+    @staticmethod
+    def _common_prefix_length(left: tuple[int, ...], right: list[int]) -> int:
+        limit = min(len(left), len(right))
+        for index in range(limit):
+            if left[index] != right[index]:
+                return index
+        return limit
+
+    def _thinker_step_group(self, rows: list[LiveS], prefix_lengths: dict[int, int] | None = None, *, _skip_prompt_lookup: bool = False) -> None:
         if not rows:
             return
-        feeds = [lv.prompt_ids if lv.pending_prefill else [lv.generated[-1]] for lv in rows]
+        if (self.thinker_prompt_lookup_max_tokens and not _skip_prompt_lookup
+                and not prefix_lengths and not any(lv.pending_prefill for lv in rows)):
+            from engine.runtime.thinker_lookup import try_prompt_lookup_step
+            if try_prompt_lookup_step(self, rows):
+                return
+        prefix_lengths = prefix_lengths or {}
+        feeds = [
+            lv.prompt_ids[prefix_lengths.get(lv.seq, 0):] if lv.pending_prefill else [lv.generated[-1]]
+            for lv in rows
+        ]
         lay = self.tkv.layout([lv.seq for lv in rows], [len(f) for f in feeds])
         embs = []
         for lv, feed in zip(rows, feeds):
             if lv.pending_prefill and lv.prompt_embeds is not None:
-                embs.append(lv.prompt_embeds.to(self.thinker.dtype))
+                start = prefix_lengths.get(lv.seq, 0)
+                embs.append(lv.prompt_embeds[start:].to(self.thinker.dtype))
             else:
                 embs.append(self.thinker.embed(torch.tensor(feed, dtype=torch.int64, device=self.device)))
         # torch-npu's GLOBAL graph-capture mode forbids host/device copies on
@@ -627,6 +770,16 @@ class AscendTrackSBackend(TrackSBackend):
         nxt = torch.nn.functional.linear(last, self.thinker.w["lm_head.weight"]).float().argmax(-1).tolist()
         from engine.server import TextDelta
         from engine.runtime.backend import IM_END, TTS_EOS
+
+        # Seed the generic cache from the first ordinary text prompt.  Its KV
+        # is copied before any generated token is appended.  Later prompts
+        # discover their reusable length by token LCP; no request IDs or
+        # benchmark samples participate in the decision.
+        if self.thinker_prefix_cache and self._thinker_prefix_ids is None:
+            source = next((lv for lv in rows if lv.pending_prefill and lv.prompt_embeds is None), None)
+            if source is not None:
+                self.tkv.copy_prefix(source.seq, self._thinker_prefix_seq, len(source.prompt_ids))
+                self._thinker_prefix_ids = tuple(source.prompt_ids)
 
         for lv, h, tok in zip(rows, last, nxt):
             if lv.pending_prefill:
@@ -647,6 +800,54 @@ class AscendTrackSBackend(TrackSBackend):
                 lv.chunk_index += 1
                 if final:
                     self._close_thinker(lv, passed_final=True)
+
+    def _thinker_step(self, rows: list[LiveS]) -> None:
+        if not rows:
+            return
+        if not self.thinker_prefix_cache:
+            self._thinker_step_group(rows)
+            return
+        if len(self.live) < self.thinker_prefix_cache_min_live:
+            # Below the crossover point, preserve r246's original combined
+            # prefill/decode step and eager append fallback exactly.  The
+            # retained cache may still be seeded during warmup for a later
+            # high-active cohort.
+            self._thinker_prefix_stats["requests_bypassed_below_min_live"] += sum(
+                lv.pending_prefill for lv in rows
+            )
+            batch_append = self.trun.batch_append_prefill
+            cache_enabled = self.thinker_prefix_cache
+            self.trun.batch_append_prefill = False
+            self.thinker_prefix_cache = False
+            try:
+                self._thinker_step_group(rows)
+            finally:
+                self.trun.batch_append_prefill = batch_append
+                self.thinker_prefix_cache = cache_enabled
+            return
+
+        prefills = [lv for lv in rows if lv.pending_prefill]
+        decodes = [lv for lv in rows if not lv.pending_prefill]
+        prefix_lengths: dict[int, int] = {}
+        cached = self._thinker_prefix_ids
+        for lv in prefills:
+            prefix = 0
+            if cached is not None and lv.prompt_embeds is None and len(lv.prompt_ids) > 1:
+                prefix = min(self._common_prefix_length(cached, lv.prompt_ids), len(lv.prompt_ids) - 1)
+            if prefix >= self.thinker_prefix_cache_min_tokens:
+                self.tkv.copy_prefix(self._thinker_prefix_seq, lv.seq, prefix)
+                prefix_lengths[lv.seq] = prefix
+                self._thinker_prefix_stats["hits"] += 1
+                self._thinker_prefix_stats["tokens_reused"] += prefix
+                self._thinker_prefix_stats["tokens_computed"] += len(lv.prompt_ids) - prefix
+            else:
+                self._thinker_prefix_stats["misses"] += 1
+                self._thinker_prefix_stats["tokens_computed"] += len(lv.prompt_ids)
+
+        # Keep prefill and one-token decode in their native attention modes.
+        # Mixing them would route every decode row through append-prefill.
+        self._thinker_step_group(prefills, prefix_lengths)
+        self._thinker_step_group(decodes)
 
     def _talker_step(self, rows: list[LiveS]) -> None:
         if not rows:
@@ -748,6 +949,32 @@ class AscendTrackSBackend(TrackSBackend):
         if not active:
             return
         starts_len = [self.akv.lengths[lv.seq] for lv in active]
+        full_block_base = (
+            self.talker_full_block_graphs_enabled
+            and self.cfg.rng == "counter"
+            and self.arun.use_graphs
+            and self.arun.static_shape_attention
+            and max(starts_len) + self.talker_k <= self.arun.static_shape_capacity
+            and self.akv.can_fit({lv.seq: self.talker_k for lv in active})
+        )
+        # The counter sampler and decoder rows are request-independent.  Split
+        # cohorts larger than the captured graph limit into stable, ordered
+        # microbatches instead of sending the whole 9--32 row cohort through
+        # ten host-issued graph lanes.  Avoid a trailing row=3 cohort by
+        # changing the preceding 8+3 split to 7+4.  Processing groups in
+        # request order preserves the original host window-publication order.
+        if full_block_base and len(active) > self.arun.graph_max_batch:
+            remaining = len(active)
+            offset = 0
+            while remaining:
+                width = min(self.arun.graph_max_batch, remaining)
+                if (remaining - width == 3 and width - 1 in self.talker_full_block_graph_batches
+                        and 4 in self.talker_full_block_graph_batches):
+                    width -= 1
+                self._talker_decode_block_impl(active[offset:offset + width], eos)
+                offset += width
+                remaining -= width
+            return
         state = DecodeState(
             torch.cat([lv.ts["seeds"] for lv in active]),
             torch.cat([lv.ts["steps"] for lv in active]),
@@ -757,6 +984,32 @@ class AscendTrackSBackend(TrackSBackend):
             [lv.ts["generator"] for lv in active] if self.cfg.uses_native_rng else None,
         )
         feeds = torch.cat([lv.ts["codes"] for lv in active])
+        if full_block_base and len(active) in self.talker_full_block_graph_batches:
+            from engine.runtime.talker_block_graph import NpuTalkerBlockGraph
+
+            for lv in active:
+                self.akv.reserve(lv.seq, self.talker_k)
+            key = (len(active), self.talker_k)
+            graph = self.talker_full_block_graphs.get(key)
+            if graph is None:
+                graph = NpuTalkerBlockGraph(self.arun, self.talker.code_embed, self.talker.head,
+                                            eos, self.cfg, len(active), self.talker_k)
+                self.talker_full_block_graphs[key] = graph
+            tokens, state = graph.run(feeds, state, starts_len,
+                                      [list(self.akv.pages[lv.seq]) for lv in active])
+            host = tokens.cpu()
+            self.talker_full_block_replays[len(active)] = self.talker_full_block_replays.get(len(active), 0) + 1
+            for i, lv in enumerate(active):
+                self.akv.lengths[lv.seq] = starts_len[i] + self.talker_k
+                lv.ts.update(steps=state.steps[i:i + 1], history=state.history[i:i + 1])
+                for j in range(host.shape[0]):
+                    tok = int(host[j, i])
+                    if tok == PAD:
+                        break
+                    self._take_frame(lv, tok, fed_upto=starts_len[i] + j + 1)
+                    if not lv.talking:
+                        break
+            return
         tokens = []
         rng_states = []
         use_post_graph = self.talker_post_graphs is not None and self.talker_post_graphs.begin(state, frames=self.talker_k)
@@ -882,6 +1135,12 @@ class AscendTrackSBackend(TrackSBackend):
         from engine.server import AudioChunk
         import time
 
+        if self.t2w_first_audio_priority:
+            self.t2w_first_audio_priority_stats["batches"] += 1
+            ordered = sorted(ready, key=lambda lv: lv.sample_offset != 0)
+            if any(a is not b for a, b in zip(ready, ordered)):
+                self.t2w_first_audio_priority_stats["reordered"] += 1
+            ready = ordered
         items = []
         for lv in ready:
             window = lv.windows.pop(0)

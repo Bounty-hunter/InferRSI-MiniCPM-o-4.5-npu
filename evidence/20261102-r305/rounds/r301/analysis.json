@@ -1,0 +1,103 @@
+{
+  "tag": "r301",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 32,
+      "ttfp_ms": 6191.724540047289,
+      "rtf": 2.2486228496221328,
+      "req_s": 3.1181258294373255,
+      "completed": 512,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 32,
+      "ttfp_ms": 5732.0309016522515,
+      "rtf": 2.0796638967944823,
+      "req_s": 3.364885564116823,
+      "completed": 512,
+      "failed": 0
+    }
+  ],
+  "native_tails": {
+    "c32": {
+      "mean_audio_rtf": 2.2486228496221328,
+      "median_audio_rtf": 2.095250369087365,
+      "p50_audio_rtf": 2.095250369087365,
+      "p95_audio_rtf": 3.481317444723099,
+      "p99_audio_rtf": 4.219537124323078,
+      "mean_audio_ttfp_ms": 6191.724540047289,
+      "median_audio_ttfp_ms": 5947.128339204937,
+      "p50_audio_ttfp_ms": 5947.128339204937,
+      "p95_audio_ttfp_ms": 8918.296324601397,
+      "p99_audio_ttfp_ms": 10188.653650265187
+    }
+  },
+  "diagnostic": {
+    "c32": {
+      "native": {
+        "ttfp_ms": 5732.0309016522515,
+        "rtf": 2.0796638967944823,
+        "req_s": 3.364885564116823
+      },
+      "underrun": 284,
+      "n": 512,
+      "buffer": {
+        "n": 512,
+        "mean": 0.4327484286204708,
+        "p50": 0.11971819493919611,
+        "p95": 2.0441669039428234,
+        "max": 5.001927971839905
+      },
+      "buffer_scenarios": [
+        {
+          "initial_buffer_s": 0,
+          "requests_with_underrun": 284
+        },
+        {
+          "initial_buffer_s": 0.2,
+          "requests_with_underrun": 221
+        },
+        {
+          "initial_buffer_s": 0.5,
+          "requests_with_underrun": 129
+        },
+        {
+          "initial_buffer_s": 1.0,
+          "requests_with_underrun": 69
+        }
+      ],
+      "first_audio_ledger_ms": {
+        "dispatch_to_admit": 179.03152210965345,
+        "admit_to_prefilled": 157.7281750032853,
+        "prefilled_to_first_text_chunk": 3404.514783376726,
+        "text_to_first_window_ready": 970.6281903727358,
+        "first_window_queue": 425.84725108827115,
+        "first_window_decode": 589.8962711089553,
+        "emit_to_client": 3.994957893155515
+      },
+      "queue_ms": {
+        "n": 2485,
+        "mean": 549.0405686671885,
+        "p50": 358.57418086379766,
+        "p95": 1360.5151223018765,
+        "max": 8859.571845270693
+      },
+      "decode_ms": {
+        "n": 2485,
+        "mean": 553.1259474293956,
+        "p50": 456.33033849298954,
+        "p95": 1239.541033282876,
+        "max": 2482.8823441639543
+      }
+    }
+  },
+  "development_quality": {
+    "n": 16,
+    "thinker_text_exact": 16,
+    "thinker_tokens_exact": 16,
+    "codec_tokens_exact": 1,
+    "speech_quality_gate": "NOT_RUN"
+  }
+}

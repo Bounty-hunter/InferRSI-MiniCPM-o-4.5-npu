@@ -1,0 +1,30 @@
+{
+  "qoe-c8": {
+    "pure_decode_calls": 304,
+    "rows_gt8_calls": 0,
+    "rows_gt8_host_ms": 0.0,
+    "all_decode_host_ms": 12158.887492,
+    "note": "Host elapsed includes device wait and contention; source graph_max_batch=8 forces these larger pure-decode groups to the eager path. Not isolated kernel cost or validated gain."
+  },
+  "qoe-c16": {
+    "pure_decode_calls": 400,
+    "rows_gt8_calls": 192,
+    "rows_gt8_host_ms": 17502.832965,
+    "all_decode_host_ms": 25963.626917,
+    "note": "Host elapsed includes device wait and contention; source graph_max_batch=8 forces these larger pure-decode groups to the eager path. Not isolated kernel cost or validated gain."
+  },
+  "qoe-c32": {
+    "pure_decode_calls": 390,
+    "rows_gt8_calls": 374,
+    "rows_gt8_host_ms": 35533.211892,
+    "all_decode_host_ms": 36190.498793,
+    "note": "Host elapsed includes device wait and contention; source graph_max_batch=8 forces these larger pure-decode groups to the eager path. Not isolated kernel cost or validated gain."
+  },
+  "profile-c16": {
+    "pure_decode_calls": 403,
+    "rows_gt8_calls": 177,
+    "rows_gt8_host_ms": 16000.517192,
+    "all_decode_host_ms": 25303.276525,
+    "note": "Host elapsed includes device wait and contention; source graph_max_batch=8 forces these larger pure-decode groups to the eager path. Not isolated kernel cost or validated gain."
+  }
+}

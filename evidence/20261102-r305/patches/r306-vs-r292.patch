@@ -1,0 +1,103 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -80,6 +80,7 @@
+         thinker_prefix_cache_min_tokens: int = 64,
+         thinker_prefix_cache_min_live: int = 1,
+         t2w_first_audio_priority: bool = False,
++        t2w_pending_host_copy: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -312,6 +313,8 @@
+                       "talker_starts_deferred_ticks": 0, "talker_kv_wait_ticks": 0}
+         self.pool = ThreadPoolExecutor(max_workers=max(1, int(prepare_workers)), thread_name_prefix="npu-t2w-prepare")
+         self._t2w_lock = threading.Lock()
++        self.t2w_pending_host_copy = bool(t2w_pending_host_copy)
++        self._t2w_pending_event = None
+         self.prompt_setup_batching = bool(prompt_setup_batching)
+         self.prompt_setup_wait_s = float(prompt_setup_wait_ms) / 1000.0
+         self.prompt_setup_inbox: queue.Queue = queue.Queue()
+@@ -421,6 +424,10 @@
+         """Run lossless batched prompt setup under the shared flow-scratch lock."""
+         with self._t2w_lock:
+             with self._graph_gate.launch(), torch.npu.stream(self.prompt_stream):
++                # CPU setup may enqueue early, but the shared Flow scratch
++                # cannot be reused until the previous decode/copy is complete.
++                if self._t2w_pending_event is not None:
++                    self.prompt_stream.wait_event(self._t2w_pending_event)
+                 if self.stage_profile_enabled:
+                     import time
+ 
+@@ -1135,8 +1142,16 @@
+             window = lv.windows.pop(0)
+             lv.mark(f"t2w_start:{window.index}")
+             items.append((lv.stream, window.tokens, window.last))
+-        with self._t2w_lock, self._graph_gate.launch():
+-            wavs = self.t2w_batch.decode(items)
++        if self.t2w_pending_host_copy:
++            with self._t2w_lock, self._graph_gate.launch():
++                pending = self.t2w_batch.decode(items, async_result=True)
++                self._t2w_pending_event = pending.event
++            # Host observation is outside the scratch/capture gate. Prompt
++            # setup takes an explicit device dependency above before reuse.
++            wavs = pending.result()
++        else:
++            with self._t2w_lock, self._graph_gate.launch():
++                wavs = self.t2w_batch.decode(items)
+         now = time.perf_counter()
+         for lv, wav in zip(ready, wavs):
+             lv.mark("t2w_end", now)
+--- a/engine/runtime/token2wav_batch.py
++++ b/engine/runtime/token2wav_batch.py
+@@ -118,14 +118,21 @@
+     the caching host allocator reuses the pinned block only after the copy's event, so the call's owner only has to keep
+     this object until ``result`` (a request closed meanwhile simply drops its samples)."""
+ 
+-    def __init__(self, flat: torch.Tensor | None, spans: list):
++    def __init__(self, flat: torch.Tensor | None, spans: list, device=None):
+         self.spans = spans
+         self.host = None
++        # Own the freshly concatenated device buffer until its D2H completes.
++        # It is independent of the next replay's graph-output storage.
++        self.device_source = flat
++        self.device = flat.device if flat is not None else torch.device(device or "cuda")
+         if flat is not None:
+-            self.host = torch.empty(flat.numel(), dtype=flat.dtype, pin_memory=True)
++            self.host = torch.empty((flat.numel(),), dtype=flat.dtype, device="cpu", pin_memory=True)
++            if not self.host.is_pinned():
++                raise RuntimeError("PendingAudio requires a pinned host allocation")
+             self.host.copy_(flat, non_blocking=True)
+-        self.event = torch.cuda.Event()
+-        self.event.record()
++        accel = getattr(torch, self.device.type)
++        self.event = accel.Event()
++        self.event.record(accel.current_stream())
+ 
+     def ready(self) -> bool:
+         return self.event.query()
+@@ -134,6 +141,7 @@
+         self.event.synchronize()
+         flat = self.host.numpy() if self.host is not None else np.zeros(0, np.float32)
+         out = [flat[a:b].copy() if sp is not None else None for sp in self.spans for a, b in [sp or (0, 0)]]
++        self.device_source = None
+         self.host = None  # the pinned block goes back to the allocator
+         return out
+ 
+@@ -810,6 +818,6 @@
+             spans[i] = (o, o + p.numel())
+             o += p.numel()
+         if async_result:
+-            return PendingAudio(torch.cat([p for _, p in pieces]).float() if pieces else None, spans)
++            return PendingAudio(torch.cat([p for _, p in pieces]).float() if pieces else None, spans, device=self.t2w.device)
+         flat = torch.cat([p for _, p in pieces]).float().cpu().numpy() if pieces else np.zeros(0, np.float32)
+         return [flat[a:b] if sp is not None else None for sp in spans for a, b in [sp or (0, 0)]]
+--- a/config-r292.json
++++ b/config-r306b.json
+@@ -38,5 +38,6 @@
+   "thinker_prefix_cache": true,
+   "thinker_prefix_cache_min_tokens": 64,
+   "thinker_prefix_cache_min_live": 9,
+-  "t2w_first_audio_priority": true
++  "t2w_first_audio_priority": true,
++  "t2w_pending_host_copy": true
+ }

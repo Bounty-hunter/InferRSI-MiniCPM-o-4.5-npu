@@ -1,0 +1,62 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -80,6 +80,8 @@
+         thinker_prefix_cache_min_tokens: int = 64,
+         thinker_prefix_cache_min_live: int = 1,
+         t2w_first_audio_priority: bool = False,
++        thinker_graph_max_batch: int | None = None,
++        thinker_decode_max_rows: int = 0,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -102,6 +104,8 @@
+             raise ValueError("thinker_prefix_cache_min_tokens must be positive")
+         if int(thinker_prefix_cache_min_live) < 1:
+             raise ValueError("thinker_prefix_cache_min_live must be positive")
++        if thinker_graph_max_batch is not None and int(thinker_graph_max_batch) < 1:
++            raise ValueError("thinker_graph_max_batch must be positive")
+         import torch_npu  # noqa: F401
+         from transformers import AutoTokenizer
+ 
+@@ -209,7 +213,7 @@
+             fused_ops=fused_decoder_ops,
+             fused_mode=thinker_decoder_op_mode,
+             use_graphs=use_graphs,
+-            graph_max_batch=graph_max_batch,
++            graph_max_batch=graph_max_batch if thinker_graph_max_batch is None else int(thinker_graph_max_batch),
+             graph_max_blocks=64,
+             batch_append_prefill=thinker_prefix_cache,
+         )
+@@ -233,6 +237,9 @@
+         if self.t2w_batch.hift_graphs is not None:
+             self.t2w_batch.hift_graphs.capture_context = self._graph_capture_context
+         torch.npu.empty_cache()
++        if int(thinker_decode_max_rows) < 0:
++            raise ValueError("thinker_decode_max_rows must be non-negative")
++        self.thinker_decode_max_rows = int(thinker_decode_max_rows)
+         self.device, self.max_live = device, max_live
+         if int(talker_min_new_tokens) < 0:
+             raise ValueError("talker_min_new_tokens must be >= 0")
+@@ -738,6 +745,11 @@
+     def _thinker_step_group(self, rows: list[LiveS], prefix_lengths: dict[int, int] | None = None) -> None:
+         if not rows:
+             return
++        cap = self.thinker_decode_max_rows
++        if cap and len(rows) > cap and not any(lv.pending_prefill for lv in rows):
++            for start in range(0, len(rows), cap):
++                self._thinker_step_group(rows[start:start + cap])
++            return
+         prefix_lengths = prefix_lengths or {}
+         feeds = [
+             lv.prompt_ids[prefix_lengths.get(lv.seq, 0):] if lv.pending_prefill else [lv.generated[-1]]
+--- a/config-r292.json
++++ b/config-r300.json
+@@ -38,5 +38,7 @@
+   "thinker_prefix_cache": true,
+   "thinker_prefix_cache_min_tokens": 64,
+   "thinker_prefix_cache_min_live": 9,
+-  "t2w_first_audio_priority": true
++  "t2w_first_audio_priority": true,
++  "thinker_graph_max_batch": 8,
++  "thinker_decode_max_rows": 8
+ }

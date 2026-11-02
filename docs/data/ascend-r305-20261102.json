@@ -1,0 +1,3296 @@
+{
+  "schema": "ascend-r305-public/v1",
+  "measurement_date": "2026-11-02",
+  "hardware": "One Ascend 910B1 (A2) per service",
+  "omni_commit": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+  "client_commit": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+  "measured_engine_tree_sha256": "fb497b67c1808ddb65c02541dbe8e646a00b28eab14e602c424c1f88b8cec14b",
+  "measured_config_sha256": "ce94705f0fcda1b1af49fd8cd38bf708feca32355496c029502db924dd509e7d",
+  "compute": {
+    "omni_flow": "FP32 / 10 steps",
+    "engine_flow": "FP16 / 6 steps",
+    "chunk": 25
+  },
+  "rows": [
+    {
+      "concurrency": 1,
+      "requests": 32,
+      "omni": {
+        "date": "20261102-032103",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 32,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 1,
+        "duration": 39.22293318063021,
+        "completed": 32,
+        "failed": 0,
+        "total_input_tokens": 4411,
+        "total_output_tokens": 443,
+        "request_throughput": 0.8158492342383723,
+        "request_goodput": null,
+        "output_throughput": 11.294412836487467,
+        "total_token_throughput": 123.7541307185331,
+        "total_audio_duration_s": 130.28,
+        "total_audio_frames": 3126720,
+        "audio_throughput": 3.3215261948929733,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 29.0,
+        "max_concurrent_requests": 2,
+        "rtfx": 0.0,
+        "num_ttft_samples": 32,
+        "num_tpot_samples": 0,
+        "num_itl_samples": 411,
+        "num_audio_ttfp_samples": 32,
+        "num_audio_rtf_samples": 32,
+        "mean_e2el_ms": 1225.07365848287,
+        "median_e2el_ms": 1186.6480754688382,
+        "p99_e2el_ms": 2068.6252976395194,
+        "mean_audio_rtf": 0.30596888450313264,
+        "median_audio_rtf": 0.29744629851636306,
+        "p99_audio_rtf": 0.36553448842159225,
+        "mean_audio_ttfp_ms": 848.211680771783,
+        "median_audio_ttfp_ms": 845.2046373859048,
+        "p99_audio_ttfp_ms": 1287.4792979285123
+      },
+      "engine": {
+        "date": "20261102-083510",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 32,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 1,
+        "duration": 33.26907861046493,
+        "completed": 32,
+        "failed": 0,
+        "total_input_tokens": 4411,
+        "total_output_tokens": 411,
+        "request_throughput": 0.9618541100784879,
+        "request_goodput": null,
+        "output_throughput": 12.353813726320578,
+        "total_token_throughput": 144.93939121245214,
+        "total_audio_duration_s": 135.12,
+        "total_audio_frames": 3242880,
+        "audio_throughput": 4.061428979806415,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 28.0,
+        "max_concurrent_requests": 2,
+        "rtfx": 0.0,
+        "num_ttft_samples": 32,
+        "num_tpot_samples": 32,
+        "num_itl_samples": 379,
+        "num_audio_ttfp_samples": 32,
+        "num_audio_rtf_samples": 32,
+        "mean_e2el_ms": 1039.1266930964775,
+        "median_e2el_ms": 960.1966729387641,
+        "p50_e2el_ms": 960.1966729387641,
+        "p95_e2el_ms": 1426.5254016965628,
+        "p99_e2el_ms": 1862.3740807361908,
+        "mean_audio_rtf": 0.2509202212090787,
+        "median_audio_rtf": 0.24421470409203014,
+        "p50_audio_rtf": 0.24421470409203014,
+        "p95_audio_rtf": 0.31134696355239594,
+        "p99_audio_rtf": 0.4108660217856436,
+        "mean_audio_ttfp_ms": 559.5668931200635,
+        "median_audio_ttfp_ms": 551.4809368178248,
+        "p50_audio_ttfp_ms": 551.4809368178248,
+        "p95_audio_ttfp_ms": 596.2275811936706,
+        "p99_audio_ttfp_ms": 1043.2839105278263
+      },
+      "mean_gains": {
+        "ttfp": 34.02980578964478,
+        "rtf": 17.991588714469543,
+        "request_s": 17.89606090350957
+      },
+      "engine_tag": "r305-c1-complete",
+      "omni_source": "evidence/20261102-r305/native/omni-c1.json",
+      "engine_source": "evidence/20261102-r305/native/r305-c1.json"
+    },
+    {
+      "concurrency": 2,
+      "requests": 32,
+      "omni": {
+        "date": "20261102-081928",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 32,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 2,
+        "duration": 27.281285349279642,
+        "completed": 32,
+        "failed": 0,
+        "total_input_tokens": 4411,
+        "total_output_tokens": 443,
+        "request_throughput": 1.1729652613616666,
+        "request_goodput": null,
+        "output_throughput": 16.23823783697557,
+        "total_token_throughput": 177.9241680827978,
+        "total_audio_duration_s": 130.28,
+        "total_audio_frames": 3126720,
+        "audio_throughput": 4.775434820318685,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 42.0,
+        "max_concurrent_requests": 4,
+        "rtfx": 0.0,
+        "num_ttft_samples": 32,
+        "num_tpot_samples": 0,
+        "num_itl_samples": 411,
+        "num_audio_ttfp_samples": 32,
+        "num_audio_rtf_samples": 32,
+        "mean_e2el_ms": 1685.108281992143,
+        "median_e2el_ms": 1633.3331842906773,
+        "p50_e2el_ms": 1633.3331842906773,
+        "p95_e2el_ms": 2253.406027890742,
+        "p99_e2el_ms": 2928.740125652404,
+        "mean_audio_rtf": 0.4229196618847725,
+        "median_audio_rtf": 0.422745815572293,
+        "p50_audio_rtf": 0.422745815572293,
+        "p95_audio_rtf": 0.4976958503217134,
+        "p99_audio_rtf": 0.4987601316974416,
+        "mean_audio_ttfp_ms": 1035.2801205590367,
+        "median_audio_ttfp_ms": 1021.0825162939727,
+        "p50_audio_ttfp_ms": 1021.0825162939727,
+        "p95_audio_ttfp_ms": 1358.6546746548265,
+        "p99_audio_ttfp_ms": 1475.7657769694924
+      },
+      "engine": {
+        "date": "20261102-082448",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 32,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 2,
+        "duration": 26.435083284042776,
+        "completed": 32,
+        "failed": 0,
+        "total_input_tokens": 4411,
+        "total_output_tokens": 411,
+        "request_throughput": 1.2105125471390672,
+        "request_goodput": null,
+        "output_throughput": 15.547520527317396,
+        "total_token_throughput": 182.4091094470182,
+        "total_audio_duration_s": 138.92000000000002,
+        "total_audio_frames": 3334080,
+        "audio_throughput": 5.255137595267477,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 38.0,
+        "max_concurrent_requests": 4,
+        "rtfx": 0.0,
+        "num_ttft_samples": 32,
+        "num_tpot_samples": 32,
+        "num_itl_samples": 379,
+        "num_audio_ttfp_samples": 32,
+        "num_audio_rtf_samples": 32,
+        "mean_e2el_ms": 1639.45076870732,
+        "median_e2el_ms": 1516.241475008428,
+        "p50_e2el_ms": 1516.241475008428,
+        "p95_e2el_ms": 2558.0012615304436,
+        "p99_e2el_ms": 3008.9141067396854,
+        "mean_audio_rtf": 0.38846763647565996,
+        "median_audio_rtf": 0.36820228238519026,
+        "p50_audio_rtf": 0.36820228238519026,
+        "p95_audio_rtf": 0.5766902085659759,
+        "p99_audio_rtf": 0.7708638848002984,
+        "mean_audio_ttfp_ms": 906.2063796154689,
+        "median_audio_ttfp_ms": 829.2255639098585,
+        "p50_audio_ttfp_ms": 829.2255639098585,
+        "p95_audio_ttfp_ms": 1436.754255136475,
+        "p99_audio_ttfp_ms": 1726.0181099735203
+      },
+      "mean_gains": {
+        "ttfp": 12.467518537289191,
+        "rtf": 8.146234028367127,
+        "request_s": 3.201056929325663
+      },
+      "engine_tag": "r305-omni-confirm",
+      "omni_source": "evidence/20261102-r305/native/omni-c2.json",
+      "engine_source": "evidence/20261102-r305/native/r305-c2.json"
+    },
+    {
+      "concurrency": 4,
+      "requests": 64,
+      "omni": {
+        "date": "20261102-082052",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 64,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 4,
+        "duration": 40.49467334058136,
+        "completed": 64,
+        "failed": 0,
+        "total_input_tokens": 8856,
+        "total_output_tokens": 920,
+        "request_throughput": 1.580454778872435,
+        "request_goodput": null,
+        "output_throughput": 22.719037446291253,
+        "total_token_throughput": 241.41446747276444,
+        "total_audio_duration_s": 269.96,
+        "total_audio_frames": 6479040,
+        "audio_throughput": 6.666555814131289,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 62.0,
+        "max_concurrent_requests": 8,
+        "rtfx": 0.0,
+        "num_ttft_samples": 64,
+        "num_tpot_samples": 0,
+        "num_itl_samples": 856,
+        "num_audio_ttfp_samples": 64,
+        "num_audio_rtf_samples": 64,
+        "mean_e2el_ms": 2488.8498935761163,
+        "median_e2el_ms": 2498.723532538861,
+        "p50_e2el_ms": 2498.723532538861,
+        "p95_e2el_ms": 3435.478939581662,
+        "p99_e2el_ms": 3987.7281721029417,
+        "mean_audio_rtf": 0.603847474792236,
+        "median_audio_rtf": 0.5894698480174325,
+        "p50_audio_rtf": 0.5894698480174325,
+        "p95_audio_rtf": 0.7443012648190442,
+        "p99_audio_rtf": 0.7633829796308967,
+        "mean_audio_ttfp_ms": 1384.5193230517907,
+        "median_audio_ttfp_ms": 1354.5677210204303,
+        "p50_audio_ttfp_ms": 1354.5677210204303,
+        "p95_audio_ttfp_ms": 1739.1631200909615,
+        "p99_audio_ttfp_ms": 1879.7308743279425
+      },
+      "engine": {
+        "date": "20261102-082609",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 64,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 4,
+        "duration": 40.04126456938684,
+        "completed": 64,
+        "failed": 0,
+        "total_input_tokens": 8856,
+        "total_output_tokens": 856,
+        "request_throughput": 1.598351118234427,
+        "request_goodput": null,
+        "output_throughput": 21.377946206385463,
+        "total_token_throughput": 242.5497821920743,
+        "total_audio_duration_s": 283.92,
+        "total_audio_frames": 6814080,
+        "audio_throughput": 7.090685148267477,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 43.0,
+        "max_concurrent_requests": 7,
+        "rtfx": 0.0,
+        "num_ttft_samples": 64,
+        "num_tpot_samples": 64,
+        "num_itl_samples": 792,
+        "num_audio_ttfp_samples": 64,
+        "num_audio_rtf_samples": 64,
+        "mean_e2el_ms": 2463.9142090600217,
+        "median_e2el_ms": 2337.638330180198,
+        "p50_e2el_ms": 2337.638330180198,
+        "p95_e2el_ms": 3701.3738153968006,
+        "p99_e2el_ms": 4257.708240896461,
+        "mean_audio_rtf": 0.5732844600970459,
+        "median_audio_rtf": 0.5435292462857095,
+        "p50_audio_rtf": 0.5435292462857095,
+        "p95_audio_rtf": 0.8317663683486938,
+        "p99_audio_rtf": 1.1958903285341012,
+        "mean_audio_ttfp_ms": 1287.7646600245498,
+        "median_audio_ttfp_ms": 1181.779674720019,
+        "p50_audio_ttfp_ms": 1181.779674720019,
+        "p95_audio_ttfp_ms": 1554.5133010018617,
+        "p99_audio_ttfp_ms": 3132.4347806256264
+      },
+      "mean_gains": {
+        "ttfp": 6.98832160854006,
+        "rtf": 5.061379896588258,
+        "request_s": 1.1323537757125912
+      },
+      "engine_tag": "r305-omni-confirm",
+      "omni_source": "evidence/20261102-r305/native/omni-c4.json",
+      "engine_source": "evidence/20261102-r305/native/r305-c4.json"
+    },
+    {
+      "concurrency": 8,
+      "requests": 128,
+      "omni": {
+        "date": "20261102-082237",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 128,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 8,
+        "duration": 62.52726883068681,
+        "completed": 128,
+        "failed": 0,
+        "total_input_tokens": 17646,
+        "total_output_tokens": 1774,
+        "request_throughput": 2.047106844640891,
+        "request_goodput": null,
+        "output_throughput": 28.37162142494485,
+        "total_token_throughput": 310.5844915853602,
+        "total_audio_duration_s": 514.28,
+        "total_audio_frames": 12342720,
+        "audio_throughput": 8.224891469233729,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 74.0,
+        "max_concurrent_requests": 12,
+        "rtfx": 0.0,
+        "num_ttft_samples": 128,
+        "num_tpot_samples": 0,
+        "num_itl_samples": 1646,
+        "num_audio_ttfp_samples": 128,
+        "num_audio_rtf_samples": 128,
+        "mean_e2el_ms": 3864.800058247056,
+        "median_e2el_ms": 3818.1476616300642,
+        "p50_e2el_ms": 3818.1476616300642,
+        "p95_e2el_ms": 5297.498080646619,
+        "p99_e2el_ms": 6302.839721590284,
+        "mean_audio_rtf": 0.9890283317876034,
+        "median_audio_rtf": 0.9815791636101838,
+        "p50_audio_rtf": 0.9815791636101838,
+        "p95_audio_rtf": 1.2444521630205916,
+        "p99_audio_rtf": 1.33085721506577,
+        "mean_audio_ttfp_ms": 1994.9608592796721,
+        "median_audio_ttfp_ms": 1965.6084622256458,
+        "p50_audio_ttfp_ms": 1965.6084622256458,
+        "p95_audio_ttfp_ms": 2474.2989795748144,
+        "p99_audio_ttfp_ms": 2689.6799718122934
+      },
+      "engine": {
+        "date": "20261102-082745",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 128,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 8,
+        "duration": 53.59252172522247,
+        "completed": 128,
+        "failed": 0,
+        "total_input_tokens": 17646,
+        "total_output_tokens": 1646,
+        "request_throughput": 2.388392930197924,
+        "request_goodput": null,
+        "output_throughput": 30.71324033676393,
+        "total_token_throughput": 359.9755969482684,
+        "total_audio_duration_s": 542.92,
+        "total_audio_frames": 13030080,
+        "audio_throughput": 10.130517887992632,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 86.0,
+        "max_concurrent_requests": 14,
+        "rtfx": 0.0,
+        "num_ttft_samples": 128,
+        "num_tpot_samples": 128,
+        "num_itl_samples": 1518,
+        "num_audio_ttfp_samples": 128,
+        "num_audio_rtf_samples": 128,
+        "mean_e2el_ms": 3316.9059496576665,
+        "median_e2el_ms": 3187.052983324975,
+        "p50_e2el_ms": 3187.052983324975,
+        "p95_e2el_ms": 4871.712261950596,
+        "p99_e2el_ms": 5758.767387317497,
+        "mean_audio_rtf": 0.8085176706863004,
+        "median_audio_rtf": 0.7617268707397222,
+        "p50_audio_rtf": 0.7617268707397222,
+        "p95_audio_rtf": 1.1394946825447247,
+        "p99_audio_rtf": 1.40345175437035,
+        "mean_audio_ttfp_ms": 1806.2249914801214,
+        "median_audio_ttfp_ms": 1721.608694177121,
+        "p50_audio_ttfp_ms": 1721.608694177121,
+        "p95_audio_ttfp_ms": 3029.6055883169097,
+        "p99_audio_ttfp_ms": 3374.578622598201
+      },
+      "mean_gains": {
+        "ttfp": 9.460630113199231,
+        "rtf": 18.251313465918805,
+        "request_s": 16.671630327966724
+      },
+      "engine_tag": "r305-omni-confirm",
+      "omni_source": "evidence/20261102-r305/native/omni-c8.json",
+      "engine_source": "evidence/20261102-r305/native/r305-c8.json"
+    }
+  ],
+  "incremental": [
+    {
+      "concurrency": 2,
+      "control": {
+        "date": "20261102-071112",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 32,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 2,
+        "duration": 30.906997801735997,
+        "completed": 32,
+        "failed": 0,
+        "total_input_tokens": 4411,
+        "total_output_tokens": 411,
+        "request_throughput": 1.0353642306274928,
+        "request_goodput": null,
+        "output_throughput": 13.29795933712186,
+        "total_token_throughput": 156.0164475026803,
+        "total_audio_duration_s": 133.96,
+        "total_audio_frames": 3215040,
+        "audio_throughput": 4.334293510464342,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 27.0,
+        "max_concurrent_requests": 4,
+        "rtfx": 0.0,
+        "num_ttft_samples": 32,
+        "num_tpot_samples": 32,
+        "num_itl_samples": 379,
+        "num_audio_ttfp_samples": 32,
+        "num_audio_rtf_samples": 32,
+        "mean_e2el_ms": 1923.2260771095753,
+        "median_e2el_ms": 1930.935451760888,
+        "p50_e2el_ms": 1930.935451760888,
+        "p95_e2el_ms": 2614.653615886345,
+        "p99_e2el_ms": 3043.1501937285075,
+        "mean_audio_rtf": 0.47704363282521334,
+        "median_audio_rtf": 0.45489154096680684,
+        "p50_audio_rtf": 0.45489154096680684,
+        "p95_audio_rtf": 0.6945381111203562,
+        "p99_audio_rtf": 0.889807688800047,
+        "mean_audio_ttfp_ms": 1166.637430927949,
+        "median_audio_ttfp_ms": 1070.316328201443,
+        "p50_audio_ttfp_ms": 1070.316328201443,
+        "p95_audio_ttfp_ms": 1666.4285174570975,
+        "p99_audio_ttfp_ms": 1837.3539979569616
+      },
+      "screen": {
+        "date": "20261102-072337",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 32,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 2,
+        "duration": 27.07332798279822,
+        "completed": 32,
+        "failed": 0,
+        "total_input_tokens": 4411,
+        "total_output_tokens": 411,
+        "request_throughput": 1.1819751166288857,
+        "request_goodput": null,
+        "output_throughput": 15.18099290420225,
+        "total_token_throughput": 178.10887538701522,
+        "total_audio_duration_s": 138.4,
+        "total_audio_frames": 3321600,
+        "audio_throughput": 5.112042379419931,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 36.0,
+        "max_concurrent_requests": 4,
+        "rtfx": 0.0,
+        "num_ttft_samples": 32,
+        "num_tpot_samples": 32,
+        "num_itl_samples": 379,
+        "num_audio_ttfp_samples": 32,
+        "num_audio_rtf_samples": 32,
+        "mean_e2el_ms": 1686.8961151049007,
+        "median_e2el_ms": 1499.5655715465546,
+        "p50_e2el_ms": 1499.5655715465546,
+        "p95_e2el_ms": 2801.071044057607,
+        "p99_e2el_ms": 3368.6040393356234,
+        "mean_audio_rtf": 0.40318305264535126,
+        "median_audio_rtf": 0.3731350138269622,
+        "p50_audio_rtf": 0.3731350138269622,
+        "p95_audio_rtf": 0.6067717563049067,
+        "p99_audio_rtf": 0.837695161426569,
+        "mean_audio_ttfp_ms": 902.7815902081784,
+        "median_audio_ttfp_ms": 826.8944919109344,
+        "p50_audio_ttfp_ms": 826.8944919109344,
+        "p95_audio_ttfp_ms": 1516.219333419576,
+        "p99_audio_ttfp_ms": 1778.7020209524785
+      },
+      "candidate": {
+        "date": "20261102-082448",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 32,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 2,
+        "duration": 26.435083284042776,
+        "completed": 32,
+        "failed": 0,
+        "total_input_tokens": 4411,
+        "total_output_tokens": 411,
+        "request_throughput": 1.2105125471390672,
+        "request_goodput": null,
+        "output_throughput": 15.547520527317396,
+        "total_token_throughput": 182.4091094470182,
+        "total_audio_duration_s": 138.92000000000002,
+        "total_audio_frames": 3334080,
+        "audio_throughput": 5.255137595267477,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 38.0,
+        "max_concurrent_requests": 4,
+        "rtfx": 0.0,
+        "num_ttft_samples": 32,
+        "num_tpot_samples": 32,
+        "num_itl_samples": 379,
+        "num_audio_ttfp_samples": 32,
+        "num_audio_rtf_samples": 32,
+        "mean_e2el_ms": 1639.45076870732,
+        "median_e2el_ms": 1516.241475008428,
+        "p50_e2el_ms": 1516.241475008428,
+        "p95_e2el_ms": 2558.0012615304436,
+        "p99_e2el_ms": 3008.9141067396854,
+        "mean_audio_rtf": 0.38846763647565996,
+        "median_audio_rtf": 0.36820228238519026,
+        "p50_audio_rtf": 0.36820228238519026,
+        "p95_audio_rtf": 0.5766902085659759,
+        "p99_audio_rtf": 0.7708638848002984,
+        "mean_audio_ttfp_ms": 906.2063796154689,
+        "median_audio_ttfp_ms": 829.2255639098585,
+        "p50_audio_ttfp_ms": 829.2255639098585,
+        "p95_audio_ttfp_ms": 1436.754255136475,
+        "p99_audio_ttfp_ms": 1726.0181099735203
+      },
+      "mean_gains": {
+        "ttfp_pct": 22.323220943231014,
+        "rtf_pct": 18.56769281773586,
+        "req_s_pct": 16.916589479378086
+      },
+      "limitation": "Single-run native points; serial confirmation vs earlier r292, not an isolated causal estimate of profiling alone."
+    },
+    {
+      "concurrency": 4,
+      "control": {
+        "date": "20261102-071243",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 64,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 4,
+        "duration": 46.21955969464034,
+        "completed": 64,
+        "failed": 0,
+        "total_input_tokens": 8856,
+        "total_output_tokens": 856,
+        "request_throughput": 1.3846951468778594,
+        "request_goodput": null,
+        "output_throughput": 18.52029758949137,
+        "total_token_throughput": 210.1274885387152,
+        "total_audio_duration_s": 285.12,
+        "total_audio_frames": 6842880,
+        "audio_throughput": 6.168816879340865,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 37.0,
+        "max_concurrent_requests": 7,
+        "rtfx": 0.0,
+        "num_ttft_samples": 64,
+        "num_tpot_samples": 64,
+        "num_itl_samples": 792,
+        "num_audio_ttfp_samples": 64,
+        "num_audio_rtf_samples": 64,
+        "mean_e2el_ms": 2834.7679691942176,
+        "median_e2el_ms": 2740.800220053643,
+        "p50_e2el_ms": 2740.800220053643,
+        "p95_e2el_ms": 4178.7390088196835,
+        "p99_e2el_ms": 4742.633042912928,
+        "mean_audio_rtf": 0.6612531757281572,
+        "median_audio_rtf": 0.6240057863949044,
+        "p50_audio_rtf": 0.6240057863949044,
+        "p95_audio_rtf": 0.909266562402986,
+        "p99_audio_rtf": 1.2902070335672473,
+        "mean_audio_ttfp_ms": 1730.7537450978998,
+        "median_audio_ttfp_ms": 1674.848250579089,
+        "p50_audio_ttfp_ms": 1674.848250579089,
+        "p95_audio_ttfp_ms": 2160.4285067412998,
+        "p99_audio_ttfp_ms": 3316.88383558765
+      },
+      "screen": {
+        "date": "20261102-072501",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 64,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 4,
+        "duration": 41.8243201514706,
+        "completed": 64,
+        "failed": 0,
+        "total_input_tokens": 8856,
+        "total_output_tokens": 856,
+        "request_throughput": 1.5302101688256533,
+        "request_goodput": null,
+        "output_throughput": 20.46656100804311,
+        "total_token_throughput": 232.20939311929288,
+        "total_audio_duration_s": 284.32,
+        "total_audio_frames": 6823680,
+        "audio_throughput": 6.797958675007965,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 55.0,
+        "max_concurrent_requests": 8,
+        "rtfx": 0.0,
+        "num_ttft_samples": 64,
+        "num_tpot_samples": 64,
+        "num_itl_samples": 792,
+        "num_audio_ttfp_samples": 64,
+        "num_audio_rtf_samples": 64,
+        "mean_e2el_ms": 2565.4177354153944,
+        "median_e2el_ms": 2466.0977851599455,
+        "p50_e2el_ms": 2466.0977851599455,
+        "p95_e2el_ms": 3987.043022550642,
+        "p99_e2el_ms": 5030.025013526899,
+        "mean_audio_rtf": 0.6063017377958311,
+        "median_audio_rtf": 0.5675396870730207,
+        "p50_audio_rtf": 0.5675396870730207,
+        "p95_audio_rtf": 0.852403229626061,
+        "p99_audio_rtf": 1.429443206841232,
+        "mean_audio_ttfp_ms": 1389.7479769220809,
+        "median_audio_ttfp_ms": 1295.344999525696,
+        "p50_audio_ttfp_ms": 1295.344999525696,
+        "p95_audio_ttfp_ms": 1821.37113274075,
+        "p99_audio_ttfp_ms": 3368.399897404015
+      },
+      "candidate": {
+        "date": "20261102-082609",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 64,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 4,
+        "duration": 40.04126456938684,
+        "completed": 64,
+        "failed": 0,
+        "total_input_tokens": 8856,
+        "total_output_tokens": 856,
+        "request_throughput": 1.598351118234427,
+        "request_goodput": null,
+        "output_throughput": 21.377946206385463,
+        "total_token_throughput": 242.5497821920743,
+        "total_audio_duration_s": 283.92,
+        "total_audio_frames": 6814080,
+        "audio_throughput": 7.090685148267477,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 43.0,
+        "max_concurrent_requests": 7,
+        "rtfx": 0.0,
+        "num_ttft_samples": 64,
+        "num_tpot_samples": 64,
+        "num_itl_samples": 792,
+        "num_audio_ttfp_samples": 64,
+        "num_audio_rtf_samples": 64,
+        "mean_e2el_ms": 2463.9142090600217,
+        "median_e2el_ms": 2337.638330180198,
+        "p50_e2el_ms": 2337.638330180198,
+        "p95_e2el_ms": 3701.3738153968006,
+        "p99_e2el_ms": 4257.708240896461,
+        "mean_audio_rtf": 0.5732844600970459,
+        "median_audio_rtf": 0.5435292462857095,
+        "p50_audio_rtf": 0.5435292462857095,
+        "p95_audio_rtf": 0.8317663683486938,
+        "p99_audio_rtf": 1.1958903285341012,
+        "mean_audio_ttfp_ms": 1287.7646600245498,
+        "median_audio_ttfp_ms": 1181.779674720019,
+        "p50_audio_ttfp_ms": 1181.779674720019,
+        "p95_audio_ttfp_ms": 1554.5133010018617,
+        "p99_audio_ttfp_ms": 3132.4347806256264
+      },
+      "mean_gains": {
+        "ttfp_pct": 25.595153922275195,
+        "rtf_pct": 13.303333558170383,
+        "req_s_pct": 15.429820190986309
+      },
+      "limitation": "Single-run native points; serial confirmation vs earlier r292, not an isolated causal estimate of profiling alone."
+    },
+    {
+      "concurrency": 8,
+      "control": {
+        "date": "20261102-071434",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 128,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 8,
+        "duration": 68.8089287597686,
+        "completed": 128,
+        "failed": 0,
+        "total_input_tokens": 17646,
+        "total_output_tokens": 1646,
+        "request_throughput": 1.8602236992656016,
+        "request_goodput": null,
+        "output_throughput": 23.921314132743596,
+        "total_token_throughput": 280.3705906736874,
+        "total_audio_duration_s": 547.12,
+        "total_audio_frames": 13130880,
+        "audio_throughput": 7.951293674548406,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 79.0,
+        "max_concurrent_requests": 13,
+        "rtfx": 0.0,
+        "num_ttft_samples": 128,
+        "num_tpot_samples": 128,
+        "num_itl_samples": 1518,
+        "num_audio_ttfp_samples": 128,
+        "num_audio_rtf_samples": 128,
+        "mean_e2el_ms": 4227.96110138006,
+        "median_e2el_ms": 4034.201639238745,
+        "p50_e2el_ms": 4034.201639238745,
+        "p95_e2el_ms": 6058.7562198285,
+        "p99_e2el_ms": 7402.149069467562,
+        "mean_audio_rtf": 1.0261070375286179,
+        "median_audio_rtf": 1.0069866229859599,
+        "p50_audio_rtf": 1.0069866229859599,
+        "p95_audio_rtf": 1.4468225841632198,
+        "p99_audio_rtf": 1.6979962546437488,
+        "mean_audio_ttfp_ms": 2657.2871340977144,
+        "median_audio_ttfp_ms": 2569.346385076642,
+        "p50_audio_ttfp_ms": 2569.346385076642,
+        "p95_audio_ttfp_ms": 3870.5349524039766,
+        "p99_audio_ttfp_ms": 4138.545606154949
+      },
+      "screen": {
+        "date": "20261102-072641",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 128,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 8,
+        "duration": 58.19047588855028,
+        "completed": 128,
+        "failed": 0,
+        "total_input_tokens": 17646,
+        "total_output_tokens": 1646,
+        "request_throughput": 2.1996726791709507,
+        "request_goodput": null,
+        "output_throughput": 28.286415858713944,
+        "total_token_throughput": 331.53191661379674,
+        "total_audio_duration_s": 542.72,
+        "total_audio_frames": 13025280,
+        "audio_throughput": 9.326612159684831,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 100.0,
+        "max_concurrent_requests": 14,
+        "rtfx": 0.0,
+        "num_ttft_samples": 128,
+        "num_tpot_samples": 128,
+        "num_itl_samples": 1518,
+        "num_audio_ttfp_samples": 128,
+        "num_audio_rtf_samples": 128,
+        "mean_e2el_ms": 3577.6318314528908,
+        "median_e2el_ms": 3549.2160003632307,
+        "p50_e2el_ms": 3549.2160003632307,
+        "p95_e2el_ms": 5117.298320261761,
+        "p99_e2el_ms": 6411.220002183693,
+        "mean_audio_rtf": 0.8721287846510205,
+        "median_audio_rtf": 0.8525191082328356,
+        "p50_audio_rtf": 0.8525191082328356,
+        "p95_audio_rtf": 1.1470233864843307,
+        "p99_audio_rtf": 1.589901752182383,
+        "mean_audio_ttfp_ms": 1892.9961781977909,
+        "median_audio_ttfp_ms": 1808.2541669718921,
+        "p50_audio_ttfp_ms": 1808.2541669718921,
+        "p95_audio_ttfp_ms": 3142.936543840905,
+        "p99_audio_ttfp_ms": 3568.062207829207
+      },
+      "candidate": {
+        "date": "20261102-082745",
+        "endpoint_type": "openai-chat-omni",
+        "backend": "openai-chat-omni",
+        "label": null,
+        "model_id": "/dataset/models/MiniCPM-o-4_5",
+        "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+        "num_prompts": 128,
+        "request_rate": "inf",
+        "burstiness": 1.0,
+        "max_concurrency": 8,
+        "duration": 53.59252172522247,
+        "completed": 128,
+        "failed": 0,
+        "total_input_tokens": 17646,
+        "total_output_tokens": 1646,
+        "request_throughput": 2.388392930197924,
+        "request_goodput": null,
+        "output_throughput": 30.71324033676393,
+        "total_token_throughput": 359.9755969482684,
+        "total_audio_duration_s": 542.92,
+        "total_audio_frames": 13030080,
+        "audio_throughput": 10.130517887992632,
+        "total_images": 0,
+        "image_throughput": 0.0,
+        "average_pixels_per_image": 0.0,
+        "mean_denoise_step_latency_ms": 0.0,
+        "total_video_duration_s": 0,
+        "total_video_frames": 0,
+        "video_throughput": 0.0,
+        "mean_video_rtf": 0.0,
+        "median_video_rtf": 0.0,
+        "percentiles_video_rtf": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_video_generation_ms": 0.0,
+        "median_video_generation_ms": 0.0,
+        "percentiles_video_generation_ms": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "mean_peak_memory_mb": 0.0,
+        "median_peak_memory_mb": 0.0,
+        "percentiles_peak_memory_mb": [
+          [
+            50.0,
+            0.0
+          ],
+          [
+            95.0,
+            0.0
+          ],
+          [
+            99.0,
+            0.0
+          ]
+        ],
+        "stage_durations_mean": {},
+        "stage_durations_p50": {},
+        "stage_durations_p99": {},
+        "max_output_tokens_per_s": 86.0,
+        "max_concurrent_requests": 14,
+        "rtfx": 0.0,
+        "num_ttft_samples": 128,
+        "num_tpot_samples": 128,
+        "num_itl_samples": 1518,
+        "num_audio_ttfp_samples": 128,
+        "num_audio_rtf_samples": 128,
+        "mean_e2el_ms": 3316.9059496576665,
+        "median_e2el_ms": 3187.052983324975,
+        "p50_e2el_ms": 3187.052983324975,
+        "p95_e2el_ms": 4871.712261950596,
+        "p99_e2el_ms": 5758.767387317497,
+        "mean_audio_rtf": 0.8085176706863004,
+        "median_audio_rtf": 0.7617268707397222,
+        "p50_audio_rtf": 0.7617268707397222,
+        "p95_audio_rtf": 1.1394946825447247,
+        "p99_audio_rtf": 1.40345175437035,
+        "mean_audio_ttfp_ms": 1806.2249914801214,
+        "median_audio_ttfp_ms": 1721.608694177121,
+        "p50_audio_ttfp_ms": 1721.608694177121,
+        "p95_audio_ttfp_ms": 3029.6055883169097,
+        "p99_audio_ttfp_ms": 3374.578622598201
+      },
+      "mean_gains": {
+        "ttfp_pct": 32.02748139999453,
+        "rtf_pct": 21.205328380398026,
+        "req_s_pct": 28.392780456503086
+      },
+      "limitation": "Single-run native points; serial confirmation vs earlier r292, not an isolated causal estimate of profiling alone."
+    }
+  ],
+  "rounds": [
+    {
+      "round": 297,
+      "artifact": "r297",
+      "title": "Thinker 图容量与 Talker 解耦，先覆盖16",
+      "parent": "control-r292",
+      "origin": "图批处理/请求状态知识库；r296大batch回退证据",
+      "verdict": "均值改善较小，未完成稳定性/质量验收",
+      "source_sha256": "1bb0b052d79d2f507d2f054485e494085f8dbc14d376bd96033bb693d8774108",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 16,
+          "ttfp_ms": 3657.4088711968216,
+          "rtf": 1.3907589550186095,
+          "req_s": 2.623416263327202,
+          "completed": 256,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 16,
+          "ttfp_reduction_pct": 3.3495237820558077,
+          "rtf_reduction_pct": 0.9623637137365693,
+          "throughput_increase_pct": 2.072414983718396
+        }
+      ],
+      "tails": null,
+      "diagnostic": {
+        "c16": {
+          "native": {
+            "ttfp_ms": 3489.6743723184045,
+            "rtf": 1.3212508892788688,
+            "req_s": 2.738123298699145
+          },
+          "underrun": 32,
+          "n": 256,
+          "buffer": {
+            "n": 256,
+            "mean": 0.07802526264276821,
+            "p50": 0.0,
+            "p95": 0.5518641090020537,
+            "max": 2.5988824917003512
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 32
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 22
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 20
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 6
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 116.30661619710736,
+            "admit_to_prefilled": 126.4569180602848,
+            "prefilled_to_first_text_chunk": 2023.414367773512,
+            "text_to_first_window_ready": 584.1064594533236,
+            "first_window_queue": 225.20893808541587,
+            "first_window_decode": 410.97923860070296,
+            "emit_to_client": 2.8228891824255697
+          },
+          "queue_ms": {
+            "n": 1225,
+            "mean": 325.51499073374634,
+            "p50": 247.9197010397911,
+            "p95": 851.8464928492904,
+            "max": 2145.219844765961
+          },
+          "decode_ms": {
+            "n": 1225,
+            "mean": 395.0113476364284,
+            "p50": 330.4698960855603,
+            "p95": 728.6560507491231,
+            "max": 1702.8320813551545
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 1,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r297-vs-r292.patch"
+    },
+    {
+      "round": 298,
+      "artifact": "r298",
+      "title": "Thinker 图容量扩大到32，Talker仍为8",
+      "parent": "control-c32",
+      "origin": "r297筛选结果与C32覆盖缺口",
+      "verdict": "均值改善，但P99回退，不直接采用",
+      "source_sha256": "1bb0b052d79d2f507d2f054485e494085f8dbc14d376bd96033bb693d8774108",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 32,
+          "ttfp_ms": 5877.439588410198,
+          "rtf": 2.111975518430042,
+          "req_s": 3.3288818792709245,
+          "completed": 512,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 32,
+          "ttfp_reduction_pct": 10.555458042638023,
+          "rtf_reduction_pct": 10.32846553498783,
+          "throughput_increase_pct": 11.466642471177169
+        }
+      ],
+      "tails": {
+        "c32": {
+          "mean_audio_rtf": 2.111975518430042,
+          "median_audio_rtf": 2.004787711926122,
+          "p50_audio_rtf": 2.004787711926122,
+          "p95_audio_rtf": 3.1356271381765684,
+          "p99_audio_rtf": 4.466901626543348,
+          "mean_audio_ttfp_ms": 5877.439588410198,
+          "median_audio_ttfp_ms": 5621.195854619145,
+          "p50_audio_ttfp_ms": 5621.195854619145,
+          "p95_audio_ttfp_ms": 8235.072705848143,
+          "p99_audio_ttfp_ms": 14616.22758820653
+        }
+      },
+      "diagnostic": {
+        "c32": {
+          "native": {
+            "ttfp_ms": 6009.133248868238,
+            "rtf": 2.1502538280744607,
+            "req_s": 3.2729691295926524
+          },
+          "underrun": 299,
+          "n": 512,
+          "buffer": {
+            "n": 512,
+            "mean": 0.39133887233583664,
+            "p50": 0.16157821333035827,
+            "p95": 1.4852583995088935,
+            "max": 4.080309722572565
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 299
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 242
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 146
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 63
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 200.80352877084806,
+            "admit_to_prefilled": 153.91363177332096,
+            "prefilled_to_first_text_chunk": 3458.1720719997975,
+            "text_to_first_window_ready": 1033.1105049463076,
+            "first_window_queue": 516.9215322057426,
+            "first_window_decode": 641.939419117989,
+            "emit_to_client": 3.894161311109201
+          },
+          "queue_ms": {
+            "n": 2480,
+            "mean": 639.975865695986,
+            "p50": 335.8774073421955,
+            "p95": 2436.950758099556,
+            "max": 8889.760817401111
+          },
+          "decode_ms": {
+            "n": 2480,
+            "mean": 564.5950601282229,
+            "p50": 479.32945378124714,
+            "p95": 1130.975116044283,
+            "max": 3257.410705089569
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 1,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r298-vs-r292.patch"
+    },
+    {
+      "round": 299,
+      "artifact": "r299",
+      "title": "T2W最多16行一组，每组完成立即交付PCM",
+      "parent": "control-c32",
+      "origin": "原创：源码显示整批Flow→整批vocoder→整批返回造成交付屏障",
+      "verdict": "高并发尾延迟候选；小并发不触发16行上限",
+      "source_sha256": "dca543ad10a7945ac65726ad48db9001635003a45468dfa23680e1bfa4bc1363",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 32,
+          "ttfp_ms": 6392.255830374779,
+          "rtf": 2.329438946049709,
+          "req_s": 3.005042328409196,
+          "completed": 512,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 32,
+          "ttfp_reduction_pct": 2.7208385179160466,
+          "rtf_reduction_pct": 1.0952717434365211,
+          "throughput_increase_pct": 0.6229692069768866
+        }
+      ],
+      "tails": {
+        "c32": {
+          "mean_audio_rtf": 2.329438946049709,
+          "median_audio_rtf": 2.2768601538568403,
+          "p50_audio_rtf": 2.2768601538568403,
+          "p95_audio_rtf": 3.0262657673411466,
+          "p99_audio_rtf": 3.684268203056542,
+          "mean_audio_ttfp_ms": 6392.255830374779,
+          "median_audio_ttfp_ms": 6415.5776826664805,
+          "p50_audio_ttfp_ms": 6415.5776826664805,
+          "p95_audio_ttfp_ms": 7756.018184311688,
+          "p99_audio_ttfp_ms": 8773.418467445297
+        }
+      },
+      "diagnostic": {
+        "c32": {
+          "native": {
+            "ttfp_ms": 6346.683905405371,
+            "rtf": 2.29103719836181,
+            "req_s": 3.053288560718091
+          },
+          "underrun": 387,
+          "n": 512,
+          "buffer": {
+            "n": 512,
+            "mean": 0.5625772270286689,
+            "p50": 0.3362036207690835,
+            "p95": 2.1564786471426487,
+            "max": 4.879160412587225
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 387
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 307
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 186
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 79
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 197.63110827807395,
+            "admit_to_prefilled": 158.14458977547474,
+            "prefilled_to_first_text_chunk": 3917.156768913628,
+            "text_to_first_window_ready": 1098.1636958676972,
+            "first_window_queue": 442.3073308025778,
+            "first_window_decode": 529.3813936586957,
+            "emit_to_client": 3.504640691971872
+          },
+          "queue_ms": {
+            "n": 2487,
+            "mean": 513.1205875935069,
+            "p50": 296.62385024130344,
+            "p95": 1997.7416126057506,
+            "max": 5600.747928954661
+          },
+          "decode_ms": {
+            "n": 2487,
+            "mean": 475.1269301720889,
+            "p50": 395.4142453148961,
+            "p95": 836.3056210801005,
+            "max": 1992.907527834177
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 16,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r299-vs-r292.patch"
+    },
+    {
+      "round": 300,
+      "artifact": "r300",
+      "title": "Thinker纯decode拆为8行小批次走graph8",
+      "parent": "control-c32",
+      "origin": "对大图任务更新成本的反向假设",
+      "verdict": "均值、吞吐和播放连续性退步，拒绝",
+      "source_sha256": "d5281b5b2980f98e7d67689633a536ab1b80a2d6775abf21aa16a6d43277d440",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 32,
+          "ttfp_ms": 6740.084922621463,
+          "rtf": 2.404433309929656,
+          "req_s": 2.895636613353934,
+          "completed": 512,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 32,
+          "ttfp_reduction_pct": -2.5725232202120196,
+          "rtf_reduction_pct": -2.088884335390251,
+          "throughput_increase_pct": -3.0404493721885695
+        }
+      ],
+      "tails": {
+        "c32": {
+          "mean_audio_rtf": 2.404433309929656,
+          "median_audio_rtf": 2.3586393817321527,
+          "p50_audio_rtf": 2.3586393817321527,
+          "p95_audio_rtf": 3.0407729552808407,
+          "p99_audio_rtf": 3.897885307633419,
+          "mean_audio_ttfp_ms": 6740.084922621463,
+          "median_audio_ttfp_ms": 6676.165233366191,
+          "p50_audio_ttfp_ms": 6676.165233366191,
+          "p95_audio_ttfp_ms": 8251.634820131585,
+          "p99_audio_ttfp_ms": 9279.545662160963
+        }
+      },
+      "diagnostic": {
+        "c32": {
+          "native": {
+            "ttfp_ms": 6755.761369940956,
+            "rtf": 2.4345776511442074,
+            "req_s": 2.8635114657053227
+          },
+          "underrun": 415,
+          "n": 512,
+          "buffer": {
+            "n": 512,
+            "mean": 0.8226974941408116,
+            "p50": 0.6022553578950465,
+            "p95": 2.450726645067334,
+            "max": 6.893534027971327
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 415
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 362
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 273
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 152
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 220.61394309639581,
+            "admit_to_prefilled": 153.48565857675567,
+            "prefilled_to_first_text_chunk": 4263.986330439366,
+            "text_to_first_window_ready": 1242.2951478565665,
+            "first_window_queue": 373.363511846037,
+            "first_window_decode": 498.0577930855361,
+            "emit_to_client": 3.5377916301513324
+          },
+          "queue_ms": {
+            "n": 2509,
+            "mean": 421.5918468681137,
+            "p50": 236.42874788492918,
+            "p95": 1230.2823401987553,
+            "max": 6922.5588869303465
+          },
+          "decode_ms": {
+            "n": 2509,
+            "mean": 490.52827041291795,
+            "p50": 382.7224364504218,
+            "p95": 857.8078793361783,
+            "max": 3389.486384578049
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 0,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r300-vs-r292.patch"
+    },
+    {
+      "round": 301,
+      "artifact": "r301",
+      "title": "启动时预捕获Thinker 2/8/16/32桶",
+      "parent": "r298",
+      "origin": "r298均值/P99冲突；实际捕获耗时与缺少尾部桶",
+      "verdict": "启动成本/分桶/均值之间有权衡，未采用",
+      "source_sha256": "e15c7ea7767bc097ef521b155dc157f504f09df58b687a05aab600df345c0209",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 32,
+          "ttfp_ms": 6191.724540047289,
+          "rtf": 2.2486228496221328,
+          "req_s": 3.1181258294373255,
+          "completed": 512,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 32,
+          "ttfp_reduction_pct": -5.347310625817991,
+          "rtf_reduction_pct": -6.470119089906334,
+          "throughput_increase_pct": -6.331136323760389
+        }
+      ],
+      "tails": {
+        "c32": {
+          "mean_audio_rtf": 2.2486228496221328,
+          "median_audio_rtf": 2.095250369087365,
+          "p50_audio_rtf": 2.095250369087365,
+          "p95_audio_rtf": 3.481317444723099,
+          "p99_audio_rtf": 4.219537124323078,
+          "mean_audio_ttfp_ms": 6191.724540047289,
+          "median_audio_ttfp_ms": 5947.128339204937,
+          "p50_audio_ttfp_ms": 5947.128339204937,
+          "p95_audio_ttfp_ms": 8918.296324601397,
+          "p99_audio_ttfp_ms": 10188.653650265187
+        }
+      },
+      "diagnostic": {
+        "c32": {
+          "native": {
+            "ttfp_ms": 5732.0309016522515,
+            "rtf": 2.0796638967944823,
+            "req_s": 3.364885564116823
+          },
+          "underrun": 284,
+          "n": 512,
+          "buffer": {
+            "n": 512,
+            "mean": 0.4327484286204708,
+            "p50": 0.11971819493919611,
+            "p95": 2.0441669039428234,
+            "max": 5.001927971839905
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 284
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 221
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 129
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 69
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 179.03152210965345,
+            "admit_to_prefilled": 157.7281750032853,
+            "prefilled_to_first_text_chunk": 3404.514783376726,
+            "text_to_first_window_ready": 970.6281903727358,
+            "first_window_queue": 425.84725108827115,
+            "first_window_decode": 589.8962711089553,
+            "emit_to_client": 3.994957893155515
+          },
+          "queue_ms": {
+            "n": 2485,
+            "mean": 549.0405686671885,
+            "p50": 358.57418086379766,
+            "p95": 1360.5151223018765,
+            "max": 8859.571845270693
+          },
+          "decode_ms": {
+            "n": 2485,
+            "mean": 553.1259474293956,
+            "p50": 456.33033849298954,
+            "p95": 1239.541033282876,
+            "max": 2482.8823441639543
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 1,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r301-vs-r292.patch"
+    },
+    {
+      "round": 302,
+      "artifact": "r302",
+      "title": "图元数据复用只等待上次replay事件",
+      "parent": "r298",
+      "origin": "源码过宽stream同步；设备气泡技能的依赖最小化原则",
+      "verdict": "增量均值很小，未证明稳定收益",
+      "source_sha256": "958b602fabf75606c7a4f226714c488a540bdde78cc34e7f013893adaf88947f",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 32,
+          "ttfp_ms": 5813.265991331718,
+          "rtf": 2.1124221557290737,
+          "req_s": 3.3330364752042647,
+          "completed": 512,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 32,
+          "ttfp_reduction_pct": 1.0918631508356813,
+          "rtf_reduction_pct": -0.021147844524427306,
+          "throughput_increase_pct": 0.12480454651186967
+        }
+      ],
+      "tails": {
+        "c32": {
+          "mean_audio_rtf": 2.1124221557290737,
+          "median_audio_rtf": 2.0371931015948315,
+          "p50_audio_rtf": 2.0371931015948315,
+          "p95_audio_rtf": 3.0257014967069145,
+          "p99_audio_rtf": 3.7282854722820584,
+          "mean_audio_ttfp_ms": 5813.265991331718,
+          "median_audio_ttfp_ms": 5652.8937253169715,
+          "p50_audio_ttfp_ms": 5652.8937253169715,
+          "p95_audio_ttfp_ms": 7451.880807755515,
+          "p99_audio_ttfp_ms": 11445.196032915264
+        }
+      },
+      "diagnostic": {
+        "c32": {
+          "native": {
+            "ttfp_ms": 5998.325545941043,
+            "rtf": 2.1506422056413657,
+            "req_s": 3.253247573637667
+          },
+          "underrun": 289,
+          "n": 512,
+          "buffer": {
+            "n": 512,
+            "mean": 0.42233174697321374,
+            "p50": 0.11633390886709094,
+            "p95": 1.7278315871953964,
+            "max": 5.2825825130566955
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 289
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 225
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 146
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 68
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 186.03337913373252,
+            "admit_to_prefilled": 169.04473862450686,
+            "prefilled_to_first_text_chunk": 3473.063945353715,
+            "text_to_first_window_ready": 1046.4148048886273,
+            "first_window_queue": 492.537539004843,
+            "first_window_decode": 626.7430334210076,
+            "emit_to_client": 4.078317489984329
+          },
+          "queue_ms": {
+            "n": 2492,
+            "mean": 611.6903270833959,
+            "p50": 382.69737595692277,
+            "p95": 1733.718673698604,
+            "max": 9199.273216538131
+          },
+          "decode_ms": {
+            "n": 2492,
+            "mean": 573.8766221426738,
+            "p50": 495.2664040029049,
+            "p95": 1186.0026838257909,
+            "max": 3141.2118384614587
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 1,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r302-vs-r292.patch"
+    },
+    {
+      "round": 303,
+      "artifact": "r303",
+      "title": "16行交付分组内按播放deadline排序",
+      "parent": "r299",
+      "origin": "已有AudioState/EDF；r299仍有续包迟到",
+      "verdict": "均值改善但相对r299尾部/1s缓冲断流更差，未采用",
+      "source_sha256": "34f6354c2a2c05181be2033edd447be7a26df4c15191479d50303c021206fb8d",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 32,
+          "ttfp_ms": 6153.218883106092,
+          "rtf": 2.2757166411893563,
+          "req_s": 3.084017137798943,
+          "completed": 512,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 32,
+          "ttfp_reduction_pct": 3.7394771675568594,
+          "rtf_reduction_pct": 2.306233651302836,
+          "throughput_increase_pct": 2.6280764381630073
+        }
+      ],
+      "tails": {
+        "c32": {
+          "mean_audio_rtf": 2.2757166411893563,
+          "median_audio_rtf": 2.195984141896018,
+          "p50_audio_rtf": 2.195984141896018,
+          "p95_audio_rtf": 3.239649537306466,
+          "p99_audio_rtf": 3.9764720676672183,
+          "mean_audio_ttfp_ms": 6153.218883106092,
+          "median_audio_ttfp_ms": 6176.4058084227145,
+          "p50_audio_ttfp_ms": 6176.4058084227145,
+          "p95_audio_ttfp_ms": 7342.262014001608,
+          "p99_audio_ttfp_ms": 9124.963158620521
+        }
+      },
+      "diagnostic": {
+        "c32": {
+          "native": {
+            "ttfp_ms": 6265.834793888644,
+            "rtf": 2.2756869555091326,
+            "req_s": 3.0622038677482193
+          },
+          "underrun": 376,
+          "n": 512,
+          "buffer": {
+            "n": 512,
+            "mean": 0.6432199412593036,
+            "p50": 0.3331165397539735,
+            "p95": 2.455024641007185,
+            "max": 5.318499934859574
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 376
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 302
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 203
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 109
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 213.17670794996957,
+            "admit_to_prefilled": 160.72326195717324,
+            "prefilled_to_first_text_chunk": 3982.4675573054265,
+            "text_to_first_window_ready": 1106.2360261439608,
+            "first_window_queue": 331.39620183283114,
+            "first_window_decode": 467.8692545694503,
+            "emit_to_client": 3.600807503971737
+          },
+          "queue_ms": {
+            "n": 2504,
+            "mean": 385.703623009557,
+            "p50": 245.98229210823774,
+            "p95": 1366.9867245480418,
+            "max": 5797.02767636627
+          },
+          "decode_ms": {
+            "n": 2504,
+            "mean": 445.18814886549706,
+            "p50": 361.5099675953388,
+            "p95": 705.6547040119767,
+            "max": 2277.8334775939584
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 16,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r303-vs-r292.patch"
+    },
+    {
+      "round": 304,
+      "artifact": "r304",
+      "title": "固定timestep的CFM AdaLN调制表移出Euler replay",
+      "parent": "control-r292",
+      "origin": "L3不变量审查；原temb已固定但调制重复计算",
+      "verdict": "未获得稳定E2E收益；追加低并发复测亦未采用",
+      "source_sha256": "23b1dc81ecb517ccdbe918aee2d0aadc6fce3e2dc82d82bf3e50f71d82e42efc",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 16,
+          "ttfp_ms": 4020.779650807526,
+          "rtf": 1.5057599669441226,
+          "req_s": 2.4028981197539303,
+          "completed": 256,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 16,
+          "ttfp_reduction_pct": -6.252891515189285,
+          "rtf_reduction_pct": -7.226998181458866,
+          "throughput_increase_pct": -6.507549918116484
+        }
+      ],
+      "tails": {
+        "c16": {
+          "mean_audio_rtf": 1.5057599669441226,
+          "median_audio_rtf": 1.4313610716335396,
+          "p50_audio_rtf": 1.4313610716335396,
+          "p95_audio_rtf": 2.2041847280734843,
+          "p99_audio_rtf": 2.5252482433794694,
+          "mean_audio_ttfp_ms": 4020.779650807526,
+          "median_audio_ttfp_ms": 3905.9487832710147,
+          "p50_audio_ttfp_ms": 3905.9487832710147,
+          "p95_audio_ttfp_ms": 5411.674943054095,
+          "p99_audio_ttfp_ms": 6691.136024426669
+        }
+      },
+      "diagnostic": {
+        "c16": {
+          "native": {
+            "ttfp_ms": 3750.7041931239655,
+            "rtf": 1.400896844116799,
+            "req_s": 2.5842026900447355
+          },
+          "underrun": 42,
+          "n": 256,
+          "buffer": {
+            "n": 256,
+            "mean": 0.1348210723590455,
+            "p50": 0.0,
+            "p95": 1.136077145114541,
+            "max": 2.8465416440740228
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 42
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 28
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 23
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 13
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 131.07001175012556,
+            "admit_to_prefilled": 133.2578194596863,
+            "prefilled_to_first_text_chunk": 2165.5890328220266,
+            "text_to_first_window_ready": 628.3453787655162,
+            "first_window_queue": 243.07064964159508,
+            "first_window_decode": 446.1536992348556,
+            "emit_to_client": 2.837417687260313
+          },
+          "queue_ms": {
+            "n": 1214,
+            "mean": 363.14800372838215,
+            "p50": 286.0576678067446,
+            "p95": 915.6046751886606,
+            "max": 3277.8956731781363
+          },
+          "decode_ms": {
+            "n": 1214,
+            "mean": 424.59121155989845,
+            "p50": 336.2651066854596,
+            "p95": 719.9312634766102,
+            "max": 2129.2699174955487
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 16,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r304-vs-r292.patch"
+    },
+    {
+      "round": 305,
+      "artifact": "r305",
+      "title": "通用prompt-lookup候选 + 原模型批量验证 + KV截断",
+      "parent": "control-lowc",
+      "origin": "首文本等待占主导；原创方案，借鉴有界重放/依赖闭包原则",
+      "verdict": "重点性能候选；语音质量门未完成，未替换默认",
+      "source_sha256": "fb497b67c1808ddb65c02541dbe8e646a00b28eab14e602c424c1f88b8cec14b",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 2,
+          "ttfp_ms": 902.7815902081784,
+          "rtf": 0.40318305264535126,
+          "req_s": 1.1819751166288857,
+          "completed": 32,
+          "failed": 0
+        },
+        {
+          "mode": "native",
+          "concurrency": 4,
+          "ttfp_ms": 1389.7479769220809,
+          "rtf": 0.6063017377958311,
+          "req_s": 1.5302101688256533,
+          "completed": 64,
+          "failed": 0
+        },
+        {
+          "mode": "native",
+          "concurrency": 8,
+          "ttfp_ms": 1892.9961781977909,
+          "rtf": 0.8721287846510205,
+          "req_s": 2.1996726791709507,
+          "completed": 128,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 2,
+          "ttfp_reduction_pct": 22.61678167739727,
+          "rtf_reduction_pct": 15.482982079109785,
+          "throughput_increase_pct": 14.160319785486287
+        },
+        {
+          "concurrency": 4,
+          "ttfp_reduction_pct": 19.70273178039722,
+          "rtf_reduction_pct": 8.31019644961476,
+          "throughput_increase_pct": 10.508812880285866
+        },
+        {
+          "concurrency": 8,
+          "ttfp_reduction_pct": 28.76207640840589,
+          "rtf_reduction_pct": 15.006061477607101,
+          "throughput_increase_pct": 18.247750528033823
+        }
+      ],
+      "tails": {
+        "c2": {
+          "mean_audio_rtf": 0.40318305264535126,
+          "median_audio_rtf": 0.3731350138269622,
+          "p50_audio_rtf": 0.3731350138269622,
+          "p95_audio_rtf": 0.6067717563049067,
+          "p99_audio_rtf": 0.837695161426569,
+          "mean_audio_ttfp_ms": 902.7815902081784,
+          "median_audio_ttfp_ms": 826.8944919109344,
+          "p50_audio_ttfp_ms": 826.8944919109344,
+          "p95_audio_ttfp_ms": 1516.219333419576,
+          "p99_audio_ttfp_ms": 1778.7020209524785
+        },
+        "c4": {
+          "mean_audio_rtf": 0.6063017377958311,
+          "median_audio_rtf": 0.5675396870730207,
+          "p50_audio_rtf": 0.5675396870730207,
+          "p95_audio_rtf": 0.852403229626061,
+          "p99_audio_rtf": 1.429443206841232,
+          "mean_audio_ttfp_ms": 1389.7479769220809,
+          "median_audio_ttfp_ms": 1295.344999525696,
+          "p50_audio_ttfp_ms": 1295.344999525696,
+          "p95_audio_ttfp_ms": 1821.37113274075,
+          "p99_audio_ttfp_ms": 3368.399897404015
+        },
+        "c8": {
+          "mean_audio_rtf": 0.8721287846510205,
+          "median_audio_rtf": 0.8525191082328356,
+          "p50_audio_rtf": 0.8525191082328356,
+          "p95_audio_rtf": 1.1470233864843307,
+          "p99_audio_rtf": 1.589901752182383,
+          "mean_audio_ttfp_ms": 1892.9961781977909,
+          "median_audio_ttfp_ms": 1808.2541669718921,
+          "p50_audio_ttfp_ms": 1808.2541669718921,
+          "p95_audio_ttfp_ms": 3142.936543840905,
+          "p99_audio_ttfp_ms": 3568.062207829207
+        }
+      },
+      "diagnostic": {
+        "c2": {
+          "native": {
+            "ttfp_ms": 929.372333426727,
+            "rtf": 0.3946241018245247,
+            "req_s": 1.2340225695227254
+          },
+          "underrun": 0,
+          "n": 32,
+          "buffer": {
+            "n": 32,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 0
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 0
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 0
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 0
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 49.62835492915474,
+            "admit_to_prefilled": 106.78732732776552,
+            "prefilled_to_first_text_chunk": 232.49115233193152,
+            "text_to_first_window_ready": 252.9071364842821,
+            "first_window_queue": 95.80927950446494,
+            "first_window_decode": 189.6048458002042,
+            "emit_to_client": 1.6884323267731816
+          },
+          "queue_ms": {
+            "n": 142,
+            "mean": 163.18804932049883,
+            "p50": 135.83442475646734,
+            "p95": 389.01575841009617,
+            "max": 836.4728558808565
+          },
+          "decode_ms": {
+            "n": 142,
+            "mean": 188.2475375814337,
+            "p50": 160.8512895181775,
+            "p95": 313.9404272660613,
+            "max": 930.6217711418867
+          }
+        },
+        "c4": {
+          "native": {
+            "ttfp_ms": 1343.074884134694,
+            "rtf": 0.6063244837961552,
+            "req_s": 1.548623598236696
+          },
+          "underrun": 1,
+          "n": 64,
+          "buffer": {
+            "n": 64,
+            "mean": 0.01592684657953214,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 1.019318181090057
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 1
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 1
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 1
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 1
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 90.74840215907898,
+            "admit_to_prefilled": 146.07762399828061,
+            "prefilled_to_first_text_chunk": 335.8835548569914,
+            "text_to_first_window_ready": 405.82916580024175,
+            "first_window_queue": 82.33442984055728,
+            "first_window_decode": 279.81387119507417,
+            "emit_to_client": 2.011155156651512
+          },
+          "queue_ms": {
+            "n": 304,
+            "mean": 171.03117156014042,
+            "p50": 137.81573623418808,
+            "p95": 456.015189178288,
+            "max": 1394.1533658653498
+          },
+          "decode_ms": {
+            "n": 304,
+            "mean": 252.4234261026753,
+            "p50": 213.97025976330042,
+            "p95": 412.86682803183794,
+            "max": 1469.6763390675187
+          }
+        },
+        "c8": {
+          "native": {
+            "ttfp_ms": 1922.9747501085512,
+            "rtf": 0.8894454081961836,
+            "req_s": 2.1611478974245952
+          },
+          "underrun": 1,
+          "n": 128,
+          "buffer": {
+            "n": 128,
+            "mean": 0.007977963825396728,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 1.0211793696507812
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 1
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 1
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 1
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 1
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 118.05442543118261,
+            "admit_to_prefilled": 198.66777741117403,
+            "prefilled_to_first_text_chunk": 551.6598355316091,
+            "text_to_first_window_ready": 546.7950713064056,
+            "first_window_queue": 127.92383804480778,
+            "first_window_decode": 376.7700983080431,
+            "emit_to_client": 2.7027659816667438
+          },
+          "queue_ms": {
+            "n": 581,
+            "mean": 211.28801466406622,
+            "p50": 143.61834153532982,
+            "p95": 604.7937348484993,
+            "max": 1565.7815160229802
+          },
+          "decode_ms": {
+            "n": 581,
+            "mean": 330.16408386956033,
+            "p50": 296.05510365217924,
+            "p95": 469.8369698598981,
+            "max": 1641.9082740321755
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 0,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r305-vs-r292.patch"
+    },
+    {
+      "round": 306,
+      "artifact": "r306b",
+      "title": "NPU pinned PCM + 完成事件，锁外消费并保护scratch依赖",
+      "parent": "control-lowc",
+      "origin": "r296 .cpu主机等待；已有CUDA PendingAudio设计",
+      "verdict": "首试API错误已修复；低并发没有稳定收益，不采用",
+      "source_sha256": "5e1a6e52644fea2e2a87516609fae095854df82a6ac922e7b0aa195319ca444d",
+      "native": [
+        {
+          "mode": "native",
+          "concurrency": 2,
+          "ttfp_ms": 1209.1418736090418,
+          "rtf": 0.47939213715219914,
+          "req_s": 1.023452656885696,
+          "completed": 32,
+          "failed": 0
+        },
+        {
+          "mode": "native",
+          "concurrency": 4,
+          "ttfp_ms": 1729.6556790388422,
+          "rtf": 0.674332363078084,
+          "req_s": 1.3707915579674692,
+          "completed": 64,
+          "failed": 0
+        },
+        {
+          "mode": "native",
+          "concurrency": 8,
+          "ttfp_ms": 2635.4040046498994,
+          "rtf": 1.0060029966218131,
+          "req_s": 1.8926805869041292,
+          "completed": 128,
+          "failed": 0
+        }
+      ],
+      "gains_vs_parent": [
+        {
+          "concurrency": 2,
+          "ttfp_reduction_pct": -3.6433292430266384,
+          "rtf_reduction_pct": -0.49230388278680426,
+          "throughput_increase_pct": -1.1504718232903999
+        },
+        {
+          "concurrency": 4,
+          "ttfp_reduction_pct": 0.06344438440001321,
+          "rtf_reduction_pct": -1.9779394383284687,
+          "throughput_increase_pct": -1.0040902462711276
+        },
+        {
+          "concurrency": 8,
+          "ttfp_reduction_pct": 0.8235139201562269,
+          "rtf_reduction_pct": 1.959253778750547,
+          "throughput_increase_pct": 1.7447841166275513
+        }
+      ],
+      "tails": {
+        "c2": {
+          "mean_audio_rtf": 0.47939213715219914,
+          "median_audio_rtf": 0.4604625442893693,
+          "p50_audio_rtf": 0.4604625442893693,
+          "p95_audio_rtf": 0.7216104813802909,
+          "p99_audio_rtf": 0.7673315947657102,
+          "mean_audio_ttfp_ms": 1209.1418736090418,
+          "median_audio_ttfp_ms": 1172.620634548366,
+          "p50_audio_ttfp_ms": 1172.620634548366,
+          "p95_audio_ttfp_ms": 1620.2119105495512,
+          "p99_audio_ttfp_ms": 1714.3373277503997
+        },
+        "c4": {
+          "mean_audio_rtf": 0.674332363078084,
+          "median_audio_rtf": 0.651562490161847,
+          "p50_audio_rtf": 0.651562490161847,
+          "p95_audio_rtf": 0.939669380823314,
+          "p99_audio_rtf": 1.2283972167403003,
+          "mean_audio_ttfp_ms": 1729.6556790388422,
+          "median_audio_ttfp_ms": 1742.8973782807589,
+          "p50_audio_ttfp_ms": 1742.8973782807589,
+          "p95_audio_ttfp_ms": 2156.451039947569,
+          "p99_audio_ttfp_ms": 2911.33613018319
+        },
+        "c8": {
+          "mean_audio_rtf": 1.0060029966218131,
+          "median_audio_rtf": 0.9916128008253835,
+          "p50_audio_rtf": 0.9916128008253835,
+          "p95_audio_rtf": 1.315652578617502,
+          "p99_audio_rtf": 1.5084172991734857,
+          "mean_audio_ttfp_ms": 2635.4040046498994,
+          "median_audio_ttfp_ms": 2670.447669457644,
+          "p50_audio_ttfp_ms": 2670.447669457644,
+          "p95_audio_ttfp_ms": 3035.8020090963682,
+          "p99_audio_ttfp_ms": 4015.1635782513767
+        }
+      },
+      "diagnostic": {
+        "c2": {
+          "native": {
+            "ttfp_ms": 1048.99161006324,
+            "rtf": 0.42244012776088813,
+            "req_s": 1.109087659063717
+          },
+          "underrun": 0,
+          "n": 32,
+          "buffer": {
+            "n": 32,
+            "mean": 0.0,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 0
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 0
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 0
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 0
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 33.79816163214855,
+            "admit_to_prefilled": 114.23229071078822,
+            "prefilled_to_first_text_chunk": 430.9987571032252,
+            "text_to_first_window_ready": 200.56095905601978,
+            "first_window_queue": 52.600623603211716,
+            "first_window_decode": 214.9703863542527,
+            "emit_to_client": 1.463296008296311
+          },
+          "queue_ms": {
+            "n": 148,
+            "mean": 106.60489740454264,
+            "p50": 75.68564126268029,
+            "p95": 304.7739388421178,
+            "max": 857.2813654318452
+          },
+          "decode_ms": {
+            "n": 148,
+            "mean": 183.51591357684418,
+            "p50": 149.61090357974172,
+            "p95": 322.4959997460246,
+            "max": 984.8104491829872
+          }
+        },
+        "c4": {
+          "native": {
+            "ttfp_ms": 1683.4991978830658,
+            "rtf": 0.6615901762903124,
+            "req_s": 1.3971637706953166
+          },
+          "underrun": 1,
+          "n": 64,
+          "buffer": {
+            "n": 64,
+            "mean": 0.0016868158418219537,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 0.10795621387660503
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 1
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 0
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 0
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 0
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 73.25545129424427,
+            "admit_to_prefilled": 146.88726179883815,
+            "prefilled_to_first_text_chunk": 796.3948638935108,
+            "text_to_first_window_ready": 301.1537267739186,
+            "first_window_queue": 70.58312700246461,
+            "first_window_decode": 293.3137914078543,
+            "emit_to_client": 1.5328953741118312
+          },
+          "queue_ms": {
+            "n": 295,
+            "mean": 119.80333656893443,
+            "p50": 82.39495102316141,
+            "p95": 309.3254677951336,
+            "max": 1420.0170077383518
+          },
+          "decode_ms": {
+            "n": 295,
+            "mean": 237.36235737737456,
+            "p50": 190.89617021381855,
+            "p95": 346.8759022653103,
+            "max": 1559.1208329424262
+          }
+        },
+        "c8": {
+          "native": {
+            "ttfp_ms": 2486.6255428132717,
+            "rtf": 0.9583125636077015,
+            "req_s": 2.018507405095529
+          },
+          "underrun": 4,
+          "n": 128,
+          "buffer": {
+            "n": 128,
+            "mean": 0.022729179821908474,
+            "p50": 0.0,
+            "p95": 0.0,
+            "max": 1.0604125279933214
+          },
+          "buffer_scenarios": [
+            {
+              "initial_buffer_s": 0,
+              "requests_with_underrun": 4
+            },
+            {
+              "initial_buffer_s": 0.2,
+              "requests_with_underrun": 4
+            },
+            {
+              "initial_buffer_s": 0.5,
+              "requests_with_underrun": 3
+            },
+            {
+              "initial_buffer_s": 1.0,
+              "requests_with_underrun": 1
+            }
+          ],
+          "first_audio_ledger_ms": {
+            "dispatch_to_admit": 93.8561365910573,
+            "admit_to_prefilled": 225.94795961049385,
+            "prefilled_to_first_text_chunk": 1340.4756449599518,
+            "text_to_first_window_ready": 421.7229976566159,
+            "first_window_queue": 100.74618515500333,
+            "first_window_decode": 301.6968430747511,
+            "emit_to_client": 1.8046364639303647
+          },
+          "queue_ms": {
+            "n": 572,
+            "mean": 164.55747857299093,
+            "p50": 128.84417828172445,
+            "p95": 433.94651636481285,
+            "max": 1930.2709866315126
+          },
+          "decode_ms": {
+            "n": 572,
+            "mean": 275.3854911119866,
+            "p50": 231.0319086536765,
+            "p95": 471.5173626318574,
+            "max": 1814.0239464119077
+          }
+        }
+      },
+      "development_quality": {
+        "n": 16,
+        "thinker_text_exact": 16,
+        "thinker_tokens_exact": 16,
+        "codec_tokens_exact": 12,
+        "speech_quality_gate": "NOT_RUN"
+      },
+      "adopted": false,
+      "patch": "evidence/20261102-r305/patches/r306-vs-r292.patch"
+    }
+  ],
+  "development_quality": {
+    "n": 16,
+    "thinker_text_exact": 16,
+    "thinker_tokens_exact": 16,
+    "codec_tokens_exact": 0,
+    "speech_quality_gate": "NOT_RUN"
+  },
+  "prompt_lookup_stats": {
+    "verification_calls": 242,
+    "draft_tokens": 3121,
+    "matched_draft_tokens": 2223,
+    "target_tokens": 2620,
+    "kv_fallbacks": 0
+  },
+  "speech_gate": "NOT_RUN",
+  "quality_equivalence": false,
+  "promoted_to_default": false,
+  "method_limitations": [
+    "L0 freezes the measurement contract; L1–L6 are six diagnostic layers, not six independent speedups.",
+    "Actual r296 device trace plus per-round separate host/capture/client diagnostics; not full device re-profiling every round.",
+    "No profiling-enabled-vs-disabled randomized optimization study; mechanism/phase contributions cannot be added.",
+    "C1 Omni is a same-day archived same-SHA point; engine C1 is a new unchanged-r305 measurement."
+  ]
+}

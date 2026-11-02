@@ -1,0 +1,28 @@
+{
+  "tag": "r306b",
+  "engine": "engine-r306b",
+  "config": "config-r306b.json",
+  "engine_sha256": "5e1a6e52644fea2e2a87516609fae095854df82a6ac922e7b0aa195319ca444d",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19111,
+  "runner": "run_lowc.py",
+  "quality_first": true,
+  "quality_reference": "control-lowc",
+  "require_exact_thinker": true,
+  "hypothesis": "Port pending PCM D2H to NPU events/pinned ownership, consume outside scratch lock; dependent prompt work explicitly waits on copy completion",
+  "origin": "r296 observed .cpu mean53ms insidedecode lock, existing CUDA PendingAudio; waiting includes necessary compute so no promised53ms saving",
+  "parent": "control-lowc",
+  "round": 306,
+  "retry_of": "r306",
+  "repair": "Remove unsupported torch.empty pin_memory_device keyword; use standard pinned CPU factory and verify allocation is pinned"
+}

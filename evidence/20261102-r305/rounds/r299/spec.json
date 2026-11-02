@@ -1,0 +1,18 @@
+{
+  "tag": "r299",
+  "engine": "engine-r299",
+  "config": "config-r299.json",
+  "engine_sha256": "dca543ad10a7945ac65726ad48db9001635003a45468dfa23680e1bfa4bc1363",
+  "native": [
+    32
+  ],
+  "diagnostic": [
+    32
+  ],
+  "quality": true,
+  "port": 19100,
+  "runner": "run_v2.py",
+  "hypothesis": "Remove whole-cohort PCM emission barrier: bounded16row T2W calls emit between groups",
+  "origin": "Original source-derived idea: r296 decode stages all flow then all vocode, backend emits only after entire list returns",
+  "parent": "control-r292"
+}

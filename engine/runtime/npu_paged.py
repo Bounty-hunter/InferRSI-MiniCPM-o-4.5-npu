@@ -139,6 +139,27 @@ class NpuPagedKV:
         self.free.extend(reversed(self.pages.pop(seq, ())))
         self.lengths.pop(seq, None)
 
+    def copy_prefix(self, source: int, target: int, length: int) -> None:
+        """Give ``target`` a request-owned copy of ``source``'s first ``length`` KV tokens.
+
+        The last shared token normally falls inside a partially filled page.
+        Copying whole physical pages is therefore the simple copy-on-write
+        boundary: subsequent suffix scatter writes cannot corrupt the cached
+        source or another request.  The copies are enqueued on the caller's
+        current stream, so the following decoder launch observes them without
+        a host synchronization.
+        """
+        if target in self.pages:
+            raise ValueError(f"target sequence {target} already owns KV pages")
+        if length < 1 or length > self.lengths.get(source, 0):
+            raise ValueError(f"invalid prefix length {length} for source sequence {source}")
+        self.reserve(target, length)
+        count = -(-length // self.page_size)
+        for source_page, target_page in zip(self.pages[source][:count], self.pages[target][:count]):
+            self.k[:, target_page].copy_(self.k[:, source_page])
+            self.v[:, target_page].copy_(self.v[:, source_page])
+        self.lengths[target] = length
+
     @property
     def used_pages(self) -> int:
         return self.num_pages - len(self.free)
@@ -538,6 +559,7 @@ class NpuDecoderRunner:
         graph_max_blocks: int = 64,
         static_shape_attention: bool = False,
         static_shape_capacity: int = 512,
+        batch_append_prefill: bool = False,
     ):
         try:
             import torch_npu
@@ -554,6 +576,8 @@ class NpuDecoderRunner:
         self.graph_max_blocks = int(graph_max_blocks)
         self.static_shape_attention = bool(static_shape_attention)
         self.static_shape_capacity = int(static_shape_capacity)
+        self.batch_append_prefill = bool(batch_append_prefill)
+        self.batch_append_prefill_failures: list[str] = []
         if self.static_shape_attention:
             if self.static_shape_capacity < kv.page_size or self.static_shape_capacity % kv.page_size:
                 raise ValueError("static_shape_capacity must be a positive multiple of the KV page size")
@@ -683,7 +707,7 @@ class NpuDecoderRunner:
             sparse_mode=3,
         )[0]
 
-    def _append_prefill(self, query: torch.Tensor, layer: int, layout: NpuBatchLayout) -> torch.Tensor:
+    def _append_prefill_reference(self, query: torch.Tensor, layer: int, layout: NpuBatchLayout) -> torch.Tensor:
         outputs = []
         offset = 0
         for seq, start, total, count in zip(layout.seqs, layout.starts, layout.lengths, layout.new_tokens):
@@ -701,6 +725,52 @@ class NpuDecoderRunner:
             outputs.append(result.squeeze(0).transpose(0, 1))
             offset += count
         return torch.cat(outputs)
+
+    def _append_prefill_batched(self, query: torch.Tensor, layer: int, layout: NpuBatchLayout) -> torch.Tensor:
+        """One packed TND FIA for multiple suffix prefills with existing KV.
+
+        This is the same chunked-prefill contract used by vLLM-Ascend: Q is
+        the packed suffix, while K/V are the packed full contexts gathered
+        from paged KV after the new suffix has been scattered.  Separate
+        cumulative Q and KV lengths let causal FIA align every suffix to the
+        right edge of its own context.
+        """
+        keys, values = [], []
+        cumulative_kv, total = [], 0
+        for seq, length in zip(layout.seqs, layout.lengths):
+            key, value = self.kv.dense_layer(layer, seq, length)
+            keys.append(key)
+            values.append(value)
+            total += length
+            cumulative_kv.append(total)
+        width = max(2048, max(layout.lengths))
+        causal_mask = torch.triu(
+            torch.ones(width, width, device=query.device, dtype=torch.int8), diagonal=1
+        )
+        return self.npu.npu_fused_infer_attention_score(
+            query=query.contiguous(),
+            key=torch.cat(keys).contiguous(),
+            value=torch.cat(values).contiguous(),
+            input_layout="TND",
+            atten_mask=causal_mask,
+            actual_seq_lengths=layout.qo_indptr[1:].to("cpu").tolist(),
+            actual_seq_lengths_kv=cumulative_kv,
+            num_key_value_heads=self.spec.num_kv_heads,
+            num_heads=self.spec.num_heads,
+            scale=self.spec.head_dim ** -0.5,
+            sparse_mode=3,
+        )[0]
+
+    def _append_prefill(self, query: torch.Tensor, layer: int, layout: NpuBatchLayout) -> torch.Tensor:
+        if self.batch_append_prefill:
+            try:
+                return self._append_prefill_batched(query, layer, layout)
+            except RuntimeError as exc:
+                # Keep the established per-row path as the correctness
+                # fallback for unsupported CANN shapes/operator revisions.
+                self.batch_append_prefill = False
+                self.batch_append_prefill_failures.append(f"{type(exc).__name__}: {exc}")
+        return self._append_prefill_reference(query, layer, layout)
 
     def _attention(
         self,

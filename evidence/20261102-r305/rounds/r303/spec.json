@@ -1,0 +1,18 @@
+{
+  "tag": "r303",
+  "engine": "engine-r303",
+  "config": "config-r303.json",
+  "engine_sha256": "34f6354c2a2c05181be2033edd447be7a26df4c15191479d50303c021206fb8d",
+  "native": [
+    32
+  ],
+  "diagnostic": [
+    32
+  ],
+  "quality": true,
+  "port": 19104,
+  "runner": "run_v2.py",
+  "hypothesis": "Replace absolute first-audio sorting with request-owned playback deadlines inside bounded16row emission groups; first-window ready+0.25s ages naturally",
+  "origin": "r299 continuation-buffer improvement but residual79/512 underruns with1s; reuse existing AudioState/Policy EDF rather than inventing duplicate clocks",
+  "parent": "r299"
+}

@@ -1,0 +1,18 @@
+{
+  "tag": "r300",
+  "engine": "engine-r300",
+  "config": "config-r300.json",
+  "engine_sha256": "d5281b5b2980f98e7d67689633a536ab1b80a2d6775abf21aa16a6d43277d440",
+  "native": [
+    32
+  ],
+  "diagnostic": [
+    32
+  ],
+  "quality": true,
+  "port": 19101,
+  "runner": "run_v2.py",
+  "hypothesis": "Alternative to large PA task-update graphs: bounded8row pure Thinker decode retains graph8, no prefill slicing",
+  "origin": "r296 eager fallback and source dynamic PA perlayer task-update/synchronize cost",
+  "parent": "r297"
+}

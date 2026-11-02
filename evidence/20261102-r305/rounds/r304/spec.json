@@ -1,0 +1,18 @@
+{
+  "tag": "r304",
+  "engine": "engine-r304",
+  "config": "config-r304.json",
+  "engine_sha256": "23b1dc81ecb517ccdbe918aee2d0aadc6fce3e2dc82d82bf3e50f71d82e42efc",
+  "native": [
+    16
+  ],
+  "diagnostic": [
+    16
+  ],
+  "quality": true,
+  "port": 19105,
+  "runner": "run_v2.py",
+  "hypothesis": "Hoist CFM per-step AdaLN modulation tables out of every Euler replay, retaining original timestep arithmetic, dtype, weights and six steps",
+  "origin": "PR L3 invariant-work audit plus r296 repeated MatMul/pointwise operators; original tembs already fixed at graph capture but modulation still repeated",
+  "parent": "control-r292"
+}

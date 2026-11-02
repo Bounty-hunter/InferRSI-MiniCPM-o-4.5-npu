@@ -1,0 +1,277 @@
+{
+  "tag": "r306b",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 2,
+      "ttfp_ms": 1209.1418736090418,
+      "rtf": 0.47939213715219914,
+      "req_s": 1.023452656885696,
+      "completed": 32,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 4,
+      "ttfp_ms": 1729.6556790388422,
+      "rtf": 0.674332363078084,
+      "req_s": 1.3707915579674692,
+      "completed": 64,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 8,
+      "ttfp_ms": 2635.4040046498994,
+      "rtf": 1.0060029966218131,
+      "req_s": 1.8926805869041292,
+      "completed": 128,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 2,
+      "ttfp_ms": 1048.99161006324,
+      "rtf": 0.42244012776088813,
+      "req_s": 1.109087659063717,
+      "completed": 32,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 4,
+      "ttfp_ms": 1683.4991978830658,
+      "rtf": 0.6615901762903124,
+      "req_s": 1.3971637706953166,
+      "completed": 64,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 8,
+      "ttfp_ms": 2486.6255428132717,
+      "rtf": 0.9583125636077015,
+      "req_s": 2.018507405095529,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "native_tails": {
+    "c2": {
+      "mean_audio_rtf": 0.47939213715219914,
+      "median_audio_rtf": 0.4604625442893693,
+      "p50_audio_rtf": 0.4604625442893693,
+      "p95_audio_rtf": 0.7216104813802909,
+      "p99_audio_rtf": 0.7673315947657102,
+      "mean_audio_ttfp_ms": 1209.1418736090418,
+      "median_audio_ttfp_ms": 1172.620634548366,
+      "p50_audio_ttfp_ms": 1172.620634548366,
+      "p95_audio_ttfp_ms": 1620.2119105495512,
+      "p99_audio_ttfp_ms": 1714.3373277503997
+    },
+    "c4": {
+      "mean_audio_rtf": 0.674332363078084,
+      "median_audio_rtf": 0.651562490161847,
+      "p50_audio_rtf": 0.651562490161847,
+      "p95_audio_rtf": 0.939669380823314,
+      "p99_audio_rtf": 1.2283972167403003,
+      "mean_audio_ttfp_ms": 1729.6556790388422,
+      "median_audio_ttfp_ms": 1742.8973782807589,
+      "p50_audio_ttfp_ms": 1742.8973782807589,
+      "p95_audio_ttfp_ms": 2156.451039947569,
+      "p99_audio_ttfp_ms": 2911.33613018319
+    },
+    "c8": {
+      "mean_audio_rtf": 1.0060029966218131,
+      "median_audio_rtf": 0.9916128008253835,
+      "p50_audio_rtf": 0.9916128008253835,
+      "p95_audio_rtf": 1.315652578617502,
+      "p99_audio_rtf": 1.5084172991734857,
+      "mean_audio_ttfp_ms": 2635.4040046498994,
+      "median_audio_ttfp_ms": 2670.447669457644,
+      "p50_audio_ttfp_ms": 2670.447669457644,
+      "p95_audio_ttfp_ms": 3035.8020090963682,
+      "p99_audio_ttfp_ms": 4015.1635782513767
+    }
+  },
+  "diagnostic": {
+    "c2": {
+      "native": {
+        "ttfp_ms": 1048.99161006324,
+        "rtf": 0.42244012776088813,
+        "req_s": 1.109087659063717
+      },
+      "underrun": 0,
+      "n": 32,
+      "buffer": {
+        "n": 32,
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "buffer_scenarios": [
+        {
+          "initial_buffer_s": 0,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 0.2,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 0.5,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 1.0,
+          "requests_with_underrun": 0
+        }
+      ],
+      "first_audio_ledger_ms": {
+        "dispatch_to_admit": 33.79816163214855,
+        "admit_to_prefilled": 114.23229071078822,
+        "prefilled_to_first_text_chunk": 430.9987571032252,
+        "text_to_first_window_ready": 200.56095905601978,
+        "first_window_queue": 52.600623603211716,
+        "first_window_decode": 214.9703863542527,
+        "emit_to_client": 1.463296008296311
+      },
+      "queue_ms": {
+        "n": 148,
+        "mean": 106.60489740454264,
+        "p50": 75.68564126268029,
+        "p95": 304.7739388421178,
+        "max": 857.2813654318452
+      },
+      "decode_ms": {
+        "n": 148,
+        "mean": 183.51591357684418,
+        "p50": 149.61090357974172,
+        "p95": 322.4959997460246,
+        "max": 984.8104491829872
+      }
+    },
+    "c4": {
+      "native": {
+        "ttfp_ms": 1683.4991978830658,
+        "rtf": 0.6615901762903124,
+        "req_s": 1.3971637706953166
+      },
+      "underrun": 1,
+      "n": 64,
+      "buffer": {
+        "n": 64,
+        "mean": 0.0016868158418219537,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.10795621387660503
+      },
+      "buffer_scenarios": [
+        {
+          "initial_buffer_s": 0,
+          "requests_with_underrun": 1
+        },
+        {
+          "initial_buffer_s": 0.2,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 0.5,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 1.0,
+          "requests_with_underrun": 0
+        }
+      ],
+      "first_audio_ledger_ms": {
+        "dispatch_to_admit": 73.25545129424427,
+        "admit_to_prefilled": 146.88726179883815,
+        "prefilled_to_first_text_chunk": 796.3948638935108,
+        "text_to_first_window_ready": 301.1537267739186,
+        "first_window_queue": 70.58312700246461,
+        "first_window_decode": 293.3137914078543,
+        "emit_to_client": 1.5328953741118312
+      },
+      "queue_ms": {
+        "n": 295,
+        "mean": 119.80333656893443,
+        "p50": 82.39495102316141,
+        "p95": 309.3254677951336,
+        "max": 1420.0170077383518
+      },
+      "decode_ms": {
+        "n": 295,
+        "mean": 237.36235737737456,
+        "p50": 190.89617021381855,
+        "p95": 346.8759022653103,
+        "max": 1559.1208329424262
+      }
+    },
+    "c8": {
+      "native": {
+        "ttfp_ms": 2486.6255428132717,
+        "rtf": 0.9583125636077015,
+        "req_s": 2.018507405095529
+      },
+      "underrun": 4,
+      "n": 128,
+      "buffer": {
+        "n": 128,
+        "mean": 0.022729179821908474,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 1.0604125279933214
+      },
+      "buffer_scenarios": [
+        {
+          "initial_buffer_s": 0,
+          "requests_with_underrun": 4
+        },
+        {
+          "initial_buffer_s": 0.2,
+          "requests_with_underrun": 4
+        },
+        {
+          "initial_buffer_s": 0.5,
+          "requests_with_underrun": 3
+        },
+        {
+          "initial_buffer_s": 1.0,
+          "requests_with_underrun": 1
+        }
+      ],
+      "first_audio_ledger_ms": {
+        "dispatch_to_admit": 93.8561365910573,
+        "admit_to_prefilled": 225.94795961049385,
+        "prefilled_to_first_text_chunk": 1340.4756449599518,
+        "text_to_first_window_ready": 421.7229976566159,
+        "first_window_queue": 100.74618515500333,
+        "first_window_decode": 301.6968430747511,
+        "emit_to_client": 1.8046364639303647
+      },
+      "queue_ms": {
+        "n": 572,
+        "mean": 164.55747857299093,
+        "p50": 128.84417828172445,
+        "p95": 433.94651636481285,
+        "max": 1930.2709866315126
+      },
+      "decode_ms": {
+        "n": 572,
+        "mean": 275.3854911119866,
+        "p50": 231.0319086536765,
+        "p95": 471.5173626318574,
+        "max": 1814.0239464119077
+      }
+    }
+  },
+  "development_quality": {
+    "n": 16,
+    "thinker_text_exact": 16,
+    "thinker_tokens_exact": 16,
+    "codec_tokens_exact": 12,
+    "speech_quality_gate": "NOT_RUN"
+  }
+}

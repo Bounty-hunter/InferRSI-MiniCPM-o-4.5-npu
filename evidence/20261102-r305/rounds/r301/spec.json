@@ -1,0 +1,18 @@
+{
+  "tag": "r301",
+  "engine": "engine-r301",
+  "config": "config-r301.json",
+  "engine_sha256": "e15c7ea7767bc097ef521b155dc157f504f09df58b687a05aab600df345c0209",
+  "native": [
+    32
+  ],
+  "diagnostic": [
+    32
+  ],
+  "quality": true,
+  "port": 19102,
+  "runner": "run_v2.py",
+  "hypothesis": "Pre-capture bounded Thinker bins2/8/16/32 before health-ready; remove late capture and large-bin-only tail padding",
+  "origin": "r298 mean improvement but p99 regression; diagnostic PA graph32 capture393ms and Euler lazy captures>1s; startup vs routing contributions not yet isolated",
+  "parent": "r298"
+}

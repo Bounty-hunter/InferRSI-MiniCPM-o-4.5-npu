@@ -1,0 +1,86 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -80,6 +80,10 @@
+         thinker_prefix_cache_min_tokens: int = 64,
+         thinker_prefix_cache_min_live: int = 1,
+         t2w_first_audio_priority: bool = False,
++        thinker_graph_max_batch: int | None = None,
++        t2w_emit_group_max_rows: int = 0,
++        t2w_deadline_scheduling: bool = False,
++        t2w_first_window_slack_s: float = 0.25,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -102,6 +106,8 @@
+             raise ValueError("thinker_prefix_cache_min_tokens must be positive")
+         if int(thinker_prefix_cache_min_live) < 1:
+             raise ValueError("thinker_prefix_cache_min_live must be positive")
++        if thinker_graph_max_batch is not None and int(thinker_graph_max_batch) < 1:
++            raise ValueError("thinker_graph_max_batch must be positive")
+         import torch_npu  # noqa: F401
+         from transformers import AutoTokenizer
+ 
+@@ -209,7 +215,7 @@
+             fused_ops=fused_decoder_ops,
+             fused_mode=thinker_decoder_op_mode,
+             use_graphs=use_graphs,
+-            graph_max_batch=graph_max_batch,
++            graph_max_batch=graph_max_batch if thinker_graph_max_batch is None else int(thinker_graph_max_batch),
+             graph_max_blocks=64,
+             batch_append_prefill=thinker_prefix_cache,
+         )
+@@ -335,6 +341,14 @@
+         if talker_full_block_warmup:
+             self._warm_full_talker_blocks()
+         self.thread = threading.Thread(target=self._run, daemon=True, name="npu-engine")
++        if int(t2w_emit_group_max_rows) < 0:
++            raise ValueError("t2w_emit_group_max_rows must be non-negative")
++        self.t2w_emit_group_max_rows = int(t2w_emit_group_max_rows)
++        from engine.runtime.t2w_sched import Policy
++        if float(t2w_first_window_slack_s) < 0:
++            raise ValueError("t2w_first_window_slack_s must be non-negative")
++        self.t2w_deadline_scheduling = bool(t2w_deadline_scheduling)
++        self.t2w_deadline_policy = Policy(first_slack_s=float(t2w_first_window_slack_s))
+         self.t2w_first_audio_priority = bool(t2w_first_audio_priority)
+         self.t2w_first_audio_priority_stats = {"batches": 0, "reordered": 0}
+         self.thread.start()
+@@ -1124,12 +1138,26 @@
+         from engine.server import AudioChunk
+         import time
+ 
+-        if self.t2w_first_audio_priority:
++        if self.t2w_first_audio_priority or self.t2w_deadline_scheduling:
+             self.t2w_first_audio_priority_stats["batches"] += 1
+-            ordered = sorted(ready, key=lambda lv: lv.sample_offset != 0)
++            if self.t2w_deadline_scheduling:
++                ordered = sorted(ready, key=lambda lv: lv.audio.deadline(
++                    lv.windows[0].t_ready, self.t2w_deadline_policy))
++            else:
++                ordered = sorted(ready, key=lambda lv: lv.sample_offset != 0)
+             if any(a is not b for a, b in zip(ready, ordered)):
+                 self.t2w_first_audio_priority_stats["reordered"] += 1
+             ready = ordered
++        # Preserve per-request order, but hand each completed bounded group to
++        # the client before computing the rest of a large ready cohort.
++        cap = self.t2w_emit_group_max_rows or len(ready)
++        for start in range(0, len(ready), cap):
++            self._decode_window_group(ready[start:start + cap])
++
++    def _decode_window_group(self, ready: list[LiveS]) -> None:
++        from engine.server import AudioChunk
++        import time
++
+         items = []
+         for lv in ready:
+             window = lv.windows.pop(0)
+--- a/config-r292.json
++++ b/config-r303.json
+@@ -38,5 +38,7 @@
+   "thinker_prefix_cache": true,
+   "thinker_prefix_cache_min_tokens": 64,
+   "thinker_prefix_cache_min_live": 9,
+-  "t2w_first_audio_priority": true
++  "t2w_first_audio_priority": true,
++  "t2w_emit_group_max_rows": 16,
++  "t2w_deadline_scheduling": true
+ }

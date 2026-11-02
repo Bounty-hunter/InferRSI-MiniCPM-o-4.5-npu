@@ -1,0 +1,5 @@
+# These two experimental configurations preserve the exact measured bytes/hash.
+/configs/engine/ascend_r292_control.json -text whitespace=cr-at-eol
+/configs/engine/ascend_r305_experimental.json -text whitespace=cr-at-eol
+# Unified diff artifacts retain their single-space blank context lines.
+/evidence/20261102-r305/patches/*.patch whitespace=-blank-at-eol

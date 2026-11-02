@@ -1,95 +1,99 @@
-# MiniCPM-o 4.5 · Ascend 910B1
+# MiniCPM-o 4.5 · Standalone Ascend NPU engine
 
-A standalone streaming speech engine for [MiniCPM-o 4.5](https://huggingface.co/openbmb/MiniCPM-o-4_5) on one
-Ascend 910B1. Thinker and Talker use a native `torch-npu` paged-KV runtime; Token2Wav runs on the same NPU with
-Ascend-safe HiFT and DiT attention. The server speaks the OpenAI-compatible `/v1/chat/completions` API with streamed
-text and 24 kHz audio. It does not import or run vLLM-Omni at runtime.
+A streaming speech engine for [MiniCPM-o 4.5](https://huggingface.co/openbmb/MiniCPM-o-4_5) on one
+**Ascend 910B1 / A2**. A native `torch-npu` paged-KV runtime owns Thinker, Talker and Token2Wav;
+the OpenAI-compatible API streams text and 24 kHz audio. Serving does **not** import vLLM, vLLM-Omni,
+SGLang or InferRSI. vLLM-Omni is the external performance comparator.
 
-Current status: latest Omni main and the unchanged r292 engine candidate are compared on A2 using the same
-native benchmark client. The new main run and reused same-day engine run each completed 992 requests with zero
-errors. Flow precision/step budgets differ; frozen statistical, quality and long-run acceptance is incomplete.
-See the [current report](docs/current-status-2026-11-02-main.md).
+**Latest measured candidate: r305, November 2, 2026.** Its mean TTFP, audio RTF and request/s improve over the
+pinned Omni main at C1/C2/C4/C8. P99 still regresses at C2/C4/C8. This is experimental code, not a quality-qualified
+release: Omni Flow uses FP32/10 steps while this engine uses FP16/6; the final speech gate remains NOT_RUN.
 
-## Architecture
+[中文：RSI 找到了什么、六层 profiling 后增加多少](docs/rsi-profiling-20261102.zh-CN.md) ·
+[Measurements and provenance](docs/data/ascend-r305-20261102.json) ·
+[Reproduction and evidence](evidence/20261102-r305/README.md)
 
-![MiniCPM-o 4.5 Ascend architecture](docs/figures/architecture.svg)
+## Mean performance vs. vLLM-Omni
 
-[Ascend NPU architecture](docs/architecture-npu.md) ·
-[Ascend optimization map](docs/optimizations-npu.md) ·
-[Current acceptance status](docs/current-status-2026-11-02-main.md) ·
-[Ascend test status](docs/testing-npu.md)
+Values are **Omni → r305**. Lower TTFP/RTF and higher request/s are better.
+Omni server: [`main@9990f10d9`](https://github.com/vllm-project/vllm-omni/commit/9990f10d9e898c3d38b1fa640513d55f771b8685);
+vLLM runtime: 0.32.0; both use the official client `5917730a`, Seed-TTS English and chunk25.
 
-## Why this engine can be faster
+| C | Mean TTFP ms | Reduction | Mean RTF | Reduction | request/s | Increase |
+|---|---|---|---|---|---|---|
+| C1 | 848.21 → 559.57 | 34.03% | 0.3060 → 0.2509 | 17.99% | 0.8158 → 0.9619 | 17.90% |
+| C2 | 1035.28 → 906.21 | 12.47% | 0.4229 → 0.3885 | 8.15% | 1.1730 → 1.2105 | 3.20% |
+| C4 | 1384.52 → 1287.76 | 6.99% | 0.6038 → 0.5733 | 5.06% | 1.5805 → 1.5984 | 1.13% |
+| C8 | 1994.96 → 1806.22 | 9.46% | 0.9890 → 0.8085 | 18.25% | 2.0471 → 2.3884 | 16.67% |
 
-The advantage comes from controlling the speech pipeline as one workload instead of treating Thinker, Talker and
-Code2Wav as unrelated generic stages. The design targets the dominant costs observed in the baseline traces:
+![r305 vs Omni means](docs/figures/npu-r305-vs-omni-means.svg)
 
-| Bottleneck | Dedicated engine design | Expected effect |
-|---|---|---|
-| Host launch and graph overhead | Fixed-shape NPU graph buckets for Thinker/Talker/DiT/HiFT, plus K-step Talker graph blocks | Fewer Python launches and fewer shape/capture transitions per generated audio window |
-| Cross-stage handoff | Thinker hidden states, Talker KV and sampler state stay in the same runtime; the Talker is updated in place | Less process/RPC/host serialization and less repeated tensor materialization |
-| KV growth under concurrency | Paged KV pools with explicit lifetime commitments, page reuse and admission backpressure | Ragged concurrent requests do not require a full dense KV allocation or late eviction |
-| Token2Wav launch pressure | Batched streaming windows, fixed `chunk25`, cached flow/HiFT shapes and device-side sampling where supported | More audio windows are processed per accelerator launch and the first playable window can start earlier |
-| Scheduling interference | A dedicated engine owner, bounded prefill budgets, a first-chunk lane and fair graph-capture gating | Continuing streams retain playback slack while new work cannot starve a capture operation |
-| CPU/device synchronization | Queued copies and ordered plan submission; no unnecessary scalar observation in the hot path | The host can enqueue the next stage while the NPU is executing the current stage |
+Each implementation completed 256 measured requests with zero request errors: 32/32/64/128 at C1/C2/C4/C8,
+two warmups per tier. Omni C1 is the same-day same-SHA archive; r305 C1 is a new unchanged-candidate measurement.
+C2/C4/C8 are the fresh serial comparison. These are single-run points, not confidence bounds.
+Audio lengths differ, so RTF improvements also depend on its generated-duration denominator.
+See the [full mean/P99 table](docs/rsi-profiling-20261102.zh-CN.md#完整均值与p99) and
+[earlier r292 five-tier results](docs/current-status-2026-11-02-main.md) for their separate scope.
 
-The design targets launch-bound and queue-bound behavior in the Ascend serving path: graph-captured, batched
-Token2Wav windows reduce per-window control work, while paged KV and a single runtime keep the Thinker-to-Talker
-handoff local. These are architectural reasons for a potential gain, not a promise that every candidate revision wins
-every tier.
+## What RSI found, and why r305 is faster
 
-Omni v0.32.0 and latest main also use NPU graph paths and multi-frame Talker decoding. The observed gap must not
-be explained simply as “graphs versus eager”: the current engine also has a smaller Flow precision/step budget.
-The main comparison below includes regressions at C4/C8 and in C16 first-audio latency. Isolated optimization
-attribution requires controlled ablations.
+The profiling loop found that **waiting for the first Thinker text chunk**, rather than HTTP serialization,
+was a major part of first-audio latency. At diagnostic C8, prefill-to-first-text fell from **1420.8 to 551.7 ms**;
+emit-to-client was only about 2–4 ms. These host intervals include contention, not exclusive kernel time.
 
-## Precision, parity and speech quality
+r305 uses **prompt-lookup proposals with original-model greedy verification**. It finds a continuation in this
+request's prompt using already-generated 2–4-token suffixes, verifies the entire causal block with the original
+Thinker, retains the matching prefix and target mismatch/bonus prediction, and truncates unused KV.
+No dataset IDs, saved answers or extra draft model are used. Ordinary decoding and KV-capacity fallbacks remain.
+The screen accepted 2223/3121 proposed tokens (71.23%; three tiers including warmups), reducing serial decode/host
+round trips. r305 itself does not change Flow precision, step count or chunk size relative to r292.
 
-Performance changes are accepted only when they preserve the model contract. The repository checks or records:
+Earlier NPU work supplies paged KV, fused decoder/CFM paths, K-step Talker graphs, batched Token2Wav and graph
+capture scheduling. These mechanisms are shared foundations, not new r305 speedup percentages.
+Omni also uses graphs and multi-frame Talker decoding; the comparison is not “graphs versus eager.”
 
-- the pinned MiniCPM-o 4.5 revision, prompt construction and reference-audio identity;
-- Thinker/Talker token and KV parity tests, sampler ordering, counter-based per-request RNG, EOS handling and graph
-  fallback paths;
-- recorded per-implementation precision and solver settings, `chunk25`, request IDs and native warmup semantics;
-  the stock Omni and engine Flow budgets differ as shown below;
-- streamed 24 kHz mono PCM output, with WER, speaker similarity, UTMOS, silence, repetition and truncation checks.
+## What six-layer profiling added
 
-The engine is allowed to produce codec tokens that are not bit-for-bit identical to vLLM-Omni, but that is a quality
-tradeoff subject to the frozen speech gates. The Ascend candidate keeps the pinned model revision, FP16 flow, six flow-
-matching steps, native sampling configuration and `chunk25` workload. Thinker/Talker token and KV parity, sampler
-ordering, counter-based RNG, EOS handling and eager graph fallbacks remain part of the contract. In the latest Ascend
-r292 development screen, differences relative to the previous standalone engine stayed within the configured margins,
-but the small 16-row screen did not satisfy every absolute WER/UTMOS floor and the final frozen speech gate was not run.
-The existing FP16/6-step choice is explicit; quality equivalence to stock FP32/10-step Omni is not established.
+L0 freezes workload identity and measurement boundaries. **L1–L6 are six diagnostic layers**:
+pipeline timing; graph/scheduling gaps; redundant work/layout; operators/counters; copies/ownership; component
+assessment and validation. Device evidence uses NPUGraph/msprof/CANN, following the logic of
+[PR #9236](https://github.com/vllm-project/vllm-omni/pull/9236).
 
-## How RSI produced the optimizations
+The additional **profiling-guided optimization campaign**, from r292 to unchanged-r305 serial confirmation,
+observed the following mean changes under the same engine FP16/6-step/chunk25 configuration:
 
-RSI is used as an evidence loop rather than as a list of unverified tricks:
+| C | Mean TTFP ms | Reduction | Mean RTF | Reduction | request/s | Increase |
+|---|---|---|---|---|---|---|
+| C2 | 1166.64 → 906.21 | 22.32% | 0.4770 → 0.3885 | 18.57% | 1.0354 → 1.2105 | 16.92% |
+| C4 | 1730.75 → 1287.76 | 25.60% | 0.6613 → 0.5733 | 13.30% | 1.3847 → 1.5984 | 15.43% |
+| C8 | 2657.29 → 1806.22 | 32.03% | 1.0261 → 0.8085 | 21.21% | 1.8602 → 2.3884 | 28.39% |
 
-1. Freeze the model revision, request IDs, sampling, chunk size and acceptance gates.
-2. Measure the unmodified path with the repository-native benchmark and stage markers.
-3. Profile the earliest demonstrated cause of a bubble: host waits, graph capture contention, copies, queueing or
-   shape churn. InferRSI mechanisms are hypotheses; they are reimplemented for this engine and do not inherit an
-   external speedup claim.
-4. Change one mechanism at a time in an isolated engine tree, keep eager fallbacks, and run focused numerical and
-   concurrency tests before serving traffic.
-5. Re-run the same native workload, reverse-check promising candidates, then apply speech quality and statistical
-   gates. A regression or a failed runtime is retained as evidence and rejected.
+![Profiling-guided incremental changes](docs/figures/npu-r305-incremental.svg)
 
-The latest ten-round profiling campaign illustrates the loop:
+This is the observed **before/after optimization delta**, not a measured speedup from enabling a profiler.
+There is no isolated “RSI alone vs. RSI plus six layers” optimization study. Do not add these percentages to the
+Omni gains, or add gains across layers/rounds. Both screening and confirmation points are retained.
 
-| RSI iteration | Hypothesis | Evidence-based decision |
-|---|---|---|
-| Fair capture gate | Stop new non-nested readers from starving a capture writer | Capture wait fell, but some wait moved to engine readers; retained for combination testing |
-| HiFT startup warmup | Move one-time graph work out of the first request | Startup work was isolated, but served gain was not established |
-| Euler startup warmup | Pre-capture common Euler shapes | CANN task-group failure and service crash; rejected |
-| Dynamic task-update exclusion | Serialize a problematic update region | Host wait expanded to 13.8 s; clear regression; rejected |
-| First-audio priority | Process `sample_offset==0` windows before continuation windows | Best preliminary candidate, but matched validation showed small gains and C8/C32 regressions |
-| Dense page-index reuse | Cache immutable page-ID tensors | Avoided repeated constructions, but did not improve end-to-end service metrics |
+The ten rounds also found negative results: larger Thinker graphs improved high-concurrency means but hurt P99;
+small decode groups regressed; constant AdaLN hoisting and NPU pending-audio output had no stable end-to-end gain.
+The [round-by-round Chinese account](docs/rsi-profiling-20261102.zh-CN.md#十轮实验包含无收益和失败方案)
+records hypotheses, knowledge sources, raw results, failures and decisions.
 
-This process is why the repository contains both accepted mechanisms and negative results: a faster microbenchmark,
-shorter lock wait or fewer object constructions is not enough unless the unprofiled native server improves without
-breaking parity or speech quality.
+## Architecture and quality
+
+![Ascend architecture](docs/figures/architecture.svg)
+
+[Runtime architecture](docs/architecture-npu.md) · [NPU optimization map](docs/optimizations-npu.md)
+
+In the 16-row C8 r305 development screen, Thinker text/tokens matched r292 on 16/16, but codec tokens matched on
+0/16. This is not a speech-quality pass or proof of bitwise losslessness. Frozen WER/speaker-similarity/UTMOS gates
+remain incomplete because the existing scoring service was unreachable. Request-error rate zero is a different check.
+The pinned model and original acceptance plan are preserved. Unsupported graph paths retain correctness fallbacks.
+
+The r305 runtime is included with **opt-in** `configs/engine/ascend_r305_experimental.json`; existing default configs
+are unchanged. The public server retains its optional CPU-affinity API; all other engine files match measured r305.
+The [source manifest](evidence/20261102-r305/source-manifest.json) records that publication difference and exact
+measured-source reconstruction. The integrated publication tree is not represented as another timed NPU run.
 
 ## Quickstart
 
@@ -125,60 +129,28 @@ Text arrives as `{"modality": "text", "choices": [{"delta": {"content": ...}}]}`
 repetition penalty 1.05 over 16 frames); `talker_sampling` overrides it per request. Image, audio and video inputs use
 the usual `image_url`, `input_audio`/`audio_url` and `video_url` content parts. See [Ascend API and request flow](docs/architecture-npu.md).
 
-## Ascend performance: dedicated engine vs. latest vLLM-Omni main
 
-The new comparator is upstream **main at
-[`9990f10d9`](https://github.com/vllm-project/vllm-omni/commit/9990f10d9e898c3d38b1fa640513d55f771b8685)**,
-fetched and measured on November 2, 2026. The measurement client stays at official v0.32.0 to match the earlier
-same-day engine measurement. The engine source/config and results are reused unchanged from that run.
-The [official v0.32.0 tag comparison](docs/current-status-2026-11-02.md) remains available separately.
+To select the measured experimental settings, use `ascend_r305_experimental` in the scheduler-wrapped command above.
+`ascend_r292_control` is supplied for the same-config internal comparison; prompt lookup defaults to disabled.
 
-![Dedicated NPU engine vs. latest Omni main](docs/figures/npu-performance-curves.svg)
-
-| C | Omni main: TTFP ms / RTF / req/s | Engine: TTFP ms / RTF / req/s | Engine gain: TTFP / RTF / throughput |
-|---:|---:|---:|---:|
-| 1 | 848.21 / 0.30597 / 0.81585 | 684.39 / 0.27521 / 0.84623 | +19.31% / +10.05% / +3.72% |
-| 4 | 1366.22 / 0.59815 / 1.61519 | 1768.02 / 0.67370 / 1.33647 | -29.41% / -12.63% / -17.26% |
-| 8 | 2032.28 / 1.00424 / 2.00046 | 2626.48 / 1.01072 / 1.91735 | -29.24% / -0.65% / -4.15% |
-| 16 | 3990.16 / 1.67696 / 2.24796 | 4181.12 / 1.54829 / 2.34131 | -4.79% / +7.67% / +4.15% |
-| 32 | 11325.17 / 3.39998 / 2.19395 | 6338.58 / 2.29230 / 3.03962 | +44.03% / +32.58% / +38.55% |
-
-Lower TTFP/RTF and higher request/s are better; positive percentages mean improvement over Omni.
-Each implementation completed 992 measured requests with zero errors: 32/64/128/256/512 at C1/C4/C8/C16/C32,
-with two native warmups per tier. The A2 CI case lists the first three tiers; the others extend the generic CI case.
-These are single-run point estimates, not frozen statistical acceptance.
-
-**Compute differs:** Omni main uses stock FP32 Flow with 10 steps; the engine uses FP16 Flow with 6 steps.
-Both use chunk25. The gap cannot be attributed entirely to scheduling/fusion or described as lossless speedup.
-The final speech gate has not passed; the r292 candidate is not promoted to a released/default engine.
-
-![Relative improvements over latest main](docs/figures/npu-improvement-curves.svg)
-
-[Full report and main-vs-tag changes](docs/current-status-2026-11-02-main.md) ·
-[Data and provenance](docs/data/ascend-main-20261102-comparison.json) ·
-[PNG curves](docs/figures/npu-performance-curves.png) ·
-[PNG improvements](docs/figures/npu-improvement-curves.png)
-
-To regenerate with Python and Matplotlib:
+## Reproduce figures and verify artifacts
 
 ```bash
 python -m pip install matplotlib
-python tools/plot_npu_performance.py
+python tools/plot_r305_performance.py
+python tools/verify_r305_evidence.py
 ```
 
-The [original frozen plan](evidence/20261022-ascend910b1/plan/acceptance.json) is preserved for audit.
-This native CI-style single-run comparison does not complete its original K=10/final-quality acceptance protocol.
+Raw native metric JSONs, workload commands, source/config hashes, receipts, ten-round patches and compact profiling
+analyses are under [evidence/20261102-r305](evidence/20261102-r305/README.md). Audio/model weights and large raw traces
+remain outside Git. The [original frozen plan](evidence/20261022-ascend910b1/plan/acceptance.json) is unchanged;
+these points do not complete its K=10/LCB/final-quality protocol.
 
 ## References
 
-- [MiniCPM-o 4.5](https://huggingface.co/openbmb/MiniCPM-o-4_5): checkpoint, processor, encoders and the
-  `streaming_generate` reference ported here.
-- [minicpmo-utils](https://pypi.org/project/minicpmo-utils/) (`stepaudio2`): the reference Token2Wav, CosyVoice2 flow and
-  HiFT modules.
-- [PyTorch](https://github.com/pytorch/pytorch) and `torch-npu`: accelerator operators and graph execution.
-- [vLLM-Omni](https://github.com/vllm-project/vllm-omni) and [SGLang-Omni](https://github.com/sgl-project/sglang-omni):
-  serving baselines and the speech evaluation tools (Seed-TTS WER, speaker similarity).
-- [Seed-TTS eval](https://huggingface.co/datasets/zhaochenyang20/seed-tts-eval): the voice-cloning workload.
-- [OmniRSI](https://github.com/ThinkFlowLab/OmniRSI): recorded optimization knowledge and evidence.
+- [MiniCPM-o 4.5](https://huggingface.co/openbmb/MiniCPM-o-4_5), minicpmo-utils/StepAudio2, PyTorch and torch-npu.
+- [vLLM-Omni](https://github.com/vllm-project/vllm-omni): serving baseline and native benchmark/quality tools.
+- [Seed-TTS eval](https://huggingface.co/datasets/zhaochenyang20/seed-tts-eval): English voice-cloning workload.
+- [OmniRSI](https://github.com/ThinkFlowLab/OmniRSI): optimization knowledge used as testable hypotheses.
 
-See [NOTICE](NOTICE) and the [Apache-2.0 license text](third_party_licenses/Apache-2.0.txt) of the reused code.
+See [NOTICE](NOTICE) and [third-party licenses](third_party_licenses/Apache-2.0.txt).

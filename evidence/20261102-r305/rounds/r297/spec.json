@@ -1,0 +1,16 @@
+{
+  "tag": "r297",
+  "engine": "engine-r297",
+  "config": "config-r297.json",
+  "engine_sha256": "1bb0b052d79d2f507d2f054485e494085f8dbc14d376bd96033bb693d8774108",
+  "native": [
+    16
+  ],
+  "diagnostic": [
+    16
+  ],
+  "quality": true,
+  "port": 19097,
+  "hypothesis": "Separate Thinker graph capacity16 from Talker8; target observed eager fallback",
+  "origin": "r296 graph coverage and graph-batching-state-ownership knowledge"
+}

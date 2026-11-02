@@ -1,0 +1,89 @@
+{
+  "tag": "r297",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 16,
+      "ttfp_ms": 3657.4088711968216,
+      "rtf": 1.3907589550186095,
+      "req_s": 2.623416263327202,
+      "completed": 256,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 16,
+      "ttfp_ms": 3489.6743723184045,
+      "rtf": 1.3212508892788688,
+      "req_s": 2.738123298699145,
+      "completed": 256,
+      "failed": 0
+    }
+  ],
+  "diagnostic": {
+    "c16": {
+      "native": {
+        "ttfp_ms": 3489.6743723184045,
+        "rtf": 1.3212508892788688,
+        "req_s": 2.738123298699145
+      },
+      "underrun": 32,
+      "n": 256,
+      "buffer": {
+        "n": 256,
+        "mean": 0.07802526264276821,
+        "p50": 0.0,
+        "p95": 0.5518641090020537,
+        "max": 2.5988824917003512
+      },
+      "buffer_scenarios": [
+        {
+          "initial_buffer_s": 0,
+          "requests_with_underrun": 32
+        },
+        {
+          "initial_buffer_s": 0.2,
+          "requests_with_underrun": 22
+        },
+        {
+          "initial_buffer_s": 0.5,
+          "requests_with_underrun": 20
+        },
+        {
+          "initial_buffer_s": 1.0,
+          "requests_with_underrun": 6
+        }
+      ],
+      "first_audio_ledger_ms": {
+        "dispatch_to_admit": 116.30661619710736,
+        "admit_to_prefilled": 126.4569180602848,
+        "prefilled_to_first_text_chunk": 2023.414367773512,
+        "text_to_first_window_ready": 584.1064594533236,
+        "first_window_queue": 225.20893808541587,
+        "first_window_decode": 410.97923860070296,
+        "emit_to_client": 2.8228891824255697
+      },
+      "queue_ms": {
+        "n": 1225,
+        "mean": 325.51499073374634,
+        "p50": 247.9197010397911,
+        "p95": 851.8464928492904,
+        "max": 2145.219844765961
+      },
+      "decode_ms": {
+        "n": 1225,
+        "mean": 395.0113476364284,
+        "p50": 330.4698960855603,
+        "p95": 728.6560507491231,
+        "max": 1702.8320813551545
+      }
+    }
+  },
+  "development_quality": {
+    "n": 16,
+    "thinker_text_exact": 16,
+    "thinker_tokens_exact": 16,
+    "codec_tokens_exact": 1,
+    "speech_quality_gate": "NOT_RUN"
+  }
+}

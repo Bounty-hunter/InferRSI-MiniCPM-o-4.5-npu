@@ -1,0 +1,20 @@
+[
+  {
+    "mode": "native",
+    "concurrency": 32,
+    "ttfp_ms": 5813.265991331718,
+    "rtf": 2.1124221557290737,
+    "req_s": 3.3330364752042647,
+    "completed": 512,
+    "failed": 0
+  },
+  {
+    "mode": "diagnostic",
+    "concurrency": 32,
+    "ttfp_ms": 5998.325545941043,
+    "rtf": 2.1506422056413657,
+    "req_s": 3.253247573637667,
+    "completed": 512,
+    "failed": 0
+  }
+]

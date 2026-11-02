@@ -1,0 +1,38 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -80,6 +80,7 @@
+         thinker_prefix_cache_min_tokens: int = 64,
+         thinker_prefix_cache_min_live: int = 1,
+         t2w_first_audio_priority: bool = False,
++        thinker_graph_max_batch: int | None = None,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -102,6 +103,8 @@
+             raise ValueError("thinker_prefix_cache_min_tokens must be positive")
+         if int(thinker_prefix_cache_min_live) < 1:
+             raise ValueError("thinker_prefix_cache_min_live must be positive")
++        if thinker_graph_max_batch is not None and int(thinker_graph_max_batch) < 1:
++            raise ValueError("thinker_graph_max_batch must be positive")
+         import torch_npu  # noqa: F401
+         from transformers import AutoTokenizer
+ 
+@@ -209,7 +212,7 @@
+             fused_ops=fused_decoder_ops,
+             fused_mode=thinker_decoder_op_mode,
+             use_graphs=use_graphs,
+-            graph_max_batch=graph_max_batch,
++            graph_max_batch=graph_max_batch if thinker_graph_max_batch is None else int(thinker_graph_max_batch),
+             graph_max_blocks=64,
+             batch_append_prefill=thinker_prefix_cache,
+         )
+--- a/config-r292.json
++++ b/config-r297.json
+@@ -38,5 +38,6 @@
+   "thinker_prefix_cache": true,
+   "thinker_prefix_cache_min_tokens": 64,
+   "thinker_prefix_cache_min_live": 9,
+-  "t2w_first_audio_priority": true
++  "t2w_first_audio_priority": true,
++  "thinker_graph_max_batch": 16
+ }

@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-02",
+  "local_environment": "Windows, Python 3.14; no local torch or Seed-TTS snapshot",
+  "focused_cpu_pytest": {"passed": 35, "deselected": 7, "warnings": 1},
+  "initial_broader_pytest": {
+    "passed": 35,
+    "failed_for_missing_environment": 7,
+    "reasons": ["Six tests require the absent local Seed-TTS meta.lst snapshot", "One test imports the absent local torch package"]
+  },
+  "npu_hotpath_ast_checks_passed": 5,
+  "compileall": "PASS",
+  "artifact_verification": {
+    "direct_omni_cells": 4,
+    "same_config_incremental_cells": 3,
+    "optimization_rounds": 10,
+    "reconstructed_measured_engine_hash_matches": true,
+    "workload_commands_match": true
+  },
+  "plots": "Mean, P99 and incremental SVG/PNG rendered; visually inspected",
+  "new_npu_benchmark_of_integrated_publication_tree": false,
+  "npu_evidence": "Measured r305 runtime files are identical except the preserved optional CPU-affinity server API; see source-manifest.json",
+  "frozen_statistical_acceptance": "NOT_RUN",
+  "frozen_speech_gate": "NOT_RUN"
+}

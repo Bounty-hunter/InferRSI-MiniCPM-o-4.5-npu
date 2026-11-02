@@ -1,0 +1,18 @@
+{
+  "tag": "r302",
+  "engine": "engine-r302",
+  "config": "config-r302.json",
+  "engine_sha256": "958b602fabf75606c7a4f226714c488a540bdde78cc34e7f013893adaf88947f",
+  "native": [
+    32
+  ],
+  "diagnostic": [
+    32
+  ],
+  "quality": true,
+  "port": 19103,
+  "runner": "run_v2.py",
+  "hypothesis": "Scope dynamic Thinker graph metadata reuse wait to its last replay event instead of draining unrelated later compute-stream work",
+  "origin": "source NpuDecodeGraph.run current_stream.synchronize plus r296/r298 host waits; need A/B to prove benefit, preserve event lifetime and all stream ordering",
+  "parent": "r298"
+}

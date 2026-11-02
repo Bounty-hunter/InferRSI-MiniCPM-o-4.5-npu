@@ -1,0 +1,56 @@
+[
+  {
+    "mode": "native",
+    "concurrency": 2,
+    "ttfp_ms": 1209.1418736090418,
+    "rtf": 0.47939213715219914,
+    "req_s": 1.023452656885696,
+    "completed": 32,
+    "failed": 0
+  },
+  {
+    "mode": "native",
+    "concurrency": 4,
+    "ttfp_ms": 1729.6556790388422,
+    "rtf": 0.674332363078084,
+    "req_s": 1.3707915579674692,
+    "completed": 64,
+    "failed": 0
+  },
+  {
+    "mode": "native",
+    "concurrency": 8,
+    "ttfp_ms": 2635.4040046498994,
+    "rtf": 1.0060029966218131,
+    "req_s": 1.8926805869041292,
+    "completed": 128,
+    "failed": 0
+  },
+  {
+    "mode": "diagnostic",
+    "concurrency": 2,
+    "ttfp_ms": 1048.99161006324,
+    "rtf": 0.42244012776088813,
+    "req_s": 1.109087659063717,
+    "completed": 32,
+    "failed": 0
+  },
+  {
+    "mode": "diagnostic",
+    "concurrency": 4,
+    "ttfp_ms": 1683.4991978830658,
+    "rtf": 0.6615901762903124,
+    "req_s": 1.3971637706953166,
+    "completed": 64,
+    "failed": 0
+  },
+  {
+    "mode": "diagnostic",
+    "concurrency": 8,
+    "ttfp_ms": 2486.6255428132717,
+    "rtf": 0.9583125636077015,
+    "req_s": 2.018507405095529,
+    "completed": 128,
+    "failed": 0
+  }
+]

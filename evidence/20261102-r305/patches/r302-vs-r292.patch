@@ -1,0 +1,92 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -80,6 +80,8 @@
+         thinker_prefix_cache_min_tokens: int = 64,
+         thinker_prefix_cache_min_live: int = 1,
+         t2w_first_audio_priority: bool = False,
++        thinker_graph_max_batch: int | None = None,
++        thinker_scoped_replay_wait: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -102,6 +104,8 @@
+             raise ValueError("thinker_prefix_cache_min_tokens must be positive")
+         if int(thinker_prefix_cache_min_live) < 1:
+             raise ValueError("thinker_prefix_cache_min_live must be positive")
++        if thinker_graph_max_batch is not None and int(thinker_graph_max_batch) < 1:
++            raise ValueError("thinker_graph_max_batch must be positive")
+         import torch_npu  # noqa: F401
+         from transformers import AutoTokenizer
+ 
+@@ -209,7 +213,7 @@
+             fused_ops=fused_decoder_ops,
+             fused_mode=thinker_decoder_op_mode,
+             use_graphs=use_graphs,
+-            graph_max_batch=graph_max_batch,
++            graph_max_batch=graph_max_batch if thinker_graph_max_batch is None else int(thinker_graph_max_batch),
+             graph_max_blocks=64,
+             batch_append_prefill=thinker_prefix_cache,
+         )
+@@ -226,6 +230,7 @@
+             static_shape_attention=talker_static_shape_attention,
+             static_shape_capacity=talker_static_kv_capacity,
+         )
++        self.trun.scoped_replay_wait = bool(thinker_scoped_replay_wait)
+         self.trun.capture_context = self._graph_capture_context
+         self.arun.capture_context = self._graph_capture_context
+         if self.t2w_batch.euler is not None:
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -412,6 +412,8 @@
+         self.output = None
+         self.capture: _PagedGraphCapture | _StaticFiaGraphCapture | None = None
+         self.update_stream = torch.npu.Stream(device=device)
++        self.replay_done = torch.npu.Event()
++        self.replay_done_recorded = False
+ 
+     def _static_attention_kwargs(self, query: torch.Tensor, layer: int) -> dict:
+         if self.static_capacity is None or self.pse_shift is None:
+@@ -529,17 +531,30 @@
+                 op.event.record(self.update_stream)
+ 
+     def run(self, x: torch.Tensor, layout: NpuBatchLayout, *, synchronize: bool = True) -> torch.Tensor:
++        scoped_wait = bool(getattr(self.runner, "scoped_replay_wait", False)) and self.static_capacity is None
+         if self.graph is None:
+             self._copy_inputs(x, layout)
+-            return self._capture()
++            output = self._capture()
++            if scoped_wait:
++                self.replay_done.record(torch.npu.current_stream())
++                self.replay_done_recorded = True
++            return output
+         # Full graphs retain intermediate addresses.  Finish the previous
+         # replay before rebinding PA task metadata, as vLLM-Ascend does.
+         if synchronize and self.static_capacity is None:
+-            torch.npu.current_stream().synchronize()
++            if scoped_wait and self.replay_done_recorded:
++                # Task metadata needs the previous use of this graph drained,
++                # not unrelated later work on the shared compute stream.
++                self.replay_done.synchronize()
++            else:
++                torch.npu.current_stream().synchronize()
+         self._copy_inputs(x, layout)
+         if self.static_capacity is None:
+             self._update_attention()
+         self.graph.replay()
++        if scoped_wait:
++            self.replay_done.record(torch.npu.current_stream())
++            self.replay_done_recorded = True
+         return self.output
+ 
+ 
+--- a/config-r292.json
++++ b/config-r302.json
+@@ -38,5 +38,7 @@
+   "thinker_prefix_cache": true,
+   "thinker_prefix_cache_min_tokens": 64,
+   "thinker_prefix_cache_min_live": 9,
+-  "t2w_first_audio_priority": true
++  "t2w_first_audio_priority": true,
++  "thinker_graph_max_batch": 32,
++  "thinker_scoped_replay_wait": true
+ }

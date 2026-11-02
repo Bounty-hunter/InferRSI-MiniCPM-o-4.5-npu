@@ -1,0 +1,79 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+[W1102 07:21:49.267206141 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[W1102 07:21:49.268628118 op_api_common.cpp:43] Warning: A common user is using the files of the root user. (function operator())
+[transformers] `MiniCPMOProcessor` defines `image_processor_class = 'AutoImageProcessor'`, which is deprecated. Register the correct mapping in `AutoImageProcessor` instead.
+[transformers] Requested torchvision backend is not available. Falling back to pil backend.
+[transformers] `MiniCPMOProcessor` defines `audio_processor_class = 'AutoFeatureExtractor'`, which is deprecated. Register the correct mapping in `AutoFeatureExtractor` instead.
+/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/npu_paged.py:354: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at ../torch_npu/csrc/aten/common/TensorFactories.cpp:423.)
+  self.workspace_block_table = workspace_pages.remainder(runner.kv.num_pages).repeat(batch, 1)
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/backend_npu.py", line 1110, in _run_t2w
+    self._decode_windows_threaded(ready)
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/backend_npu.py", line 1147, in _decode_windows_threaded
+    pending = self.t2w_batch.decode(items, async_result=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/token2wav_batch.py", line 250, in decode
+    return self._prof("vocode", len(items), self._vocode, items, mels, async_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/token2wav_batch.py", line 341, in _prof
+    return fn(*a)
+           ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/token2wav_batch.py", line 820, in _vocode
+    return PendingAudio(torch.cat([p for _, p in pieces]).float() if pieces else None, spans, device=self.t2w.device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/token2wav_batch.py", line 130, in __init__
+    self.host = torch.empty(flat.numel(), dtype=flat.dtype, pin_memory=True, **options)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: empty() received an invalid combination of arguments - got (int, pin_memory_device=str, pin_memory=bool, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, *, tuple of names names, torch.memory_format memory_format = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, *, torch.memory_format memory_format = None, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/backend_npu.py", line 1110, in _run_t2w
+    self._decode_windows_threaded(ready)
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/backend_npu.py", line 1147, in _decode_windows_threaded
+    pending = self.t2w_batch.decode(items, async_result=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/token2wav_batch.py", line 250, in decode
+    return self._prof("vocode", len(items), self._vocode, items, mels, async_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/token2wav_batch.py", line 341, in _prof
+    return fn(*a)
+           ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/token2wav_batch.py", line 820, in _vocode
+    return PendingAudio(torch.cat([p for _, p in pieces]).float() if pieces else None, spans, device=self.t2w.device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/engine-r306/engine/runtime/token2wav_batch.py", line 130, in __init__
+    self.host = torch.empty(flat.numel(), dtype=flat.dtype, pin_memory=True, **options)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: empty() received an invalid combination of arguments - got (int, pin_memory_device=str, pin_memory=bool, dtype=torch.dtype), but expected one of:
+ * (tuple of ints size, *, tuple of names names, torch.memory_format memory_format = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, *, torch.memory_format memory_format = None, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r297-r306-20261102/quality_hooks_lowc.py", line 37, in generate
+    audio=row.pop('audio');assert row['ok'],row
+                                  ~~~^^^^^^
+AssertionError: {'request_id': 'common_voice_en_103675-common_voice_en_103677', 'seed': 507950992, 'target_text': 'The boy knew the desert sensed his fear.', 'ref_text': "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing.", 'ref_wav': '/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_103675.wav', 'thinker_text': 'The boy knew the desert sensed his fear.', 'ok': False, 'ttfa_s': None, 'e2e_s': 5.554296627640724, 'samples': 0, 'duration_s': 0.0, 'audio_sha256_float32': None, 'finish_reason': None, 'usage': {}, 'error': 'RuntimeError: token2wav error: TypeError: empty() received an invalid combination of arguments - got (int, pin_memory_device=str, pin_memory=bool, dtype=torch.dtype), but expected one of:\n * (tuple of ints size, *, tuple of names names, torch.memory_format memory_format = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)\n * (tuple of ints size, *, torch.memory_format memory_format = None, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)\n'}
