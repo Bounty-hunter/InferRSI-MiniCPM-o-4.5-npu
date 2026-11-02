@@ -1,0 +1,17 @@
+{
+  "python": "/workspace/minicpmo-r182/venv/bin/python",
+  "visible_devices": "3",
+  "device_name": "Ascend910B1",
+  "omni_file": "/workspace/minicpmo-r182/vllm-omni-main-20261102-0304/vllm_omni/__init__.py",
+  "vllm_file": "/vllm-workspace/vllm/vllm/__init__.py",
+  "source_version": "0.1.dev1+g5b5eb49cd.npu",
+  "versions": {
+    "vllm": "0.32.0+empty",
+    "vllm-ascend": "0.19.1rc2.dev2959+g450e55698",
+    "vllm-omni": "0.1.dev1+g5b5eb49cd.npu",
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post4",
+    "transformers": "5.19.0"
+  },
+  "note": "Distribution metadata comes from the reused editable environment; the verified pinned main Git SHA identifies the executed source."
+}

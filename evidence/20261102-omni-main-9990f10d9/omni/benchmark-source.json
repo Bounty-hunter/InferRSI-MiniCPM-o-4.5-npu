@@ -1,0 +1,6 @@
+{
+  "commit": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+  "repo": "/workspace/minicpmo-r182/vllm-omni-v0320-20261102",
+  "pythonpath": "/workspace/minicpmo-r182/vllm-omni-v0320-20261102:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe",
+  "scope": "Fixed v0.32.0 client for a controlled latest-main server comparison"
+}

@@ -58,6 +58,6 @@ The [earlier main-based data](data/ascend-r295-comparison.json) remains as histo
 headline comparator. Raw result/command/source/config/input hashes and job receipts were checked before publication.
 The [native result files and rerun harness](../evidence/20261102-omni-v0320/) are preserved for reproduction.
 
-![Performance curves](figures/npu-performance-curves.svg)
+![Performance curves](figures/npu-v0320-performance-curves.svg)
 
-![Relative improvements](figures/npu-improvement-curves.svg)
+![Relative improvements](figures/npu-v0320-improvement-curves.svg)

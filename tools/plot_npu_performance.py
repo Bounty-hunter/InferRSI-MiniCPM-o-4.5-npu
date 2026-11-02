@@ -52,7 +52,9 @@ def finish(fig, axes, title, subtitle, legend, footnote, output):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    current = ROOT/'docs/data/ascend-v0320-comparison.json'
+    current = ROOT/'docs/data/ascend-main-20261102-comparison.json'
+    if not current.exists():
+        current = ROOT/'docs/data/ascend-v0320-comparison.json'
     parser.add_argument('--data', type=Path, default=current if current.exists() else ROOT/'docs/data/ascend-r295-comparison.json')
     parser.add_argument('--out-dir', type=Path, default=ROOT/'docs/figures')
     args = parser.parse_args()
@@ -61,13 +63,14 @@ def main():
     baseline_key = data.get('baseline_key', 'historical_omni')
     baseline_label = data.get('baseline_label', 'vLLM-Omni (vLLM 0.32.0)')
     official_tag = data.get('baseline_identity', {}).get('git_tag') == 'v0.32.0'
-    provenance = ('Omni: official v0.32.0 tag, commit 5917730a; vLLM 0.32.0. Both services measured Nov 2 with the same tag CLI.'
+    recent_run = official_tag or 'plot_provenance' in data
+    provenance = data.get('plot_provenance') or ('Omni: official v0.32.0 tag, commit 5917730a; vLLM 0.32.0. Both services measured Nov 2 with the same tag CLI.'
                   if official_tag else
                   'Omni: main@5b5eb49c, vLLM 0.32.0; recorded Oct 26–28. Engine: r292 candidate, measured Oct 30.')
-    scope_note = ('Each service: 992 requests, 0 errors; one fresh process, fixed five-tier order, 2 native warmups per tier.'
+    scope_note = data.get('plot_scope') or ('Each service: 992 requests, 0 errors; one fresh process, fixed five-tier order, 2 native warmups per tier.'
                   if official_tag else 'Previously frozen Omni baseline, not a simultaneous rerun.')
     compute_note = ('Flow budget differs: Omni FP32 / 10 steps; engine FP16 / 6 steps. Not an equal-precision or quality-qualified speedup.'
-                    if official_tag else 'Single-run points; no frozen statistical or final speech-gate acceptance.')
+                    if recent_run else 'Single-run points; no frozen statistical or final speech-gate acceptance.')
     series = ((baseline_key, baseline_label, '#2563eb', '--', '^'),
               ('candidate', 'Dedicated NPU engine (r292 candidate)', '#ea580c', '-', 'o'))
     x = [row['concurrency'] for row in rows]
@@ -119,7 +122,9 @@ def main():
         ax.set_title(title, loc='left', fontsize=13, fontweight='bold', pad=12)
         for row in rows:
             value = row['benefit_percent'][baseline_key][metric]
-            label_offset = -18 if value < 0 or row['concurrency'] == 4 else 10
+            label_offset = 10 if value >= 0 else -18
+            if row['concurrency'] == 4:
+                label_offset = -18 if value >= 0 else 10
             ax.annotate(f'{value:+.1f}%', (row['concurrency'], value),
                         xytext=(0, label_offset), textcoords='offset points',
                         ha='center', fontsize=9, color='#9a3412')
@@ -127,7 +132,7 @@ def main():
     finish(fig, axes, 'MiniCPM-o 4.5 | Relative improvements',
            'Independent NPU engine vs. vLLM-Omni · same Ascend workload · negative values show regressions', 1,
            'Latency / RTF: (1 − candidate/reference) × 100%; throughput: (candidate/reference − 1) × 100%.\n'+
-           ('Official v0.32.0 tag / 5917730a; both measured Nov 2. ' if official_tag else 'Earlier Omni main@5b5eb49c baseline. ')+
+           (data.get('plot_reference') or ('Official v0.32.0 tag / 5917730a; both measured Nov 2. ' if official_tag else 'Earlier Omni main@5b5eb49c baseline. '))+' '+
            'System comparisons, not isolated RSI gains or final acceptance.\n'+compute_note,
            args.out_dir/'npu-improvement-curves')
     print('Saved performance and improvement curves as SVG and PNG:', args.out_dir)

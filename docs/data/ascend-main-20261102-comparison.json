@@ -1,0 +1,274 @@
+{
+  "schema": 2,
+  "measurement_date": "2026-11-02",
+  "hardware": "One Ascend 910B1 (A2) per service",
+  "baseline_key": "omni",
+  "baseline_label": "vLLM-Omni main (9990f10d9)",
+  "baseline_identity": {
+    "git_branch": "main",
+    "git_commit": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+    "source_clean": true,
+    "vllm_runtime_version": "0.32.0+empty",
+    "reported_source_version": "0.1.dev1+g5b5eb49cd.npu",
+    "installed_distribution_versions": {
+      "vllm": "0.32.0+empty",
+      "vllm-ascend": "0.19.1rc2.dev2959+g450e55698",
+      "vllm-omni": "0.1.dev1+g5b5eb49cd.npu",
+      "torch": "2.10.0+cpu",
+      "torch-npu": "2.10.0.post4",
+      "transformers": "5.19.0"
+    },
+    "note": "Distribution metadata comes from the reused editable environment; the verified pinned main Git SHA identifies the executed source."
+  },
+  "candidate": "Unchanged r292 candidate; reused completed November 2 same-client measurement",
+  "engine_identity": {
+    "engine_tree_sha256": "7d0c96eeadccf88c98872ea48f9149e60085c483b5c046c0a2063906db17f780",
+    "config_sha256": "3fe1dd286a25caaf65053c860ce307589395fc1f1aeb10337e409e4fdac3a0d0",
+    "promoted_to_default": false
+  },
+  "client_git_commit": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+  "workload": "Seed-TTS en; chunk25; C1/C4/C8/C16/C32; 32/64/128/256/512 measured requests; two native warmups per tier",
+  "comparison_measured_requests": 1984,
+  "newly_measured_requests": 992,
+  "measured_errors": 0,
+  "measurement_timing": {
+    "omni_main": "2026-11-02T03:31:31Z",
+    "engine": "2026-11-02T02:34:30Z",
+    "note": "Latest-main server is fresh; the unchanged engine result is reused from the earlier same-day official-tag-client run."
+  },
+  "internal_compute": {
+    "omni": {
+      "flow_precision": "FP32",
+      "flow_steps": 10
+    },
+    "candidate": {
+      "flow_precision": "FP16",
+      "flow_steps": 6
+    },
+    "scope": "Different internal precision/solver budgets; not lossless same-precision attribution."
+  },
+  "uncertainty": "Single-run points; no frozen confidence-bound or final speech-quality acceptance",
+  "plot_provenance": "Omni: pinned main@9990f10d9, vLLM 0.32.0. Fixed v0.32.0 native benchmark client on both implementations.",
+  "plot_scope": "Main server: new Nov 2 run; unchanged r292 engine: earlier Nov 2 run. Each: 992 requests, 0 errors; 2 warmups/tier.",
+  "plot_reference": "Pinned main@9990f10d9; same-day engine evidence reused.",
+  "measurements": [
+    {
+      "concurrency": 1,
+      "omni": {
+        "ttfp_ms": 848.211680771783,
+        "rtf": 0.30596888450313264,
+        "req_s": 0.8158492342383723,
+        "completed": 32,
+        "failed": 0,
+        "input_tokens": 4411,
+        "audio_duration_s": 130.28
+      },
+      "previous_tag": {
+        "ttfp_ms": 1077.5061729946174,
+        "rtf": 0.3958634562300245,
+        "req_s": 0.630742327713575,
+        "completed": 32,
+        "failed": 0,
+        "input_tokens": 4411,
+        "audio_duration_s": 130.28
+      },
+      "candidate": {
+        "ttfp_ms": 684.3855691840872,
+        "rtf": 0.2752115975564421,
+        "req_s": 0.846226218552171,
+        "completed": 32,
+        "failed": 0,
+        "input_tokens": 4411,
+        "audio_duration_s": 138.4
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": 19.314295629439027,
+          "rtf": 10.052423139901222,
+          "req_s": 3.7233575811536745
+        }
+      },
+      "main_benefit_over_tag": {
+        "ttfp_ms": 21.28010938309305,
+        "rtf": 22.708479480019694,
+        "req_s": 29.347468592413193
+      }
+    },
+    {
+      "concurrency": 4,
+      "omni": {
+        "ttfp_ms": 1366.2247113970807,
+        "rtf": 0.5981543528583364,
+        "req_s": 1.6151916645919457,
+        "completed": 64,
+        "failed": 0,
+        "input_tokens": 8856,
+        "audio_duration_s": 267.36
+      },
+      "previous_tag": {
+        "ttfp_ms": 2131.1682624946116,
+        "rtf": 0.8351138445389832,
+        "req_s": 1.175105758803404,
+        "completed": 64,
+        "failed": 0,
+        "input_tokens": 8856,
+        "audio_duration_s": 268.88
+      },
+      "candidate": {
+        "ttfp_ms": 1768.0249166442081,
+        "rtf": 0.6737046874872256,
+        "req_s": 1.3364692945063263,
+        "completed": 64,
+        "failed": 0,
+        "input_tokens": 8856,
+        "audio_duration_s": 288.6
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": -29.409525526459902,
+          "rtf": -12.630575079469853,
+          "req_s": -17.256303149387197
+        }
+      },
+      "main_benefit_over_tag": {
+        "ttfp_ms": 35.89315609468283,
+        "rtf": 28.374513634300726,
+        "req_s": 37.45074879359591
+      }
+    },
+    {
+      "concurrency": 8,
+      "omni": {
+        "ttfp_ms": 2032.2837335188524,
+        "rtf": 1.0042449365646253,
+        "req_s": 2.0004594144463343,
+        "completed": 128,
+        "failed": 0,
+        "input_tokens": 17646,
+        "audio_duration_s": 517.28
+      },
+      "previous_tag": {
+        "ttfp_ms": 3221.953582535207,
+        "rtf": 1.422146553705705,
+        "req_s": 1.4306363163523104,
+        "completed": 128,
+        "failed": 0,
+        "input_tokens": 17646,
+        "audio_duration_s": 516.0
+      },
+      "candidate": {
+        "ttfp_ms": 2626.475066492276,
+        "rtf": 1.0107239431863213,
+        "req_s": 1.917350031842299,
+        "completed": 128,
+        "failed": 0,
+        "input_tokens": 17646,
+        "audio_duration_s": 536.92
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": -29.237616931794985,
+          "rtf": -0.6451619904462413,
+          "req_s": -4.154514808141585
+        }
+      },
+      "main_benefit_over_tag": {
+        "ttfp_ms": 36.92386679513421,
+        "rtf": 29.38527088169276,
+        "req_s": 39.83004566435866
+      }
+    },
+    {
+      "concurrency": 16,
+      "omni": {
+        "ttfp_ms": 3990.156237545307,
+        "rtf": 1.676958481286463,
+        "req_s": 2.247956249661144,
+        "completed": 256,
+        "failed": 0,
+        "input_tokens": 35331,
+        "audio_duration_s": 1099.28
+      },
+      "previous_tag": {
+        "ttfp_ms": 5785.640200141643,
+        "rtf": 2.3811466471926157,
+        "req_s": 1.6026326176874113,
+        "completed": 256,
+        "failed": 0,
+        "input_tokens": 35331,
+        "audio_duration_s": 1095.04
+      },
+      "candidate": {
+        "ttfp_ms": 4181.122357185814,
+        "rtf": 1.5482860865746464,
+        "req_s": 2.3413125877761223,
+        "completed": 256,
+        "failed": 0,
+        "input_tokens": 35331,
+        "audio_duration_s": 1155.88
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": -4.785930882696121,
+          "rtf": 7.672962458385191,
+          "req_s": 4.152942839926288
+        }
+      },
+      "main_benefit_over_tag": {
+        "ttfp_ms": 31.03345352433736,
+        "rtf": 29.57349001315791,
+        "req_s": 40.26647310504205
+      }
+    },
+    {
+      "concurrency": 32,
+      "omni": {
+        "ttfp_ms": 11325.171402433625,
+        "rtf": 3.3999777707405516,
+        "req_s": 2.193946147807714,
+        "completed": 512,
+        "failed": 0,
+        "input_tokens": 70702,
+        "audio_duration_s": 2251.28
+      },
+      "previous_tag": {
+        "ttfp_ms": 15420.539173946963,
+        "rtf": 4.774957105660377,
+        "req_s": 1.5574464725555384,
+        "completed": 512,
+        "failed": 0,
+        "input_tokens": 70702,
+        "audio_duration_s": 2258.44
+      },
+      "candidate": {
+        "ttfp_ms": 6338.580486921273,
+        "rtf": 2.2923024717450495,
+        "req_s": 3.0396228149126268,
+        "completed": 512,
+        "failed": 0,
+        "input_tokens": 70702,
+        "audio_duration_s": 2361.16
+      },
+      "benefit_percent": {
+        "omni": {
+          "ttfp_ms": 44.03104145903524,
+          "rtf": 32.578898265980094,
+          "req_s": 38.54591727103007
+        }
+      },
+      "main_benefit_over_tag": {
+        "ttfp_ms": 26.55787664307141,
+        "rtf": 28.79563741609079,
+        "req_s": 40.868157363236634
+      }
+    }
+  ],
+  "evidence_sha256": {
+    "summary.json": "0ff95943e37172d39a1e900fb782a616fd4f9b27728a27d521d277789a5f1f66",
+    "source.json": "0039a8685c8c17909f8e88609c4b660dd4f273b6bfe684d3ea26675b0b527cda",
+    "benchmark-source.json": "ec626472d72d8df7b54dc3107ba036643ebbf997f76bf548ca9a0c41ddf74e0b",
+    "input-sha256.json": "2b1fc58de9a3319839deec98428a0434d0a20ebcadd058c6829a7bfa3ba92712",
+    "server-command.json": "d71e8260027d761fddfcba137d64654418e43ada4688bb5fa33a949d7b797014",
+    "server-exit-code.json": "303a7cba26142400e3114108f320d64f0b3d5a6b834d33dce52a5c923ef54260"
+  }
+}

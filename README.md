@@ -5,9 +5,10 @@ Ascend 910B1. Thinker and Talker use a native `torch-npu` paged-KV runtime; Toke
 Ascend-safe HiFT and DiT attention. The server speaks the OpenAI-compatible `/v1/chat/completions` API with streamed
 text and 24 kHz audio. It does not import or run vLLM-Omni at runtime.
 
-Current status: both the official Omni v0.32.0 baseline and the unchanged r292 candidate were remeasured on
-Ascend, 1,984 requests total, zero errors. Internal Flow precision/step budgets differ, and frozen statistical,
-speech-quality and long-run stability acceptance is incomplete. See the [current report](docs/current-status-2026-11-02.md).
+Current status: latest Omni main and the unchanged r292 engine candidate are compared on A2 using the same
+native benchmark client. The new main run and reused same-day engine run each completed 992 requests with zero
+errors. Flow precision/step budgets differ; frozen statistical, quality and long-run acceptance is incomplete.
+See the [current report](docs/current-status-2026-11-02-main.md).
 
 ## Architecture
 
@@ -15,7 +16,7 @@ speech-quality and long-run stability acceptance is incomplete. See the [current
 
 [Ascend NPU architecture](docs/architecture-npu.md) ·
 [Ascend optimization map](docs/optimizations-npu.md) ·
-[Current acceptance status](docs/current-status-2026-11-02.md) ·
+[Current acceptance status](docs/current-status-2026-11-02-main.md) ·
 [Ascend test status](docs/testing-npu.md)
 
 ## Why this engine can be faster
@@ -37,9 +38,10 @@ Token2Wav windows reduce per-window control work, while paged KV and a single ru
 handoff local. These are architectural reasons for a potential gain, not a promise that every candidate revision wins
 every tier.
 
-Omni v0.32.0 also uses NPU graph paths and multi-frame Talker decoding. The observed system gap must not be
-explained simply as “graphs versus eager”: the current engine also has a smaller Flow precision/step budget.
-The new official-tag comparison is below; isolated optimization attribution requires controlled ablations.
+Omni v0.32.0 and latest main also use NPU graph paths and multi-frame Talker decoding. The observed gap must not
+be explained simply as “graphs versus eager”: the current engine also has a smaller Flow precision/step budget.
+The main comparison below includes regressions at C4/C8 and in C16 first-audio latency. Isolated optimization
+attribution requires controlled ablations.
 
 ## Precision, parity and speech quality
 
@@ -123,38 +125,39 @@ Text arrives as `{"modality": "text", "choices": [{"delta": {"content": ...}}]}`
 repetition penalty 1.05 over 16 frames); `talker_sampling` overrides it per request. Image, audio and video inputs use
 the usual `image_url`, `input_audio`/`audio_url` and `video_url` content parts. See [Ascend API and request flow](docs/architecture-npu.md).
 
-## Ascend performance: dedicated engine vs. vLLM-Omni v0.32.0
+## Ascend performance: dedicated engine vs. latest vLLM-Omni main
 
-The baseline is now **the official vLLM-Omni `v0.32.0` tag**, commit
-[`5917730a`](https://github.com/vllm-project/vllm-omni/commit/5917730a4b02aedb44d374173cdc1b10484ccd52),
-with vLLM runtime 0.32.0. The previous `main@5b5eb49c` measurement is preserved as history, not used for this table.
-Both services were remeasured on November 2, 2026 with the same tagged benchmark client and input tiers on A2.
+The new comparator is upstream **main at
+[`9990f10d9`](https://github.com/vllm-project/vllm-omni/commit/9990f10d9e898c3d38b1fa640513d55f771b8685)**,
+fetched and measured on November 2, 2026. The measurement client stays at official v0.32.0 to match the earlier
+same-day engine measurement. The engine source/config and results are reused unchanged from that run.
+The [official v0.32.0 tag comparison](docs/current-status-2026-11-02.md) remains available separately.
 
-![Dedicated NPU engine vs. official vLLM-Omni v0.32.0](docs/figures/npu-performance-curves.svg)
+![Dedicated NPU engine vs. latest Omni main](docs/figures/npu-performance-curves.svg)
 
-| C | Omni v0.32.0: TTFP ms / RTF / req/s | Dedicated engine: TTFP ms / RTF / req/s | Engine improvement: TTFP / RTF / throughput |
+| C | Omni main: TTFP ms / RTF / req/s | Engine: TTFP ms / RTF / req/s | Engine gain: TTFP / RTF / throughput |
 |---:|---:|---:|---:|
-| 1 | 1077.51 / 0.39586 / 0.63074 | 684.39 / 0.27521 / 0.84623 | +36.48% / +30.48% / +34.16% |
-| 4 | 2131.17 / 0.83511 / 1.17511 | 1768.02 / 0.67370 / 1.33647 | +17.04% / +19.33% / +13.73% |
-| 8 | 3221.95 / 1.42215 / 1.43064 | 2626.48 / 1.01072 / 1.91735 | +18.48% / +28.93% / +34.02% |
-| 16 | 5785.64 / 2.38115 / 1.60263 | 4181.12 / 1.54829 / 2.34131 | +27.73% / +34.98% / +46.09% |
-| 32 | 15420.54 / 4.77496 / 1.55745 | 6338.58 / 2.29230 / 3.03962 | +58.90% / +51.99% / +95.17% |
+| 1 | 848.21 / 0.30597 / 0.81585 | 684.39 / 0.27521 / 0.84623 | +19.31% / +10.05% / +3.72% |
+| 4 | 1366.22 / 0.59815 / 1.61519 | 1768.02 / 0.67370 / 1.33647 | -29.41% / -12.63% / -17.26% |
+| 8 | 2032.28 / 1.00424 / 2.00046 | 2626.48 / 1.01072 / 1.91735 | -29.24% / -0.65% / -4.15% |
+| 16 | 3990.16 / 1.67696 / 2.24796 | 4181.12 / 1.54829 / 2.34131 | -4.79% / +7.67% / +4.15% |
+| 32 | 11325.17 / 3.39998 / 2.19395 | 6338.58 / 2.29230 / 3.03962 | +44.03% / +32.58% / +38.55% |
 
 Lower TTFP/RTF and higher request/s are better; positive percentages mean improvement over Omni.
-The five tiers contain 32/64/128/256/512 measured requests with native two warmups per tier.
-Each service completed 992/992 requests, zero errors. These are single-run point estimates, not frozen LCB results.
-The A2-specific CI case covers C1/C4/C8; C16/C32 extend it using the tag's generic five-tier case.
+Each implementation completed 992 measured requests with zero errors: 32/64/128/256/512 at C1/C4/C8/C16/C32,
+with two native warmups per tier. The A2 CI case lists the first three tiers; the others extend the generic CI case.
+These are single-run point estimates, not frozen statistical acceptance.
 
-**Compute differs:** stock Omni uses FP32 Flow with 10 steps; the unchanged r292 engine uses FP16 Flow with 6 steps.
-Both use chunk25. This is a system configuration comparison, not proof of a lossless same-precision speedup.
-The quality gate has not passed, so the candidate is not promoted to a released/default engine.
+**Compute differs:** Omni main uses stock FP32 Flow with 10 steps; the engine uses FP16 Flow with 6 steps.
+Both use chunk25. The gap cannot be attributed entirely to scheduling/fusion or described as lossless speedup.
+The final speech gate has not passed; the r292 candidate is not promoted to a released/default engine.
 
-![Relative improvements over the official tag baseline](docs/figures/npu-improvement-curves.svg)
+![Relative improvements over latest main](docs/figures/npu-improvement-curves.svg)
 
-[Full settings, quality and version caveats](docs/current-status-2026-11-02.md) ·
-[Data and source hashes](docs/data/ascend-v0320-comparison.json) ·
-[Download PNG curves](docs/figures/npu-performance-curves.png) ·
-[Download PNG improvements](docs/figures/npu-improvement-curves.png)
+[Full report and main-vs-tag changes](docs/current-status-2026-11-02-main.md) ·
+[Data and provenance](docs/data/ascend-main-20261102-comparison.json) ·
+[PNG curves](docs/figures/npu-performance-curves.png) ·
+[PNG improvements](docs/figures/npu-improvement-curves.png)
 
 To regenerate with Python and Matplotlib:
 
@@ -163,8 +166,8 @@ python -m pip install matplotlib
 python tools/plot_npu_performance.py
 ```
 
-The [original frozen Ascend plan](evidence/20261022-ascend910b1/plan/acceptance.json) remains preserved for audit.
-Its original baseline and K=10 protocol predate this run; these curves do not claim to complete frozen acceptance.
+The [original frozen plan](evidence/20261022-ascend910b1/plan/acceptance.json) is preserved for audit.
+This native CI-style single-run comparison does not complete its original K=10/final-quality acceptance protocol.
 
 ## References
 

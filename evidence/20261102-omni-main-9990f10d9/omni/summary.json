@@ -1,0 +1,397 @@
+[
+  {
+    "concurrency": 1,
+    "prompts": 32,
+    "result": {
+      "date": "20261102-032103",
+      "endpoint_type": "openai-chat-omni",
+      "backend": "openai-chat-omni",
+      "label": null,
+      "model_id": "/dataset/models/MiniCPM-o-4_5",
+      "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+      "num_prompts": 32,
+      "request_rate": "inf",
+      "burstiness": 1.0,
+      "max_concurrency": 1,
+      "duration": 39.22293318063021,
+      "completed": 32,
+      "failed": 0,
+      "total_input_tokens": 4411,
+      "total_output_tokens": 443,
+      "request_throughput": 0.8158492342383723,
+      "request_goodput": null,
+      "output_throughput": 11.294412836487467,
+      "total_token_throughput": 123.7541307185331,
+      "total_audio_duration_s": 130.28,
+      "total_audio_frames": 3126720,
+      "audio_throughput": 3.3215261948929733,
+      "total_images": 0,
+      "image_throughput": 0.0,
+      "average_pixels_per_image": 0.0,
+      "mean_denoise_step_latency_ms": 0.0,
+      "total_video_duration_s": 0,
+      "total_video_frames": 0,
+      "video_throughput": 0.0,
+      "mean_video_rtf": 0.0,
+      "median_video_rtf": 0.0,
+      "percentiles_video_rtf": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_video_generation_ms": 0.0,
+      "median_video_generation_ms": 0.0,
+      "percentiles_video_generation_ms": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_peak_memory_mb": 0.0,
+      "median_peak_memory_mb": 0.0,
+      "percentiles_peak_memory_mb": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "stage_durations_mean": {},
+      "stage_durations_p50": {},
+      "stage_durations_p99": {},
+      "max_output_tokens_per_s": 29.0,
+      "max_concurrent_requests": 2,
+      "rtfx": 0.0,
+      "num_ttft_samples": 32,
+      "num_tpot_samples": 0,
+      "num_itl_samples": 411,
+      "num_audio_ttfp_samples": 32,
+      "num_audio_rtf_samples": 32,
+      "mean_e2el_ms": 1225.07365848287,
+      "median_e2el_ms": 1186.6480754688382,
+      "p99_e2el_ms": 2068.6252976395194,
+      "mean_audio_rtf": 0.30596888450313264,
+      "median_audio_rtf": 0.29744629851636306,
+      "p99_audio_rtf": 0.36553448842159225,
+      "mean_audio_ttfp_ms": 848.211680771783,
+      "median_audio_ttfp_ms": 845.2046373859048,
+      "p99_audio_ttfp_ms": 1287.4792979285123
+    }
+  },
+  {
+    "concurrency": 4,
+    "prompts": 64,
+    "result": {
+      "date": "20261102-032225",
+      "endpoint_type": "openai-chat-omni",
+      "backend": "openai-chat-omni",
+      "label": null,
+      "model_id": "/dataset/models/MiniCPM-o-4_5",
+      "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+      "num_prompts": 64,
+      "request_rate": "inf",
+      "burstiness": 1.0,
+      "max_concurrency": 4,
+      "duration": 39.623780510388315,
+      "completed": 64,
+      "failed": 0,
+      "total_input_tokens": 8856,
+      "total_output_tokens": 920,
+      "request_throughput": 1.6151916645919457,
+      "request_goodput": null,
+      "output_throughput": 23.21838017850922,
+      "total_token_throughput": 246.7205267664197,
+      "total_audio_duration_s": 267.36,
+      "total_audio_frames": 6416640,
+      "audio_throughput": 6.747463178832854,
+      "total_images": 0,
+      "image_throughput": 0.0,
+      "average_pixels_per_image": 0.0,
+      "mean_denoise_step_latency_ms": 0.0,
+      "total_video_duration_s": 0,
+      "total_video_frames": 0,
+      "video_throughput": 0.0,
+      "mean_video_rtf": 0.0,
+      "median_video_rtf": 0.0,
+      "percentiles_video_rtf": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_video_generation_ms": 0.0,
+      "median_video_generation_ms": 0.0,
+      "percentiles_video_generation_ms": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_peak_memory_mb": 0.0,
+      "median_peak_memory_mb": 0.0,
+      "percentiles_peak_memory_mb": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "stage_durations_mean": {},
+      "stage_durations_p50": {},
+      "stage_durations_p99": {},
+      "max_output_tokens_per_s": 65.0,
+      "max_concurrent_requests": 8,
+      "rtfx": 0.0,
+      "num_ttft_samples": 64,
+      "num_tpot_samples": 0,
+      "num_itl_samples": 856,
+      "num_audio_ttfp_samples": 64,
+      "num_audio_rtf_samples": 64,
+      "mean_e2el_ms": 2443.9250997820636,
+      "median_e2el_ms": 2348.0902523733675,
+      "p99_e2el_ms": 3788.1466840580106,
+      "mean_audio_rtf": 0.5981543528583364,
+      "median_audio_rtf": 0.5950904796895133,
+      "p99_audio_rtf": 0.8480979309566057,
+      "mean_audio_ttfp_ms": 1366.2247113970807,
+      "median_audio_ttfp_ms": 1326.8253901042044,
+      "p99_audio_ttfp_ms": 1893.2942937500773
+    }
+  },
+  {
+    "concurrency": 8,
+    "prompts": 128,
+    "result": {
+      "date": "20261102-032412",
+      "endpoint_type": "openai-chat-omni",
+      "backend": "openai-chat-omni",
+      "label": null,
+      "model_id": "/dataset/models/MiniCPM-o-4_5",
+      "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+      "num_prompts": 128,
+      "request_rate": "inf",
+      "burstiness": 1.0,
+      "max_concurrency": 8,
+      "duration": 63.9853021139279,
+      "completed": 128,
+      "failed": 0,
+      "total_input_tokens": 17646,
+      "total_output_tokens": 1774,
+      "request_throughput": 2.0004594144463343,
+      "request_goodput": null,
+      "output_throughput": 27.725117197092164,
+      "total_token_throughput": 303.5072017855298,
+      "total_audio_duration_s": 517.28,
+      "total_audio_frames": 12414720,
+      "audio_throughput": 8.084356608631248,
+      "total_images": 0,
+      "image_throughput": 0.0,
+      "average_pixels_per_image": 0.0,
+      "mean_denoise_step_latency_ms": 0.0,
+      "total_video_duration_s": 0,
+      "total_video_frames": 0,
+      "video_throughput": 0.0,
+      "mean_video_rtf": 0.0,
+      "median_video_rtf": 0.0,
+      "percentiles_video_rtf": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_video_generation_ms": 0.0,
+      "median_video_generation_ms": 0.0,
+      "percentiles_video_generation_ms": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_peak_memory_mb": 0.0,
+      "median_peak_memory_mb": 0.0,
+      "percentiles_peak_memory_mb": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "stage_durations_mean": {},
+      "stage_durations_p50": {},
+      "stage_durations_p99": {},
+      "max_output_tokens_per_s": 88.0,
+      "max_concurrent_requests": 13,
+      "rtfx": 0.0,
+      "num_ttft_samples": 128,
+      "num_tpot_samples": 0,
+      "num_itl_samples": 1646,
+      "num_audio_ttfp_samples": 128,
+      "num_audio_rtf_samples": 128,
+      "mean_e2el_ms": 3944.5862248612684,
+      "median_e2el_ms": 3928.4901032224298,
+      "p99_e2el_ms": 6953.923315554858,
+      "mean_audio_rtf": 1.0042449365646253,
+      "median_audio_rtf": 1.014449127693752,
+      "p99_audio_rtf": 1.4171886022470228,
+      "mean_audio_ttfp_ms": 2032.2837335188524,
+      "median_audio_ttfp_ms": 1988.5427551344037,
+      "p99_audio_ttfp_ms": 2876.338711762801
+    }
+  },
+  {
+    "concurrency": 16,
+    "prompts": 256,
+    "result": {
+      "date": "20261102-032649",
+      "endpoint_type": "openai-chat-omni",
+      "backend": "openai-chat-omni",
+      "label": null,
+      "model_id": "/dataset/models/MiniCPM-o-4_5",
+      "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+      "num_prompts": 256,
+      "request_rate": "inf",
+      "burstiness": 1.0,
+      "max_concurrency": 16,
+      "duration": 113.88121990300715,
+      "completed": 256,
+      "failed": 0,
+      "total_input_tokens": 35331,
+      "total_output_tokens": 3589,
+      "request_throughput": 2.247956249661144,
+      "request_goodput": null,
+      "output_throughput": 31.515292890757213,
+      "total_token_throughput": 341.75959858129585,
+      "total_audio_duration_s": 1099.28,
+      "total_audio_frames": 26382720,
+      "audio_throughput": 9.652864633310557,
+      "total_images": 0,
+      "image_throughput": 0.0,
+      "average_pixels_per_image": 0.0,
+      "mean_denoise_step_latency_ms": 0.0,
+      "total_video_duration_s": 0,
+      "total_video_frames": 0,
+      "video_throughput": 0.0,
+      "mean_video_rtf": 0.0,
+      "median_video_rtf": 0.0,
+      "percentiles_video_rtf": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_video_generation_ms": 0.0,
+      "median_video_generation_ms": 0.0,
+      "percentiles_video_generation_ms": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_peak_memory_mb": 0.0,
+      "median_peak_memory_mb": 0.0,
+      "percentiles_peak_memory_mb": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "stage_durations_mean": {},
+      "stage_durations_p50": {},
+      "stage_durations_p99": {},
+      "max_output_tokens_per_s": 153.0,
+      "max_concurrent_requests": 22,
+      "rtfx": 0.0,
+      "num_ttft_samples": 256,
+      "num_tpot_samples": 0,
+      "num_itl_samples": 3333,
+      "num_audio_ttfp_samples": 256,
+      "num_audio_rtf_samples": 256,
+      "mean_e2el_ms": 6968.843120968813,
+      "median_e2el_ms": 6982.608724851161,
+      "p99_e2el_ms": 9759.94719606824,
+      "mean_audio_rtf": 1.676958481286463,
+      "median_audio_rtf": 1.6677208206486664,
+      "p99_audio_rtf": 2.489757088401138,
+      "mean_audio_ttfp_ms": 3990.156237545307,
+      "median_audio_ttfp_ms": 4018.3338313363492,
+      "p99_audio_ttfp_ms": 5745.426447317003
+    }
+  },
+  {
+    "concurrency": 32,
+    "prompts": 512,
+    "result": {
+      "date": "20261102-033125",
+      "endpoint_type": "openai-chat-omni",
+      "backend": "openai-chat-omni",
+      "label": null,
+      "model_id": "/dataset/models/MiniCPM-o-4_5",
+      "tokenizer_id": "/dataset/models/MiniCPM-o-4_5",
+      "num_prompts": 512,
+      "request_rate": "inf",
+      "burstiness": 1.0,
+      "max_concurrency": 32,
+      "duration": 233.36944733653218,
+      "completed": 512,
+      "failed": 0,
+      "total_input_tokens": 70702,
+      "total_output_tokens": 7216,
+      "request_throughput": 2.193946147807714,
+      "request_goodput": null,
+      "output_throughput": 30.920928520664972,
+      "total_token_throughput": 333.88260926734665,
+      "total_audio_duration_s": 2251.28,
+      "total_audio_frames": 54030720,
+      "audio_throughput": 9.64684977272764,
+      "total_images": 0,
+      "image_throughput": 0.0,
+      "average_pixels_per_image": 0.0,
+      "mean_denoise_step_latency_ms": 0.0,
+      "total_video_duration_s": 0,
+      "total_video_frames": 0,
+      "video_throughput": 0.0,
+      "mean_video_rtf": 0.0,
+      "median_video_rtf": 0.0,
+      "percentiles_video_rtf": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_video_generation_ms": 0.0,
+      "median_video_generation_ms": 0.0,
+      "percentiles_video_generation_ms": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "mean_peak_memory_mb": 0.0,
+      "median_peak_memory_mb": 0.0,
+      "percentiles_peak_memory_mb": [
+        [
+          99.0,
+          0.0
+        ]
+      ],
+      "stage_durations_mean": {},
+      "stage_durations_p50": {},
+      "stage_durations_p99": {},
+      "max_output_tokens_per_s": 163.0,
+      "max_concurrent_requests": 39,
+      "rtfx": 0.0,
+      "num_ttft_samples": 512,
+      "num_tpot_samples": 0,
+      "num_itl_samples": 6704,
+      "num_audio_ttfp_samples": 512,
+      "num_audio_rtf_samples": 512,
+      "mean_e2el_ms": 14251.631906370676,
+      "median_e2el_ms": 14397.851028945297,
+      "p99_e2el_ms": 17407.85526030697,
+      "mean_audio_rtf": 3.3999777707405516,
+      "median_audio_rtf": 3.3001213131575,
+      "p99_audio_rtf": 5.811733394949907,
+      "mean_audio_ttfp_ms": 11325.171402433625,
+      "median_audio_ttfp_ms": 11522.254410665482,
+      "p99_audio_ttfp_ms": 13805.58848019689
+    }
+  }
+]

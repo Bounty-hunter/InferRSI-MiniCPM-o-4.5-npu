@@ -1,0 +1,6 @@
+{
+  "/dataset/models/MiniCPM-o-4_5/config.json": "b0c03cf9f0cfc1178ade50e4ba62727ca7a77aa6a6a71eda6668d8f289e96c1d",
+  "/dataset/models/seed-tts-eval/en/meta.lst": "7cd29f701743e6c7033edbca764ddc0b979de8c4f4907eff5e5454682114661f",
+  "/workspace/minicpmo-r182/vllm-omni-main-20261102-0304/vllm_omni/deploy/minicpmo_4_5.yaml": "6a172b261b6b871f1e47d1eb5969d6e84aeddcaa8e3edf647e68608e2e6ea576",
+  "/workspace/minicpmo-r182/vllm-omni-main-20261102-0304/tests/dfx/perf/tests/test_minicpmo_4_5.json": "94e085b4ea577dc52e15f9bf9d701eadfbe04c945c0388199694f198b4508c35"
+}
