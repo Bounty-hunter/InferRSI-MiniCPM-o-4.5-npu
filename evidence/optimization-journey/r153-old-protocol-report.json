@@ -1,0 +1,162 @@
+{
+  "cells": {
+    "1": {
+      "baseline": {
+        "e2e_p50_s": 3.3435036391485484,
+        "e2e_p95_s": 4.6643595420056965,
+        "error_rate": 0.0,
+        "rtf_mean": 0.7492952829099451,
+        "throughput_frames_s": 33.748913709469235,
+        "ttfa_p50_s": 1.6690886597614736,
+        "ttfa_p95_s": 1.8762311645271257
+      },
+      "candidate": {
+        "e2e_p50_s": 1.8852893208153545,
+        "e2e_p95_s": 6.814303650436924,
+        "error_rate": 0.0,
+        "rtf_mean": 0.28036724859048584,
+        "throughput_frames_s": 100.4159944840737,
+        "ttfa_p50_s": 0.7757316922303289,
+        "ttfa_p95_s": 0.7965787331946194
+      },
+      "ratios": {
+        "throughput_frames_s": {
+          "ci90": [
+            2.795884612563693,
+            3.148694066260838
+          ],
+          "k_base": 10,
+          "k_new": 10,
+          "lcb95": 2.795884612563693,
+          "metric": "throughput_frames_s",
+          "point": 2.9753844923280925,
+          "verdict": "pass"
+        },
+        "ttfa_p50_s": {
+          "ci90": [
+            2.142319723677377,
+            2.1611217711439683
+          ],
+          "k_base": 10,
+          "k_new": 10,
+          "lcb95": 2.142319723677377,
+          "metric": "ttfa_p50_s",
+          "point": 2.1516313906972497,
+          "verdict": "pass"
+        }
+      },
+      "verification": {
+        "baseline_source_root": "/tmp/inferrsi-minicpmo-npu-engine-9674df1",
+        "candidate_source_root": "/tmp/inferrsi-minicpmo-npu-engine-r152-formal",
+        "frozen_verify": true
+      }
+    },
+    "16": {
+      "baseline": {
+        "e2e_p50_s": 26.416818575235084,
+        "e2e_p95_s": 29.91205518978648,
+        "error_rate": 0.0,
+        "rtf_mean": 6.031659065871788,
+        "throughput_frames_s": 69.03122883152449,
+        "ttfa_p50_s": 22.319583667488768,
+        "ttfa_p95_s": 24.96043254764285
+      },
+      "candidate": {
+        "e2e_p50_s": 24.198898153193294,
+        "e2e_p95_s": 59.0335442530131,
+        "error_rate": 0.0,
+        "rtf_mean": 2.3458167688556344,
+        "throughput_frames_s": 222.3697639074628,
+        "ttfa_p50_s": 8.009672184567899,
+        "ttfa_p95_s": 12.878535753102042
+      },
+      "ratios": {
+        "throughput_frames_s": {
+          "ci90": [
+            3.044001446893845,
+            3.392363178054376
+          ],
+          "k_base": 10,
+          "k_new": 10,
+          "lcb95": 3.044001446893845,
+          "metric": "throughput_frames_s",
+          "point": 3.2212922712149847,
+          "verdict": "pass"
+        },
+        "ttfa_p50_s": {
+          "ci90": [
+            2.6939425808412407,
+            2.879918053001212
+          ],
+          "k_base": 10,
+          "k_new": 10,
+          "lcb95": 2.6939425808412407,
+          "metric": "ttfa_p50_s",
+          "point": 2.786578920232408,
+          "verdict": "pass"
+        }
+      },
+      "verification": {
+        "baseline_source_root": "/tmp/inferrsi-minicpmo-npu-engine-9674df1",
+        "candidate_source_root": "/tmp/inferrsi-minicpmo-npu-engine-r152-formal",
+        "frozen_verify": true
+      }
+    },
+    "32": {
+      "baseline": {
+        "e2e_p50_s": 52.262927567679434,
+        "e2e_p95_s": 56.267078087297264,
+        "error_rate": 0.0,
+        "rtf_mean": 12.124769962338203,
+        "throughput_frames_s": 68.64994276549734,
+        "ttfa_p50_s": 48.32955580842681,
+        "ttfa_p95_s": 51.42112599389627
+      },
+      "candidate": {
+        "e2e_p50_s": 27.994454307248816,
+        "e2e_p95_s": 75.35472217308822,
+        "error_rate": 0.0,
+        "rtf_mean": 3.380702632190321,
+        "throughput_frames_s": 330.88015240400006,
+        "ttfa_p50_s": 10.98891592095606,
+        "ttfa_p95_s": 23.483590758764183
+      },
+      "ratios": {
+        "throughput_frames_s": {
+          "ci90": [
+            4.454144484051231,
+            5.171875195217498
+          ],
+          "k_base": 10,
+          "k_new": 10,
+          "lcb95": 4.454144484051231,
+          "metric": "throughput_frames_s",
+          "point": 4.81981687201488,
+          "verdict": "pass"
+        },
+        "ttfa_p50_s": {
+          "ci90": [
+            4.104526919112876,
+            4.714145304028227
+          ],
+          "k_base": 10,
+          "k_new": 10,
+          "lcb95": 4.104526919112876,
+          "metric": "ttfa_p50_s",
+          "point": 4.3980276267526515,
+          "verdict": "pass"
+        }
+      },
+      "verification": {
+        "baseline_source_root": "/tmp/inferrsi-minicpmo-npu-engine-9674df1",
+        "candidate_source_root": "/tmp/inferrsi-minicpmo-npu-engine-r152-formal",
+        "frozen_verify": true
+      }
+    }
+  },
+  "failures": [],
+  "final_rules": true,
+  "performance_overall": "pass",
+  "schema": "minicpmo-frozen-performance-only-gate/v1",
+  "speech_quality_evaluated": false
+}

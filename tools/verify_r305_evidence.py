@@ -103,8 +103,37 @@ def main():
                 assert not any(m.split(".")[0].lower() in ("vllm", "vllm_omni", "sglang", "inferrsi") for m in modules), name
     assert digest.hexdigest() == data["measured_engine_tree_sha256"] == manifest["measured_engine_tree_sha256"]
     assert hashlib.sha256((ROOT / manifest["experimental_config"]).read_bytes()).hexdigest() == data["measured_config_sha256"]
+    journey_path = ROOT / "docs/data/optimization-journey.json"
+    if journey_path.exists():
+        journey = read(journey_path)
+        raw = ROOT / "evidence/optimization-journey"
+        for index, filename in ((0, "r187-native.json"), (1, "r239-native.json")):
+            for row in read(raw / filename):
+                c = str(row["concurrency"])
+                saved = journey["versions"][index]["rows"][c]
+                result = row["result"]
+                assert saved["ttfp_ms"] == result["mean_audio_ttfp_ms"]
+                assert saved["rtf"] == result["mean_audio_rtf"]
+                assert saved["req_s"] == result["request_throughput"]
+        assert journey["r295_matched"] == read(raw / "r295-matched-comparison.json")
+        for row in journey["r295_matched"]:
+            assert journey["versions"][2]["rows"][str(row["concurrency"]) ] == row["candidate"]
+        for phase in journey["phase_endpoint_comparisons"]:
+            for row in phase["rows"]:
+                assert row["before"]["failed"] == row["after"]["failed"] == 0
+                for metric in ("ttfp_ms", "rtf", "req_s"):
+                    ratio = row["after"][metric] / row["before"][metric]
+                    expected = 100 * (ratio - 1) if metric == "req_s" else 100 * (1 - ratio)
+                    assert math.isclose(expected, row["mean_gains"][metric], abs_tol=1e-9)
+        assert journey["six_layer_incremental"] == data["incremental"]
+        assert journey["old_protocol_r153"] == read(raw / "r153-old-protocol-report.json")
+        assert journey["old_protocol_r153"]["performance_overall"] == "pass"
+        assert journey["old_protocol_r153"]["speech_quality_evaluated"] is False
     links = 0
-    for doc in (ROOT / "README.md", ROOT / "docs/rsi-profiling-20261102.zh-CN.md", EVIDENCE / "README.md"):
+    docs = [ROOT / "README.md", ROOT / "docs/rsi-profiling-20261102.zh-CN.md", EVIDENCE / "README.md"]
+    if journey_path.exists():
+        docs.extend([ROOT / "docs/optimization-journey.zh-CN.md", ROOT / "docs/optimization-ledger-npu.zh-CN.md"])
+    for doc in docs:
         for link in re.findall(r"\]\(([^)]+)\)", doc.read_text(encoding="utf-8")):
             if link.startswith(("http://", "https://", "#")):
                 continue

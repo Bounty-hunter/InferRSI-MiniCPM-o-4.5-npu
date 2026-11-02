@@ -48,6 +48,27 @@ def main():
     render(data["incremental"], (("control", "r292 control", "#666666", "s"), ("candidate", "r305 serial confirmation", "#0072B2", "o")),
            (("mean_audio_ttfp_ms", "Mean TTFP (ms)"), ("mean_audio_rtf", "Mean audio RTF"), ("request_throughput", "Requests / s")),
            "Profiling-guided optimization · r292 to r305", "Same engine Flow FP16/6, chunk25 · observed before/after optimization, not profiling-only causal gain\nSingle-run native points; earlier control vs later confirmation; speech gate NOT_RUN", "npu-r305-incremental")
+    journey_path = ROOT / "docs/data/optimization-journey.json"
+    if journey_path.exists():
+        journey = json.loads(journey_path.read_text(encoding="utf-8"))
+        fig, axes = plt.subplots(1, 3, figsize=(15, 4.4), layout="constrained")
+        versions = journey["versions"]
+        for ax, (key, label) in zip(axes, (("ttfp_ms", "Mean TTFP (ms)"), ("rtf", "Mean audio RTF"), ("req_s", "Requests / s"))):
+            for c, color in ((1, "#009E73"), (4, "#0072B2"), (8, "#D55E00")):
+                ax.plot(range(4), [v["rows"][str(c)][key] for v in versions], "o-", color=color, label=f"C{c}")
+            ax.set(xticks=range(4), xticklabels=["r187\nInitial CLI", "r239\nRSI hybrid", "r292\nProfiling + AI", "r305\nSix layers"], ylabel=label)
+            ax.grid(axis="y", alpha=.2)
+            ax.spines[["top", "right"]].set_visible(False)
+            ax.set_ylim(bottom=0)
+        axes[0].legend(frameon=False)
+        fig.suptitle("NPU optimization journey · measured version endpoints", fontsize=15)
+        fig.text(.5, -.07, "Cross-date observations; client/control snapshots changed · not isolated phase causality or additive speedups\nThe final segment uses the r295 historical endpoint, not the fresh r292 low-C control. Speech gate incomplete.", ha="center", fontsize=8)
+        for suffix in ("png", "svg"):
+            path = OUT / f"npu-optimization-journey.{suffix}"
+            fig.savefig(path, dpi=180, bbox_inches="tight", **({"metadata": {"Date": None}} if suffix == "svg" else {}))
+            if suffix == "svg":
+                path.write_text("\n".join(line.rstrip() for line in path.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8", newline="\n")
+        plt.close(fig)
     print("Saved r305 mean, P99 and incremental figures as SVG/PNG")
 
 

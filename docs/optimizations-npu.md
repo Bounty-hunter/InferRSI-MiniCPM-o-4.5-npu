@@ -1,6 +1,8 @@
 # Ascend NPU optimization map
 
 The public optimization evidence is limited to the Ascend path. The latest opt-in candidate is r305;
+[the full optimization journey](optimization-journey.zh-CN.md) covers early RSI adaptation and profiling/AI-derived
+strategies before the last ten rounds. The [complete NPU ledger](optimization-ledger-npu.zh-CN.md) retains failures and withdrawn claims.
 [RSI and six-layer profiling](rsi-profiling-20261102.zh-CN.md) records its measured points and negative experiments.
 Development parity, request success and the final speech gate are separate checks; the last has not passed.
 

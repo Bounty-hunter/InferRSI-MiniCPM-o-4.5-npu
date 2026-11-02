@@ -9,7 +9,9 @@ SGLang or InferRSI. vLLM-Omni is the external performance comparator.
 pinned Omni main at C1/C2/C4/C8. P99 still regresses at C2/C4/C8. This is experimental code, not a quality-qualified
 release: Omni Flow uses FP32/10 steps while this engine uses FP16/6; the final speech gate remains NOT_RUN.
 
-[中文：RSI 找到了什么、六层 profiling 后增加多少](docs/rsi-profiling-20261102.zh-CN.md) ·
+[中文：从早期 RSI 到六层 profiling 的完整历程](docs/optimization-journey.zh-CN.md) ·
+[全部 NPU 实验账本](docs/optimization-ledger-npu.zh-CN.md) ·
+[最新十轮详细分析](docs/rsi-profiling-20261102.zh-CN.md) ·
 [Measurements and provenance](docs/data/ascend-r305-20261102.json) ·
 [Reproduction and evidence](evidence/20261102-r305/README.md)
 
@@ -36,6 +38,29 @@ See the [full mean/P99 table](docs/rsi-profiling-20261102.zh-CN.md#完整均值�
 [earlier r292 five-tier results](docs/current-status-2026-11-02-main.md) for their separate scope.
 
 ## What RSI found, and why r305 is faster
+
+### The complete optimization journey
+
+The engine did not start with the last ten rounds. Its NPU history goes from migration and the old frozen protocol
+(r32–r181), through RSI knowledge adaptation (r182–r239), stage profiling and AI-derived graph/cache/scheduling
+strategies (r240–r295), to L0 + six diagnostic layers and ten further experiments (r296–r306).
+
+| Phase | Representative measured endpoints | Mean TTFP reduction | Mean RTF reduction | request/s increase |
+|---|---|---:|---:|---:|
+| RSI knowledge adaptation | r187 → stable hybrid r239; C1/C4/C8 | 7.90%–11.61% | 7.95%–10.89% | 8.94%–10.62% |
+| Profiling + AI-derived strategies | r239 → r292 measured in r295; C1/C4/C8 | 4.76%–7.34% | 4.62%–9.26% | 3.58%–9.26% |
+| Six-layer-guided optimization | fresh r292 control → r305 confirmation; C2/C4/C8 | 22.32%–32.03% | 13.30%–21.21% | 15.43%–28.39% |
+
+The first two rows are cross-date **endpoint observations**, not isolated method effects. The final row uses its own
+same-config control, not the r295 endpoint. Workload/client/control snapshots changed over the project;
+do not add the rows or label the gap as a profiling-only causal gain. The phases describe the dominant evidence,
+not mutually exclusive methods: early work also used timings and original ideas, and later work still used RSI.
+
+The [full Chinese history](docs/optimization-journey.zh-CN.md) explains the problems, knowledge sources, original
+strategies, failed ideas, changing bottlenecks and raw version progression. The [NPU ledger](docs/optimization-ledger-npu.zh-CN.md)
+preserves early migration/protocol work and every recoverable experiment through r306, including retracted gains.
+
+### The latest successful mechanism
 
 The profiling loop found that **waiting for the first Thinker text chunk**, rather than HTTP serialization,
 was a major part of first-audio latency. At diagnostic C8, prefill-to-first-text fell from **1420.8 to 551.7 ms**;
