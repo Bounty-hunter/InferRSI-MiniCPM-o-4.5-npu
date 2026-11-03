@@ -1,5 +1,11 @@
 # MiniCPM-o 4.5 NPU 独立引擎：完整优化历程
 
+## C8关键阶段的完整曲线
+
+![C8完整优化历程](figures/npu-c8-optimization-journey.svg)
+
+统一以本次Omni main C8为1.00×，吞吐从初始0.818×演进到当前1.266×。横轴标出九个关键阶段的实际优化内容，边注保留相邻阶段收益和回退。[逐点原生指标、收益公式与证据](c8-optimization-journey.zh-CN.md)。
+
 当前r337候选、C1/C2/C4/C8单结果曲线及后续40轮记录已更新，详见[最新优化总结](rsi-r337-20261103.zh-CN.md)和[当前性能表](current-results.md)。下文保留相应阶段的历史证据。
 
 整理日期：2026-11-02。本文回答的主线是：**先用RSI知识库适配和迭代，再引入profiling与AI发散方案，最后用六层profiling约束优化决策。**

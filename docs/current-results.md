@@ -49,3 +49,5 @@ C1/C2/C4/C8分别32/32/64/128个计时请求，每档2次warmup。每条展示�
 引擎Flow FP16/6步，Omni Flow FP32/10步。r337开发集Thinker文本/token为16/16一致，codec为0/16一致，当前表格表示这些部署配置的性能观测。
 
 [最新中文总结](rsi-r337-20261103.zh-CN.md) · [原始数据与计算口径](data/ascend-r337-20261103.json) · [证据入口](../evidence/20261103-r337/README.md) · [历史GPU前身记录](legacy-l20x-results.md)
+
+[C8从初始引擎到当前候选的完整演进曲线](c8-optimization-journey.zh-CN.md)。

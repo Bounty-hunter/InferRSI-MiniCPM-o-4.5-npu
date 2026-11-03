@@ -134,7 +134,8 @@ def verify_links():
     documents = [ROOT / 'README.md', ROOT / 'docs/current-results.md', ROOT / 'docs/rsi-r337-20261103.zh-CN.md',
                  ROOT / 'docs/optimization-journey.zh-CN.md', ROOT / 'docs/optimization-ledger-npu.zh-CN.md',
                  ROOT / 'docs/optimizations-npu.md', ROOT / 'docs/architecture-npu.md',
-                 ROOT / 'docs/reproduce-benchmark.md', ROOT / 'docs/testing-npu.md', *EVIDENCE.rglob('*.md')]
+                 ROOT / 'docs/reproduce-benchmark.md', ROOT / 'docs/testing-npu.md',
+                 ROOT / 'docs/c8-optimization-journey.zh-CN.md', *EVIDENCE.rglob('*.md')]
     count = 0
     for document in documents:
         for link in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)', document.read_text(encoding='utf-8')):

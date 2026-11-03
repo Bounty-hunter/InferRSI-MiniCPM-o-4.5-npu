@@ -8,6 +8,7 @@ Runtime dependencies are isolated from the vLLM, vLLM-Omni, SGLang and InferRSI 
 against pinned vLLM-Omni main `9990f10d9`, using the official client `5917730a` on vLLM 0.32.0.
 The engine uses Flow FP16/6 steps and Omni uses FP32/10 steps. Final paired speech-quality acceptance is pending.
 
+[C8完整演进曲线](docs/c8-optimization-journey.zh-CN.md) ·
 [中文优化历程与最新结果](docs/rsi-r337-20261103.zh-CN.md) ·
 [全部 NPU 实验账本](docs/optimization-ledger-npu.zh-CN.md) ·
 [40轮逐项记录](evidence/20261103-r337/campaign/持续优化实验记录.md) ·
@@ -41,6 +42,17 @@ The P99 chart uses the arithmetic mean of the two candidate run-level P99 values
 [P99 chart](evidence/20261103-r337/campaign/独立引擎vs-vLLM-Omni-P99.svg) · [Machine-readable comparison](docs/data/ascend-r337-20261103.json)
 
 ## How RSI and profiling changed the engine
+
+
+![C8 optimization journey](docs/figures/npu-c8-optimization-journey.svg)
+
+At C8, the engine's throughput progresses from **0.818× to 1.266×** the fixed current Omni reference.
+Each x-axis stage names the accumulated optimization, and edge labels show the observed change from the preceding
+stage. The three panels cover TTFP speed, inverse-RTF efficiency and request throughput. Negative stages remain visible.
+The initial uniform-CLI point is r187, and the final point is the two-run r337 mean. These cross-date endpoints include
+stage combinations and run variation. The accompanying account records each point's raw values and source hashes.
+
+[C8 stage-by-stage account and data](docs/c8-optimization-journey.zh-CN.md)
 
 The complete history covers NPU migration and evidence contracts, RSI knowledge adaptation, profiling-led original
 strategies, six-layer diagnosis, r307–r309 follow-ups and **40 further algorithm attempts through r351**.
@@ -148,6 +160,7 @@ To select the measured experimental settings, use `ascend_r337_experimental` in 
 ```bash
 python -m pip install matplotlib
 python tools/plot_r337_performance.py
+python tools/plot_c8_optimization_journey.py
 python tools/verify_r337_evidence.py
 python tools/verify_r305_evidence.py
 ```

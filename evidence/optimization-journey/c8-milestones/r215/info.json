@@ -1,0 +1,15 @@
+{
+  "config_path": "/workspace/minicpmo-r182/engine-full-block-r202.json",
+  "config_sha256": "a9e20eeb560ceec67382229f07221ac4a14e1f87a4cc157c560af0131f257c45",
+  "backend": "engine.runtime.backend_npu:AscendTrackSBackend",
+  "engine_tree_sha256": "92e85efc2de94a626f0ccb5d0d812dfa3eadb6568418ffb6176c71e2b155067f",
+  "python": "/workspace/minicpmo-r182/venv/bin/python",
+  "python_dists_sha256": "64ecd03e1075ed5a7a0a6ae1b7cb5b43af0fdc8f73b9d356701df9b4687c0283",
+  "pid": 18162,
+  "t2w_worker_pid": null,
+  "device_type": "npu",
+  "device_index": 0,
+  "device_name": "Ascend910B1",
+  "device_properties": "_NPUDeviceProperties(name='Ascend910B1', total_memory=62420MB, cube_core_num=24, vector_core_num=48, uuid=00cc0800-d000-0000-0000-24f603f15d1e, L2_cache_size=192MB)",
+  "visible_devices": "5"
+}

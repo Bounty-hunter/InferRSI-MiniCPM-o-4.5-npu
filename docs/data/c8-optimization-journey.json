@@ -1,0 +1,342 @@
+{
+  "schema": "ascend-c8-optimization-journey/v1",
+  "concurrency": 8,
+  "requests_per_source_run": 128,
+  "input_tokens_per_source_run": 17646,
+  "baseline": {
+    "name": "vLLM-Omni main@9990f10d9",
+    "server_sha": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+    "sources": [
+      {
+        "path": "evidence/20261103-r337/campaign/results/omni-final/summary.json",
+        "sha256": "e24710797e9905e185200b711953a483da69dc9d9569fa752c0733f7ff8a74e7",
+        "selector": [
+          2,
+          "result"
+        ],
+        "metric_fields": {
+          "ttfp_ms": "mean_audio_ttfp_ms",
+          "rtf": "mean_audio_rtf",
+          "request_s": "request_throughput"
+        },
+        "input_tokens_field": "total_input_tokens",
+        "concurrency_field": "max_concurrency"
+      }
+    ],
+    "metrics": {
+      "ttfp_ms": 2049.720173497917,
+      "rtf": 1.0233874221344461,
+      "request_s": 1.96368511836572
+    }
+  },
+  "stages": [
+    {
+      "tag": "r187",
+      "label": "统一CLI\n初始引擎\nr187",
+      "optimization": "统一官方CLI与健康检查后的初始NPU引擎",
+      "phase": "起点",
+      "sources": [
+        {
+          "path": "evidence/optimization-journey/r187-native.json",
+          "sha256": "041cf9b3dce2a82c81c8a1ceebad28c312183f18e968e54db59c0524e9d36ea0",
+          "selector": [
+            2,
+            "result"
+          ],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        }
+      ],
+      "aggregation": "single_run",
+      "metrics": {
+        "ttfp_ms": 3097.8096641483717,
+        "rtf": 1.1882748981441695,
+        "request_s": 1.6063442408013886
+      },
+      "note": ""
+    },
+    {
+      "tag": "r215",
+      "label": "Talker K10\n完整设备块\nr215",
+      "optimization": "embedding、decoder、head、sampling和状态组成K10设备块",
+      "phase": "RSI机制适配",
+      "sources": [
+        {
+          "path": "evidence/optimization-journey/c8-milestones/r215/chunk25_c8.json",
+          "sha256": "56db7d8bc62f1c7acded581db5dc17063d75c7c1d15095ba41b47e4561ddc092",
+          "selector": [],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        }
+      ],
+      "aggregation": "single_run",
+      "metrics": {
+        "ttfp_ms": 2916.347768426931,
+        "rtf": 1.1544768766353861,
+        "request_s": 1.6702978107637285
+      },
+      "note": ""
+    },
+    {
+      "tag": "r239",
+      "label": "融合路由\n稳定hybrid\nr239",
+      "optimization": "Add+RMS及CFM hybrid路由，小行融合、大行保留回退",
+      "phase": "RSI机制适配",
+      "sources": [
+        {
+          "path": "evidence/optimization-journey/r239-native.json",
+          "sha256": "327358b3d07b3df97249e7a495fe831a527eabf76c606b8382718960584e47f9",
+          "selector": [
+            2,
+            "result"
+          ],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        }
+      ],
+      "aggregation": "single_run",
+      "metrics": {
+        "ttfp_ms": 2758.882761641871,
+        "rtf": 1.093765738006756,
+        "request_s": 1.750029646216895
+      },
+      "note": ""
+    },
+    {
+      "tag": "r247",
+      "label": "选择性\nbatch图\nr247",
+      "optimization": "选择性Talker batch图，排除row3并调整分片",
+      "phase": "profiling与自主方案",
+      "sources": [
+        {
+          "path": "evidence/optimization-journey/c8-milestones/r247/chunk25_c8.json",
+          "sha256": "9d0dbc7f401f433ae78bea540a9cee5148c62660bca6bda212d3398fb1b47837",
+          "selector": [],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        }
+      ],
+      "aggregation": "single_run",
+      "metrics": {
+        "ttfp_ms": 2593.6544408323243,
+        "rtf": 1.0031640623569529,
+        "request_s": 1.9178754643815923
+      },
+      "note": ""
+    },
+    {
+      "tag": "r258",
+      "label": "压力门控\nprefix KV\nr258",
+      "optimization": "prefix KV复用及min_live=9压力门控",
+      "phase": "profiling与自主方案",
+      "sources": [
+        {
+          "path": "evidence/optimization-journey/r295-matched-comparison.json",
+          "sha256": "bc0512064d1cc7c9f3f4f07234a10bcccd718777096c6d9769ffbdc1fae50bc7",
+          "selector": [
+            2,
+            "control"
+          ],
+          "metric_fields": {
+            "ttfp_ms": "ttfp_ms",
+            "rtf": "rtf",
+            "request_s": "req_s"
+          },
+          "input_tokens_field": "input_tokens",
+          "concurrency_field": "concurrency"
+        }
+      ],
+      "aggregation": "single_run",
+      "metrics": {
+        "ttfp_ms": 2537.9218009547913,
+        "rtf": 0.9930548879540863,
+        "request_s": 1.9678918820215074
+      },
+      "note": "采用r295中的同版本复测端点。该策略主要面向高压力，C8端点差值没有独立归因到prefix命中。"
+    },
+    {
+      "tag": "r292",
+      "label": "公平capture\n首包优先\nr292",
+      "optimization": "公平capture gate与首音频窗口优先",
+      "phase": "profiling与自主方案",
+      "sources": [
+        {
+          "path": "evidence/optimization-journey/r295-matched-comparison.json",
+          "sha256": "bc0512064d1cc7c9f3f4f07234a10bcccd718777096c6d9769ffbdc1fae50bc7",
+          "selector": [
+            2,
+            "candidate"
+          ],
+          "metric_fields": {
+            "ttfp_ms": "ttfp_ms",
+            "rtf": "rtf",
+            "request_s": "req_s"
+          },
+          "input_tokens_field": "input_tokens",
+          "concurrency_field": "concurrency"
+        }
+      ],
+      "aggregation": "single_run",
+      "metrics": {
+        "ttfp_ms": 2627.4484549066983,
+        "rtf": 1.010473580588473,
+        "request_s": 1.9020099194337048
+      },
+      "note": "C8相对其匹配r258控制回退，曲线保留下降。"
+    },
+    {
+      "tag": "r305",
+      "label": "Thinker\nprompt-lookup\nr305",
+      "optimization": "当前请求提供草稿，原Thinker整块验证并截断未接受KV",
+      "phase": "六层诊断",
+      "sources": [
+        {
+          "path": "evidence/20261102-r305/native/r305-c8.json",
+          "sha256": "44d7403e8f38a9639cbaaa58f32ef6de5afcc49cabcea7986e6a53e313f95ad3",
+          "selector": [],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        }
+      ],
+      "aggregation": "single_run",
+      "metrics": {
+        "ttfp_ms": 1806.2249914801214,
+        "rtf": 0.8085176706863004,
+        "request_s": 2.388392930197924
+      },
+      "note": ""
+    },
+    {
+      "tag": "r309",
+      "label": "真实worker\n媒体图预热\nr309",
+      "optimization": "Euler/HiFT通用桶在真实audio worker和prompt stream预热",
+      "phase": "持续profiling",
+      "sources": [
+        {
+          "path": "evidence/20261103-r337/campaign/results/control309-finalA1/native/c8.json",
+          "sha256": "d3498175ed2bf0910c7cbb7be477029133d3ae96cdb1287ef95e441cca4f3416",
+          "selector": [],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        },
+        {
+          "path": "evidence/20261103-r337/campaign/results/control309-finalA2/native/c8.json",
+          "sha256": "8c71440708d1b787fa70a864f95d1374c729710f54a4de141670e05bedd376bd",
+          "selector": [],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        },
+        {
+          "path": "evidence/20261103-r337/campaign/results/control309-finalA3/native/c8.json",
+          "sha256": "5874be3e646faa639bfed02de6a1c9b05b04d9b714327c1490a88e7ccc2e3350",
+          "selector": [],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        }
+      ],
+      "aggregation": "arithmetic_mean",
+      "metrics": {
+        "ttfp_ms": 1770.347048024026,
+        "rtf": 0.8212419278002608,
+        "request_s": 2.3450944672552665
+      },
+      "note": "取最终A/B/A确认窗口的三次control309均值。与前一历史阶段相比，部分指标回退。"
+    },
+    {
+      "tag": "r337",
+      "label": "12/24核配额\n＋主机长度\nr337",
+      "optimization": "本进程12Cube/24Vector与可信累计query长度复用",
+      "phase": "持续profiling",
+      "sources": [
+        {
+          "path": "evidence/20261103-r337/campaign/results/r337-finalB1/native/c8.json",
+          "sha256": "1ee6936909d4c9452455fd870149471731727b85ea64709c166743d35b3cf137",
+          "selector": [],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        },
+        {
+          "path": "evidence/20261103-r337/campaign/results/r337-finalB2/native/c8.json",
+          "sha256": "0c47d5524deaada8097221cbc6a09ae5ee347f4ef8ffd8e72675f27dc67892fd",
+          "selector": [],
+          "metric_fields": {
+            "ttfp_ms": "mean_audio_ttfp_ms",
+            "rtf": "mean_audio_rtf",
+            "request_s": "request_throughput"
+          },
+          "input_tokens_field": "total_input_tokens",
+          "concurrency_field": "max_concurrency"
+        }
+      ],
+      "aggregation": "arithmetic_mean",
+      "metrics": {
+        "ttfp_ms": 1678.1500721153861,
+        "rtf": 0.7804703783286973,
+        "request_s": 2.4851377660372393
+      },
+      "note": "与最新产品对比图相同的两次候选均值。最后40轮搜索结束时保留此候选。"
+    }
+  ],
+  "ratio_formulas": {
+    "ttfp_ms": "Omni mean TTFP / engine mean TTFP",
+    "rtf": "Omni mean RTF / engine mean RTF",
+    "request_s": "engine request/s / Omni request/s"
+  },
+  "edge_gain_formulas": {
+    "ttfp_ms": "100 * (1 - current / previous)",
+    "rtf": "100 * (1 - current / previous)",
+    "request_s": "100 * (current / previous - 1)"
+  },
+  "scope": "Cross-date native stage endpoints normalized against one fixed latest Omni reference. Adjacent deltas include grouped changes and run variation.",
+  "prior_work": "r32-r181 NPU migration and old TTFA-p50/frames-s protocol are documented separately.",
+  "sampling": "Single-run endpoints until r305. r309 averages three final paired controls. r337 averages two final candidate runs.",
+  "quality": "Omni Flow FP32/10 vs engine FP16/6 and differing RNG/audio duration. Current full speech gate NOT_RUN.",
+  "algorithm_attempts_after_r309": 40,
+  "speech_gate": "NOT_RUN",
+  "equal_quality_claim": false
+}
