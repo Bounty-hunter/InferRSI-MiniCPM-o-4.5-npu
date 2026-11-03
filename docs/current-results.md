@@ -1,5 +1,7 @@
 # 当前 Ascend NPU 性能结果
 
+**版本状态更新于 2026 年 11 月 3 日。当前代码已移除 prompt-lookup，移除后的性能待重测。以下表格、图与 JSON 对应含 lookup 的历史 r337 测量。** [移除与历史源码归档](../evidence/20261103-lookup-removal/README.md)
+
 更新于2026年11月3日。硬件为单Ascend910B1/A2。候选为r337，对照为Omni main9990f10d9，底层vLLM0.32.0，官方客户端5917730a。
 
 ## 均值与吞吐

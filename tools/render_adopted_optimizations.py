@@ -65,13 +65,13 @@ def save(fig, name, footnote):
 
 
 def overview():
-    fig, ax = canvas('同一 backend 内的请求路径与状态归属', 'r337 实现结构示意，箭头表示数据或依赖关系')
+    fig, ax = canvas('同一 backend 内的请求路径与状态归属', 'lookup 移除后的实现结构，箭头表示数据或依赖关系')
     box(ax, .015, .74, .19, .18, 'HTTP 请求', '文本 + 参考音频')
     box(ax, .29, .74, .27, .18, '准备线程池', '相同参考音频共享 future')
     box(ax, .67, .74, .31, .18, 'prompt_stream', '准备说话人 / Flow 初始状态')
     arrow(ax, (.21, .83), (.28, .83))
     arrow(ax, (.57, .83), (.66, .83))
-    box(ax, .015, .34, .27, .23, 'NPU 主线程', 'Thinker prompt-lookup\nTalker K10 设备块')
+    box(ax, .015, .34, .27, .23, 'NPU 主线程', 'Thinker 普通 decode\nTalker K10 设备块')
     box(ax, .37, .34, .22, .23, 'chunk25 窗口队列', '请求 ID / codec / last')
     box(ax, .67, .34, .31, .23, '音频线程 / t2w_stream', '批量 Euler Flow + HiFT\n每个请求持有流式 cache')
     arrow(ax, (.11, .73), (.11, .58), '文本')

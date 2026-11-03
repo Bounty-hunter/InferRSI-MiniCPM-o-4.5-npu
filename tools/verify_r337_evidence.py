@@ -31,8 +31,10 @@ def normalized(command):
 
 def verify_source():
     manifest = read(EVIDENCE / 'source-manifest.json')
+    snapshots = read(ROOT / 'evidence/20261103-lookup-removal/source-map.json')['files']
     actual = {path.relative_to(ROOT).as_posix(): path for path in (ROOT / 'engine').rglob('*')
               if path.is_file() and path.suffix in ('.py', '.sh', '.yaml', '.json') and '__pycache__' not in path.parts}
+    actual.update({name: ROOT / row['path'] for name, row in snapshots.items() if name.startswith('engine/')})
     assert set(actual) == set(manifest['runtime_files'])
     measured = hashlib.sha256()
     control = hashlib.sha256()
@@ -47,7 +49,7 @@ def verify_source():
         override = manifest['control309_overrides'].get(name)
         control_content = (ROOT / override).read_bytes() if override else content
         control.update(name.encode() + b'\0' + control_content + b'\0')
-        if path.suffix == '.py':
+        if name.endswith('.py'):
             for node in ast.walk(ast.parse(path.read_bytes())):
                 modules = [alias.name for alias in node.names] if isinstance(node, ast.Import) else (
                     [node.module] if isinstance(node, ast.ImportFrom) and node.module else [])
@@ -55,7 +57,7 @@ def verify_source():
                            ('vllm', 'vllm_omni', 'sglang', 'sglang_omni', 'inferrsi') for module in modules), name
     assert measured.hexdigest() == manifest['measured_engine_tree_sha256']
     assert control.hexdigest() == manifest['control309_tree_sha256']
-    assert sha256(ROOT / manifest['experimental_config']) == manifest['config_sha256']
+    assert sha256(ROOT / snapshots[manifest['experimental_config']]['path']) == manifest['config_sha256']
     return manifest
 
 
@@ -160,6 +162,7 @@ def main():
     print(json.dumps(dict(direct_concurrencies=list(CONCURRENCIES), measured_source_files=source_files,
                           algorithm_attempts=rounds, local_links=links, aggregated_curve_verified=True,
                           measured_source_reconstructed=True, control_source_reconstructed=True,
+                          validation_scope='historical measured snapshots before lookup removal',
                           speech_gate='NOT_RUN', quality_certified=False)))
 
 

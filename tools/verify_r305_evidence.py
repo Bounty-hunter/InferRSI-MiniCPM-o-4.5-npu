@@ -86,6 +86,8 @@ def main():
         p.relative_to(ROOT).as_posix(): p for p in (ROOT / "engine").rglob("*")
         if p.is_file() and p.suffix in (".py", ".sh", ".yaml", ".json") and "__pycache__" not in p.parts
     }
+    snapshots = read(ROOT / 'evidence/20261103-lookup-removal/source-map.json')['files']
+    actual_files.update({name: ROOT / row['path'] for name, row in snapshots.items() if name.startswith('engine/')})
     assert set(actual_files) == set(manifest["runtime_files"])
     for name, path in sorted(actual_files.items()):
         archived = manifest.get("archived_publication_files", {}).get(name)
@@ -96,14 +98,14 @@ def main():
         digest.update(b"\0")
         digest.update(measured)
         digest.update(b"\0")
-        if path.suffix == ".py":
+        if name.endswith('.py'):
             for node in ast.walk(ast.parse(content)):
                 modules = [alias.name for alias in node.names] if isinstance(node, ast.Import) else (
                     [node.module] if isinstance(node, ast.ImportFrom) and node.module else []
                 )
                 assert not any(m.split(".")[0].lower() in ("vllm", "vllm_omni", "sglang", "inferrsi") for m in modules), name
     assert digest.hexdigest() == data["measured_engine_tree_sha256"] == manifest["measured_engine_tree_sha256"]
-    assert hashlib.sha256((ROOT / manifest["experimental_config"]).read_bytes()).hexdigest() == data["measured_config_sha256"]
+    assert hashlib.sha256((ROOT / snapshots[manifest['experimental_config']]['path']).read_bytes()).hexdigest() == data["measured_config_sha256"]
     journey_path = ROOT / "docs/data/optimization-journey.json"
     if journey_path.exists():
         journey = read(journey_path)
@@ -141,7 +143,8 @@ def main():
             assert (doc.parent / link.split("#", 1)[0]).exists(), (doc.name, link)
             links += 1
     print(json.dumps(dict(direct_comparison_cells=4,incremental_cells=3,rounds=10,local_links=links,
-                          measured_source_hash_matches=True,speech_gate="NOT_RUN",quality_certified=False)))
+                          measured_source_hash_matches=True,speech_gate="NOT_RUN",quality_certified=False,
+                          validation_scope='historical measured snapshots before lookup removal')))
 
 
 if __name__ == "__main__":

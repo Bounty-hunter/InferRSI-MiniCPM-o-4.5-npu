@@ -87,6 +87,8 @@ class AscendTrackSBackend(TrackSBackend):
         npu_core_fraction: float = 1.0,
         **_future_track_s_options,
     ):
+        if thinker_prompt_lookup_max_tokens != 0:
+            raise ValueError("prompt-lookup has been removed. thinker_prompt_lookup_max_tokens must be 0")
         if torch.device(device).type != "npu":
             raise ValueError("AscendTrackSBackend requires an npu device")
         if int(t2w_timesteps) <= 0:
@@ -262,10 +264,6 @@ class AscendTrackSBackend(TrackSBackend):
         if self.t2w_batch.hift_graphs is not None:
             self.t2w_batch.hift_graphs.capture_context = self._graph_capture_context
         torch.npu.empty_cache()
-        if int(thinker_prompt_lookup_max_tokens) < 0:
-            raise ValueError("thinker_prompt_lookup_max_tokens must be non-negative")
-        self.thinker_prompt_lookup_max_tokens = int(thinker_prompt_lookup_max_tokens)
-        self.thinker_prompt_lookup_stats = dict(verification_calls=0,draft_tokens=0,matched_draft_tokens=0,target_tokens=0,kv_fallbacks=0)
         self.device, self.max_live = device, max_live
         if int(talker_min_new_tokens) < 0:
             raise ValueError("talker_min_new_tokens must be >= 0")
@@ -786,7 +784,6 @@ class AscendTrackSBackend(TrackSBackend):
                 "t2w_first_audio_priority": self.t2w_first_audio_priority,
                 "t2w_first_audio_priority_stats": dict(self.t2w_first_audio_priority_stats),
                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
-                "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
                 "t2w_startup_stats": dict(self.t2w_startup_stats),
                 "npu_core_policy": self.npu_core_policy,
                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
@@ -869,14 +866,9 @@ class AscendTrackSBackend(TrackSBackend):
                 return index
         return limit
 
-    def _thinker_step_group(self, rows: list[LiveS], prefix_lengths: dict[int, int] | None = None, *, _skip_prompt_lookup: bool = False) -> None:
+    def _thinker_step_group(self, rows: list[LiveS], prefix_lengths: dict[int, int] | None = None) -> None:
         if not rows:
             return
-        if (self.thinker_prompt_lookup_max_tokens and not _skip_prompt_lookup
-                and not prefix_lengths and not any(lv.pending_prefill for lv in rows)):
-            from engine.runtime.thinker_lookup import try_prompt_lookup_step
-            if try_prompt_lookup_step(self, rows):
-                return
         prefix_lengths = prefix_lengths or {}
         feeds = [
             lv.prompt_ids[prefix_lengths.get(lv.seq, 0):] if lv.pending_prefill else [lv.generated[-1]]

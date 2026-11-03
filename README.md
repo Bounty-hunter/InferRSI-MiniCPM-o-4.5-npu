@@ -4,11 +4,14 @@ A streaming speech engine for MiniCPM-o 4.5 on one **Ascend 910B1 / A2**. A nati
 owns Thinker, Talker and Token2Wav. Its OpenAI-compatible API streams text and 24 kHz audio.
 Runtime dependencies are isolated from the vLLM, vLLM-Omni, SGLang and InferRSI reference repositories.
 
-**Latest measured experimental candidate — r337, November 3, 2026.** The comparison covers **C1/C2/C4/C8**
+**Current runtime — prompt-lookup removed, November 3, 2026.** Thinker uses ordinary original-model decoding.
+Performance and paired speech-quality acceptance for this modified runtime are pending.
+
+**Latest historical measured candidate — r337.** The comparison below covers **C1/C2/C4/C8**
 against pinned vLLM-Omni main `9990f10d9`, using the official client `5917730a` on vLLM 0.32.0.
 The engine uses Flow FP16/6 steps and Omni uses FP32/10 steps. Final paired speech-quality acceptance is pending.
-The measured workload is Seed-TTS read-aloud. The candidate enables prompt-lookup, which benefits from text
-already present in the request. General conversational performance remains unmeasured in this comparison.
+The measured workload is Seed-TTS read-aloud. The historical r337 candidate enabled prompt-lookup.
+Its measured values describe the archived source and configuration. [Removal and historical source archive](evidence/20261103-lookup-removal/README.md)
 
 [已采用优化详解与图示](docs/adopted-optimizations.zh-CN.md) ·
 [核配额固定工作量与2×2验证](docs/core-quota-causality.zh-CN.md) ·
@@ -21,11 +24,11 @@ already present in the request. General conversational performance remains unmea
 [Mean/P99 and provenance](docs/current-results.md) ·
 [Reproduction and evidence](evidence/20261103-r337/README.md)
 
-## Mean performance on Seed-TTS read-aloud vs. vLLM-Omni
+## Historical Seed-TTS read-aloud performance vs. vLLM-Omni
 
-Prompt-lookup exploits input/output text overlap in this workload. The measurements combine that workload-dependent
-benefit with runtime changes and the Flow precision/step differences described above. Quantifying runtime gains
-for broader tasks requires a same-version lookup on/off ablation and matched conversational workloads.
+The archived prompt-lookup path exploited input/output text overlap in this workload. The measurements combine that workload-dependent
+benefit with runtime changes and the Flow precision/step differences described above. Quantifying current runtime
+gains requires fresh lookup-free measurements against Omni under matched workload and quality constraints.
 
 Values are **Omni → r337**. Each engine point is the arithmetic mean of its two recorded run-level values.
 TTFP/RTF are lower-is-better and request/s is higher-is-better. Each chart shows one engine curve and one Omni curve.
@@ -52,6 +55,9 @@ The P99 chart uses the arithmetic mean of the two candidate run-level P99 values
 [P99 chart](evidence/20261103-r337/campaign/独立引擎vs-vLLM-Omni-P99.svg) · [Machine-readable comparison](docs/data/ascend-r337-20261103.json)
 
 ## How RSI and profiling changed the engine
+
+These curves show the recorded historical versions, including prompt-lookup from r305 onward.
+Benchmarking of the current runtime after lookup removal is pending.
 
 ### C1 optimization journey
 
@@ -98,18 +104,14 @@ comparison spans both improvement and regression. Per-tier results and negative 
 [r307–r309](evidence/20261103-r337/followup/六层profiling继续优化-r307-r309.md) ·
 [r312–r351 and final comparisons](docs/rsi-r337-20261103.zh-CN.md)
 
-## Why the measured engine is faster
+## Retained runtime mechanisms and historical evidence
 
-The [Chinese technical guide](docs/adopted-optimizations.zh-CN.md) explains the retained mechanisms with five
-diagrams, worked examples, configuration conditions, fallbacks and measured contribution boundaries.
-
-Prompt-lookup is a workload-dependent mechanism. Its controlled read-aloud gains are recorded separately in the
-technical guide. Open-ended conversation can have substantially less prompt overlap, so its acceptance rate,
-verification overhead and service performance require dedicated measurement.
+The [Chinese technical guide](docs/adopted-optimizations.zh-CN.md) explains the retained mechanisms and the
+removed historical lookup experiment, with diagrams, worked examples, fallbacks and measurement boundaries.
+The following mechanisms remain in the runtime. Their combined performance after lookup removal requires new measurement.
 
 | Area | Measured engine mechanisms | Evidence and scope |
 |---|---|---|
-| First Thinker text | Prompt-lookup drafts from the current request, original-model block verification and KV truncation | Reduces serial decode/host round trips on this read-aloud workload. The earlier C8 diagnostic prefill-to-first-text interval fell from 1420.8 to 551.7 ms. |
 | Talker execution | K=10 device blocks with explicit sampler/history/EOS/KV ownership | The pinned Omni NPU deploy also has multi-frame decoding, with eight frames per step. |
 | Media graph startup | Euler/HiFT shapes initialized on the actual audio worker and prompt stream before health readiness | r307/r309 target observed first-use captures and preserve scratch ownership. |
 | Process resource use | r337 requests 12 Cube/24 Vector cores for its own process before model operators and graph capture | Fresh resource experiments inform this configuration. This is a process-local limit, with no demonstrated cross-process MPS mechanism. |
@@ -140,10 +142,10 @@ Frozen WER, speaker-similarity, UTMOS and comparative speech thresholds remain a
 has moved to the Omni NPU environment, where a new evaluator fingerprint and matched reference/candidate
 scoring are required. The full current speech gate remains **NOT_RUN**.
 
-The candidate is selectable through `configs/engine/ascend_r337_experimental.json`. Its runtime matches the
-measured snapshot except for the public server's existing optional CPU-affinity API. The source manifest records
-that integration difference and reconstructs the exact measured tree. The preserved historical artifacts also
-reconstruct r305. Public default configurations retain their existing settings.
+The current experimental settings are selectable through `configs/engine/ascend_r337_experimental.json`.
+The r305/r337 configuration names are retained for existing launch commands and now omit lookup.
+Historical measured source and configuration bytes are available in the removal archive, alongside the existing
+measured-server and control overrides. Historical artifact verification reconstructs those archived versions.
 
 [Architecture](docs/architecture-npu.md) · [Source binding](evidence/20261103-r337/source-manifest.json) ·
 [Current mean/P99 results](docs/current-results.md)
@@ -183,8 +185,8 @@ repetition penalty 1.05 over 16 frames); `talker_sampling` overrides it per requ
 the usual `image_url`, `input_audio`/`audio_url` and `video_url` content parts. See [Ascend API and request flow](docs/architecture-npu.md).
 
 
-To select the measured experimental settings, use `ascend_r337_experimental` in the scheduler-wrapped command above.
-`ascend_r292_control` is supplied for the same-config internal comparison; prompt lookup defaults to disabled.
+To select the current experimental settings, use `ascend_r337_experimental` in the scheduler-wrapped command above.
+Legacy nonzero `thinker_prompt_lookup_max_tokens` settings produce an explicit migration error.
 
 ## Reproduce figures and verify artifacts
 

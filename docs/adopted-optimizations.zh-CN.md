@@ -1,8 +1,10 @@
 # MiniCPM-o 4.5 NPU 独立引擎的已采用优化详解
 
+**2026 年 11 月 3 日更新。当前运行时已移除 prompt-lookup，Thinker 使用普通原模型 decode。第 4 节及 r305/r337 成绩保留为历史实验，移除后的性能待重测。** [移除记录与源码归档](../evidence/20261103-lookup-removal/README.md)
+
 方案轮数、未保留探索与诊断流程的问题，另见[方法复盘与探索效率审计](optimization-method-retrospective.zh-CN.md)。
 
-本文按执行机制介绍当前 r337 实验配置中保留的优化，覆盖它解决的开销、实现方式、具体例子、适用条件及收益证据。历史方案的选择过程、失败实验和逐轮结果另见优化历程与实验账本。整理日期为 2026-11-03。[优化历程](optimization-journey.zh-CN.md) · [完整实验账本](optimization-ledger-npu.zh-CN.md)
+本文按执行机制介绍 r337 以来的保留优化与已移除的历史 lookup 实验，覆盖它解决的开销、实现方式、具体例子、适用条件及收益证据。历史方案的选择过程、失败实验和逐轮结果另见优化历程与实验账本。整理日期为 2026-11-03。[优化历程](optimization-journey.zh-CN.md) · [完整实验账本](optimization-ledger-npu.zh-CN.md)
 
 **本文的“采用”指进入 r337 实验配置并参与性能测量。r337 的完整语音质量门仍为 `NOT_RUN`。** 引擎采用 Flow FP16/6 步与 counter RNG，对照 Omni 采用 Flow FP32/10 步，二者的 codec 输出存在差异。下文将执行优化、数值配方和有条件启用的能力分别说明。[当前配置](../configs/engine/ascend_r337_experimental.json) · [源码与测量绑定](../evidence/20261103-r337/source-manifest.json) · [当前结果](current-results.md)
 
@@ -18,11 +20,11 @@
 
 ### 当前启用的能力清单
 
-| 类别 | r337 实际选择 | 主要作用位置 |
+| 类别 | 当前配置，r337 移除 lookup 后 | 主要作用位置 |
 |---|---|---|
 | KV 管理 | Thinker/Talker 各 128 页，每页 128 token | admission、prefill、decode、请求释放 |
 | 参考音频准备 | 2 个 worker，相同字节引用共享准备 future，初始 cache 共享只读张量 | 首包前准备与内存 |
-| Thinker | prompt-lookup 最多提议 8 token，原模型验证 | 文本自回归关键路径 |
+| Thinker | 普通原模型 prefill/decode，lookup 已移除 | 文本自回归关键路径 |
 | Talker | K=10 device block、完整块图、后处理图、counter RNG | codec 自回归与 host 发射 |
 | Decoder 图 | 最大 batch 8，选择已有兼容桶 | decode 发射与捕获 |
 | Talker attention | 静态容量 256，超出条件走其他路径 | 图内 attention |
@@ -59,7 +61,7 @@ Thinker 和 Talker 每生成一个 token 都需要保留历史 K/V。若给每�
 请求 A 结束        release(A)         归还请求拥有的全部页
 ```
 
-`truncate` 只修改逻辑长度，`release` 才将物理页归还池中。Thinker 验证失败或 Talker 在块内遇到边界时，可以截断未采用的后缀。请求结束或取消后的释放路径同时回收两套 decoder KV，并清理请求状态。[截断与释放](../engine/runtime/npu_paged.py#L134) · [Backend 释放](../engine/runtime/backend_npu.py#L714)
+`truncate` 只修改逻辑长度，`release` 才将物理页归还池中。Talker 在块内遇到边界时，可以截断未采用的后缀。请求结束或取消后的释放路径同时回收两套 decoder KV，并清理请求状态。[截断与释放](../engine/runtime/npu_paged.py#L134) · [Backend 释放](../engine/runtime/backend_npu.py#L714)
 
 线程化音频路径还将计算 KV 与音频完成的生命周期分开。Talker 已排入最后一个窗口后，主线程可以释放计算 KV，音频线程继续消费窗口、推进 Flow/HiFT cache 并发送完成事件。这样排队等待波形的请求不会继续占着已经不需要的 decoder 页。[计算 KV 提前释放](../engine/runtime/backend_npu.py#L833)
 
@@ -92,7 +94,9 @@ B 推进一窗     A.cache = {att: TA}    B.cache = {att: TB}
 
 这种共享依赖初始张量作为只读输入、每个请求用结果替换条目的约定。它避免为相同参考音频反复克隆大的初始 cache，并保持后续流状态独立。当前配置关闭 cache offload，本文不把 offload 搬运去重计入 r337 的性能来源。该项尚无当前四档的独立收益百分比。[配置](../configs/engine/ascend_r337_experimental.json) · [流状态与批处理](../engine/runtime/token2wav_batch.py)
 
-## 4. Thinker prompt-lookup 与原模型块验证
+## 4. 历史实验，Thinker prompt-lookup 与原模型块验证，现已移除
+
+本节解释历史 r305/r337 的实现与测量。当前 serving 代码已删除草稿模块和调度分支，配置已移除 lookup 设置。下面的源码链接与示例指向历史归档。
 
 ### 为什么朗读任务存在机会
 
@@ -100,16 +104,20 @@ B 推进一窗     A.cache = {att: TA}    B.cache = {att: TB}
 
 ### 如何提议和验证
 
-实现先尝试最长 4 token、最短 2 token 的已生成后缀，从 prompt 后部向前寻找匹配，提议最多 8 token。提议长度进一步受 Thinker 文本 chunk 边界限制。原 Thinker 在因果 attention 下对 `[最后一个已生成 token, draft...]` 做一次块前向，再逐位置检查目标预测。[提议与验证函数](../engine/runtime/thinker_lookup.py)
+历史实现先尝试最长 4 token、最短 2 token 的已生成后缀，从 prompt 后部向前寻找匹配，提议最多 8 token。提议长度进一步受 Thinker 文本 chunk 边界限制。原 Thinker 在因果 attention 下对 `[最后一个已生成 token, draft...]` 做一次块前向，再逐位置检查目标预测。[归档的提议与验证函数](../evidence/20261103-lookup-removal/source/engine/runtime/thinker_lookup.py.txt)
 
 ![prompt-lookup 验证与 KV 回退示例](figures/adopted-optimizations/prompt-lookup-example.svg)
 
 例如 prompt 为 `[11,22,33,44,55]`，已生成 `[11,22]`，可提议 `[33,44,55]`。原模型给出 `[33,99,55,77]`。第一个提议 33 被接受，第二处不匹配时保留原模型的 99，当前步采用 `[33,99]`。99 之后依赖错误 draft 的预测被丢弃。全部匹配时可额外采用一个原模型 bonus token。
 
-下面的例子可在仓库根目录用 Python 运行，两项函数只依赖 Python 标准库。
+下面的例子可在仓库根目录用 Python 复核历史实现，两项函数只依赖 Python 标准库。
 
 ```python
-from engine.runtime.thinker_lookup import prompt_draft, verified_count
+import runpy
+
+historical = runpy.run_path('evidence/20261103-lookup-removal/source/engine/runtime/thinker_lookup.py.txt')
+prompt_draft = historical['prompt_draft']
+verified_count = historical['verified_count']
 
 prompt = [11, 22, 33, 44, 55]
 generated = [11, 22]
@@ -123,7 +131,7 @@ assert accepted == [33, 99]
 
 ### KV 为什么要精确回退
 
-假设验证前逻辑 KV 长度为 L，本次输入 `[22,33,44,55]` 会写入四个输入位置。采用两个预测后，逻辑长度保留到 `L+2`，对应输入 22 和 33。新预测 99 在下一步作为尚未缓存的尾 token 输入。只有输入位置与预测位置保持这个对应关系，后续生成才不会重复消费或错误沿用 draft KV。[验证后的状态推进](../engine/runtime/thinker_lookup.py#L68)
+假设验证前逻辑 KV 长度为 L，本次输入 `[22,33,44,55]` 会写入四个输入位置。采用两个预测后，逻辑长度保留到 `L+2`，对应输入 22 和 33。新预测 99 在下一步作为尚未缓存的尾 token 输入。只有输入位置与预测位置保持这个对应关系，后续生成才不会重复消费或错误沿用 draft KV。[历史状态推进](../evidence/20261103-lookup-removal/source/engine/runtime/thinker_lookup.py.txt#L68)
 
 无匹配时走普通 decode，KV 容量不足时回退原路径。EOS 和文本 chunk 边界继续参与终止判断。该策略仅使用当前请求 prompt，命中率随任务而变化。块验证与逐步计算的数值轨迹仍需要开发检查及最终质量门覆盖。[普通 Thinker 路径](../engine/runtime/backend_npu.py#L872)
 
@@ -453,7 +461,7 @@ TTFP 指客户端测得的首音频包时延，RTF 由每请求的端到端时�
 | 对比维度 | 本独立引擎 | 本次 Omni 对照中已有能力 | 可以作出的解释 |
 |---|---|---|---|
 | 阶段组织 | 单 backend、显式请求状态和线程/stream 所有权 | 三阶段进程、共享内存 connector | 交接与调度契约不同，IPC 独立收益待消融 |
-| Thinker 提议 | 当前 prompt 提议，原模型块验证，受文本 chunk 约束 | 本次部署未启用 stage0 n-gram speculation | 直接针对朗读重复内容减少串行步骤，有内部控制证据 |
+| Thinker | 普通原模型 decode，lookup 已移除 | 本次部署未启用 stage0 n-gram speculation | 移除后的服务性能待重新测量 |
 | Talker 多帧 | K10 完整块、请求 counter 状态、特定 cohort 路由 | K8、多帧 decode 图 | 双方均有多帧，差异在块长及执行/状态实现 |
 | KV | 自有页池与逻辑截断，压力 prefix 路径 | vLLM KV/调度能力，当前配置关闭 prefix | 自有生命周期便于块验证与边界控制，低并发 prefix 无命中 |
 | 音频图 | Euler/HiFT 图、hybrid CFM、owner 预热 | CFM/HiFT/encoder 图、融合、预捕获及 batch buckets | 形状、路由、所有权与数值配方存在差别 |

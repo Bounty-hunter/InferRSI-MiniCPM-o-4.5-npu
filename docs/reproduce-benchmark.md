@@ -1,6 +1,11 @@
 # Reproducing the benchmark
 
-## Current Ascend NPU comparison
+The current runtime has removed prompt-lookup. The r305/r337 named configurations now omit lookup.
+Their historical measured originals and runtime reconstruction instructions are available in the
+[removal archive](../evidence/20261103-lookup-removal/README.md). A new run on the current code measures
+the modified runtime and must record its own source/config identity.
+
+## Historical Ascend NPU comparison
 
 The current workload uses the official vLLM-Omni bench client5917730a, pinned Omni main9990f10d9,
 chunk25, Seed-TTS English and C1/C2/C4/C8 with32/32/64/128timed requests and2warmups per tier.

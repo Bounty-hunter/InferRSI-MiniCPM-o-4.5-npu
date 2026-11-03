@@ -1,8 +1,19 @@
 # Ascend NPU test status
 
-## r337 publication checks — November 3, 2026
+## Lookup removal checks — November 3, 2026
 
-The current publication passes 26 focused CPU tests covering prompt verification, NPU hot-path contracts, and host-length provenance/fallback cases. The artifact verifier reconstructs measured r337 and control309, verifies all 40 round receipts/patches, and checks the four-tier aggregation and local document links. The historical r305 verifier also passes after reconstruction from archived runtime files.
+Seven CPU-only regression checks pass for constructor compatibility/error handling, serving configurations,
+removal of the draft module/branch/counters, empty batches, preservation of the ordinary decode body and
+archived source/config hashes. Historical r305/r337 and core-quota artifact verifiers reconstruct the original
+measured snapshots. Current NPU inference, benchmark and speech-quality validation remain pending.
+
+```sh
+python -m unittest discover -s tests/engine_api -p test_lookup_removed.py -v
+```
+
+## Historical r337 publication checks — November 3, 2026
+
+The historical publication passed 26 focused CPU tests covering prompt verification, NPU hot-path contracts, and host-length provenance/fallback cases. The artifact verifier reconstructs measured r337 and control309, verifies all 40 round receipts/patches, and checks the four-tier aggregation and local document links. The historical r305 verifier also passes after reconstruction from archived runtime files.
 
 The published runtime includes the existing optional CPU-affinity server API. This integrated tree has source binding to the measured NPU snapshot. Full current speech/statistical gates remain NOT_RUN.
 

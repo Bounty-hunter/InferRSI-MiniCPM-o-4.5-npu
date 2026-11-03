@@ -36,9 +36,10 @@ def check_samples(row, count):
 
 def verify_source():
     manifest = read(EVIDENCE / 'source-manifest.json')
+    snapshots = read(ROOT / 'evidence/20261103-lookup-removal/source-map.json')['files']
     tree = hashlib.sha256()
     for name, expected in sorted(manifest['runtime_files'].items()):
-        path = ROOT / manifest['overrides'].get(name, name)
+        path = ROOT / manifest['overrides'].get(name, snapshots.get(name, {}).get('path', name))
         assert sha256(path) == expected, name
         tree.update(name.encode() + b'\0' + path.read_bytes() + b'\0')
     assert tree.hexdigest() == manifest['engine_tree_sha256']

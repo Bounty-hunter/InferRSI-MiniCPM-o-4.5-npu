@@ -1,4 +1,4 @@
-# These two experimental configurations preserve the exact measured bytes/hash.
+# Configuration line endings and archived measured bytes are preserved.
 /configs/engine/ascend_r292_control.json -text whitespace=cr-at-eol
 /configs/engine/ascend_r305_experimental.json -text whitespace=cr-at-eol
 /configs/engine/ascend_r337_experimental.json -text whitespace=cr-at-eol
@@ -11,5 +11,6 @@
 /evidence/optimization-journey/c8-milestones/** -text whitespace=cr-at-eol
 /evidence/optimization-journey/c1-milestones/** -text whitespace=cr-at-eol
 /evidence/20261103-core-quota/** -text whitespace=cr-at-eol
+/evidence/20261103-lookup-removal/** -text whitespace=cr-at-eol
 # Unified diff artifacts retain their single-space blank context lines.
 /evidence/20261102-r305/patches/*.patch whitespace=-blank-at-eol

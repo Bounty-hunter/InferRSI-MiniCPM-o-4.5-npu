@@ -1,5 +1,7 @@
 # 以 C1 看优化演进曲线
 
+**历史测量。当前代码已移除 prompt-lookup，移除后的性能待重测。下图 r305/r337 点对应含 lookup 的归档版本。** [移除记录](../evidence/20261103-lookup-removal/README.md)
+
 横轴沿用 C8 图的九个关键版本，包含七个有独立 C1 实测值的阶段。r247、r309 保留缺测位置，虚线连接前后实测端点。每个源运行均为 C1、32 个计时请求、4411 输入 token，观测请求错误为 0。
 
 ![C1优化演进曲线](figures/npu-c1-optimization-journey.svg)
