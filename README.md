@@ -47,6 +47,20 @@ The P99 chart uses the arithmetic mean of the two candidate run-level P99 values
 
 ## How RSI and profiling changed the engine
 
+### C1 optimization journey
+
+![C1 optimization journey](docs/figures/npu-c1-optimization-journey.svg)
+
+At C1, the engine's throughput progresses from **0.914× to 1.355×** the fixed current Omni reference.
+From r187 to r337, mean TTFP falls from **782.50 to 516.35 ms**, mean RTF falls from **0.3261 to 0.2202**,
+and throughput rises from **0.7325 to 1.0855 request/s**. The chart retains the nine-stage axis used below.
+Seven stages have C1 measurements. Dashed segments bridge r247 and r309, whose independent C1 measurements
+are unavailable. Their interval changes include grouped optimizations and cross-date run variation.
+The final point averages the two recorded r337 C1 runs. Full speech-quality acceptance remains pending.
+
+[C1 stage-by-stage account and data](docs/c1-optimization-journey.zh-CN.md)
+
+### C8 optimization journey
 
 ![C8 optimization journey](docs/figures/npu-c8-optimization-journey.svg)
 
