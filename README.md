@@ -7,6 +7,8 @@ Runtime dependencies are isolated from the vLLM, vLLM-Omni, SGLang and InferRSI 
 **Latest measured experimental candidate — r337, November 3, 2026.** The comparison covers **C1/C2/C4/C8**
 against pinned vLLM-Omni main `9990f10d9`, using the official client `5917730a` on vLLM 0.32.0.
 The engine uses Flow FP16/6 steps and Omni uses FP32/10 steps. Final paired speech-quality acceptance is pending.
+The measured workload is Seed-TTS read-aloud. The candidate enables prompt-lookup, which benefits from text
+already present in the request. General conversational performance remains unmeasured in this comparison.
 
 [已采用优化详解与图示](docs/adopted-optimizations.zh-CN.md) ·
 [核配额固定工作量与2×2验证](docs/core-quota-causality.zh-CN.md) ·
@@ -19,7 +21,11 @@ The engine uses Flow FP16/6 steps and Omni uses FP32/10 steps. Final paired spee
 [Mean/P99 and provenance](docs/current-results.md) ·
 [Reproduction and evidence](evidence/20261103-r337/README.md)
 
-## Mean performance vs. vLLM-Omni
+## Mean performance on Seed-TTS read-aloud vs. vLLM-Omni
+
+Prompt-lookup exploits input/output text overlap in this workload. The measurements combine that workload-dependent
+benefit with runtime changes and the Flow precision/step differences described above. Quantifying runtime gains
+for broader tasks requires a same-version lookup on/off ablation and matched conversational workloads.
 
 Values are **Omni → r337**. Each engine point is the arithmetic mean of its two recorded run-level values.
 TTFP/RTF are lower-is-better and request/s is higher-is-better. Each chart shows one engine curve and one Omni curve.
@@ -96,6 +102,10 @@ comparison spans both improvement and regression. Per-tier results and negative 
 
 The [Chinese technical guide](docs/adopted-optimizations.zh-CN.md) explains the retained mechanisms with five
 diagrams, worked examples, configuration conditions, fallbacks and measured contribution boundaries.
+
+Prompt-lookup is a workload-dependent mechanism. Its controlled read-aloud gains are recorded separately in the
+technical guide. Open-ended conversation can have substantially less prompt overlap, so its acceptance rate,
+verification overhead and service performance require dedicated measurement.
 
 | Area | Measured engine mechanisms | Evidence and scope |
 |---|---|---|
