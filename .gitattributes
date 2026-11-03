@@ -9,6 +9,7 @@
 /evidence/20261103-r337/**/*.log.txt whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 /evidence/20261103-r337/**/*.svg whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 /evidence/optimization-journey/c8-milestones/** -text whitespace=cr-at-eol
+/evidence/optimization-journey/c1-milestones/** -text whitespace=cr-at-eol
 /evidence/20261103-core-quota/** -text whitespace=cr-at-eol
 # Unified diff artifacts retain their single-space blank context lines.
 /evidence/20261102-r305/patches/*.patch whitespace=-blank-at-eol

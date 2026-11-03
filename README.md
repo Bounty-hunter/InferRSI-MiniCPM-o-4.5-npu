@@ -12,6 +12,7 @@ The engine uses Flow FP16/6 steps and Omni uses FP32/10 steps. Final paired spee
 [核配额固定工作量与2×2验证](docs/core-quota-causality.zh-CN.md) ·
 [方法复盘与探索效率审计](docs/optimization-method-retrospective.zh-CN.md) ·
 [C8完整演进曲线](docs/c8-optimization-journey.zh-CN.md) ·
+[C1演进曲线](docs/c1-optimization-journey.zh-CN.md) ·
 [中文优化历程与最新结果](docs/rsi-r337-20261103.zh-CN.md) ·
 [全部 NPU 实验账本](docs/optimization-ledger-npu.zh-CN.md) ·
 [40轮逐项记录](evidence/20261103-r337/campaign/持续优化实验记录.md) ·

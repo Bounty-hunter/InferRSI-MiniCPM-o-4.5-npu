@@ -1,0 +1,12 @@
+{
+  "python": "/workspace/minicpmo-r182/venv/bin/python",
+  "engine_tree_sha256": "92e85efc2de94a626f0ccb5d0d812dfa3eadb6568418ffb6176c71e2b155067f",
+  "versions": {
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post4",
+    "transformers": "5.19.0",
+    "step-audio2": "1.0.0",
+    "numpy": "1.26.4"
+  },
+  "quality_status": "NOT_QUALIFIED: experimental graph8, FP16/6-step Flow; full speech gate incomplete"
+}
