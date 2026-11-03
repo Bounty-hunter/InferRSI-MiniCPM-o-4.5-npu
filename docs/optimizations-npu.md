@@ -1,5 +1,7 @@
 # Ascend NPU optimization map
 
+当前采用机制的技术说明、执行例子和五张示意图见[已采用优化详解](adopted-optimizations.zh-CN.md)。该文按 r337 实验配置区分实际启用、条件旁路及质量待验收的项目。
+
 当前r337候选、C1/C2/C4/C8单结果曲线及后续40轮记录已更新，详见[最新优化总结](rsi-r337-20261103.zh-CN.md)和[当前性能表](current-results.md)。下文保留相应阶段的历史证据。
 
 The public optimization evidence is limited to the Ascend path. The latest opt-in candidate is r337.

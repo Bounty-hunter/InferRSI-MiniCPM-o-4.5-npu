@@ -8,6 +8,7 @@ Runtime dependencies are isolated from the vLLM, vLLM-Omni, SGLang and InferRSI 
 against pinned vLLM-Omni main `9990f10d9`, using the official client `5917730a` on vLLM 0.32.0.
 The engine uses Flow FP16/6 steps and Omni uses FP32/10 steps. Final paired speech-quality acceptance is pending.
 
+[已采用优化详解与图示](docs/adopted-optimizations.zh-CN.md) ·
 [C8完整演进曲线](docs/c8-optimization-journey.zh-CN.md) ·
 [中文优化历程与最新结果](docs/rsi-r337-20261103.zh-CN.md) ·
 [全部 NPU 实验账本](docs/optimization-ledger-npu.zh-CN.md) ·
@@ -75,6 +76,9 @@ comparison spans both improvement and regression. Per-tier results and negative 
 [r312–r351 and final comparisons](docs/rsi-r337-20261103.zh-CN.md)
 
 ## Why the measured engine is faster
+
+The [Chinese technical guide](docs/adopted-optimizations.zh-CN.md) explains the retained mechanisms with five
+diagrams, worked examples, configuration conditions, fallbacks and measured contribution boundaries.
 
 | Area | Measured engine mechanisms | Evidence and scope |
 |---|---|---|
@@ -161,6 +165,7 @@ To select the measured experimental settings, use `ascend_r337_experimental` in 
 python -m pip install matplotlib
 python tools/plot_r337_performance.py
 python tools/plot_c8_optimization_journey.py
+python tools/render_adopted_optimizations.py
 python tools/verify_r337_evidence.py
 python tools/verify_r305_evidence.py
 ```
