@@ -1,0 +1,14 @@
+{
+  "tag": "profile309c",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [],
+  "diagnostic": [
+    8
+  ],
+  "quality": false,
+  "port": 19247,
+  "runner": "run_external.py",
+  "hypothesis": "External msprof application mode +Python stacks/transfer scopes/per-thread CPU; native torch tracer crashes preserved; not an algorithm round"
+}

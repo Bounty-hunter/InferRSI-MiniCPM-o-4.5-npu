@@ -1,0 +1,355 @@
+{
+  "c8": {
+    "first_audio_ledger_ms": {
+      "dispatch_to_admit": {
+        "n": 128,
+        "mean": 140.70512434409466,
+        "p50": 127.71829962730408,
+        "p95": 324.5913665741682,
+        "max": 491.19953718036413
+      },
+      "admit_to_prefilled": {
+        "n": 128,
+        "mean": 233.23928211902967,
+        "p50": 205.14588709920645,
+        "p95": 377.5494387373328,
+        "max": 440.21395687013865
+      },
+      "prefilled_to_first_text_chunk": {
+        "n": 128,
+        "mean": 697.5727997341892,
+        "p50": 588.5487240739167,
+        "p95": 1361.69623862952,
+        "max": 2277.9845353215933
+      },
+      "text_to_first_window_ready": {
+        "n": 128,
+        "mean": 660.2226424874971,
+        "p50": 612.5185950659215,
+        "p95": 1118.5836596414447,
+        "max": 1254.040166735649
+      },
+      "first_window_queue": {
+        "n": 128,
+        "mean": 102.29765324038453,
+        "p50": 51.00208194926381,
+        "p95": 397.65629451721907,
+        "max": 637.590860016644
+      },
+      "first_window_decode": {
+        "n": 128,
+        "mean": 257.185195965576,
+        "p50": 227.0437036640942,
+        "p95": 470.30231170356274,
+        "max": 640.833324752748
+      },
+      "emit_to_client": {
+        "n": 128,
+        "mean": 2.3880458320491016,
+        "p50": 2.1801162511110306,
+        "p95": 3.8308994844555855,
+        "max": 6.841358728706837
+      }
+    },
+    "ready_to_t2w_start_ms": {
+      "n": 578,
+      "mean": 151.293525362716,
+      "p50": 108.57120016589761,
+      "p95": 497.3012153059244,
+      "max": 1002.4157157167792
+    },
+    "t2w_start_to_end_ms": {
+      "n": 578,
+      "mean": 278.6401103663171,
+      "p50": 243.18420002236962,
+      "p95": 470.8044044673443,
+      "max": 742.7811976522207
+    },
+    "client_window": {
+      "start_mono_ns": 7202535243265997.0,
+      "end_mono_ns": 7202599501216283.0,
+      "span_ms": 64257.950286
+    },
+    "host_stage_work_ms": {
+      "_admit": {
+        "sum_ms": 5.586518,
+        "n": 128,
+        "mean": 0.043644671875,
+        "p50": 0.0467665,
+        "p95": 0.062042,
+        "max": 0.075592,
+        "rows_hist": {}
+      },
+      "_thinker_step_group": {
+        "sum_ms": 38628.82666,
+        "n": 245,
+        "mean": 157.66868024489796,
+        "p50": 145.213612,
+        "p95": 342.046682,
+        "max": 770.843289,
+        "rows_hist": {
+          "1": 75,
+          "8": 2,
+          "7": 5,
+          "4": 42,
+          "2": 56,
+          "3": 45,
+          "6": 4,
+          "5": 16
+        }
+      },
+      "_thinker_step": {
+        "sum_ms": 36751.367602,
+        "n": 262,
+        "mean": 140.27239542748092,
+        "p50": 137.3455865,
+        "p95": 334.785183,
+        "max": 770.869081,
+        "rows_hist": {
+          "1": 47,
+          "8": 2,
+          "7": 4,
+          "4": 42,
+          "2": 47,
+          "0": 60,
+          "3": 40,
+          "6": 4,
+          "5": 16
+        }
+      },
+      "_talker_decode_block_impl": {
+        "sum_ms": 16619.749402,
+        "n": 262,
+        "mean": 63.43415802290076,
+        "p50": 60.685744,
+        "p95": 87.886675,
+        "max": 352.655849,
+        "rows_hist": {
+          "1": 1,
+          "8": 77,
+          "7": 62,
+          "5": 42,
+          "6": 49,
+          "4": 23,
+          "3": 3,
+          "2": 5
+        }
+      },
+      "_talker_step": {
+        "sum_ms": 26996.231939,
+        "n": 262,
+        "mean": 103.03905320229008,
+        "p50": 89.293172,
+        "p95": 193.690828,
+        "max": 764.936365,
+        "rows_hist": {
+          "1": 1,
+          "8": 77,
+          "7": 62,
+          "5": 42,
+          "6": 49,
+          "4": 23,
+          "3": 3,
+          "2": 5
+        }
+      },
+      "_tick": {
+        "sum_ms": 63774.196014,
+        "n": 262,
+        "mean": 243.41296188549617,
+        "p50": 240.261639,
+        "p95": 463.897914,
+        "max": 995.399893,
+        "rows_hist": {}
+      },
+      "_setup_prompts": {
+        "sum_ms": 32323.131327,
+        "n": 98,
+        "mean": 329.8278706836735,
+        "p50": 330.133691,
+        "p95": 494.137704,
+        "max": 640.168147,
+        "rows_hist": {
+          "1": 98
+        }
+      },
+      "_prepare": {
+        "sum_ms": 44559.16214,
+        "n": 98,
+        "mean": 454.68532795918367,
+        "p50": 439.13414750000004,
+        "p95": 693.019678,
+        "max": 784.226248,
+        "rows_hist": {}
+      },
+      "_pass_chunk": {
+        "sum_ms": 54.831906000000004,
+        "n": 225,
+        "mean": 0.24369736,
+        "p50": 0.217466,
+        "p95": 0.445362,
+        "max": 1.054397,
+        "rows_hist": {}
+      },
+      "_decode_windows_threaded": {
+        "sum_ms": 49259.242622,
+        "n": 181,
+        "mean": 272.1505117237569,
+        "p50": 230.274653,
+        "p95": 471.231886,
+        "max": 742.952601,
+        "rows_hist": {
+          "1": 34,
+          "7": 5,
+          "8": 4,
+          "2": 34,
+          "4": 47,
+          "5": 13,
+          "3": 36,
+          "6": 8
+        }
+      }
+    },
+    "late_audio_chunk_state": {
+      "t2w_in_progress": 6,
+      "upstream_window_not_ready": 6,
+      "ready_but_waiting_for_t2w": 1
+    },
+    "unmatched_window_count_requests": 0,
+    "largest_deadline_deficits": [
+      {
+        "request": "chatcmpl-d1d727710f784a2aa4cb89aa229fabbe",
+        "window": 2,
+        "kind": "upstream_window_not_ready",
+        "deadline": 7202572.633746503,
+        "ready": 7202572.779022804,
+        "start": 7202572.78386294,
+        "end": 7202573.028416726,
+        "client_arrival": 7202573.032542444,
+        "deficit_ms": 398.79594091326
+      },
+      {
+        "request": "chatcmpl-d1d727710f784a2aa4cb89aa229fabbe",
+        "window": 4,
+        "kind": "ready_but_waiting_for_t2w",
+        "deadline": 7202574.633746503,
+        "ready": 7202574.535090981,
+        "start": 7202574.656086041,
+        "end": 7202574.900615476,
+        "client_arrival": 7202574.90266991,
+        "deficit_ms": 268.923407420516
+      },
+      {
+        "request": "chatcmpl-d1d727710f784a2aa4cb89aa229fabbe",
+        "window": 3,
+        "kind": "upstream_window_not_ready",
+        "deadline": 7202573.633746503,
+        "ready": 7202573.644096254,
+        "start": 7202573.651376394,
+        "end": 7202573.868630457,
+        "client_arrival": 7202573.870329232,
+        "deficit_ms": 236.5827290341258
+      },
+      {
+        "request": "chatcmpl-c9cdadbf3e5344b1bcce2102f891f642",
+        "window": 1,
+        "kind": "upstream_window_not_ready",
+        "deadline": 7202585.4126857,
+        "ready": 7202585.427235143,
+        "start": 7202585.432840029,
+        "end": 7202585.63160332,
+        "client_arrival": 7202585.633181951,
+        "deficit_ms": 220.49625124782324
+      },
+      {
+        "request": "chatcmpl-410f27ca6b2a4123ba8f8555aa64489b",
+        "window": 1,
+        "kind": "upstream_window_not_ready",
+        "deadline": 7202585.413709096,
+        "ready": 7202585.429162973,
+        "start": 7202585.43284671,
+        "end": 7202585.631662581,
+        "client_arrival": 7202585.634037323,
+        "deficit_ms": 220.32822761684656
+      },
+      {
+        "request": "chatcmpl-d21838c7bb9e4d4f8f55639f86cc786b",
+        "window": 1,
+        "kind": "upstream_window_not_ready",
+        "deadline": 7202585.415314658,
+        "ready": 7202585.432724766,
+        "start": 7202585.43285223,
+        "end": 7202585.631696272,
+        "client_arrival": 7202585.635591054,
+        "deficit_ms": 220.2763967216015
+      },
+      {
+        "request": "chatcmpl-a5625b1ca8064a969ecee6e512a78088",
+        "window": 1,
+        "kind": "upstream_window_not_ready",
+        "deadline": 7202585.414536428,
+        "ready": 7202585.431036772,
+        "start": 7202585.43284949,
+        "end": 7202585.631681292,
+        "client_arrival": 7202585.634811534,
+        "deficit_ms": 220.27510590851307
+      },
+      {
+        "request": "chatcmpl-2a4bc782db5a468a9c26b2b20b72c5da",
+        "window": 2,
+        "kind": "t2w_in_progress",
+        "deadline": 7202575.030058049,
+        "ready": 7202574.739724445,
+        "start": 7202574.901084668,
+        "end": 7202575.17839002,
+        "client_arrival": 7202575.181880651,
+        "deficit_ms": 151.82260237634182
+      },
+      {
+        "request": "chatcmpl-e92c410e4a5d49ea8b2d23fd1b7ad81b",
+        "window": 2,
+        "kind": "t2w_in_progress",
+        "deadline": 7202563.861152579,
+        "ready": 7202563.53845679,
+        "start": 7202563.691732202,
+        "end": 7202563.994246392,
+        "client_arrival": 7202563.998214335,
+        "deficit_ms": 137.06175610423088
+      },
+      {
+        "request": "chatcmpl-f5dab9d1fda544dfa3ee1ad0931b1519",
+        "window": 2,
+        "kind": "t2w_in_progress",
+        "deadline": 7202563.171741096,
+        "ready": 7202563.057208862,
+        "start": 7202563.06746914,
+        "end": 7202563.271783356,
+        "client_arrival": 7202563.274682081,
+        "deficit_ms": 102.94098500162363
+      },
+      {
+        "request": "chatcmpl-e92c410e4a5d49ea8b2d23fd1b7ad81b",
+        "window": 1,
+        "kind": "t2w_in_progress",
+        "deadline": 7202562.861152579,
+        "ready": 7202562.182992823,
+        "start": 7202562.188680422,
+        "end": 7202562.931461619,
+        "client_arrival": 7202562.934089357,
+        "deficit_ms": 72.93677795678377
+      },
+      {
+        "request": "chatcmpl-4c184c7c856f4182b758930bfc2b9d42",
+        "window": 2,
+        "kind": "t2w_in_progress",
+        "deadline": 7202567.689056329,
+        "ready": 7202567.268970087,
+        "start": 7202567.279312037,
+        "end": 7202567.737751968,
+        "client_arrival": 7202567.739686099,
+        "deficit_ms": 50.62976945191622
+      }
+    ],
+    "limitation": "Host marks are callback observation times, not hardware completion. Nested/overlapping stage sums are work, not E2E shares. Deadline classes are the first unfinished phase at ideal playback time, not isolated speedup attribution."
+  }
+}

@@ -1,0 +1,105 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+[W1102 14:13:03.113607610 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[W1102 14:13:03.114968005 op_api_common.cpp:43] Warning: A common user is using the files of the root user. (function operator())
+[transformers] `MiniCPMOProcessor` defines `image_processor_class = 'AutoImageProcessor'`, which is deprecated. Register the correct mapping in `AutoImageProcessor` instead.
+[transformers] Requested torchvision backend is not available. Falling back to pil backend.
+[transformers] `MiniCPMOProcessor` defines `audio_processor_class = 'AutoFeatureExtractor'`, which is deprecated. Register the correct mapping in `AutoFeatureExtractor` instead.
+/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/npu_paged.py:354: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at ../torch_npu/csrc/aten/common/TensorFactories.cpp:423.)
+  self.workspace_block_table = workspace_pages.remainder(runner.kv.num_pages).repeat(batch, 1)
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 50, 512], 'seconds': 1.1541546834632754}}
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/backend_npu.py", line 1184, in _run_t2w
+    self._warm_media_graphs_on_owner()
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/backend_npu.py", line 460, in _warm_media_graphs_on_owner
+    hift._capture(requests, 50)
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/hift_graph.py", line 48, in _capture
+    hift_forward_noise(self.hift, st["mel"], st["src"], st["rand"], st["noise"], self.decode_tf32)  # warm-up
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/models/token2wav.py", line 252, in hift_forward_noise
+    return _hift_decode(hift, mel, s, decode_tf32), s
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/models/token2wav.py", line 171, in _hift_decode
+    s_stft_real, s_stft_imag = hift._stft(s.squeeze(1))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/venv/lib/python3.12/site-packages/stepaudio2/flashcosyvoice/modules/hifigan.py", line 188, in _stft
+    spec = torch.stft(
+           ^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/functional.py", line 681, in stft
+    return _VF.stft(  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: stft:../third_party/op-plugin/op_plugin/ops/opapi/StftKernelNpuOpApi.cpp:314 NPU function error: call aclStft failed, error code is 561103
+[ERROR] 2026-11-02-14:13:37 (PID:206145, Device:0, RankID:-1) ERR00100 PTA call acl api failed.
+[PID: 206145] 2026-11-02-14:13:37.533.942 Execution_Error(EZ1008): Failed to execute operator aclStft_128719_StftAiCore. Reason: Failed to execute tiling.
+        Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function fails to be executed, check the implementation logic of the tiling function.
+TraceBack (most recent call last):
+        invalid aivCoreNum 36[FUNC:SplitCoresMNBlanced][FILE:stft_tiling_generalized.cpp][LINE:379]
+        SplitCoresMNBlanced failed[FUNC:SplitCores][FILE:stft_tiling_generalized.cpp][LINE:413]
+        SplitCores failed[FUNC:DoOpTiling][FILE:stft_tiling_generalized.cpp][LINE:574]
+        Failed to execute operator aclStft_128719_StftAiCore. Reason: Failed to execute tiling.
+        Kernel GetWorkspace failed. opType: 81
+        STFT ADD_TO_LAUNCHER_LIST_AICORE failed.
+
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/backend_npu.py", line 1184, in _run_t2w
+    self._warm_media_graphs_on_owner()
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/backend_npu.py", line 460, in _warm_media_graphs_on_owner
+    hift._capture(requests, 50)
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/hift_graph.py", line 48, in _capture
+    hift_forward_noise(self.hift, st["mel"], st["src"], st["rand"], st["noise"], self.decode_tf32)  # warm-up
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/models/token2wav.py", line 252, in hift_forward_noise
+    return _hift_decode(hift, mel, s, decode_tf32), s
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/models/token2wav.py", line 171, in _hift_decode
+    s_stft_real, s_stft_imag = hift._stft(s.squeeze(1))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/venv/lib/python3.12/site-packages/stepaudio2/flashcosyvoice/modules/hifigan.py", line 188, in _stft
+    spec = torch.stft(
+           ^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/functional.py", line 681, in stft
+    return _VF.stft(  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: stft:../third_party/op-plugin/op_plugin/ops/opapi/StftKernelNpuOpApi.cpp:314 NPU function error: call aclStft failed, error code is 561103
+[ERROR] 2026-11-02-14:13:37 (PID:206145, Device:0, RankID:-1) ERR00100 PTA call acl api failed.
+[PID: 206145] 2026-11-02-14:13:37.533.942 Execution_Error(EZ1008): Failed to execute operator aclStft_128719_StftAiCore. Reason: Failed to execute tiling.
+        Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function fails to be executed, check the implementation logic of the tiling function.
+TraceBack (most recent call last):
+        invalid aivCoreNum 36[FUNC:SplitCoresMNBlanced][FILE:stft_tiling_generalized.cpp][LINE:379]
+        SplitCoresMNBlanced failed[FUNC:SplitCores][FILE:stft_tiling_generalized.cpp][LINE:413]
+        SplitCores failed[FUNC:DoOpTiling][FILE:stft_tiling_generalized.cpp][LINE:574]
+        Failed to execute operator aclStft_128719_StftAiCore. Reason: Failed to execute tiling.
+        Kernel GetWorkspace failed. opType: 81
+        STFT ADD_TO_LAUNCHER_LIST_AICORE failed.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/entry_lowc.py", line 23, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/server.py", line 349, in main
+    backend = getattr(__import__(mod, fromlist=[cls]), cls).from_config(a.config)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/backend_s.py", line 314, in from_config
+    return cls(**cfg)
+           ^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r322/engine/runtime/backend_npu.py", line 390, in __init__
+    raise RuntimeError("media graph initialization failed") from self.t2w_startup_error
+RuntimeError: media graph initialization failed
+[ERROR] 2026-11-02-14:13:38 (PID:206145, Device:0, RankID:-1) ERR99999 UNKNOWN applicaiton exception

@@ -1,0 +1,1483 @@
+{
+  "r307-control": {
+    "rows": [
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-bc61e77d0b38493e91f4a91833e427b0",
+        "ttfp_ms": 1796.695988625288,
+        "capture_overlap_union_ms": 842.8688906133175,
+        "captures": [
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 2,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                2,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 614.6973073482513,
+            "overlap_ms": 614.6973073482513
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 1,
+              "F": 50
+            },
+            "duration_ms": 112.84696497023106,
+            "overlap_ms": 112.84696497023106
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 1,
+              "F": 58
+            },
+            "duration_ms": 115.32461829483509,
+            "overlap_ms": 115.32461829483509
+          }
+        ]
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-e9a45e5212c24524a7b1020f2c174a67",
+        "ttfp_ms": 1521.6294629499316,
+        "capture_overlap_union_ms": 727.5442723184824,
+        "captures": [
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 2,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                2,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 614.6973073482513,
+            "overlap_ms": 614.6973073482513
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 1,
+              "F": 50
+            },
+            "duration_ms": 112.84696497023106,
+            "overlap_ms": 112.84696497023106
+          }
+        ]
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-1d47f5140b8240cfa276730be38b2f95",
+        "ttfp_ms": 1337.0795035734773,
+        "capture_overlap_union_ms": 584.4422597438097,
+        "captures": [
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 2,
+              "T": 512,
+              "Lb": 0,
+              "key": [
+                2,
+                512,
+                0
+              ]
+            },
+            "duration_ms": 584.4422597438097,
+            "overlap_ms": 584.4422597438097
+          }
+        ]
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-4d945e7a9fee4e2a9d9a93458af74dd4",
+        "ttfp_ms": 1067.9112430661917,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-b9a717aefde4496e89d5f5eb7c1b63cf",
+        "ttfp_ms": 1035.4359988123178,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-8786aac736254344b7ce00f02ec96742",
+        "ttfp_ms": 3110.9908875077963,
+        "capture_overlap_union_ms": 1715.2002872899175,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 302.4427555501461,
+            "overlap_ms": 302.4427555501461
+          },
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 8,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                8,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 1246.8568375334144,
+            "overlap_ms": 1246.8568375334144
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4,
+              "F": 50
+            },
+            "duration_ms": 163.83085027337074,
+            "overlap_ms": 163.83085027337074
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 18.528961576521397,
+            "overlap_ms": 2.0698439329862595
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-7e89db86aa754814a8294ac348b23294",
+        "ttfp_ms": 3108.70554856956,
+        "capture_overlap_union_ms": 1716.1440420895815,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 302.4427555501461,
+            "overlap_ms": 302.4427555501461
+          },
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 8,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                8,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 1246.8568375334144,
+            "overlap_ms": 1246.8568375334144
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4,
+              "F": 50
+            },
+            "duration_ms": 163.83085027337074,
+            "overlap_ms": 163.83085027337074
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 18.528961576521397,
+            "overlap_ms": 3.01359873265028
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-9f0f23e54a754267a8a09f56260dd0a6",
+        "ttfp_ms": 3107.351333834231,
+        "capture_overlap_union_ms": 1717.194989323616,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 302.4427555501461,
+            "overlap_ms": 302.4427555501461
+          },
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 8,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                8,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 1246.8568375334144,
+            "overlap_ms": 1246.8568375334144
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4,
+              "F": 50
+            },
+            "duration_ms": 163.83085027337074,
+            "overlap_ms": 163.83085027337074
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 18.528961576521397,
+            "overlap_ms": 4.064545966684818
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-4001920f003a413ca6a2b71a00461eaa",
+        "ttfp_ms": 1548.3453180640936,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-0d32fd737c324acc918950fa2ed17cc7",
+        "ttfp_ms": 1531.5644517540932,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-bed05ac74e5a494593daebbc2406b23a",
+        "ttfp_ms": 5568.720734678209,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-3fbd1daea2124bf684c18c5831fdf686",
+        "ttfp_ms": 5565.482510253787,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-22fac0c59c474fc29b733c0af8ada528",
+        "ttfp_ms": 5303.688822314143,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-4c0253094d1c4b4195f966727bca8b81",
+        "ttfp_ms": 4859.133381396532,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-f102fdae2d3a4f40a51290022daaf23c",
+        "ttfp_ms": 4826.168152503669,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      }
+    ],
+    "tier_captures": [
+      {
+        "concurrency": 2,
+        "measured_window_s": 26.20368855074048,
+        "owners": {
+          "EulerGraphs": {
+            "count": 3,
+            "capture_overlap_union_ms": 1816.4233416318893,
+            "shapes": [
+              {
+                "rows": 2,
+                "T": 50,
+                "Lb": 512,
+                "key": [
+                  2,
+                  50,
+                  512
+                ]
+              },
+              {
+                "rows": 2,
+                "T": 512,
+                "Lb": 0,
+                "key": [
+                  2,
+                  512,
+                  0
+                ]
+              },
+              {
+                "rows": 2,
+                "T": 56,
+                "Lb": 512,
+                "key": [
+                  2,
+                  56,
+                  512
+                ]
+              }
+            ]
+          },
+          "HiFTGraphs": {
+            "count": 2,
+            "capture_overlap_union_ms": 228.17158326506615,
+            "shapes": [
+              {
+                "rows": 1,
+                "F": 50
+              },
+              {
+                "rows": 1,
+                "F": 58
+              }
+            ]
+          }
+        }
+      },
+      {
+        "concurrency": 4,
+        "measured_window_s": 38.43381813261658,
+        "owners": {
+          "NpuDecodeGraph": {
+            "count": 2,
+            "capture_overlap_union_ms": 410.26948019862175,
+            "shapes": [
+              {},
+              {}
+            ]
+          },
+          "EulerGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 1246.8568375334144,
+            "shapes": [
+              {
+                "rows": 8,
+                "T": 50,
+                "Lb": 512,
+                "key": [
+                  8,
+                  50,
+                  512
+                ]
+              }
+            ]
+          },
+          "HiFTGraphs": {
+            "count": 2,
+            "capture_overlap_union_ms": 329.71245516091585,
+            "shapes": [
+              {
+                "rows": 4,
+                "F": 50
+              },
+              {
+                "rows": 4,
+                "F": 58
+              }
+            ]
+          },
+          "NpuTalkerPostGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 18.528961576521397,
+            "shapes": [
+              {
+                "rows": 4
+              }
+            ]
+          }
+        }
+      },
+      {
+        "concurrency": 8,
+        "measured_window_s": 58.958842379041016,
+        "owners": {
+          "NpuDecodeGraph": {
+            "count": 1,
+            "capture_overlap_union_ms": 298.4699420630932,
+            "shapes": [
+              {}
+            ]
+          },
+          "EulerGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 1356.2233010306954,
+            "shapes": [
+              {
+                "rows": 16,
+                "T": 50,
+                "Lb": 512,
+                "key": [
+                  16,
+                  50,
+                  512
+                ]
+              }
+            ]
+          },
+          "HiFTGraphs": {
+            "count": 2,
+            "capture_overlap_union_ms": 323.9851761609316,
+            "shapes": [
+              {
+                "rows": 8,
+                "F": 50
+              },
+              {
+                "rows": 8,
+                "F": 58
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "limitation": "Diagnostic-only host marker overlap; concurrent work and dependencies remain. Union is not exclusive module time, a removable bound, or attribution of native uninstrumented P99. Tier window excludes the two client warmups and includes intervals between measured requests."
+  },
+  "r307": {
+    "rows": [
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-7938f23f46264ffba7588be7fdd8160c",
+        "ttfp_ms": 1286.1822685226798,
+        "capture_overlap_union_ms": 546.3841976597905,
+        "captures": [
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 2,
+              "T": 512,
+              "Lb": 0,
+              "key": [
+                2,
+                512,
+                0
+              ]
+            },
+            "duration_ms": 546.3841976597905,
+            "overlap_ms": 546.3841976597905
+          }
+        ]
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-3365421a4b5a4c1c913b42e788ff2d1c",
+        "ttfp_ms": 1077.8460055589676,
+        "capture_overlap_union_ms": 114.61099795997143,
+        "captures": [
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 1,
+              "F": 58
+            },
+            "duration_ms": 114.61099795997143,
+            "overlap_ms": 114.61099795997143
+          }
+        ]
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-cc20803395594f0b9091731fdc11cadc",
+        "ttfp_ms": 1051.4217969030142,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-8409947e6f45413298ef7f0da3253c2c",
+        "ttfp_ms": 1032.8266816213727,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-5e68e8a0d0104870b8cc0b81e952ea4b",
+        "ttfp_ms": 998.8369653001428,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-f6c5546d5fdd4f27930d232aad419af4",
+        "ttfp_ms": 1604.6866122633219,
+        "capture_overlap_union_ms": 288.9587050303817,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 287.522847764194,
+            "overlap_ms": 287.522847764194
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 15.126804821193218,
+            "overlap_ms": 1.4358572661876678
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-9ee45702c205418ca94465166d19f144",
+        "ttfp_ms": 1603.8680402562022,
+        "capture_overlap_union_ms": 289.75252620875835,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 287.522847764194,
+            "overlap_ms": 287.522847764194
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 15.126804821193218,
+            "overlap_ms": 2.2296784445643425
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-983c26604a3e401981d9aea9cca3bb21",
+        "ttfp_ms": 1600.2251273021102,
+        "capture_overlap_union_ms": 290.5434872955084,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 287.522847764194,
+            "overlap_ms": 287.522847764194
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 15.126804821193218,
+            "overlap_ms": 3.020639531314373
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-d82585c615384c77b11fc8f8c9b8975c",
+        "ttfp_ms": 1533.6830411106348,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-4ca8b8c796884883a15d1e2dd6638acc",
+        "ttfp_ms": 1413.095185533166,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-3025e708e380499fa7d995e766857aae",
+        "ttfp_ms": 2602.072346024215,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-0aeda64e2d8d434bb74353c0f4ba5c52",
+        "ttfp_ms": 2476.6733665019274,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-2a225b9dab8849e2b626a40d6b85378c",
+        "ttfp_ms": 2453.5571252927184,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-bd941b6f79f84a49bf419bb6f1c61a4c",
+        "ttfp_ms": 2428.079410456121,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-a37f5c42e7b3436a861d06fba609044d",
+        "ttfp_ms": 2364.4974818453193,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      }
+    ],
+    "tier_captures": [
+      {
+        "concurrency": 2,
+        "measured_window_s": 25.644015065394342,
+        "owners": {
+          "HiFTGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 114.61099795997143,
+            "shapes": [
+              {
+                "rows": 1,
+                "F": 58
+              }
+            ]
+          },
+          "EulerGraphs": {
+            "count": 2,
+            "capture_overlap_union_ms": 1439.9339985102415,
+            "shapes": [
+              {
+                "rows": 2,
+                "T": 512,
+                "Lb": 0,
+                "key": [
+                  2,
+                  512,
+                  0
+                ]
+              },
+              {
+                "rows": 2,
+                "T": 56,
+                "Lb": 512,
+                "key": [
+                  2,
+                  56,
+                  512
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "concurrency": 4,
+        "measured_window_s": 37.58436111360788,
+        "owners": {
+          "NpuDecodeGraph": {
+            "count": 2,
+            "capture_overlap_union_ms": 390.06409142166376,
+            "shapes": [
+              {},
+              {}
+            ]
+          },
+          "NpuTalkerPostGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 15.126804821193218,
+            "shapes": [
+              {
+                "rows": 4
+              }
+            ]
+          },
+          "HiFTGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 161.90664190798998,
+            "shapes": [
+              {
+                "rows": 4,
+                "F": 58
+              }
+            ]
+          }
+        }
+      },
+      {
+        "concurrency": 8,
+        "measured_window_s": 55.477840634062886,
+        "owners": {
+          "NpuDecodeGraph": {
+            "count": 1,
+            "capture_overlap_union_ms": 330.5140286684036,
+            "shapes": [
+              {}
+            ]
+          },
+          "HiFTGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 164.4817991182208,
+            "shapes": [
+              {
+                "rows": 8,
+                "F": 58
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "limitation": "Diagnostic-only host marker overlap; concurrent work and dependencies remain. Union is not exclusive module time, a removable bound, or attribution of native uninstrumented P99. Tier window excludes the two client warmups and includes intervals between measured requests."
+  },
+  "r308": {
+    "rows": [
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-f36be3b6ac1f4ba3b23b81cf908aaa63",
+        "ttfp_ms": 1831.0999916866422,
+        "capture_overlap_union_ms": 853.0210452154279,
+        "captures": [
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 2,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                2,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 623.9449344575405,
+            "overlap_ms": 623.9449344575405
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 1,
+              "F": 50
+            },
+            "duration_ms": 115.06935860961676,
+            "overlap_ms": 115.06935860961676
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 1,
+              "F": 58
+            },
+            "duration_ms": 114.0067521482706,
+            "overlap_ms": 114.0067521482706
+          }
+        ]
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-40b12d4725b447d9b87e4092a3eb95cb",
+        "ttfp_ms": 1554.7846192494035,
+        "capture_overlap_union_ms": 739.0142930671573,
+        "captures": [
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 2,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                2,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 623.9449344575405,
+            "overlap_ms": 623.9449344575405
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 1,
+              "F": 50
+            },
+            "duration_ms": 115.06935860961676,
+            "overlap_ms": 115.06935860961676
+          }
+        ]
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-536a23ffbef546ee8b44cd7fcdeca0e7",
+        "ttfp_ms": 1371.8743911013007,
+        "capture_overlap_union_ms": 595.8359725773335,
+        "captures": [
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 2,
+              "T": 512,
+              "Lb": 0,
+              "key": [
+                2,
+                512,
+                0
+              ]
+            },
+            "duration_ms": 595.8359725773335,
+            "overlap_ms": 595.8359725773335
+          }
+        ]
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-0c2be0a315e147d89565ba7ebc276a50",
+        "ttfp_ms": 1080.046913586557,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-07331299e9444477aa81a16b0428c09e",
+        "ttfp_ms": 1042.7880128845572,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-777a199feea14eeca1e4d64e88bd7524",
+        "ttfp_ms": 2967.9733952507377,
+        "capture_overlap_union_ms": 1602.9023230075836,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 312.8831759095192,
+            "overlap_ms": 312.8831759095192
+          },
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 8,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                8,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 1138.134808279574,
+            "overlap_ms": 1138.134808279574
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4,
+              "F": 50
+            },
+            "duration_ms": 151.8843388184905,
+            "overlap_ms": 151.8843388184905
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-8ec6ee744634441da79cf479aa2f7b95",
+        "ttfp_ms": 2967.7620492875576,
+        "capture_overlap_union_ms": 1602.9023230075836,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 312.8831759095192,
+            "overlap_ms": 312.8831759095192
+          },
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 8,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                8,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 1138.134808279574,
+            "overlap_ms": 1138.134808279574
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4,
+              "F": 50
+            },
+            "duration_ms": 151.8843388184905,
+            "overlap_ms": 151.8843388184905
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-fac1328f52bd408eb2aa510dce03e54f",
+        "ttfp_ms": 2965.0921998545527,
+        "capture_overlap_union_ms": 1602.9023230075836,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 312.8831759095192,
+            "overlap_ms": 312.8831759095192
+          },
+          {
+            "owner": "EulerGraphs",
+            "function": "capture",
+            "shape": {
+              "rows": 8,
+              "T": 50,
+              "Lb": 512,
+              "key": [
+                8,
+                50,
+                512
+              ]
+            },
+            "duration_ms": 1138.134808279574,
+            "overlap_ms": 1138.134808279574
+          },
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4,
+              "F": 50
+            },
+            "duration_ms": 151.8843388184905,
+            "overlap_ms": 151.8843388184905
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-571f7b09b4a94785aa8a594b72349cfd",
+        "ttfp_ms": 1823.2424454763532,
+        "capture_overlap_union_ms": 127.38953065127134,
+        "captures": [
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 23.674647323787212,
+            "overlap_ms": 23.674647323787212
+          },
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 103.71488332748413,
+            "overlap_ms": 103.71488332748413
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-9e6ba8d672d34ed6b5b8ef1c4afad37e",
+        "ttfp_ms": 1798.724276944995,
+        "capture_overlap_union_ms": 127.38953065127134,
+        "captures": [
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 23.674647323787212,
+            "overlap_ms": 23.674647323787212
+          },
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 103.71488332748413,
+            "overlap_ms": 103.71488332748413
+          }
+        ]
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-871ddd85a40843edaf64079688abfcc9",
+        "ttfp_ms": 3039.8165630176663,
+        "capture_overlap_union_ms": 164.3215026706457,
+        "captures": [
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 8,
+              "F": 50
+            },
+            "duration_ms": 164.3215026706457,
+            "overlap_ms": 164.3215026706457
+          }
+        ]
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-382eddc02e034e339b9cf2adc02e006b",
+        "ttfp_ms": 2604.045565240085,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-f4b3868057f9430c95c6683b5541acf3",
+        "ttfp_ms": 2502.699133940041,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-906aa440ec80422fa1a1fbc342a98a77",
+        "ttfp_ms": 2476.8915604799986,
+        "capture_overlap_union_ms": 164.3215026706457,
+        "captures": [
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 8,
+              "F": 50
+            },
+            "duration_ms": 164.3215026706457,
+            "overlap_ms": 164.3215026706457
+          }
+        ]
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-a7399f5ed306418f883b2ce170396394",
+        "ttfp_ms": 2475.262609310448,
+        "capture_overlap_union_ms": 164.3215026706457,
+        "captures": [
+          {
+            "owner": "HiFTGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 8,
+              "F": 50
+            },
+            "duration_ms": 164.3215026706457,
+            "overlap_ms": 164.3215026706457
+          }
+        ]
+      }
+    ],
+    "tier_captures": [
+      {
+        "concurrency": 2,
+        "measured_window_s": 26.02723168861121,
+        "owners": {
+          "EulerGraphs": {
+            "count": 3,
+            "capture_overlap_union_ms": 1824.656224809587,
+            "shapes": [
+              {
+                "rows": 2,
+                "T": 50,
+                "Lb": 512,
+                "key": [
+                  2,
+                  50,
+                  512
+                ]
+              },
+              {
+                "rows": 2,
+                "T": 512,
+                "Lb": 0,
+                "key": [
+                  2,
+                  512,
+                  0
+                ]
+              },
+              {
+                "rows": 2,
+                "T": 56,
+                "Lb": 512,
+                "key": [
+                  2,
+                  56,
+                  512
+                ]
+              }
+            ]
+          },
+          "HiFTGraphs": {
+            "count": 2,
+            "capture_overlap_union_ms": 229.07611075788736,
+            "shapes": [
+              {
+                "rows": 1,
+                "F": 50
+              },
+              {
+                "rows": 1,
+                "F": 58
+              }
+            ]
+          }
+        }
+      },
+      {
+        "concurrency": 4,
+        "measured_window_s": 40.50216248817742,
+        "owners": {
+          "NpuDecodeGraph": {
+            "count": 2,
+            "capture_overlap_union_ms": 416.5980592370033,
+            "shapes": [
+              {},
+              {}
+            ]
+          },
+          "EulerGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 1138.134808279574,
+            "shapes": [
+              {
+                "rows": 8,
+                "T": 50,
+                "Lb": 512,
+                "key": [
+                  8,
+                  50,
+                  512
+                ]
+              }
+            ]
+          },
+          "HiFTGraphs": {
+            "count": 2,
+            "capture_overlap_union_ms": 308.23516473174095,
+            "shapes": [
+              {
+                "rows": 4,
+                "F": 50
+              },
+              {
+                "rows": 4,
+                "F": 58
+              }
+            ]
+          },
+          "NpuTalkerPostGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 23.674647323787212,
+            "shapes": [
+              {
+                "rows": 4
+              }
+            ]
+          }
+        }
+      },
+      {
+        "concurrency": 8,
+        "measured_window_s": 58.102782655507326,
+        "owners": {
+          "NpuDecodeGraph": {
+            "count": 1,
+            "capture_overlap_union_ms": 345.65040934830904,
+            "shapes": [
+              {}
+            ]
+          },
+          "EulerGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 1251.718556508422,
+            "shapes": [
+              {
+                "rows": 16,
+                "T": 50,
+                "Lb": 512,
+                "key": [
+                  16,
+                  50,
+                  512
+                ]
+              }
+            ]
+          },
+          "HiFTGraphs": {
+            "count": 2,
+            "capture_overlap_union_ms": 328.2687468454242,
+            "shapes": [
+              {
+                "rows": 8,
+                "F": 58
+              },
+              {
+                "rows": 8,
+                "F": 50
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "limitation": "Diagnostic-only host marker overlap; concurrent work and dependencies remain. Union is not exclusive module time, a removable bound, or attribution of native uninstrumented P99. Tier window excludes the two client warmups and includes intervals between measured requests."
+  },
+  "r309": {
+    "rows": [
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-ed4045fc83db4177b7a014140237217f",
+        "ttfp_ms": 1052.8858378529549,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-7b01ce7cc1ce4e8082562952da2c7e53",
+        "ttfp_ms": 1028.3521581441164,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-f8d29030d5964ae2bfda65f578bac80f",
+        "ttfp_ms": 976.3411330059171,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-3e3746b657e14dcfabe715a2abeedab5",
+        "ttfp_ms": 964.6352780982852,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 2,
+        "request_id": "chatcmpl-5e8df4465fb34ea284ea2a88b86c1b11",
+        "ttfp_ms": 953.1819187104702,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-6761b61d24264ec9a64c29723c5fb963",
+        "ttfp_ms": 1727.5702189654112,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-cfdb985927134d3ab9c2f8dfe14cde1c",
+        "ttfp_ms": 1699.0615371614695,
+        "capture_overlap_union_ms": 349.1768594831228,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 347.9911284521222,
+            "overlap_ms": 347.9911284521222
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 20.62535658478737,
+            "overlap_ms": 1.1857310310006142
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-8e84aa9f68854973b578a344037a8039",
+        "ttfp_ms": 1698.4741110354662,
+        "capture_overlap_union_ms": 349.9822001904249,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 347.9911284521222,
+            "overlap_ms": 347.9911284521222
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 20.62535658478737,
+            "overlap_ms": 1.9910717383027077
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-38ec4fa78e6c4a0497266840bb908e89",
+        "ttfp_ms": 1696.0926288738847,
+        "capture_overlap_union_ms": 350.69480817765,
+        "captures": [
+          {
+            "owner": "NpuDecodeGraph",
+            "function": "_capture",
+            "shape": {},
+            "duration_ms": 347.9911284521222,
+            "overlap_ms": 347.9911284521222
+          },
+          {
+            "owner": "NpuTalkerPostGraphs",
+            "function": "_capture",
+            "shape": {
+              "rows": 4
+            },
+            "duration_ms": 20.62535658478737,
+            "overlap_ms": 2.7036797255277634
+          }
+        ]
+      },
+      {
+        "concurrency": 4,
+        "request_id": "chatcmpl-67281ffaadeb4e3ab6e00aac17f3839e",
+        "ttfp_ms": 1586.1792545765638,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-5372daa880d448a180abd68965816c0d",
+        "ttfp_ms": 2301.908324472606,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-3e7bd267ff2a4aafa876a0767564a516",
+        "ttfp_ms": 2298.5080052167177,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-f7b6c66a53fc4e7a93dd039f83926b7d",
+        "ttfp_ms": 2296.8333614990115,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-2e3f443b419045469d8d428205cbd4db",
+        "ttfp_ms": 2149.9970154836774,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      },
+      {
+        "concurrency": 8,
+        "request_id": "chatcmpl-737b19b0678c47d9b45a112cf86add88",
+        "ttfp_ms": 2141.753079369664,
+        "capture_overlap_union_ms": 0,
+        "captures": []
+      }
+    ],
+    "tier_captures": [
+      {
+        "concurrency": 2,
+        "measured_window_s": 24.774326474405825,
+        "owners": {}
+      },
+      {
+        "concurrency": 4,
+        "measured_window_s": 37.626731999218464,
+        "owners": {
+          "NpuDecodeGraph": {
+            "count": 2,
+            "capture_overlap_union_ms": 463.8777785003185,
+            "shapes": [
+              {},
+              {}
+            ]
+          },
+          "NpuTalkerPostGraphs": {
+            "count": 1,
+            "capture_overlap_union_ms": 20.62535658478737,
+            "shapes": [
+              {
+                "rows": 4
+              }
+            ]
+          }
+        }
+      },
+      {
+        "concurrency": 8,
+        "measured_window_s": 53.840967275202274,
+        "owners": {
+          "NpuDecodeGraph": {
+            "count": 1,
+            "capture_overlap_union_ms": 303.5278795287013,
+            "shapes": [
+              {}
+            ]
+          }
+        }
+      }
+    ],
+    "limitation": "Diagnostic-only host marker overlap; concurrent work and dependencies remain. Union is not exclusive module time, a removable bound, or attribution of native uninstrumented P99. Tier window excludes the two client warmups and includes intervals between measured requests."
+  }
+}

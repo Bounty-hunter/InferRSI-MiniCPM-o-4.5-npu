@@ -1,0 +1,70 @@
+{
+  "tag": "control309-finalA1",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 2,
+      "ttfp_ms": 807.1659709967207,
+      "rtf": 0.3700765622150507,
+      "req_s": 1.2813264895928331,
+      "completed": 32,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 4,
+      "ttfp_ms": 1180.7324283145135,
+      "rtf": 0.5588580906211735,
+      "req_s": 1.6269807472679372,
+      "completed": 64,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 8,
+      "ttfp_ms": 1755.137973188539,
+      "rtf": 0.8144610560891274,
+      "req_s": 2.3839228169291116,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "native_tails": {
+    "c2": {
+      "mean_audio_rtf": 0.3700765622150507,
+      "median_audio_rtf": 0.369144753929059,
+      "p50_audio_rtf": 0.369144753929059,
+      "p95_audio_rtf": 0.4710394771818724,
+      "p99_audio_rtf": 0.5014246492555835,
+      "mean_audio_ttfp_ms": 807.1659709967207,
+      "median_audio_ttfp_ms": 795.8427714183927,
+      "p50_audio_ttfp_ms": 795.8427714183927,
+      "p95_audio_ttfp_ms": 992.4573210068046,
+      "p99_audio_ttfp_ms": 1049.79048313573
+    },
+    "c4": {
+      "mean_audio_rtf": 0.5588580906211735,
+      "median_audio_rtf": 0.5383931291025333,
+      "p50_audio_rtf": 0.5383931291025333,
+      "p95_audio_rtf": 0.7969406781375977,
+      "p99_audio_rtf": 0.8411621115419193,
+      "mean_audio_ttfp_ms": 1180.7324283145135,
+      "median_audio_ttfp_ms": 1160.2022387087345,
+      "p50_audio_ttfp_ms": 1160.2022387087345,
+      "p95_audio_ttfp_ms": 1531.3791229389608,
+      "p99_audio_ttfp_ms": 1648.8154312316328
+    },
+    "c8": {
+      "mean_audio_rtf": 0.8144610560891274,
+      "median_audio_rtf": 0.792446697126661,
+      "p50_audio_rtf": 0.792446697126661,
+      "p95_audio_rtf": 1.0835932527332337,
+      "p99_audio_rtf": 1.1724768152068321,
+      "mean_audio_ttfp_ms": 1755.137973188539,
+      "median_audio_ttfp_ms": 1797.5614019669592,
+      "p50_audio_ttfp_ms": 1797.5614019669592,
+      "p95_audio_ttfp_ms": 2190.5510890763253,
+      "p99_audio_ttfp_ms": 2311.7376587819313
+    }
+  }
+}

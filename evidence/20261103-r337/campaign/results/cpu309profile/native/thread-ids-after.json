@@ -1,0 +1,38 @@
+[
+  {
+    "name": "MainThread",
+    "tid": 204943
+  },
+  {
+    "name": "npu-engine",
+    "tid": 204995
+  },
+  {
+    "name": "npu-token2wav",
+    "tid": 204996
+  },
+  {
+    "name": "npu-t2w-prepare_0",
+    "tid": 205005
+  },
+  {
+    "name": "asyncio_0",
+    "tid": 205225
+  },
+  {
+    "name": "asyncio_1",
+    "tid": 205233
+  },
+  {
+    "name": "campplus_0",
+    "tid": 205426
+  },
+  {
+    "name": "npu-t2w-prepare_1",
+    "tid": 205433
+  },
+  {
+    "name": "asyncio_2",
+    "tid": 205438
+  }
+]

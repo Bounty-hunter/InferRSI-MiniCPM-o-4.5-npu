@@ -1,0 +1,115 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        private_prompt_flow: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -197,6 +198,26 @@
+                 self.t2w.n_timesteps,
+                 graph_t=tuple(dict.fromkeys(STEADY_T + FINAL_T + SETUP_T)),
+             )
++        self.prompt_t2w_batch = self.t2w_batch
++        self.private_prompt_flow = bool(private_prompt_flow)
++        self.private_prompt_flow_bytes = 0
++        if self.private_prompt_flow:
++            # The upstream encoder mutates scratch even with explicit
++            # caches. Clone this small flow module, not a full serving engine,
++            # so both module scratch and graph arenas have independent owners.
++            import copy
++            before = int(torch.npu.memory_allocated())
++            prompt_t2w = copy.copy(self.t2w)
++            prompt_t2w.flow = copy.deepcopy(self.t2w.flow)
++            self.prompt_t2w_batch = BatchedToken2Wav(prompt_t2w, use_graphs=False)
++            self.prompt_t2w_batch.offload_flow_cache = bool(t2w_cache_offload)
++            if self.t2w_batch.euler is not None:
++                from engine.runtime.dit_graph import EulerGraphs, SETUP_T
++                audio_euler = self.t2w_batch.euler
++                self.prompt_t2w_batch.euler = EulerGraphs(
++                    prompt_t2w.flow.decoder, audio_euler.est_fn, audio_euler.dtype,
++                    audio_euler.autocast_dtype, audio_euler.steps, graph_t=SETUP_T)
++            self.private_prompt_flow_bytes = int(torch.npu.memory_allocated()) - before
+         # Eager flow caches are large at long reference lengths.  Eight rows
+         # keep one Euler step's workspace bounded while preserving useful NPU
+         # batching; completed microbatches retain only request-owned caches.
+@@ -238,6 +259,7 @@
+         self.arun.capture_context = self._graph_capture_context
+         if self.t2w_batch.euler is not None:
+             self.t2w_batch.euler.capture_context = self._graph_capture_context
++            self.prompt_t2w_batch.euler.capture_context = self._graph_capture_context
+         if self.t2w_batch.hift_graphs is not None:
+             self.t2w_batch.hift_graphs.capture_context = self._graph_capture_context
+         torch.npu.empty_cache()
+@@ -324,6 +346,7 @@
+                       "talker_starts_deferred_ticks": 0, "talker_kv_wait_ticks": 0}
+         self.pool = ThreadPoolExecutor(max_workers=max(1, int(prepare_workers)), thread_name_prefix="npu-t2w-prepare")
+         self._t2w_lock = threading.Lock()
++        self._prompt_setup_lock = threading.Lock() if self.private_prompt_flow else self._t2w_lock
+         self.prompt_setup_batching = bool(prompt_setup_batching)
+         self.prompt_setup_wait_s = float(prompt_setup_wait_ms) / 1000.0
+         self.prompt_setup_inbox: queue.Queue = queue.Queue()
+@@ -378,7 +401,7 @@
+     def _prime_euler_key(self, rows, frames, cache, lane):
+         import time
+ 
+-        euler = self.t2w_batch.euler
++        euler = self.prompt_t2w_batch.euler if lane == "prompt_setup" else self.t2w_batch.euler
+         if not euler.supports(rows, frames, cache):
+             raise ValueError("unsupported extended Euler initialization shape")
+         then = time.perf_counter()
+@@ -400,7 +423,7 @@
+ 
+         started = time.perf_counter()
+         torch.npu.set_device(torch.device(self.device).index or 0)
+-        with self._t2w_lock, torch.npu.stream(self.prompt_stream), torch.inference_mode():
++        with self._prompt_setup_lock, torch.npu.stream(self.prompt_stream), torch.inference_mode():
+             for frames in (256, 512):
+                 self._prime_euler_key(2, frames, 0, "prompt_setup")
+         self.t2w_startup_stats["duration_s"] += time.perf_counter() - started
+@@ -529,20 +552,20 @@
+ 
+     def _setup_prompts(self, feats_list: list[tuple]) -> list:
+         """Run lossless batched prompt setup under the shared flow-scratch lock."""
+-        with self._t2w_lock:
++        with self._prompt_setup_lock:
+             with self._graph_gate.launch(), torch.npu.stream(self.prompt_stream):
+                 if self.stage_profile_enabled:
+                     import time
+ 
+                     self.prompt_stream.synchronize()
+                     started = time.perf_counter()
+-                    prompts = self.t2w_batch.setup_many(feats_list)
++                    prompts = self.prompt_t2w_batch.setup_many(feats_list)
+                     self.prompt_stream.synchronize()
+                     self._record_prompt_stage("setup", time.perf_counter() - started)
+                 else:
+-                    prompts = self.t2w_batch.setup_many(feats_list)
++                    prompts = self.prompt_t2w_batch.setup_many(feats_list)
+                     self.prompt_stream.synchronize()
+-            if self.t2w_batch.offload_flow_cache:
++            if self.prompt_t2w_batch.offload_flow_cache:
+                 # A Seed-TTS wave has different reference voices.  Keeping
+                 # every prepared prompt cache on the NPU would scale memory
+                 # with concurrency before its first window is decoded.  CPU
+@@ -767,6 +790,8 @@
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                 "t2w_startup_stats": dict(self.t2w_startup_stats),
++                "private_prompt_flow": self.private_prompt_flow,
++                "private_prompt_flow_bytes": self.private_prompt_flow_bytes,
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "private_prompt_flow": true
+ }

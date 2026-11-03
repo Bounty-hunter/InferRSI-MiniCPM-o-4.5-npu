@@ -1,0 +1,21 @@
+{
+  "tag": "r317",
+  "engine": "engine-r317",
+  "config": "config-r317.json",
+  "engine_sha256": "6327c214be8b15286c4015724ca937ae241d5c72f4b6ebe31ddaeafb283a6a39",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19206,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Talker full-block bind performs2+batch int32 host uploads per K-block; pack slot/length/zero-padded block-table metadata into one identical int32 upload, preserving all persistent graph input buffers",
+  "kind": "bind-uploads"
+}

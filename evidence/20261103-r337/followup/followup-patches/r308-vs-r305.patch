@@ -1,0 +1,53 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -81,6 +81,7 @@
+         thinker_prefix_cache_min_live: int = 1,
+         t2w_first_audio_priority: bool = False,
+         thinker_prompt_lookup_max_tokens: int = 0,
++        thinker_native_argmax: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -237,6 +238,8 @@
+         if int(thinker_prompt_lookup_max_tokens) < 0:
+             raise ValueError("thinker_prompt_lookup_max_tokens must be non-negative")
+         self.thinker_prompt_lookup_max_tokens = int(thinker_prompt_lookup_max_tokens)
++        self.thinker_native_argmax = bool(thinker_native_argmax)
++        self.thinker_argmax_native_rows = 0
+         self.thinker_prompt_lookup_stats = dict(verification_calls=0,draft_tokens=0,matched_draft_tokens=0,target_tokens=0,kv_fallbacks=0)
+         self.device, self.max_live = device, max_live
+         if int(talker_min_new_tokens) < 0:
+@@ -661,6 +664,7 @@
+                 "t2w_first_audio_priority_stats": dict(self.t2w_first_audio_priority_stats),
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
++                "thinker_argmax_native_rows": self.thinker_argmax_native_rows,
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+@@ -767,7 +771,10 @@
+         # one-time capture cannot race Token2Wav setup.
+         hidden = self._decoder_forward(self.trun, torch.cat(embs), lay)
+         last = hidden[lay.last_token_index]
+-        nxt = torch.nn.functional.linear(last, self.thinker.w["lm_head.weight"]).float().argmax(-1).tolist()
++        logits = torch.nn.functional.linear(last, self.thinker.w["lm_head.weight"])
++        if self.thinker_native_argmax:
++            self.thinker_argmax_native_rows += logits.shape[0]
++        nxt = (logits if self.thinker_native_argmax else logits.float()).argmax(-1).tolist()
+         from engine.server import TextDelta
+         from engine.runtime.backend import IM_END, TTS_EOS
+ 
+--- a/engine/runtime/thinker_lookup.py
++++ b/engine/runtime/thinker_lookup.py
+@@ -75,7 +75,10 @@
+         if not backend.trun.batch_append_prefill:
+             backend.thinker_lookup_batched_disabled = True
+         backend.trun.batch_append_prefill = prior_append
+-    predictions = F.linear(hidden, backend.thinker.w['lm_head.weight']).float().argmax(-1).tolist()
++    logits = F.linear(hidden, backend.thinker.w['lm_head.weight'])
++    if backend.thinker_native_argmax:
++        backend.thinker_argmax_native_rows += logits.shape[0]
++    predictions = (logits if backend.thinker_native_argmax else logits.float()).argmax(-1).tolist()
+     stats['verification_calls'] += 1
+     stats['draft_tokens'] += sum(len(draft) for draft in drafts)
+     offset = 0

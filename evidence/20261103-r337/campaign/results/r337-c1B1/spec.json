@@ -1,0 +1,16 @@
+{
+  "tag": "r337-c1B1",
+  "engine": "engine-r337",
+  "config": "config-r337.json",
+  "engine_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+  "native": [
+    1
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19371,
+  "runner": "run_lowc.py",
+  "confirmation_of": "r337",
+  "algorithm_round": false,
+  "hypothesis": "Fresh official unprofiled native confirmation, source/config unchanged; not an algorithm round"
+}

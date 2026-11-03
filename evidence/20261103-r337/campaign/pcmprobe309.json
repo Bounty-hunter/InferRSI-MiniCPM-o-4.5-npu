@@ -1,0 +1,12 @@
+{
+  "tag": "pcmprobe309",
+  "engine": "engine-r336",
+  "config": "config-r336.json",
+  "engine_sha256": "edc3a7c510abd33193e8b01b4b4543cc62a62311d54ba8ba333b453a41dde847",
+  "native": [],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19097,
+  "runner": "probe_pinned_pcm.py",
+  "hypothesis": "Exact NPU PCM pinned-D2H event/lifetime probe, including empty output; not an algorithm round"
+}

@@ -1,0 +1,57 @@
+{
+  "verified": true,
+  "spec": {
+    "tag": "omni-final",
+    "algorithm_round": false,
+    "baseline_repeat_of": "omni-lowc",
+    "server_sha": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+    "client_sha": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+    "port": 19360,
+    "tiers": [
+      [
+        32,
+        2
+      ],
+      [
+        64,
+        4
+      ],
+      [
+        128,
+        8
+      ]
+    ],
+    "chunk": 25,
+    "flow": "Original Omni FP32/10 steps; unchanged deploy and model",
+    "prior_script_sha256": "40127d5f94c55c6e203226538fd6df06bdfed3f37d1ba4cdb890e843a51b2845",
+    "runner_sha256": "c2e58580f6fc5058c700b2021b660130fa3e98597e06a9ab6b32faccd1e975d3",
+    "reason": "Contemporary pinned Omni reference after visible same-source control drift; retain original reference too; not an algorithm round or equal-quality proof"
+  },
+  "rows": [
+    {
+      "c": 2,
+      "ttfp": 1060.6630487600341,
+      "rtf": 0.41418870707429434,
+      "req_s": 1.2062151225448137,
+      "audio_s": 129.64,
+      "failed": 0
+    },
+    {
+      "c": 4,
+      "ttfp": 1429.6158416982507,
+      "rtf": 0.5970206659688169,
+      "req_s": 1.6082713294481612,
+      "audio_s": 267.8,
+      "failed": 0
+    },
+    {
+      "c": 8,
+      "ttfp": 2049.720173497917,
+      "rtf": 1.0233874221344461,
+      "req_s": 1.96368511836572,
+      "audio_s": 518.24,
+      "failed": 0
+    }
+  ],
+  "scope": "Same pinned source/client/deploy/model/dataset/request/sampling commands verified; fresh native one-run reference, not a statistical CI or equal-quality proof. Omni Flow FP32/10 vs engine FP16/6 remains unqualified until speech gate."
+}

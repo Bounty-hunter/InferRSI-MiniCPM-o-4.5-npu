@@ -1,0 +1,11 @@
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -39,7 +39,7 @@
+   "thinker_prefix_cache_min_tokens": 64,
+   "thinker_prefix_cache_min_live": 9,
+   "t2w_first_audio_priority": true,
+-  "thinker_prompt_lookup_max_tokens": 8,
++  "thinker_prompt_lookup_max_tokens": 4,
+   "t2w_startup_graph_rows": [
+     1,
+     2,

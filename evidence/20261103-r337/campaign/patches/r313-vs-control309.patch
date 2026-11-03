@@ -1,0 +1,40 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        talker_split_three: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -291,6 +292,7 @@
+         self.timelines = {}
+         self.tick_profile = {}
+         self.talker_full_block_graphs_enabled = bool(talker_full_block_graphs)
++        self.talker_split_three = bool(talker_split_three)
+         # Exact row=3 full-block replay regresses the native C4 workload even
+         # though it is numerically correct.  Keep that cohort on the original
+         # eager graph-lane path; row=5/6/7 remove the measured C8/C16 fallback.
+@@ -1069,6 +1071,11 @@
+         # ten host-issued graph lanes.  Avoid a trailing row=3 cohort by
+         # changing the preceding 8+3 split to 7+4.  Processing groups in
+         # request order preserves the original host window-publication order.
++        if (self.talker_split_three and full_block_base and len(active) == 3
++                and 1 in self.talker_full_block_graph_batches and 2 in self.talker_full_block_graph_batches):
++            self._talker_decode_block_impl(active[:2], eos)
++            self._talker_decode_block_impl(active[2:], eos)
++            return
+         if full_block_base and len(active) > self.arun.graph_max_batch:
+             remaining = len(active)
+             offset = 0
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "talker_split_three": true
+ }

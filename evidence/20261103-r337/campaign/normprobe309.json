@@ -1,0 +1,12 @@
+{
+  "tag": "normprobe309",
+  "engine": "engine-r345",
+  "config": "config-r345.json",
+  "engine_sha256": "8160b7770319acff2938b43065e57526185bbe13649024ed0109dc68823b2c18",
+  "native": [],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19097,
+  "runner": "probe_rounding_rms.py",
+  "hypothesis": "Characterize unit-fused-RMS then BF16 scale vs original and ordinary weighted fusion. No relaxed threshold or quality claim; not an algorithm round"
+}

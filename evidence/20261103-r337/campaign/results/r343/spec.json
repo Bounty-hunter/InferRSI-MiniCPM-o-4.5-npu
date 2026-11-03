@@ -1,0 +1,25 @@
+{
+  "tag": "r343",
+  "engine": "engine-r343",
+  "config": "config-r343.json",
+  "engine_sha256": "1af1507d58f86c8f92c9cb9f30a7da470151d65fbae4bc83d462e397dad835a2",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19232,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "MPS-like spatial-overlap hypothesis refined after whole-process12Cube/24Vector gains: cap only audio stream at12/24, retain full engine and prompt resources. Explicit Euler/HiFT capture uses current owner stream so capture tiling receives actual quota; metrics verify stream/device limits. Installed torch_npu set_stream_limit source audited, no daemon or shared-device change",
+  "kind": "audio-stream-cores"
+}

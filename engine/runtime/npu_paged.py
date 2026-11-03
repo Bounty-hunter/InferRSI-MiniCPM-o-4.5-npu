@@ -77,6 +77,7 @@ class NpuBatchLayout:
     block_table: torch.Tensor
     context_lens: torch.Tensor
     qo_indptr: torch.Tensor
+    host_qo_indptr: tuple[int, ...] | None = None
 
     @property
     def last_token_index(self) -> torch.Tensor:
@@ -206,6 +207,7 @@ class NpuPagedKV:
             # this tensor on CPU); block tables and slot mappings stay on NPU.
             context_lens=torch.tensor(lengths, dtype=torch.int32),
             qo_indptr=tensor(qo, torch.int32),
+            host_qo_indptr=tuple(qo) if getattr(self, "host_qo_lengths", False) else None,
         )
 
     def dense_layer(self, layer: int, seq: int, length: int | None = None) -> tuple[torch.Tensor, torch.Tensor]:
@@ -689,8 +691,22 @@ class NpuDecoderRunner:
         )
         return out
 
+    def _query_ends(self, layout, query_rows: int):
+        # Only the layout builder publishes this immutable host copy of the
+        # very same cumulative lengths uploaded to qo_indptr. Synthetic or
+        # malformed metadata retains the original device-observation path.
+        host = getattr(layout, "host_qo_indptr", None)
+        counts = layout.new_tokens
+        if (host is not None and len(host) == len(counts) + 1
+                and len(counts) == len(layout.seqs) and host[0] == 0
+                and host[-1] == query_rows
+                and all(isinstance(n, int) and not isinstance(n, bool) and n > 0 for n in counts)
+                and all(host[i + 1] - host[i] == n for i, n in enumerate(counts))):
+            return list(host[1:])
+        return layout.qo_indptr[1:].to("cpu").tolist()
+
     def _fresh_prefill(self, query: torch.Tensor, key: torch.Tensor, value: torch.Tensor, layout: NpuBatchLayout) -> torch.Tensor:
-        cumulative = layout.qo_indptr[1:].to("cpu").tolist()
+        cumulative = self._query_ends(layout, query.shape[0])
         width = max(2048, max(layout.new_tokens))
         causal_mask = torch.triu(torch.ones(width, width, device=query.device, dtype=torch.int8), diagonal=1)
         return self.npu.npu_fused_infer_attention_score(
@@ -753,7 +769,7 @@ class NpuDecoderRunner:
             value=torch.cat(values).contiguous(),
             input_layout="TND",
             atten_mask=causal_mask,
-            actual_seq_lengths=layout.qo_indptr[1:].to("cpu").tolist(),
+            actual_seq_lengths=self._query_ends(layout, query.shape[0]),
             actual_seq_lengths_kv=cumulative_kv,
             num_key_value_heads=self.spec.num_kv_heads,
             num_heads=self.spec.num_heads,

@@ -1,0 +1,25 @@
+{
+  "tag": "r344",
+  "engine": "engine-r344",
+  "config": "config-r344.json",
+  "engine_sha256": "9a47e222aa63683f484e6c4606fee6d40c9c3356fa3b170f349048bb812ad222",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19233,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Actual3/5/6/7 audio cohorts also pad CFG Euler rows6/10/12/14 up to8/16. Add exact even row buckets and prewarm steady50/final56 shapes on audio owner; retain FP16/6step equations/seed/cache ownership and original HiFT buckets. Counter reports actual requested/bucketed rows; unlike HiFT-only trial, targets whole6-step Flow work",
+  "kind": "euler-exact-rows"
+}

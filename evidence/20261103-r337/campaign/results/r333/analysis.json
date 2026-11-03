@@ -1,0 +1,77 @@
+{
+  "tag": "r333",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 2,
+      "ttfp_ms": 908.2941359374672,
+      "rtf": 0.40683856601770485,
+      "req_s": 1.166433342621984,
+      "completed": 32,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 4,
+      "ttfp_ms": 1345.1563547569094,
+      "rtf": 0.6222539149280623,
+      "req_s": 1.46207730448767,
+      "completed": 64,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 8,
+      "ttfp_ms": 2155.9065361652756,
+      "rtf": 1.0018829129512588,
+      "req_s": 1.8946706094607904,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "native_tails": {
+    "c2": {
+      "mean_audio_rtf": 0.40683856601770485,
+      "median_audio_rtf": 0.39994480033343716,
+      "p50_audio_rtf": 0.39994480033343716,
+      "p95_audio_rtf": 0.490680792890782,
+      "p99_audio_rtf": 0.5087530005202899,
+      "mean_audio_ttfp_ms": 908.2941359374672,
+      "median_audio_ttfp_ms": 892.3969818279147,
+      "p50_audio_ttfp_ms": 892.3969818279147,
+      "p95_audio_ttfp_ms": 1188.1256110966206,
+      "p99_audio_ttfp_ms": 1230.8584112953395
+    },
+    "c4": {
+      "mean_audio_rtf": 0.6222539149280623,
+      "median_audio_rtf": 0.5944519945194559,
+      "p50_audio_rtf": 0.5944519945194559,
+      "p95_audio_rtf": 0.9045618344199642,
+      "p99_audio_rtf": 0.9298384637145868,
+      "mean_audio_ttfp_ms": 1345.1563547569094,
+      "median_audio_ttfp_ms": 1316.513926256448,
+      "p50_audio_ttfp_ms": 1316.513926256448,
+      "p95_audio_ttfp_ms": 1851.5648430678982,
+      "p99_audio_ttfp_ms": 1888.7122518848628
+    },
+    "c8": {
+      "mean_audio_rtf": 1.0018829129512588,
+      "median_audio_rtf": 0.9446536111437374,
+      "p50_audio_rtf": 0.9446536111437374,
+      "p95_audio_rtf": 1.5088609362157936,
+      "p99_audio_rtf": 1.7207310538960343,
+      "mean_audio_ttfp_ms": 2155.9065361652756,
+      "median_audio_ttfp_ms": 1973.6434235237539,
+      "p50_audio_ttfp_ms": 1973.6434235237539,
+      "p95_audio_ttfp_ms": 3805.6360678281635,
+      "p99_audio_ttfp_ms": 4523.205378996208
+    }
+  },
+  "development_quality": {
+    "n": 16,
+    "thinker_text_exact": 16,
+    "thinker_tokens_exact": 16,
+    "codec_tokens_exact": 9,
+    "speech_quality_gate": "NOT_RUN"
+  }
+}

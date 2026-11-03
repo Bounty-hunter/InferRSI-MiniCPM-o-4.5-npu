@@ -1,0 +1,25 @@
+{
+  "tag": "r342",
+  "engine": "engine-r342",
+  "config": "config-r342.json",
+  "engine_sha256": "8b4bd89ad83318aeec07ad71b61fb73c079a49c68b04be3d71a838871a53cc59",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19231,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "r320",
+  "hypothesis": "ExternalGILprobe84inclusiveappend-reference samples shows mixed fresh/decode still forces fullKVgathers. Revalidate prior r280/r283 decode-first pressure-scoped split on NEW prompt-lookup baseline: earlierC4benefitbutC16regressionretained, busyepochpeak>=9keepsoldpath. This is an interaction re-test, not a novel invention or reused old gain; fresh16QA/allnative mandatory",
+  "kind": "low-pressure-split"
+}

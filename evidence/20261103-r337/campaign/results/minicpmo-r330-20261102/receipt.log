@@ -1,0 +1,40 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m       │ [36;1mDURATION[0;22m   │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                                               │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                  │ [36;1mUTIL[0;22m 
+─────┼──────────────┼────────────┼────────────┼──────┼───────────────────────────────────────────────────────────────────────┼────────────────────────────────────────┼───────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown    │ [2m-[22m          │ [2m-[22m    │ used by PID 3478278 (1h21m), PID 3497609 (1h20m)                      │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                     │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ zhanghan   │ 1h 58m 47s │ RUN  │ heartbeat 0h 0m 47s ago, processes: PID 810010 (58m), PID 783915 (1h) │ [2m38810MB, 2 processes; owner unverified[22m │ pr553-full-pair-video │ 55%  
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 0m 4s                                                     │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 1h 22m 54s                                                   │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 24m 57s                                                   │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 1h 48m 46s                                                   │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 6   │ [34m● IN_USE   [0m  │ yangnanxin │ 0h 2m 41s  │ RUN  │ heartbeat 0h 0m 40s ago, processes: PID 4135077 (2m)                  │ [2m29471MB, 1 processes[22m                   │ -                     │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 24m 58s                                                   │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 20m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T15:32:56Z", "mode": "quality", "pid": 218478, "device": "2"}
+{"phase": "quality_generation", "utc": "2026-11-02T15:33:59Z"}
+{"phase": "failed", "utc": "2026-11-02T15:34:03Z", "error": "<HTTPError 500: 'Internal Server Error'>"}
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_lowc.py", line 125, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_lowc.py", line 82, in main
+    with urllib.request.urlopen(request,timeout=600) as response:quality=json.load(response)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/urllib/request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/urllib/request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/urllib/request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/urllib/request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 500: Internal Server Error

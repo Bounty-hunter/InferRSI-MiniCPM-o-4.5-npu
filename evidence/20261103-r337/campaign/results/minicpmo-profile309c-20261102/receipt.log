@@ -1,0 +1,23 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m        │ [36;1mDURATION[0;22m   │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                               │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                                 │ [36;1mUTIL[0;22m 
+─────┼──────────────┼─────────────┼────────────┼──────┼───────────────────────────────────────────────────────┼────────────────────────────────────────┼──────────────────────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown     │ [2m-[22m          │ [2m-[22m    │ used by PID 3976932 (2h), PID 3953860 (2h1m)          │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                                    │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ why         │ 0h 26m 36s │ RUN  │ heartbeat 0h 0m 36s ago, processes: PID 1633430 (25m) │ [2m20505MB, 1 processes[22m                   │ H3 Ref2VA 4x910B1 baseline preflight │ 49%  
+ 2   │ [34m● IN_USE   [0m  │ why         │ 0h 26m 36s │ RUN  │ heartbeat 0h 0m 36s ago, processes: PID 1633431 (25m) │ [2m20347MB, 1 processes[22m                   │ H3 Ref2VA 4x910B1 baseline preflight │ 58%  
+ 3   │ [34m● IN_USE   [0m  │ why         │ 0h 26m 36s │ RUN  │ heartbeat 0h 0m 36s ago, processes: PID 1633433 (25m) │ [2m20347MB, 1 processes[22m                   │ H3 Ref2VA 4x910B1 baseline preflight │ 96%  
+ 4   │ [34m● IN_USE   [0m  │ why         │ 0h 26m 36s │ RUN  │ heartbeat 0h 0m 36s ago, processes: PID 1633434 (25m) │ [2m20347MB, 1 processes[22m                   │ H3 Ref2VA 4x910B1 baseline preflight │ 96%  
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m           │ [2m-[22m          │ [2m-[22m    │ free for 0h 0m 25s                                    │ [2m0MB used[22m                               │ [2m-[22m                                    │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m           │ [2m-[22m          │ [2m-[22m    │ free for 0h 0m 6s                                     │ [2m0MB used[22m                               │ [2m-[22m                                    │ 0%   
+ 7   │ [34m● IN_USE   [0m  │ wangqiankun │ 0h 2m 8s   │ RUN  │ heartbeat 0h 0m 7s ago                                │ [2mno usage detected[22m                      │ qwen21-rebench-1gpu                  │ 0%   
+Reserved 1 GPU(s): [6] for command execution (timeout: 0h 20m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T12:13:01Z", "mode": "diagnostic", "pid": 186361, "device": "6"}
+{"phase": "benchmark", "utc": "2026-11-02T12:14:16Z", "mode": "diagnostic", "concurrency": 8}
+{"phase": "failed", "utc": "2026-11-02T12:16:18Z", "error": "AssertionError()"}
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_external.py", line 145, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_external.py", line 126, in main
+    if cpu_sampler is not None:assert cpu_sampler.wait(timeout=60)==0
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

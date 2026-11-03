@@ -1,0 +1,1115 @@
+{
+  "live": 0,
+  "queued": 0,
+  "admitted": 0,
+  "max_live": 32,
+  "first_chunk": 25,
+  "steady_chunk": 25,
+  "t2w_cache_offload": false,
+  "t2w_timesteps": 6,
+  "t2w_euler_graph_failures": {},
+  "t2w_npu_fused_body": true,
+  "t2w_npu_fused_variant": "hybrid",
+  "t2w_hift_graph_failures": {},
+  "t2w_encoder_graph_failures": {},
+  "t2w_offload_stats": {
+    "h2d_tensor_copies": 0,
+    "h2d_tensor_reuses": 0,
+    "d2h_tensor_copies": 0,
+    "d2h_tensor_reuses": 0
+  },
+  "t2w_flow_batch_hist": {
+    "1": 119,
+    "2": 79,
+    "3": 33,
+    "4": 21
+  },
+  "t2w_flow_cache_bucket_hist": {
+    "512": 252
+  },
+  "t2w_threaded": true,
+  "t2w_live": 0,
+  "t2w_batch_wait_ms": 10.0,
+  "t2w_batch_wait_min_active": 1,
+  "t2w_batch_min_ready": 4,
+  "prompt_setup_batches": {},
+  "talker_graph_ring_failures": {},
+  "talker_graph_ring_capture_retries": {},
+  "talker_graph_ring_capture_retry_errors": {},
+  "talker_static_shape_attention": true,
+  "talker_static_kv_capacity": 256,
+  "talker_static_graph_buckets": [],
+  "talker_static_graph_failures": {},
+  "talker_post_graph_failures": {},
+  "talker_post_graph_replays": {
+    "4": 760
+  },
+  "talker_full_block_graphs_enabled": true,
+  "talker_full_block_graph_batches": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "talker_full_block_graphs": [
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      8,
+      10
+    ]
+  ],
+  "talker_full_block_replays": {
+    "2": 142,
+    "1": 279,
+    "4": 73
+  },
+  "talker_full_block_warmup_s": {
+    "1": 1.8899892643094063,
+    "2": 0.968284628354013,
+    "4": 0.9149806704372168,
+    "5": 0.9606310175731778,
+    "6": 0.902079876512289,
+    "7": 0.9165461407974362,
+    "8": 0.9248376665636897
+  },
+  "t2w_first_audio_priority": true,
+  "t2w_first_audio_priority_stats": {
+    "batches": 249,
+    "reordered": 40
+  },
+  "thinker_graph_buckets": [
+    2,
+    4
+  ],
+  "thinker_prompt_lookup_stats": {
+    "verification_calls": 135,
+    "draft_tokens": 1389,
+    "matched_draft_tokens": 992,
+    "target_tokens": 1167,
+    "kv_fallbacks": 0
+  },
+  "t2w_startup_stats": {
+    "request_rows": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "keys": [
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          50,
+          512
+        ],
+        "seconds": 1.278559848666191
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          1,
+          50
+        ],
+        "seconds": 0.30246718786656857
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          1,
+          58
+        ],
+        "seconds": 0.1034200806170702
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          4,
+          50,
+          512
+        ],
+        "seconds": 0.7001446830108762
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          2,
+          50
+        ],
+        "seconds": 0.10600784700363874
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          2,
+          58
+        ],
+        "seconds": 0.1069560730829835
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          8,
+          50,
+          512
+        ],
+        "seconds": 0.7204296197742224
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          4,
+          50
+        ],
+        "seconds": 0.11383370123803616
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          4,
+          58
+        ],
+        "seconds": 0.11309243086725473
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          16,
+          50,
+          512
+        ],
+        "seconds": 0.746106849052012
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          8,
+          50
+        ],
+        "seconds": 0.11650056950747967
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          8,
+          58
+        ],
+        "seconds": 0.1155620263889432
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          56,
+          512
+        ],
+        "lane": "audio_tail",
+        "seconds": 0.7002465147525072
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          256,
+          0
+        ],
+        "lane": "prompt_setup",
+        "seconds": 0.7241604570299387
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          512,
+          0
+        ],
+        "lane": "prompt_setup",
+        "seconds": 0.7109823757782578
+      }
+    ],
+    "duration_s": 6.660991210490465,
+    "allocated_before_bytes": 27179196928,
+    "allocated_after_bytes": 34315786240,
+    "reserved_after_bytes": 35800481792
+  },
+  "hift_static_weightnorm": [
+    {
+      "name": "conv_pre",
+      "shape": [
+        512,
+        80,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "ups.0",
+      "shape": [
+        512,
+        256,
+        16
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "ups.1",
+      "shape": [
+        256,
+        128,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "ups.2",
+      "shape": [
+        128,
+        64,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.0.convs1.0",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.0.convs1.1",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.0.convs1.2",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.0.convs2.0",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.0.convs2.1",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.0.convs2.2",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.1.convs1.0",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.1.convs1.1",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.1.convs1.2",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.1.convs2.0",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.1.convs2.1",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.1.convs2.2",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.2.convs1.0",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.2.convs1.1",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.2.convs1.2",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.2.convs2.0",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.2.convs2.1",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "source_resblocks.2.convs2.2",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.0.convs1.0",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.0.convs1.1",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.0.convs1.2",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.0.convs2.0",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.0.convs2.1",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.0.convs2.2",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.1.convs1.0",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.1.convs1.1",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.1.convs1.2",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.1.convs2.0",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.1.convs2.1",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.1.convs2.2",
+      "shape": [
+        256,
+        256,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.2.convs1.0",
+      "shape": [
+        256,
+        256,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.2.convs1.1",
+      "shape": [
+        256,
+        256,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.2.convs1.2",
+      "shape": [
+        256,
+        256,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.2.convs2.0",
+      "shape": [
+        256,
+        256,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.2.convs2.1",
+      "shape": [
+        256,
+        256,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.2.convs2.2",
+      "shape": [
+        256,
+        256,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.3.convs1.0",
+      "shape": [
+        128,
+        128,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.3.convs1.1",
+      "shape": [
+        128,
+        128,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.3.convs1.2",
+      "shape": [
+        128,
+        128,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.3.convs2.0",
+      "shape": [
+        128,
+        128,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.3.convs2.1",
+      "shape": [
+        128,
+        128,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.3.convs2.2",
+      "shape": [
+        128,
+        128,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.4.convs1.0",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.4.convs1.1",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.4.convs1.2",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.4.convs2.0",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.4.convs2.1",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.4.convs2.2",
+      "shape": [
+        128,
+        128,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.5.convs1.0",
+      "shape": [
+        128,
+        128,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.5.convs1.1",
+      "shape": [
+        128,
+        128,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.5.convs1.2",
+      "shape": [
+        128,
+        128,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.5.convs2.0",
+      "shape": [
+        128,
+        128,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.5.convs2.1",
+      "shape": [
+        128,
+        128,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.5.convs2.2",
+      "shape": [
+        128,
+        128,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.6.convs1.0",
+      "shape": [
+        64,
+        64,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.6.convs1.1",
+      "shape": [
+        64,
+        64,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.6.convs1.2",
+      "shape": [
+        64,
+        64,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.6.convs2.0",
+      "shape": [
+        64,
+        64,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.6.convs2.1",
+      "shape": [
+        64,
+        64,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.6.convs2.2",
+      "shape": [
+        64,
+        64,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.7.convs1.0",
+      "shape": [
+        64,
+        64,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.7.convs1.1",
+      "shape": [
+        64,
+        64,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.7.convs1.2",
+      "shape": [
+        64,
+        64,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.7.convs2.0",
+      "shape": [
+        64,
+        64,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.7.convs2.1",
+      "shape": [
+        64,
+        64,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.7.convs2.2",
+      "shape": [
+        64,
+        64,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.8.convs1.0",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.8.convs1.1",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.8.convs1.2",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.8.convs2.0",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.8.convs2.1",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "resblocks.8.convs2.2",
+      "shape": [
+        64,
+        64,
+        11
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "conv_post",
+      "shape": [
+        18,
+        64,
+        7
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "f0_predictor.condnet.0",
+      "shape": [
+        512,
+        80,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "f0_predictor.condnet.2",
+      "shape": [
+        512,
+        512,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "f0_predictor.condnet.4",
+      "shape": [
+        512,
+        512,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "f0_predictor.condnet.6",
+      "shape": [
+        512,
+        512,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    },
+    {
+      "name": "f0_predictor.condnet.8",
+      "shape": [
+        512,
+        512,
+        3
+      ],
+      "dtype": "torch.float32",
+      "exact": true
+    }
+  ],
+  "thinker_prefix_cache_enabled": true,
+  "thinker_prefix_cache_tokens": 0,
+  "thinker_prefix_cache_min_live": 9,
+  "thinker_prefix_cache_stats": {
+    "hits": 0,
+    "misses": 0,
+    "tokens_reused": 0,
+    "tokens_computed": 0,
+    "requests_bypassed_below_min_live": 100
+  },
+  "thinker_batch_append_prefill": true,
+  "thinker_batch_append_prefill_failures": [],
+  "talker_graph_buckets": [],
+  "prompt_cache_entries": 0,
+  "prompt_cache_refs": 0,
+  "thinker_kv_pages_used": 1,
+  "talker_kv_pages_used": 1,
+  "thinker_kv_pages": 128,
+  "talker_kv_pages": 128,
+  "npu_memory_allocated_bytes": 34973793792,
+  "npu_memory_reserved_bytes": 39738933248,
+  "rss_max_kib": 7265244,
+  "rss_kib": 4485880,
+  "live_requests": [],
+  "prefill_token_budget": null,
+  "prefill_tokens_tick_max": 0,
+  "prefill_chunked_ticks": 0,
+  "prefill_kv_wait_ticks": 0,
+  "talker_starts_deferred_ticks": 0,
+  "talker_kv_wait_ticks": 0,
+  "cancelled_streams": 0,
+  "failed_streams": 0
+}

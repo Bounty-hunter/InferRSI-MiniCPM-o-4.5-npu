@@ -1,0 +1,296 @@
+{
+  "rows": [
+    {
+      "tag": "r341",
+      "c": 2,
+      "cumulative": {
+        "thinker_script_forward_host_calls": 92
+      },
+      "stage_delta": {
+        "thinker_script_forward_host_calls": 92
+      },
+      "fallback_and_coverage": {}
+    },
+    {
+      "tag": "r341",
+      "c": 4,
+      "cumulative": {
+        "thinker_script_forward_host_calls": 229
+      },
+      "stage_delta": {
+        "thinker_script_forward_host_calls": 137
+      },
+      "fallback_and_coverage": {}
+    },
+    {
+      "tag": "r341",
+      "c": 8,
+      "cumulative": {
+        "thinker_script_forward_host_calls": 425
+      },
+      "stage_delta": {
+        "thinker_script_forward_host_calls": 196
+      },
+      "fallback_and_coverage": {}
+    },
+    {
+      "tag": "r345",
+      "c": 2,
+      "cumulative": {
+        "thinker_rounding_rms_host_calls": 6716
+      },
+      "stage_delta": {
+        "thinker_rounding_rms_host_calls": 6716
+      },
+      "fallback_and_coverage": {}
+    },
+    {
+      "tag": "r345",
+      "c": 4,
+      "cumulative": {
+        "thinker_rounding_rms_host_calls": 17885
+      },
+      "stage_delta": {
+        "thinker_rounding_rms_host_calls": 11169
+      },
+      "fallback_and_coverage": {}
+    },
+    {
+      "tag": "r345",
+      "c": 8,
+      "cumulative": {
+        "thinker_rounding_rms_host_calls": 32704
+      },
+      "stage_delta": {
+        "thinker_rounding_rms_host_calls": 14819
+      },
+      "fallback_and_coverage": {}
+    },
+    {
+      "tag": "r346",
+      "c": 2,
+      "cumulative": {
+        "thinker_native_rotary_host_calls": 3312
+      },
+      "stage_delta": {
+        "thinker_native_rotary_host_calls": 3312
+      },
+      "fallback_and_coverage": {
+        "thinker_native_rotary_failures": []
+      }
+    },
+    {
+      "tag": "r346",
+      "c": 4,
+      "cumulative": {
+        "thinker_native_rotary_host_calls": 8604
+      },
+      "stage_delta": {
+        "thinker_native_rotary_host_calls": 5292
+      },
+      "fallback_and_coverage": {
+        "thinker_native_rotary_failures": []
+      }
+    },
+    {
+      "tag": "r346",
+      "c": 8,
+      "cumulative": {
+        "thinker_native_rotary_host_calls": 16020
+      },
+      "stage_delta": {
+        "thinker_native_rotary_host_calls": 7416
+      },
+      "fallback_and_coverage": {
+        "thinker_native_rotary_failures": []
+      }
+    },
+    {
+      "tag": "r348",
+      "c": 2,
+      "cumulative": {
+        "thinker_static_fia_host_calls": 33
+      },
+      "stage_delta": {
+        "thinker_static_fia_host_calls": 33
+      },
+      "fallback_and_coverage": {
+        "thinker_static_fia_capacity": 512,
+        "thinker_static_fia_buckets": [
+          [
+            2,
+            512
+          ],
+          [
+            1,
+            512
+          ]
+        ]
+      }
+    },
+    {
+      "tag": "r348",
+      "c": 4,
+      "cumulative": {
+        "thinker_static_fia_host_calls": 82
+      },
+      "stage_delta": {
+        "thinker_static_fia_host_calls": 49
+      },
+      "fallback_and_coverage": {
+        "thinker_static_fia_capacity": 512,
+        "thinker_static_fia_buckets": [
+          [
+            2,
+            512
+          ],
+          [
+            1,
+            512
+          ],
+          [
+            4,
+            512
+          ]
+        ]
+      }
+    },
+    {
+      "tag": "r348",
+      "c": 8,
+      "cumulative": {
+        "thinker_static_fia_host_calls": 152
+      },
+      "stage_delta": {
+        "thinker_static_fia_host_calls": 70
+      },
+      "fallback_and_coverage": {
+        "thinker_static_fia_capacity": 512,
+        "thinker_static_fia_buckets": [
+          [
+            2,
+            512
+          ],
+          [
+            1,
+            512
+          ],
+          [
+            4,
+            512
+          ],
+          [
+            8,
+            512
+          ]
+        ]
+      }
+    },
+    {
+      "tag": "r350",
+      "c": 2,
+      "cumulative": {
+        "thinker_native_rotary_host_calls": 3348
+      },
+      "stage_delta": {
+        "thinker_native_rotary_host_calls": 3348
+      },
+      "fallback_and_coverage": {
+        "thinker_native_rotary_failures": []
+      }
+    },
+    {
+      "tag": "r350",
+      "c": 4,
+      "cumulative": {
+        "thinker_native_rotary_host_calls": 8352
+      },
+      "stage_delta": {
+        "thinker_native_rotary_host_calls": 5004
+      },
+      "fallback_and_coverage": {
+        "thinker_native_rotary_failures": []
+      }
+    },
+    {
+      "tag": "r350",
+      "c": 8,
+      "cumulative": {
+        "thinker_native_rotary_host_calls": 15300
+      },
+      "stage_delta": {
+        "thinker_native_rotary_host_calls": 6948
+      },
+      "fallback_and_coverage": {
+        "thinker_native_rotary_failures": []
+      }
+    }
+  ],
+  "policies": [
+    {
+      "tag": "r343",
+      "policy": {
+        "audio_stream_core_policy": {
+          "before": {
+            "cube_core_num": 24,
+            "vector_core_num": 48
+          },
+          "after": {
+            "cube_core_num": 12,
+            "vector_core_num": 24
+          },
+          "device_limit": {
+            "cube_core_num": 24,
+            "vector_core_num": 48
+          },
+          "prompt_limit": {
+            "cube_core_num": 24,
+            "vector_core_num": 48
+          },
+          "capture_on_current_stream": true
+        }
+      }
+    },
+    {
+      "tag": "r349",
+      "policy": {
+        "npu_core_policy": {
+          "fraction": 0.3333333333333333,
+          "before": {
+            "cube_core_num": 24,
+            "vector_core_num": 48
+          },
+          "after": {
+            "cube_core_num": 8,
+            "vector_core_num": 16
+          }
+        }
+      }
+    },
+    {
+      "tag": "r351",
+      "policy": {
+        "audio_stream_core_policy": {
+          "before": {
+            "cube_core_num": 24,
+            "vector_core_num": 48
+          },
+          "after": {
+            "cube_core_num": 12,
+            "vector_core_num": 24
+          },
+          "device_limit": {
+            "cube_core_num": 24,
+            "vector_core_num": 48
+          },
+          "prompt_limit": {
+            "cube_core_num": 24,
+            "vector_core_num": 48
+          },
+          "capture_on_current_stream": true
+        }
+      }
+    }
+  ],
+  "scope": "Metrics are cumulative over startup/warmups and all earlier tiers. Stage deltas include warmups. Host-call counters are not device kernel counts and may include graph capture. These prove code-path activity only, not causal speed or speech quality."
+}

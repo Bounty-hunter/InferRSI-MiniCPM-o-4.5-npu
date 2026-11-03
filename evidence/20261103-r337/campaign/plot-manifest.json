@@ -1,0 +1,19 @@
+{
+  "algorithm_rounds": 40,
+  "source": "campaign-results.json",
+  "metrics": "official mean, no profiler timers",
+  "omni_reference": "D:\\huawei\\code\\codex_workspace\\outputs\\rsi-r312-r351-20261102\\results\\omni-final\\summary.json",
+  "omni_reference_is_final_repeat": true,
+  "failed_tags": [
+    "r322",
+    "r327",
+    "r329",
+    "r330",
+    "r331",
+    "r335",
+    "r339"
+  ],
+  "speech_gate": "NOT_RUN",
+  "equal_quality_claim": false,
+  "limitation": "Each point is a separate single screening run; x is variant number, not exact execution order (some jobs were inserted). Lines do not prove monotonic convergence or accumulated causal gains."
+}

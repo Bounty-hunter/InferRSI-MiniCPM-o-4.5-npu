@@ -1,0 +1,40 @@
+{
+  "client_sha": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+  "path": "vllm_omni/benchmarks/patch/patch.py",
+  "source_sha256": "923763e84d406358dc9298c0b001b345e8723b49cecfd2a68e3f12b2b0e1ba95",
+  "payload_temperature": 0.0,
+  "body_source_line_1based": 1926,
+  "extra_body": {
+    "2": {
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "chat_template_kwargs": {
+        "enable_thinking": false,
+        "use_tts_template": true
+      }
+    },
+    "4": {
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "chat_template_kwargs": {
+        "enable_thinking": false,
+        "use_tts_template": true
+      }
+    },
+    "8": {
+      "modalities": [
+        "text",
+        "audio"
+      ],
+      "chat_template_kwargs": {
+        "enable_thinking": false,
+        "use_tts_template": true
+      }
+    }
+  },
+  "scope": "Static frozen client request-builder audit, not wire capture. Model generation_config log defaults do not by themselves identify request temperature; counter/native audio RNG equivalence is not claimed."
+}

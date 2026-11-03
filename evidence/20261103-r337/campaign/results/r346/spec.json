@@ -1,0 +1,25 @@
+{
+  "tag": "r346",
+  "engine": "engine-r346",
+  "config": "config-r346.json",
+  "engine_sha256": "b91fe9aa03716141138fc0ebb123025c3d5c74dbd3e12dee6e1794e82e07cf81",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19235,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Direct Ascend reference comparison: Qwen2 uses two npu_rotary_mul calls, dedicated engine still issues separate BF16 mul/rotate/add chains. Isolate Thinker-native RoPE only, retain eager correctness fallback; fused rounding may differ so standalone characterization plus16Thinker/frozen speech gates required. Not a repeat of old full RMS+SwiGLU fusion rejected by speech screen",
+  "kind": "native-rotary"
+}

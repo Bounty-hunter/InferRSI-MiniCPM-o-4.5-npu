@@ -1,0 +1,302 @@
+{
+  "live": 0,
+  "queued": 0,
+  "admitted": 0,
+  "max_live": 32,
+  "first_chunk": 25,
+  "steady_chunk": 25,
+  "t2w_cache_offload": false,
+  "t2w_timesteps": 6,
+  "t2w_euler_graph_failures": {},
+  "t2w_npu_fused_body": true,
+  "t2w_npu_fused_variant": "hybrid",
+  "t2w_hift_graph_failures": {},
+  "t2w_encoder_graph_failures": {},
+  "t2w_offload_stats": {
+    "h2d_tensor_copies": 0,
+    "h2d_tensor_reuses": 0,
+    "d2h_tensor_copies": 0,
+    "d2h_tensor_reuses": 0
+  },
+  "t2w_flow_batch_hist": {
+    "1": 148,
+    "2": 130,
+    "3": 57,
+    "4": 53,
+    "5": 19,
+    "6": 12,
+    "7": 7,
+    "8": 2
+  },
+  "t2w_flow_cache_bucket_hist": {
+    "512": 428
+  },
+  "t2w_threaded": true,
+  "t2w_live": 0,
+  "t2w_batch_wait_ms": 10.0,
+  "t2w_batch_wait_min_active": 1,
+  "t2w_batch_min_ready": 4,
+  "prompt_setup_batches": {},
+  "talker_graph_ring_failures": {},
+  "talker_graph_ring_capture_retries": {},
+  "talker_graph_ring_capture_retry_errors": {},
+  "talker_static_shape_attention": true,
+  "talker_static_kv_capacity": 256,
+  "talker_static_graph_buckets": [],
+  "talker_static_graph_failures": {},
+  "talker_post_graph_failures": {},
+  "talker_post_graph_replays": {
+    "4": 1090
+  },
+  "talker_full_block_graphs_enabled": true,
+  "talker_full_block_graph_batches": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "talker_full_block_graphs": [
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      8,
+      10
+    ]
+  ],
+  "talker_full_block_replays": {
+    "2": 226,
+    "1": 235,
+    "4": 100,
+    "8": 8,
+    "7": 45,
+    "5": 47,
+    "6": 62
+  },
+  "talker_full_block_warmup_s": {
+    "1": 1.8632062301039696,
+    "2": 0.9442315436899662,
+    "4": 0.9004692528396845,
+    "5": 0.9408877771347761,
+    "6": 0.9069388909265399,
+    "7": 0.9031234616413713,
+    "8": 0.9198618587106466
+  },
+  "t2w_first_audio_priority": true,
+  "t2w_first_audio_priority_stats": {
+    "batches": 412,
+    "reordered": 111
+  },
+  "thinker_graph_buckets": [
+    2,
+    4,
+    8
+  ],
+  "thinker_prompt_lookup_stats": {
+    "verification_calls": 262,
+    "draft_tokens": 3086,
+    "matched_draft_tokens": 2236,
+    "target_tokens": 2627,
+    "kv_fallbacks": 0
+  },
+  "t2w_startup_stats": {
+    "request_rows": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "keys": [
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          50,
+          512
+        ],
+        "seconds": 1.2680788105353713
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          1,
+          50
+        ],
+        "seconds": 0.37868298497051
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          1,
+          58
+        ],
+        "seconds": 0.1323310611769557
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          4,
+          50,
+          512
+        ],
+        "seconds": 0.7222899757325649
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          2,
+          50
+        ],
+        "seconds": 0.1484784223139286
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          2,
+          58
+        ],
+        "seconds": 0.14993362966924906
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          8,
+          50,
+          512
+        ],
+        "seconds": 0.7599401380866766
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          4,
+          50
+        ],
+        "seconds": 0.14262432884424925
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          4,
+          58
+        ],
+        "seconds": 0.14772056322544813
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          16,
+          50,
+          512
+        ],
+        "seconds": 0.7500091092661023
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          8,
+          50
+        ],
+        "seconds": 0.1462038829922676
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          8,
+          58
+        ],
+        "seconds": 0.14309876132756472
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          56,
+          512
+        ],
+        "lane": "audio_tail",
+        "seconds": 0.700895537622273
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          256,
+          0
+        ],
+        "lane": "prompt_setup",
+        "seconds": 0.7443490913137794
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          512,
+          0
+        ],
+        "lane": "prompt_setup",
+        "seconds": 0.7481820909306407
+      }
+    ],
+    "duration_s": 7.085763223469257,
+    "allocated_before_bytes": 27174896128,
+    "allocated_after_bytes": 34311485440,
+    "reserved_after_bytes": 35764830208
+  },
+  "thinker_prefix_cache_enabled": true,
+  "thinker_prefix_cache_tokens": 0,
+  "thinker_prefix_cache_min_live": 9,
+  "thinker_prefix_cache_stats": {
+    "hits": 0,
+    "misses": 0,
+    "tokens_reused": 0,
+    "tokens_computed": 0,
+    "requests_bypassed_below_min_live": 230
+  },
+  "thinker_batch_append_prefill": true,
+  "thinker_batch_append_prefill_failures": [],
+  "talker_graph_buckets": [],
+  "prompt_cache_entries": 0,
+  "prompt_cache_refs": 0,
+  "thinker_kv_pages_used": 1,
+  "talker_kv_pages_used": 1,
+  "thinker_kv_pages": 128,
+  "talker_kv_pages": 128,
+  "npu_memory_allocated_bytes": 35253724160,
+  "npu_memory_reserved_bytes": 43056627712,
+  "rss_max_kib": 7261396,
+  "rss_kib": 4592360,
+  "live_requests": [],
+  "prefill_token_budget": null,
+  "prefill_tokens_tick_max": 0,
+  "prefill_chunked_ticks": 0,
+  "prefill_kv_wait_ticks": 0,
+  "talker_starts_deferred_ticks": 0,
+  "talker_kv_wait_ticks": 0,
+  "cancelled_streams": 0,
+  "failed_streams": 0
+}

@@ -1,0 +1,32 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+[W1102 15:53:27.362757503 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[W1102 15:53:27.364434236 op_api_common.cpp:43] Warning: A common user is using the files of the root user. (function operator())
+[transformers] `MiniCPMOProcessor` defines `image_processor_class = 'AutoImageProcessor'`, which is deprecated. Register the correct mapping in `AutoImageProcessor` instead.
+[transformers] Requested torchvision backend is not available. Falling back to pil backend.
+[transformers] `MiniCPMOProcessor` defines `audio_processor_class = 'AutoFeatureExtractor'`, which is deprecated. Register the correct mapping in `AutoFeatureExtractor` instead.
+/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r335/engine/runtime/npu_paged.py:354: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at ../torch_npu/csrc/aten/common/TensorFactories.cpp:423.)
+  self.workspace_block_table = workspace_pages.remainder(runner.kv.num_pages).repeat(batch, 1)
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 50, 512], 'seconds': 1.2548946905881166}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [1, 50], 'seconds': 0.3602516809478402}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [1, 58], 'seconds': 0.13181092124432325}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [4, 50, 512], 'seconds': 0.7121546464040875}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [2, 50], 'seconds': 0.144930150359869}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [2, 58], 'seconds': 0.13888000417500734}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [8, 50, 512], 'seconds': 0.7161505902186036}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [4, 50], 'seconds': 0.14336443971842527}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [4, 58], 'seconds': 0.1443652855232358}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [16, 50, 512], 'seconds': 0.747915961779654}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [8, 50], 'seconds': 0.14384040143340826}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [8, 58], 'seconds': 0.14195976220071316}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 56, 512], 'lane': 'audio_tail', 'seconds': 0.705623778514564}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 256, 0], 'lane': 'prompt_setup', 'seconds': 0.7276361677795649}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 512, 0], 'lane': 'prompt_setup', 'seconds': 0.7085812846198678}}

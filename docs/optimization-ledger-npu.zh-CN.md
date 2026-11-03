@@ -1,5 +1,7 @@
 # NPU 优化完整账本：r32–r306
 
+当前r337候选、C1/C2/C4/C8单结果曲线及后续40轮记录已更新，详见[最新优化总结](rsi-r337-20261103.zh-CN.md)和[当前性能表](current-results.md)。下文保留相应阶段的历史证据。
+
 本文保留早期NPU迁移、统一CLI活动、profiling及六层分析后的逐项记录。它是[完整历程](optimization-journey.zh-CN.md)的审计附录。
 只列已有记录；编号包含准备、诊断、验证、重试和watcher，不能把最大编号当成算法优化次数。
 原始文稿的章号7/8保留；其中“当前/默认/下一步”指当时工程状态，不是2026-11-02的发布状态。
@@ -330,3 +332,54 @@ L0冻结口径；L1流水线；L2图覆盖/调度/设备间隙；L3冗余/布局
 | [r306](../evidence/20261102-r305/patches/r306-vs-r292.patch) | r296 .cpu主机等待；已有CUDA PendingAudio设计 | NPU pinned PCM + 完成事件，锁外消费并保护scratch依赖 | C2 1209.1/0.4794/1.0235；C4 1729.7/0.6743/1.3708；C8 2635.4/1.0060/1.8927 | 首试API错误已修复；低并发没有稳定收益，不采用 |
 
 最终对Omni使用r305串行确认及C1补测，未从此表逐档挑最好值；详见[最新完整报告](rsi-profiling-20261102.zh-CN.md)。
+
+## r307–r351后续演进
+
+r307–r309补齐真实worker/stream上的媒体图预热，r310/r311为确认与控制。[三项方案和原生结果](../evidence/20261103-r337/followup/六层profiling继续优化-r307-r309.md)。
+
+下面列出随后40个算法尝试。数值为TTFP mean ms / RTF mean / request/s，保留初筛观测与失败状态。最终r337使用独立正反序确认及C1补测。
+
+| 轮次补丁 | 方案 | C2 | C4 | C8 | 初筛或失败结论 |
+|---|---|---|---|---|---|
+| [r312](../evidence/20261103-r337/campaign/patches/r312-vs-control309.patch) | thinker-init | 843.0/0.3817/1.2539 | 1224.1/0.5618/1.6135 | 1766.8/0.8186/2.3171 | no_consistent_gain_or_inconclusive |
+| [r313](../evidence/20261103-r337/campaign/patches/r313-vs-control309.patch) | split-three | 773.5/0.3590/1.3149 | 1235.4/0.5534/1.6432 | 1757.7/0.7965/2.4033 | no_consistent_gain_or_inconclusive |
+| [r314](../evidence/20261103-r337/campaign/patches/r314-vs-control309.patch) | draft4 | 934.7/0.3927/1.2144 | 1368.8/0.5917/1.5579 | 2038.2/0.8889/2.1539 | no_consistent_gain_or_inconclusive |
+| [r315](../evidence/20261103-r337/campaign/patches/r315-vs-control309.patch) | unified-lookup | 773.4/0.3610/1.3336 | 1204.7/0.5452/1.7055 | 1708.3/0.7933/2.4228 | promising_needs_reverse_confirmation |
+| [r316](../evidence/20261103-r337/campaign/patches/r316-vs-control309.patch) | batch-embedding | 810.2/0.3680/1.2875 | 1281.3/0.5571/1.6691 | 1768.4/0.8022/2.3893 | no_consistent_gain_or_inconclusive |
+| [r317](../evidence/20261103-r337/campaign/patches/r317-vs-control309.patch) | bind-uploads | 812.5/0.3602/1.3220 | 1304.9/0.5715/1.6238 | 1949.8/0.9208/2.1102 | no_consistent_gain_or_inconclusive |
+| [r318](../evidence/20261103-r337/campaign/patches/r318-vs-r312.patch) | tail-coverage | 812.9/0.3695/1.2866 | 1246.5/0.5676/1.6074 | 1673.8/0.7977/2.4076 | no_consistent_gain_or_inconclusive |
+| [r319](../evidence/20261103-r337/campaign/patches/r319-vs-control309.patch) | host-lengths | 814.4/0.3722/1.2812 | 1184.7/0.5355/1.7226 | 1784.3/0.8315/2.2944 | no_consistent_gain_or_inconclusive |
+| [r320](../evidence/20261103-r337/campaign/patches/r320-vs-control309.patch) | cores50 | 786.0/0.3344/1.4121 | 1153.5/0.5213/1.7860 | 1834.8/0.8679/2.2058 | no_consistent_gain_or_inconclusive |
+| [r321](../evidence/20261103-r337/campaign/patches/r321-vs-control309.patch) | mask-cache | 784.1/0.3573/1.3316 | 1245.0/0.5603/1.6497 | 1766.0/0.8312/2.2933 | no_consistent_gain_or_inconclusive |
+| [r322](../evidence/20261103-r337/campaign/patches/r322-vs-control309.patch) | cores75 | — | — | — | rejected_operator_resource_limit |
+| [r323](../evidence/20261103-r337/campaign/patches/r323-vs-control309.patch) | draft16 | 802.4/0.3699/1.3063 | 1244.6/0.5783/1.6132 | 1814.5/0.8340/2.3192 | no_consistent_gain_or_inconclusive |
+| [r324](../evidence/20261103-r337/campaign/patches/r324-vs-control309.patch) | unified-min5 | 782.8/0.3674/1.3091 | 1241.7/0.5605/1.6317 | 1734.2/0.8254/2.3089 | no_consistent_gain_or_inconclusive |
+| [r325](../evidence/20261103-r337/campaign/patches/r325-vs-control309.patch) | page-id-cache | 813.3/0.3646/1.2944 | 1220.3/0.5469/1.6709 | 1727.5/0.8202/2.3543 | no_consistent_gain_or_inconclusive |
+| [r326](../evidence/20261103-r337/campaign/patches/r326-vs-control309.patch) | hift-static-weightnorm | 810.1/0.3649/1.3204 | 1240.9/0.5421/1.6922 | 1773.0/0.8577/2.2280 | no_consistent_gain_or_inconclusive |
+| [r327](../evidence/20261103-r337/campaign/patches/r327-vs-control309.patch) | private-prompt-flow | — | — | — | rejected_native_crash |
+| [r328](../evidence/20261103-r337/campaign/patches/r328-vs-control309.patch) | packed-rotary | 865.3/0.3732/1.2786 | 1265.9/0.5672/1.6245 | 1848.9/0.8593/2.2368 | no_consistent_gain_or_inconclusive |
+| [r329](../evidence/20261103-r337/campaign/patches/r329-vs-control309.patch) | cube50 | — | — | — | rejected_operator_resource_limit |
+| [r330](../evidence/20261103-r337/campaign/patches/r330-vs-control309.patch) | vector50 | — | — | — | rejected_operator_resource_limit |
+| [r331](../evidence/20261103-r337/campaign/patches/r331-vs-control309.patch) | taskqueue2 | — | — | — | rejected_framework_graph_compatibility |
+| [r332](../evidence/20261103-r337/campaign/patches/r332-vs-r319.patch) | paged-suffix | 750.1/0.3578/1.3328 | 1149.7/0.5312/1.6295 | 1751.1/0.8127/2.3549 | no_consistent_gain_or_inconclusive |
+| [r333](../evidence/20261103-r337/campaign/patches/r333-vs-control309.patch) | taskqueue0 | 908.3/0.4068/1.1664 | 1345.2/0.6223/1.4621 | 2155.9/1.0019/1.8947 | no_consistent_gain_or_inconclusive |
+| [r334](../evidence/20261103-r337/campaign/patches/r334-vs-control309.patch) | low-pressure-split | 774.5/0.3508/1.3496 | 1193.2/0.5300/1.7418 | 1615.6/0.7946/2.4186 | promising_needs_reverse_confirmation |
+| [r335](../evidence/20261103-r337/campaign/patches/r335-vs-control309.patch) | aclnn-cache100k | — | — | — | rejected_native_crash |
+| [r336](../evidence/20261103-r337/campaign/patches/r336-vs-control309.patch) | pinned-pcm | 873.5/0.3760/1.2432 | 1240.8/0.5655/1.6328 | 1829.0/0.8691/2.2092 | no_consistent_gain_or_inconclusive |
+| [r337](../evidence/20261103-r337/campaign/patches/r337-vs-r320.patch) | host-lengths | 759.1/0.3217/1.4676 | 1138.6/0.5168/1.7922 | 1626.7/0.7671/2.5127 | promising_needs_reverse_confirmation |
+| [r338](../evidence/20261103-r337/campaign/patches/r338-vs-r332.patch) | mask-cache | 741.7/0.3499/1.3488 | 1164.2/0.5273/1.7347 | 1718.6/0.7957/2.4373 | no_consistent_gain_or_inconclusive |
+| [r339](../evidence/20261103-r337/campaign/patches/r339-vs-control309.patch) | rope-invariant | — | — | — | rejected_diagnostic_crash |
+| [r340](../evidence/20261103-r337/campaign/patches/r340-vs-control309.patch) | hift-exact-rows | 784.5/0.3601/1.3390 | 1293.0/0.6036/1.5701 | 1692.3/0.7873/2.4339 | no_consistent_gain_or_inconclusive |
+| [r341](../evidence/20261103-r337/campaign/patches/r341-vs-control309.patch) | script-elementwise | 787.1/0.3735/1.3078 | 1257.5/0.5517/1.6757 | 1810.7/0.8452/2.2724 | no_consistent_gain_or_inconclusive |
+| [r342](../evidence/20261103-r337/campaign/patches/r342-vs-r320.patch) | low-pressure-split | 737.6/0.3242/1.4396 | 1226.5/0.5556/1.6452 | 1601.0/0.7751/2.4713 | no_consistent_gain_or_inconclusive |
+| [r343](../evidence/20261103-r337/campaign/patches/r343-vs-control309.patch) | audio-stream-cores | 835.2/0.3356/1.3947 | 1203.4/0.5237/1.7759 | 1629.4/0.7725/2.4889 | promising_needs_reverse_confirmation |
+| [r344](../evidence/20261103-r337/campaign/patches/r344-vs-control309.patch) | euler-exact-rows | 816.1/0.3876/1.2159 | 1263.9/0.5795/1.6017 | 1770.3/0.8092/2.3558 | no_consistent_gain_or_inconclusive |
+| [r345](../evidence/20261103-r337/campaign/patches/r345-vs-control309.patch) | rounding-native-rms | 804.8/0.3615/1.3168 | 1206.3/0.5515/1.6558 | 1731.5/0.8327/2.3138 | no_consistent_gain_or_inconclusive |
+| [r346](../evidence/20261103-r337/campaign/patches/r346-vs-control309.patch) | native-rotary | 788.4/0.3615/1.3357 | 1149.2/0.5381/1.7051 | 1830.5/0.8642/2.2196 | no_consistent_gain_or_inconclusive |
+| [r347](../evidence/20261103-r337/campaign/patches/r347-vs-r337.patch) | mask-cache | 772.4/0.3290/1.4575 | 1166.6/0.5198/1.7572 | 1719.0/0.7840/2.4343 | no_consistent_gain_or_inconclusive |
+| [r348](../evidence/20261103-r337/campaign/patches/r348-vs-control309.patch) | thinker-static-fia | 872.1/0.3825/1.2648 | 1227.6/0.5557/1.6530 | 1893.9/0.8755/2.1847 | no_consistent_gain_or_inconclusive |
+| [r349](../evidence/20261103-r337/campaign/patches/r349-vs-r337.patch) | cores-third | 791.8/0.3342/1.4208 | 1228.5/0.5306/1.7696 | 1783.3/0.8392/2.2601 | no_consistent_gain_or_inconclusive |
+| [r350](../evidence/20261103-r337/campaign/patches/r350-vs-r346.patch) | rounded-native-rotary | 776.2/0.3618/1.3057 | 1184.4/0.5401/1.6991 | 1769.8/0.8159/2.3750 | no_consistent_gain_or_inconclusive |
+| [r351](../evidence/20261103-r337/campaign/patches/r351-vs-r343.patch) | host-lengths | 792.6/0.3443/1.3772 | 1193.1/0.5336/1.7370 | 1718.3/0.8107/2.3162 | no_consistent_gain_or_inconclusive |
+
+[最终确认、完整失败日志和机制证据](../evidence/20261103-r337/README.md)。

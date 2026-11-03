@@ -1,0 +1,17 @@
+{
+  "tag": "nativep337",
+  "native_tails": {
+    "c8": {
+      "mean_audio_rtf": 0.7497006159155328,
+      "median_audio_rtf": 0.7253077928331244,
+      "p50_audio_rtf": 0.7253077928331244,
+      "p95_audio_rtf": 0.9816750271711498,
+      "p99_audio_rtf": 1.3123822375427465,
+      "mean_audio_ttfp_ms": 1592.0691042701947,
+      "median_audio_ttfp_ms": 1554.9493036232889,
+      "p50_audio_ttfp_ms": 1554.9493036232889,
+      "p95_audio_ttfp_ms": 2080.8239455334838,
+      "p99_audio_ttfp_ms": 2432.878718888388
+    }
+  }
+}

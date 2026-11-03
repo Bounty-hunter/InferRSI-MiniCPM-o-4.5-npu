@@ -1,0 +1,14 @@
+{
+  "affected": "control309-mid1 native C2",
+  "activity": "own remote tar/gzip of full profile309d evidence",
+  "observed_utc": "2026-11-02T12:45:55Z",
+  "action": "Raw trace untouched; exclude earlier A from acceptance; no heavy remote export/archive during B and new A",
+  "acceptance_pair": [
+    "r315-confirm1",
+    "control309-after1"
+  ],
+  "earlier_run_retained": true,
+  "observed_tar_pid": 3797050,
+  "stop_attempt_utc": "2026-11-02T12:47:17Z",
+  "stop_result": "process had already exited before signal; no process was stopped"
+}

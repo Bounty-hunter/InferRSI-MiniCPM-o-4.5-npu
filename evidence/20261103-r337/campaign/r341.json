@@ -1,0 +1,25 @@
+{
+  "tag": "r341",
+  "engine": "engine-r341",
+  "config": "config-r341.json",
+  "engine_sha256": "c14d15d5adf8a603495056d9c02481f9dca1e528707f8ccf833a3b0ef3bd1585",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19230,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "User language hypothesis tested narrowly: execute unchanged eager Thinker RMSNorm/RoPE/SiLU op chains through TorchScript C++ interpreter to reduce Python/GIL dispatch, keep separate BF16 intermediate rounding and same model/kernels. Standalone exact dtype/strided probes and16-row Thinker parity required; native means decide, not fewer Python frames",
+  "kind": "script-elementwise"
+}

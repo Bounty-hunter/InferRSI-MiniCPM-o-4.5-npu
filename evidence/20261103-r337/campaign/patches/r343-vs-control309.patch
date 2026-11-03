@@ -1,0 +1,71 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        audio_stream_core_limit: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -337,6 +338,20 @@
+         self.t2w_live: dict[int, LiveS] = {}
+         self.t2w_wake = threading.Event()
+         self.t2w_stream = torch.npu.Stream(device=device) if self.t2w_threaded else None
++        self.audio_stream_core_policy = None
++        if audio_stream_core_limit:
++            if self.t2w_stream is None:
++                raise ValueError("audio stream quota requires threaded audio")
++            before = torch.npu.get_stream_limit(self.t2w_stream)
++            torch.npu.set_stream_limit(self.t2w_stream, cube_num=12, vector_num=24)
++            after = torch.npu.get_stream_limit(self.t2w_stream)
++            if after["cube_core_num"] != 12 or after["vector_core_num"] != 24:
++                raise RuntimeError("audio stream quota did not take effect")
++            self.audio_stream_core_policy = dict(before=before,after=after,
++                device_limit=torch.npu.get_device_limit(torch.device(device).index or 0),
++                prompt_limit=torch.npu.get_stream_limit(self.prompt_stream),
++                capture_on_current_stream=True)
++
+         self._prompt_cache_lock = threading.Lock()
+         self._prompt_futures = {}
+         self._prompt_refs = {}
+@@ -767,6 +782,7 @@
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                 "t2w_startup_stats": dict(self.t2w_startup_stats),
++                "audio_stream_core_policy": self.audio_stream_core_policy,
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+--- a/engine/runtime/dit_graph.py
++++ b/engine/runtime/dit_graph.py
+@@ -515,7 +515,7 @@
+                 self.accel.synchronize()
+                 graph_class = getattr(self.accel, "CUDAGraph", None) or getattr(self.accel, "NPUGraph")
+                 g = graph_class()
+-                with self.accel.graph(g, pool=self.pool, capture_error_mode="thread_local"):
++                with self.accel.graph(g, stream=self.accel.current_stream(), pool=self.pool, capture_error_mode="thread_local"):
+                     self._body(w, temb)
+             self.accel.synchronize()
+             self.graphs[key] = (g, w, temb)
+--- a/engine/runtime/hift_graph.py
++++ b/engine/runtime/hift_graph.py
+@@ -49,7 +49,7 @@
+                 self.accel.synchronize()
+                 graph_class = getattr(self.accel, "CUDAGraph", None) or getattr(self.accel, "NPUGraph")
+                 g = graph_class()
+-                with self.accel.graph(g, pool=self.pool, capture_error_mode="thread_local"):
++                with self.accel.graph(g, stream=self.accel.current_stream(), pool=self.pool, capture_error_mode="thread_local"):
+                     out = hift_forward_noise(self.hift, st["mel"], st["src"], st["rand"], st["noise"], self.decode_tf32)
+             self.accel.synchronize()
+             self.graphs[(rows, F)] = (g, st, out)
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "audio_stream_core_limit": true
+ }

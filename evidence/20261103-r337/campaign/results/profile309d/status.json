@@ -1,0 +1,5 @@
+{
+  "phase": "failed",
+  "utc": "2026-11-02T12:33:17Z",
+  "error": "TimeoutExpired(['msprof', '--delay=125', '--duration=12', '--output=/workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof', '--runtime-api=on', '--task-time=l2', '--ai-core=on', '--aic-metrics=PipeUtilization', '--msproftx=on', '--ascendcl=on', '--application=/bin/bash /workspace/minicpmo-r182/rsi-r312-r351-20261102/application_external_d.sh'], 180)"
+}

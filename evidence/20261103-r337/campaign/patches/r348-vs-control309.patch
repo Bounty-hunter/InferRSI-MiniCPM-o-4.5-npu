@@ -1,0 +1,49 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        thinker_static_kv_capacity: int = 0,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -220,6 +221,8 @@
+             graph_max_batch=graph_max_batch,
+             graph_max_blocks=64,
+             batch_append_prefill=thinker_prefix_cache,
++            static_shape_attention=bool(thinker_static_kv_capacity),
++            static_shape_capacity=int(thinker_static_kv_capacity) or 256,
+         )
+         self.arun = NpuDecoderRunner(
+             self.talker.w,
+@@ -772,6 +775,9 @@
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+                 "thinker_prefix_cache_stats": dict(self._thinker_prefix_stats),
+                 "thinker_batch_append_prefill": self.trun.batch_append_prefill,
++                "thinker_static_fia_capacity": self.trun.static_shape_capacity,
++                "thinker_static_fia_buckets": list(self.trun.static_decode_graphs),
++                "thinker_static_fia_host_calls": getattr(self.trun,"static_fia_host_calls",0),
+                 "thinker_batch_append_prefill_failures": list(self.trun.batch_append_prefill_failures),
+                 "talker_graph_buckets": sorted(self.arun.decode_graphs),
+                 "prompt_cache_entries": prompt_entries, "prompt_cache_refs": prompt_refs,
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -889,6 +889,7 @@
+         static_capacity = self._static_capacity_for(layout)
+         static_key = (bucket, static_capacity or 0)
+         if graph_eligible and static_capacity is not None and static_key not in self.static_graph_failures:
++            self.static_fia_host_calls = getattr(self,"static_fia_host_calls",0)+1
+             graph_x, graph_layout = self._padded_decode(x, layout, bucket)
+             graph = self.static_decode_graphs.get(static_key)
+             if graph is None:
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "thinker_static_kv_capacity": 512
+ }

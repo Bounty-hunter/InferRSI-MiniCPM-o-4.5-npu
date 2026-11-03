@@ -1,0 +1,23 @@
+{
+  "tag": "r350",
+  "engine": "engine-r350",
+  "config": "config-r350.json",
+  "engine_sha256": "c8f628a428b35d8e60dd5038c55c6ba797ccbdcd7868c151bbea406dfe1c5b47",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    8
+  ],
+  "quality": true,
+  "port": 19239,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "r346",
+  "hypothesis": "Accuracy/performance ladder after direct native RoPE: two native kernels separately produce rounded q*cos and rotate(q)*sin, then same-dtype addition; immutable zero tables retained outside graph lifetimes. Four native calls+two adds vs original ten elementwise ops across Q/K. Strict exact operator probe required before16Thinker/native/speech gates; not assumed faster or quality-qualified",
+  "kind": "rounded-native-rotary"
+}

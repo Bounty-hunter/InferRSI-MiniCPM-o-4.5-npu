@@ -1,0 +1,25 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -862,12 +862,16 @@
+         ]
+         lay = self.tkv.layout([lv.seq for lv in rows], [len(f) for f in feeds])
+         embs = []
+-        for lv, feed in zip(rows, feeds):
+-            if lv.pending_prefill and lv.prompt_embeds is not None:
+-                start = prefix_lengths.get(lv.seq, 0)
+-                embs.append(lv.prompt_embeds[start:].to(self.thinker.dtype))
+-            else:
+-                embs.append(self.thinker.embed(torch.tensor(feed, dtype=torch.int64, device=self.device)))
++        if all(not lv.pending_prefill or lv.prompt_embeds is None for lv in rows):
++            flat = [token for feed in feeds for token in feed]
++            embs.append(self.thinker.embed(torch.tensor(flat, dtype=torch.int64, device=self.device)))
++        else:
++            for lv, feed in zip(rows, feeds):
++                if lv.pending_prefill and lv.prompt_embeds is not None:
++                    start = prefix_lengths.get(lv.seq, 0)
++                    embs.append(lv.prompt_embeds[start:].to(self.thinker.dtype))
++                else:
++                    embs.append(self.thinker.embed(torch.tensor(feed, dtype=torch.int64, device=self.device)))
+         # torch-npu's GLOBAL graph-capture mode forbids host/device copies on
+         # other threads.  Reference preparation uses the same lock, so the
+         # one-time capture cannot race Token2Wav setup.

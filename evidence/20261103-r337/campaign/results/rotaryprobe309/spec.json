@@ -1,0 +1,12 @@
+{
+  "tag": "rotaryprobe309",
+  "engine": "engine-r346",
+  "config": "config-r346.json",
+  "engine_sha256": "b91fe9aa03716141138fc0ebb123025c3d5c74dbd3e12dee6e1794e82e07cf81",
+  "native": [],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19097,
+  "runner": "probe_native_rotary.py",
+  "hypothesis": "Characterize npu_rotary_mul BF16/FP16 on strided32Q8KV128dim and positions3070+, report drift without changing quality thresholds; not an algorithm round"
+}

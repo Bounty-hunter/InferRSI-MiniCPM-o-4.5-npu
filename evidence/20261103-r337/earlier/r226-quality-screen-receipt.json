@@ -1,0 +1,169 @@
+{
+  "development_only": true,
+  "screen_passed": false,
+  "candidate_decision": "REJECTED_NOT_PROMOTED",
+  "n_scored": 15,
+  "unique_dataset_rows": 4,
+  "seed_indices": [
+    0
+  ],
+  "scoring_process_exit_code": 0,
+  "evaluator_digest": "630c4def88696b272e901377be31b384a673f24a186213118e511da97de2a5a0",
+  "remote_local_hashes_match": true,
+  "source_artifact_sha256": {
+    "scored.json": "91c84566fa608246b84d6c416d74e6ab2c80c3faaf35d00eec486c071f59c1d9",
+    "run.log": "4461105efcc3f67e654197f6ad8b911d827592c4e1ae58c9cc3195034b0132ce",
+    "exit-code": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "new_wav_and_all_manifest_hashes_verified": true,
+  "comparative_failures": [
+    {
+      "concurrency": 1,
+      "metric": "utmos_mean",
+      "candidate": 4.033207416534424,
+      "control": 4.34865665435791,
+      "control_after": 4.348509788513184,
+      "margin": 0.05,
+      "unit": "MOS",
+      "control_repeat_noise": 0.0001468658447265625,
+      "within_margin_screen_only": false
+    },
+    {
+      "concurrency": 4,
+      "metric": "sim_mean",
+      "candidate": 43.93562602996826,
+      "control": 47.25214862823486,
+      "control_after": 47.2482123374939,
+      "margin": 1.0,
+      "unit": "x100",
+      "control_repeat_noise": 0.003936290740966797,
+      "within_margin_screen_only": false
+    }
+  ],
+  "absolute_floors": {
+    "control_before-c1": {
+      "passed": true,
+      "checks": {
+        "wer_filtered_corpus": {
+          "value": 0.0,
+          "floor": 0.026874999999999996,
+          "passed": true
+        },
+        "sim_mean": {
+          "value": 53.574337005615234,
+          "floor": 41.58098999999999,
+          "passed": true
+        },
+        "utmos_mean": {
+          "value": 4.34865665435791,
+          "floor": 4.1634340000000005,
+          "passed": true
+        }
+      }
+    },
+    "control_before-c4": {
+      "passed": true,
+      "checks": {
+        "wer_filtered_corpus": {
+          "value": 0.0,
+          "floor": 0.026874999999999996,
+          "passed": true
+        },
+        "sim_mean": {
+          "value": 47.25214862823486,
+          "floor": 41.58098999999999,
+          "passed": true
+        },
+        "utmos_mean": {
+          "value": 4.229009747505188,
+          "floor": 4.1634340000000005,
+          "passed": true
+        }
+      }
+    },
+    "candidate-c1": {
+      "passed": false,
+      "checks": {
+        "wer_filtered_corpus": {
+          "value": 0.0,
+          "floor": 0.026874999999999996,
+          "passed": true
+        },
+        "sim_mean": {
+          "value": 56.63722610473633,
+          "floor": 41.58098999999999,
+          "passed": true
+        },
+        "utmos_mean": {
+          "value": 4.033207416534424,
+          "floor": 4.1634340000000005,
+          "passed": false
+        }
+      }
+    },
+    "candidate-c4": {
+      "passed": true,
+      "checks": {
+        "wer_filtered_corpus": {
+          "value": 0.0,
+          "floor": 0.026874999999999996,
+          "passed": true
+        },
+        "sim_mean": {
+          "value": 43.93562602996826,
+          "floor": 41.58098999999999,
+          "passed": true
+        },
+        "utmos_mean": {
+          "value": 4.3139941692352295,
+          "floor": 4.1634340000000005,
+          "passed": true
+        }
+      }
+    },
+    "control_after-c1": {
+      "passed": true,
+      "checks": {
+        "wer_filtered_corpus": {
+          "value": 0.0,
+          "floor": 0.026874999999999996,
+          "passed": true
+        },
+        "sim_mean": {
+          "value": 53.540122985839844,
+          "floor": 41.58098999999999,
+          "passed": true
+        },
+        "utmos_mean": {
+          "value": 4.348509788513184,
+          "floor": 4.1634340000000005,
+          "passed": true
+        }
+      }
+    },
+    "control_after-c4": {
+      "passed": true,
+      "checks": {
+        "wer_filtered_corpus": {
+          "value": 0.0,
+          "floor": 0.026874999999999996,
+          "passed": true
+        },
+        "sim_mean": {
+          "value": 47.2482123374939,
+          "floor": 41.58098999999999,
+          "passed": true
+        },
+        "utmos_mean": {
+          "value": 4.229020774364471,
+          "floor": 4.1634340000000005,
+          "passed": true
+        }
+      }
+    }
+  },
+  "final_speech_quality_gate": "NOT_RUN",
+  "adoption_allowed": false,
+  "cuda_cleanup": "No dyy scoring processes or reservations remain after r226",
+  "scope": "4-row/one-seed screen rejected this candidate; do not turn process exit0 into quality PASS or relax gates"
+}

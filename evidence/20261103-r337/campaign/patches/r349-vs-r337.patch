@@ -1,0 +1,10 @@
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -47,6 +47,6 @@
+     8
+   ],
+   "t2w_startup_extended": true,
+-  "npu_core_fraction": 0.5,
++  "npu_core_fraction": 0.3333333333333333,
+   "decoder_host_qo_lengths": true
+ }

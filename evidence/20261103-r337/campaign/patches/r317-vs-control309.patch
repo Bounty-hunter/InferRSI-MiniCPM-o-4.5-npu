@@ -1,0 +1,26 @@
+--- a/engine/runtime/talker_block_graph.py
++++ b/engine/runtime/talker_block_graph.py
+@@ -57,13 +57,18 @@
+                   + pos % self.runner.kv.page_size for index, pos in enumerate(row)] for row in positions]
+         lengths = [[pos + 1 for pos in row] for row in positions]
+         self.frame_positions.copy_(torch.tensor(positions, dtype=torch.long, device=feeds.device))
+-        self.frame_slots.copy_(torch.tensor(slots, dtype=torch.int32, device=feeds.device))
+-        self.frame_lengths.copy_(torch.tensor(lengths, dtype=torch.int32, device=feeds.device))
+-        self.view.block_table.zero_()
+-        for index, row in enumerate(blocks):
++        table = []
++        for row in blocks:
+             if len(row) > self.runner.graph_max_blocks:
+                 raise ValueError('block table exceeds graph capacity')
+-            self.view.block_table[index, :len(row)].copy_(torch.tensor(row, dtype=torch.int32, device=feeds.device))
++            table.extend([*row, *([0] * (self.runner.graph_max_blocks - len(row)))])
++        flat_slots = [value for row in slots for value in row]
++        flat_lengths = [value for row in lengths for value in row]
++        metadata = torch.tensor([*flat_slots, *flat_lengths, *table], dtype=torch.int32, device=feeds.device)
++        count = self.frames * n
++        self.frame_slots.copy_(metadata[:count].view(self.frames, n))
++        self.frame_lengths.copy_(metadata[count:2 * count].view(self.frames, n))
++        self.view.block_table.copy_(metadata[2 * count:].view(n, self.runner.graph_max_blocks))
+         for name in ('seeds', 'steps', 'history', 'finished', 'active'):
+             self.st[name].copy_(getattr(state, name))
+ 

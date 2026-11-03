@@ -1,0 +1,284 @@
+{
+  "scope": "Archived NPU evidence only; observed raw comparisons, not equal-quality/CI/individual causal attribution",
+  "candidate": "r337",
+  "server_reference_sha": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+  "measurements": [
+    {
+      "c": 1,
+      "omni": {
+        "mean_audio_ttfp_ms": 867.1766117913648,
+        "mean_audio_rtf": 0.3113603539299176,
+        "request_throughput": 0.8011817748554725,
+        "total_audio_duration_s": 130.28
+      },
+      "candidate_repeats": [
+        {
+          "mean_audio_ttfp_ms": 522.7217956271488,
+          "mean_audio_rtf": 0.2232806797378261,
+          "request_throughput": 1.0826186051410178,
+          "total_audio_duration_s": 134.88
+        },
+        {
+          "mean_audio_ttfp_ms": 509.9688179907389,
+          "mean_audio_rtf": 0.21711627066814843,
+          "request_throughput": 1.088306250334358,
+          "total_audio_duration_s": 138.16
+        }
+      ],
+      "gains_pct": [
+        {
+          "mean_audio_ttfp_ms": 39.72141447088392,
+          "mean_audio_rtf": 28.28866073678632,
+          "request_throughput": 35.127712476524394
+        },
+        {
+          "mean_audio_ttfp_ms": 41.192046573157235,
+          "mean_audio_rtf": 30.268491820568165,
+          "request_throughput": 35.83761943794599
+        }
+      ]
+    },
+    {
+      "c": 2,
+      "omni": {
+        "mean_audio_ttfp_ms": 1060.6630487600341,
+        "mean_audio_rtf": 0.41418870707429434,
+        "request_throughput": 1.2062151225448137,
+        "total_audio_duration_s": 129.64
+      },
+      "candidate_repeats": [
+        {
+          "mean_audio_ttfp_ms": 794.1753315681126,
+          "mean_audio_rtf": 0.3347740438494865,
+          "request_throughput": 1.4349796424010486,
+          "total_audio_duration_s": 136.92
+        },
+        {
+          "mean_audio_ttfp_ms": 732.1205352782272,
+          "mean_audio_rtf": 0.3260015323590528,
+          "request_throughput": 1.477346206831059,
+          "total_audio_duration_s": 135.2
+        }
+      ],
+      "gains_pct": [
+        {
+          "mean_audio_ttfp_ms": 25.124634774772105,
+          "mean_audio_rtf": 19.17354622866697,
+          "request_throughput": 18.965482655664157
+        },
+        {
+          "mean_audio_ttfp_ms": 30.975201207008098,
+          "mean_audio_rtf": 21.291544942924556,
+          "request_throughput": 22.477838257758375
+        }
+      ]
+    },
+    {
+      "c": 4,
+      "omni": {
+        "mean_audio_ttfp_ms": 1429.6158416982507,
+        "mean_audio_rtf": 0.5970206659688169,
+        "request_throughput": 1.6082713294481612,
+        "total_audio_duration_s": 267.8
+      },
+      "candidate_repeats": [
+        {
+          "mean_audio_ttfp_ms": 1202.2007612977177,
+          "mean_audio_rtf": 0.5390972250731492,
+          "request_throughput": 1.6821994026457288,
+          "total_audio_duration_s": 288.52
+        },
+        {
+          "mean_audio_ttfp_ms": 1173.725431697676,
+          "mean_audio_rtf": 0.504913602835849,
+          "request_throughput": 1.8155643886114023,
+          "total_audio_duration_s": 282.76
+        }
+      ],
+      "gains_pct": [
+        {
+          "mean_audio_ttfp_ms": 15.907425880954495,
+          "mean_audio_rtf": 9.702083059666332,
+          "request_throughput": 4.59674134854684
+        },
+        {
+          "mean_audio_ttfp_ms": 17.899242757173194,
+          "mean_audio_rtf": 15.427784728942495,
+          "request_throughput": 12.88918451554868
+        }
+      ]
+    },
+    {
+      "c": 8,
+      "omni": {
+        "mean_audio_ttfp_ms": 2049.720173497917,
+        "mean_audio_rtf": 1.0233874221344461,
+        "request_throughput": 1.96368511836572,
+        "total_audio_duration_s": 518.24
+      },
+      "candidate_repeats": [
+        {
+          "mean_audio_ttfp_ms": 1686.193266796181,
+          "mean_audio_rtf": 0.7814887819694083,
+          "request_throughput": 2.4622199908765685,
+          "total_audio_duration_s": 542.92
+        },
+        {
+          "mean_audio_ttfp_ms": 1670.1068774345913,
+          "mean_audio_rtf": 0.7794519746879861,
+          "request_throughput": 2.50805554119791,
+          "total_audio_duration_s": 535.44
+        }
+      ],
+      "gains_pct": [
+        {
+          "mean_audio_ttfp_ms": 17.73544073976523,
+          "mean_audio_rtf": 23.637054250727218,
+          "request_throughput": 25.387719642432028
+        },
+        {
+          "mean_audio_ttfp_ms": 18.520249786852748,
+          "mean_audio_rtf": 23.836080273264614,
+          "request_throughput": 27.721879528487904
+        }
+      ]
+    }
+  ],
+  "internal_paired": {
+    "rows": [
+      {
+        "source": "r337",
+        "c": 2,
+        "gain_point_range_pct": {
+          "mean_audio_ttfp_ms": [
+            0.10849665401069242,
+            11.537177679922838
+          ],
+          "mean_audio_rtf": [
+            8.943056338297772,
+            11.329137634717501
+          ],
+          "request_throughput": [
+            11.828935211443593,
+            15.130590265481603
+          ]
+        },
+        "rtf_and_throughput_sign_positive_all_comparisons": true,
+        "all_three_sign_positive_all_comparisons": true
+      },
+      {
+        "source": "r337",
+        "c": 4,
+        "gain_point_range_pct": {
+          "mean_audio_ttfp_ms": [
+            -1.8182216790513683,
+            5.434750408159783
+          ],
+          "mean_audio_rtf": [
+            3.2334577440673473,
+            9.369328551485644
+          ],
+          "request_throughput": [
+            1.233004201282939,
+            10.085595605534792
+          ]
+        },
+        "rtf_and_throughput_sign_positive_all_comparisons": true,
+        "all_three_sign_positive_all_comparisons": false
+      },
+      {
+        "source": "r337",
+        "c": 8,
+        "gain_point_range_pct": {
+          "mean_audio_ttfp_ms": [
+            3.758084830074082,
+            8.265192120561093
+          ],
+          "mean_audio_rtf": [
+            3.614135382953121,
+            7.272787506673561
+          ],
+          "request_throughput": [
+            3.284383764081622,
+            9.24499528329732
+          ]
+        },
+        "rtf_and_throughput_sign_positive_all_comparisons": true,
+        "all_three_sign_positive_all_comparisons": true
+      },
+      {
+        "source": "r343",
+        "c": 2,
+        "gain_point_range_pct": {
+          "mean_audio_ttfp_ms": [
+            -9.879158023347777,
+            -1.8570811166593204
+          ],
+          "mean_audio_rtf": [
+            3.385840535023943,
+            5.554019646072406
+          ],
+          "request_throughput": [
+            4.710240628920226,
+            6.399736169326808
+          ]
+        },
+        "rtf_and_throughput_sign_positive_all_comparisons": true,
+        "all_three_sign_positive_all_comparisons": false
+      },
+      {
+        "source": "r343",
+        "c": 4,
+        "gain_point_range_pct": {
+          "mean_audio_ttfp_ms": [
+            -2.3475030858647106,
+            2.6370326720844606
+          ],
+          "mean_audio_rtf": [
+            2.8624280520035517,
+            3.4216108603939532
+          ],
+          "request_throughput": [
+            0.37957283661786967,
+            2.5222853642018706
+          ]
+        },
+        "rtf_and_throughput_sign_positive_all_comparisons": true,
+        "all_three_sign_positive_all_comparisons": false
+      },
+      {
+        "source": "r343",
+        "c": 8,
+        "gain_point_range_pct": {
+          "mean_audio_ttfp_ms": [
+            -1.456731570509695,
+            3.2990511334726524
+          ],
+          "mean_audio_rtf": [
+            -3.7965950147483607,
+            2.2869424998215537
+          ],
+          "request_throughput": [
+            -4.617466339651488,
+            3.051588769638358
+          ]
+        },
+        "rtf_and_throughput_sign_positive_all_comparisons": false,
+        "all_three_sign_positive_all_comparisons": false
+      }
+    ],
+    "speech_gate": "NOT_RUN",
+    "adopted": false,
+    "scope": "Four observed paired-control point differences per candidate/tier; no confidence interval or equal-quality acceptance"
+  },
+  "prompt_lookup_counter_scope": "Cumulative through c8, all tiers including warmups, first fresh r337 repeat",
+  "prompt_lookup_stats": {
+    "verification_calls": 253,
+    "draft_tokens": 3102,
+    "matched_draft_tokens": 2215,
+    "target_tokens": 2610,
+    "kv_fallbacks": 0
+  },
+  "speech_gate": "NOT_RUN",
+  "default_promoted": false
+}

@@ -1,0 +1,21 @@
+{
+  "tag": "r328",
+  "engine": "engine-r328",
+  "config": "config-r328.json",
+  "engine_sha256": "2e92b872b2934851fdfb3b464a8e9633edb0abd8084519dde621527bc7d1e357",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19217,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "DirectexternalGILprobe:44/2000 nominal samples in rotate/RoPE leaf frames. Pack ThinkerQ/K heads for the same separate BF16 multiply+multiply+add sequence, reducing eager dispatch while restoring contiguous outputs; no fused FMA/precision change. Extra concat/copy may outweigh saved launches; require16exactThinker gate and nativemeans",
+  "kind": "packed-rotary"
+}

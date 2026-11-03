@@ -1,0 +1,253 @@
+{
+  "order": [
+    "control309-finalA2",
+    "r343-finalB2",
+    "r337-finalB2",
+    "control309-finalA3"
+  ],
+  "rows": [
+    {
+      "c": 2,
+      "candidate": "r343-finalB2",
+      "metrics": {
+        "mean_audio_ttfp_ms": 873.5809736826923,
+        "mean_audio_rtf": 0.35086937060469336,
+        "request_throughput": 1.360342260943592
+      },
+      "gain_pct": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": -9.879158023347777,
+          "mean_audio_rtf": 4.565204206414797,
+          "request_throughput": 6.0123935346627855
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": -5.555621968346469,
+          "mean_audio_rtf": 3.385840535023943,
+          "request_throughput": 4.710240628920226
+        }
+      },
+      "control_metrics": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 795.0379211106338,
+          "mean_audio_rtf": 0.36765350382640793,
+          "request_throughput": 1.2831917246532143
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 827.6025069935713,
+          "mean_audio_rtf": 0.3631655779522548,
+          "request_throughput": 1.2991492071577526
+        }
+      },
+      "audio_s": {
+        "control309-finalA2": 139.4,
+        "r343-finalB2": 138.32,
+        "r337-finalB2": 135.2,
+        "control309-finalA3": 139.12
+      },
+      "source": "r343"
+    },
+    {
+      "c": 2,
+      "candidate": "r337-finalB2",
+      "metrics": {
+        "mean_audio_ttfp_ms": 732.1205352782272,
+        "mean_audio_rtf": 0.3260015323590528,
+        "request_throughput": 1.477346206831059
+      },
+      "gain_pct": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 7.913759100259476,
+          "mean_audio_rtf": 11.329137634717501,
+          "request_throughput": 15.130590265481603
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 11.537177679922838,
+          "mean_audio_rtf": 10.233361268090203,
+          "request_throughput": 13.716438319133605
+        }
+      },
+      "control_metrics": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 795.0379211106338,
+          "mean_audio_rtf": 0.36765350382640793,
+          "request_throughput": 1.2831917246532143
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 827.6025069935713,
+          "mean_audio_rtf": 0.3631655779522548,
+          "request_throughput": 1.2991492071577526
+        }
+      },
+      "audio_s": {
+        "control309-finalA2": 139.4,
+        "r343-finalB2": 138.32,
+        "r337-finalB2": 135.2,
+        "control309-finalA3": 139.12
+      },
+      "source": "r337"
+    },
+    {
+      "c": 4,
+      "candidate": "r343-finalB2",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1225.1783537940355,
+        "mean_audio_rtf": 0.5388594951440191,
+        "request_throughput": 1.686486588043648
+      },
+      "gain_pct": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1.2892677519357743,
+          "mean_audio_rtf": 3.276129644724124,
+          "request_throughput": 1.4910025436415397
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 0.05650203871474524,
+          "mean_audio_rtf": 2.8624280520035517,
+          "request_throughput": 2.2590450055741895
+        }
+      },
+      "control_metrics": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1241.1804936418775,
+          "mean_audio_rtf": 0.557111179654761,
+          "request_throughput": 1.6617104430695242
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 1225.870995898731,
+          "mean_audio_rtf": 0.5547384851584543,
+          "request_throughput": 1.6492297458398097
+        }
+      },
+      "audio_s": {
+        "control309-finalA2": 282.64,
+        "r343-finalB2": 288.16,
+        "r337-finalB2": 282.76,
+        "control309-finalA3": 284.96
+      },
+      "source": "r343"
+    },
+    {
+      "c": 4,
+      "candidate": "r337-finalB2",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1173.725431697676,
+        "mean_audio_rtf": 0.504913602835849,
+        "request_throughput": 1.8155643886114023
+      },
+      "gain_pct": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 5.434750408159783,
+          "mean_audio_rtf": 9.369328551485644,
+          "request_throughput": 9.25876985268732
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 4.253756257837327,
+          "mean_audio_rtf": 8.981688427182666,
+          "request_throughput": 10.085595605534792
+        }
+      },
+      "control_metrics": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1241.1804936418775,
+          "mean_audio_rtf": 0.557111179654761,
+          "request_throughput": 1.6617104430695242
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 1225.870995898731,
+          "mean_audio_rtf": 0.5547384851584543,
+          "request_throughput": 1.6492297458398097
+        }
+      },
+      "audio_s": {
+        "control309-finalA2": 282.64,
+        "r343-finalB2": 288.16,
+        "r337-finalB2": 282.76,
+        "control309-finalA3": 284.96
+      },
+      "source": "r337"
+    },
+    {
+      "c": 8,
+      "candidate": "r343-finalB2",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1760.5195180512965,
+        "mean_audio_rtf": 0.8213622902424272,
+        "request_throughput": 2.3658668076528
+      },
+      "gain_pct": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 3.2990511334726524,
+          "mean_audio_rtf": 2.2869424998215537,
+          "request_throughput": 3.051588769638358
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": -1.452052201328402,
+          "mean_audio_rtf": -1.5684315131088367,
+          "request_throughput": 0.4378763035293609
+        }
+      },
+      "control_metrics": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1820.5814303655643,
+          "mean_audio_rtf": 0.8405860089281592,
+          "request_throughput": 2.2958081829688832
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 1735.3217405179748,
+          "mean_audio_rtf": 0.8086787183834958,
+          "request_throughput": 2.3555524018678042
+        }
+      },
+      "audio_s": {
+        "control309-finalA2": 542.68,
+        "r343-finalB2": 538.88,
+        "r337-finalB2": 535.44,
+        "control309-finalA3": 546.76
+      },
+      "source": "r343"
+    },
+    {
+      "c": 8,
+      "candidate": "r337-finalB2",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1670.1068774345913,
+        "mean_audio_rtf": 0.7794519746879861,
+        "request_throughput": 2.50805554119791
+      },
+      "gain_pct": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 8.265192120561093,
+          "mean_audio_rtf": 7.272787506673561,
+          "request_throughput": 9.24499528329732
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 3.758084830074082,
+          "mean_audio_rtf": 3.614135382953121,
+          "request_throughput": 6.474198545070808
+        }
+      },
+      "control_metrics": {
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1820.5814303655643,
+          "mean_audio_rtf": 0.8405860089281592,
+          "request_throughput": 2.2958081829688832
+        },
+        "control309-finalA3": {
+          "mean_audio_ttfp_ms": 1735.3217405179748,
+          "mean_audio_rtf": 0.8086787183834958,
+          "request_throughput": 2.3555524018678042
+        }
+      },
+      "audio_s": {
+        "control309-finalA2": 542.68,
+        "r343-finalB2": 538.88,
+        "r337-finalB2": 535.44,
+        "control309-finalA3": 546.76
+      },
+      "source": "r337"
+    }
+  ],
+  "speech_gate": "NOT_RUN",
+  "adopted": false,
+  "scope": "Both bracketing controls retained; point estimates across separate runs, not a confidence interval or statistical proof. All same official client/input/config contracts verified by runner, retain output-duration variation."
+}

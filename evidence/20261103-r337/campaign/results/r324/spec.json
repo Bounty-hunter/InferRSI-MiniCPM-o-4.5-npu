@@ -1,0 +1,21 @@
+{
+  "tag": "r324",
+  "engine": "engine-r324",
+  "config": "config-r324.json",
+  "engine_sha256": "0be03a72d22e4193a09824d1035b11231df96f5d6a26fe123b6e27faa14a1e42",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19213,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "r315 reverse repeat preserved C8 benefit but C4 RTF/throughput regressed3%; merge ordinary zero-draft rows only when actual work cohort has >=5 rows, keeping the original small-cohort path",
+  "kind": "unified-min5"
+}

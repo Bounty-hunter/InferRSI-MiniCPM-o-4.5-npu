@@ -1,0 +1,458 @@
+[
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 1,
+    "contiguous": false,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 1,
+    "contiguous": true,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 9,
+    "contiguous": false,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 9,
+    "contiguous": true,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 72,
+    "contiguous": false,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 72,
+    "contiguous": true,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 1,
+    "contiguous": false,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 1,
+    "contiguous": true,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 9,
+    "contiguous": false,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 9,
+    "contiguous": true,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 72,
+    "contiguous": false,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 72,
+    "contiguous": true,
+    "supported": true,
+    "comparisons": [
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      },
+      {
+        "exact": true,
+        "changed": 0,
+        "max_abs": 0.0
+      }
+    ]
+  }
+]

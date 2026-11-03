@@ -1,0 +1,17 @@
+{
+  "tag": "omni-c1",
+  "algorithm_round": false,
+  "baseline_repeat_of": "omni-final",
+  "server_sha": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+  "client_sha": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+  "port": 19370,
+  "tiers": [
+    [
+      32,
+      1
+    ]
+  ],
+  "chunk": 25,
+  "runner_sha256": "4860189a2c0a4272b28b27b8132a7ad8e450538877eedd89940dbf7139f4a663",
+  "reason": "User-requested C1 completion for same version and configuration; supplementary measurement time retained"
+}

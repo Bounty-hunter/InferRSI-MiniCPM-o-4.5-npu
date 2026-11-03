@@ -1,0 +1,6938 @@
+{
+  "origin_collection_receipt": 1,
+  "recovered_export_receipt": 0,
+  "diagnostic_only": true,
+  "limitation": "Original controller timed out during export; completed raw device collection recovered by independent CPU export. No native timing claim. Python stacks are explicit calls/10ms samples; native torch profiler crashed. CPU samples include diagnostic overhead; no direct GIL ownership measurement.",
+  "trace": "D:\\huawei\\code\\codex_workspace\\outputs\\rsi-r312-r351-20261102\\results\\profile309d\\diagnostic\\msprof\\PROF_000001_20261102122940811_00188353NIAPJJCQ\\mindstudio_profiler_output\\msprof_20261102124037.json",
+  "events": 4145477,
+  "process_names": {
+    "192873957": "AI Core Freq",
+    "192874469": "Overlap Analysis",
+    "192873727": "CANN",
+    "192873925": "Ascend Hardware"
+  },
+  "hardware_task_types": {
+    "MIX_AIC": 14128,
+    "AI_CORE": 78368,
+    "AI_VECTOR_CORE": 724151,
+    "MIX_AIV": 8604,
+    "PROFILING_ENABLE": 1,
+    "SDMA_SQE": 7210,
+    "PCIE_DMA_SQE": 975,
+    "DSA_SQE": 184,
+    "C_CORE_SQE": 1,
+    "NOTIFY_WAIT_SQE": 1,
+    "AI_CPU": 1174,
+    "NOTIFY_RECORD": 143,
+    "MODEL_EXECUTE": 142,
+    "NOTIFY_WAIT": 142,
+    "EVENT_RECORD": 539,
+    "PLACE_HOLDER_SQE": 3,
+    "MEM_WRITE_VALUE": 504,
+    "MEM_WAIT_VALUE": 756,
+    "NOP": 2016,
+    "PROFILING_DISABLE": 1
+  },
+  "unique_selected_device_work": 834582,
+  "device_event_window": {
+    "start_us": 1793622580867065.0,
+    "end_us": 1793622592917693.8,
+    "span_ms": 12050.62875,
+    "busy_union_ms": 7310.51575,
+    "busy_pct": 60.66501509309214,
+    "uncovered_ms": 4740.113,
+    "largest_internal_gaps_ms": [
+      8.872,
+      8.6515,
+      4.2385,
+      3.168,
+      2.474,
+      1.988,
+      1.95075,
+      1.9025,
+      1.899,
+      1.8965,
+      1.862,
+      1.83125,
+      1.78,
+      1.7375,
+      1.71325,
+      1.69175,
+      1.678,
+      1.67625,
+      1.66575,
+      1.66
+    ]
+  },
+  "distinct_stream_time_overlap": {
+    "all_selected_work": {
+      "streams": 24,
+      "concurrent_at_least2_ms": 1833.4445,
+      "concurrent_at_least2_over_device_span_pct": 15.214513184633624,
+      "level_ms": {
+        "1": 5477.07125,
+        "0": 4740.113,
+        "2": 1833.42525,
+        "3": 0.01925
+      }
+    },
+    "ai_core_only": {
+      "streams": 23,
+      "concurrent_at_least2_ms": 238.486,
+      "concurrent_at_least2_over_device_span_pct": 1.9790336666043256,
+      "level_ms": {
+        "1": 1969.90625,
+        "0": 9842.2365,
+        "2": 238.486
+      }
+    },
+    "limitation": "Time overlap of stream tracks; not an occupancy/SM-sharing guarantee or MFU"
+  },
+  "flow_api_matches": {
+    "total": 143996,
+    "matched": 143996,
+    "host_tid_counts": {
+      "188380": 143996
+    },
+    "api_end_lead_us": {
+      "n": 143996,
+      "mean": 10311.621003361204,
+      "median": 133.5,
+      "p95": 87405.0,
+      "min": -17.0,
+      "max": 159237.5
+    },
+    "limitation": "Runtime API→device pairs do not establish every Python→CANN queue handoff"
+  },
+  "host_observations": [
+    {
+      "name": "cpu",
+      "owner": "_vocode",
+      "duration_ms": {
+        "n": 32,
+        "mean": 77.0365703125,
+        "median": 95.3755,
+        "p95": 145.43375,
+        "min": 0.19875,
+        "max": 158.48575
+      },
+      "union_ms": 2465.17025,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          814,
+          "_vocode"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          334,
+          "_prof"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          243,
+          "decode"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+          124,
+          "decorate_context"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1266,
+          "_decode_windows_threaded"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1230,
+          "_run_t2w"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1012,
+          "run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1075,
+          "_bootstrap_inner"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1032,
+          "_bootstrap"
+        ]
+      ]
+    },
+    {
+      "name": "cpu",
+      "owner": "other",
+      "duration_ms": {
+        "n": 34,
+        "mean": 39.43927941176471,
+        "median": 40.396375,
+        "p95": 52.491,
+        "min": 1.7195,
+        "max": 53.248
+      },
+      "union_ms": 1340.9355,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1106,
+          "_talker_decode_block_impl"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1049,
+          "_talker_decode_block"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1000,
+          "_talker_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          632,
+          "_timed_stage"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          815,
+          "_tick_launched"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          809,
+          "_tick"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          800,
+          "_run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1012,
+          "run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1075,
+          "_bootstrap_inner"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1032,
+          "_bootstrap"
+        ]
+      ]
+    },
+    {
+      "name": "tolist",
+      "owner": "other",
+      "duration_ms": {
+        "n": 48,
+        "mean": 4.136661458333333,
+        "median": 0.846375,
+        "p95": 19.6005,
+        "min": 0.052,
+        "max": 31.05375
+      },
+      "union_ms": 198.55975,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/thinker_lookup.py",
+          78,
+          "try_prompt_lookup_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          856,
+          "_thinker_step_group"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          929,
+          "_thinker_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          632,
+          "_timed_stage"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          814,
+          "_tick_launched"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          809,
+          "_tick"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          800,
+          "_run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1012,
+          "run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1075,
+          "_bootstrap_inner"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1032,
+          "_bootstrap"
+        ]
+      ]
+    },
+    {
+      "name": "to_cpu",
+      "owner": "_fresh_prefill",
+      "duration_ms": {
+        "n": 228,
+        "mean": 0.6382631578947369,
+        "median": 0.183375,
+        "p95": 1.30375,
+        "min": 0.15,
+        "max": 37.4665
+      },
+      "union_ms": 145.524,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          693,
+          "_fresh_prefill"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          787,
+          "_attention"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          840,
+          "_forward_native"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          877,
+          "_forward_impl"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          919,
+          "forward"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+          124,
+          "decorate_context"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          646,
+          "_decoder_forward"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/entry_external_d.py",
+          29,
+          "scoped_decoder"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          874,
+          "_thinker_step_group"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          929,
+          "_thinker_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          632,
+          "_timed_stage"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          814,
+          "_tick_launched"
+        ]
+      ]
+    },
+    {
+      "name": "copy_",
+      "owner": "other",
+      "duration_ms": {
+        "n": 837,
+        "mean": 0.13516816009557944,
+        "median": 0.11825,
+        "p95": 0.22325,
+        "min": 0.07925,
+        "max": 1.8535
+      },
+      "union_ms": 113.13575,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          714,
+          "_solve_euler_graph"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          574,
+          "_solve"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          334,
+          "_prof"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          371,
+          "_flow"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          334,
+          "_prof"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          237,
+          "decode"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+          124,
+          "decorate_context"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1266,
+          "_decode_windows_threaded"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1230,
+          "_run_t2w"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1012,
+          "run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1075,
+          "_bootstrap_inner"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1032,
+          "_bootstrap"
+        ]
+      ]
+    },
+    {
+      "name": "to_cpu",
+      "owner": "_append_prefill_batched",
+      "duration_ms": {
+        "n": 431,
+        "mean": 0.25998955916473315,
+        "median": 0.17875,
+        "p95": 0.46675,
+        "min": 0.1505,
+        "max": 10.8485
+      },
+      "union_ms": 112.0555,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          756,
+          "_append_prefill_batched"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          767,
+          "_append_prefill"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          788,
+          "_attention"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          840,
+          "_forward_native"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          877,
+          "_forward_impl"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          919,
+          "forward"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+          124,
+          "decorate_context"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          646,
+          "_decoder_forward"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/entry_external_d.py",
+          29,
+          "scoped_decoder"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/thinker_lookup.py",
+          73,
+          "try_prompt_lookup_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          856,
+          "_thinker_step_group"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          929,
+          "_thinker_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ]
+      ]
+    },
+    {
+      "name": "tolist",
+      "owner": "_append_prefill_batched",
+      "duration_ms": {
+        "n": 431,
+        "mean": 0.06794315545243619,
+        "median": 0.065,
+        "p95": 0.075,
+        "min": 0.058,
+        "max": 0.21325
+      },
+      "union_ms": 29.2835,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          756,
+          "_append_prefill_batched"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          767,
+          "_append_prefill"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          788,
+          "_attention"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          840,
+          "_forward_native"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          877,
+          "_forward_impl"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          919,
+          "forward"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+          124,
+          "decorate_context"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          646,
+          "_decoder_forward"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/entry_external_d.py",
+          29,
+          "scoped_decoder"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/thinker_lookup.py",
+          73,
+          "try_prompt_lookup_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          856,
+          "_thinker_step_group"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          929,
+          "_thinker_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ]
+      ]
+    },
+    {
+      "name": "copy_",
+      "owner": "_vocode",
+      "duration_ms": {
+        "n": 144,
+        "mean": 0.14546354166666667,
+        "median": 0.117125,
+        "p95": 0.18225,
+        "min": 0.057,
+        "max": 1.81
+      },
+      "union_ms": 20.94675,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/hift_graph.py",
+          108,
+          "__call__"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+          124,
+          "decorate_context"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          793,
+          "_vocode"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          334,
+          "_prof"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/token2wav_batch.py",
+          243,
+          "decode"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+          124,
+          "decorate_context"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1266,
+          "_decode_windows_threaded"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1230,
+          "_run_t2w"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1012,
+          "run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1075,
+          "_bootstrap_inner"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1032,
+          "_bootstrap"
+        ]
+      ]
+    },
+    {
+      "name": "tolist",
+      "owner": "_fresh_prefill",
+      "duration_ms": {
+        "n": 228,
+        "mean": 0.06531030701754385,
+        "median": 0.06225,
+        "p95": 0.072,
+        "min": 0.05775,
+        "max": 0.239
+      },
+      "union_ms": 14.89075,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          693,
+          "_fresh_prefill"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          787,
+          "_attention"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          840,
+          "_forward_native"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          877,
+          "_forward_impl"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+          919,
+          "forward"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py",
+          124,
+          "decorate_context"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          646,
+          "_decoder_forward"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/entry_external_d.py",
+          29,
+          "scoped_decoder"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          874,
+          "_thinker_step_group"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          929,
+          "_thinker_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          632,
+          "_timed_stage"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          814,
+          "_tick_launched"
+        ]
+      ]
+    },
+    {
+      "name": "to_cpu",
+      "owner": "other",
+      "duration_ms": {
+        "n": 15,
+        "mean": 0.48285,
+        "median": 0.183,
+        "p95": 2.174,
+        "min": 0.15925,
+        "max": 2.174
+      },
+      "union_ms": 7.24275,
+      "example_stack": [
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          1037,
+          "_sample_talker_rows"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          994,
+          "_talker_step"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          632,
+          "_timed_stage"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          815,
+          "_tick_launched"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          809,
+          "_tick"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/diagnostic_entry.py",
+          71,
+          "wrapped"
+        ],
+        [
+          "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/backend_npu.py",
+          800,
+          "_run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1012,
+          "run"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1075,
+          "_bootstrap_inner"
+        ],
+        [
+          "/usr/local/python3.12.13/lib/python3.12/threading.py",
+          1032,
+          "_bootstrap"
+        ]
+      ]
+    }
+  ],
+  "cpu_during_device_window": [
+    {
+      "tid": 188405,
+      "name": "npu-engine",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 7.514969585633082,
+      "one_core_pct": 85.07956115335388,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 85.15470027455628,
+        "median": 85.98027622699098,
+        "p95": 94.52133292545342,
+        "min": 75.27068753644902,
+        "max": 94.52133292545342
+      },
+      "bins_ge90": 1,
+      "wait_channels": [
+        [
+          "0",
+          47
+        ],
+        [
+          "futex_wait_queue_me",
+          5
+        ],
+        [
+          "eventfd_read",
+          3
+        ]
+      ]
+    },
+    {
+      "tid": 188380,
+      "name": "acl_thread",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 5.029981283466514,
+      "one_core_pct": 56.9461519877679,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 56.81706742298654,
+        "median": 57.688743453248044,
+        "p95": 67.121164225334,
+        "min": 41.09623170671902,
+        "max": 67.121164225334
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "0",
+          36
+        ],
+        [
+          "eventfd_read",
+          19
+        ]
+      ]
+    },
+    {
+      "tid": 188406,
+      "name": "npu-token2wav",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 3.1899766043331423,
+      "one_core_pct": 36.1148247499216,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 35.85016236404926,
+        "median": 38.89583924554345,
+        "p95": 51.77832492576467,
+        "min": 10.274057926679847,
+        "max": 51.77832492576467
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          28
+        ],
+        [
+          "0",
+          19
+        ],
+        [
+          "hrtimer_nanosleep",
+          8
+        ]
+      ]
+    },
+    {
+      "tid": 188847,
+      "name": "MSVP_Upld_64",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 2.4999999999999996,
+      "one_core_pct": 28.54846011176321,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 28.570328636814374,
+        "median": 28.66984953192631,
+        "p95": 30.707241509639648,
+        "min": 26.71255060936724,
+        "max": 30.707241509639648
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          39
+        ],
+        [
+          "0",
+          15
+        ]
+      ]
+    },
+    {
+      "tid": 188390,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 2.1099999999999994,
+      "one_core_pct": 23.888037335077723,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 23.591388330637173,
+        "median": 17.50832353425078,
+        "p95": 54.657266575715084,
+        "min": 0.0,
+        "max": 54.657266575715084
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          41
+        ],
+        [
+          "0",
+          14
+        ]
+      ]
+    },
+    {
+      "tid": 188379,
+      "name": "RT_RECYCLE_5",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 1.9899906417332558,
+      "one_core_pct": 22.529370021885928,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 22.35815701547459,
+        "median": 21.09488973574949,
+        "p95": 35.10739248102909,
+        "min": 10.274057926679847,
+        "max": 35.10739248102909
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          47
+        ],
+        [
+          "0",
+          8
+        ]
+      ]
+    },
+    {
+      "tid": 188835,
+      "name": "campplus_0",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 1.8500000000000014,
+      "one_core_pct": 20.944487710850158,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 20.659914098738202,
+        "median": 15.448520765515438,
+        "p95": 47.9449706804518,
+        "min": 0.0,
+        "max": 47.9449706804518
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          45
+        ],
+        [
+          "0",
+          10
+        ]
+      ]
+    },
+    {
+      "tid": 188415,
+      "name": "npu-t2w-prepare_0",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 1.6400000000000006,
+      "one_core_pct": 18.567005322050942,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 18.618977961413545,
+        "median": 24.565793207711735,
+        "p95": 39.23767394938545,
+        "min": 0.0,
+        "max": 39.23767394938545
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          44
+        ],
+        [
+          "0",
+          10
+        ],
+        [
+          "eventfd_read",
+          1
+        ]
+      ]
+    },
+    {
+      "tid": 188841,
+      "name": "npu-t2w-prepare_1",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 1.5499999999999998,
+      "one_core_pct": 17.548084298279843,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 17.039661237622582,
+        "median": 17.553696240514544,
+        "p95": 32.60258006270721,
+        "min": 0.0,
+        "max": 32.60258006270721
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          45
+        ],
+        [
+          "0",
+          10
+        ]
+      ]
+    },
+    {
+      "tid": 188849,
+      "name": "MSVP_UploaderDu",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.5,
+      "one_core_pct": 5.709692022352644,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 5.667390449522675,
+        "median": 5.149506921838469,
+        "p95": 9.306856361081207,
+        "min": 3.6822602204201,
+        "max": 9.306856361081207
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          52
+        ],
+        [
+          "0",
+          2
+        ]
+      ]
+    },
+    {
+      "tid": 188850,
+      "name": "MSVP_UploaderDu",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.37,
+      "one_core_pct": 4.225172096540956,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 4.214290709399583,
+        "median": 4.0956927902751845,
+        "p95": 6.204570907387472,
+        "min": 2.054811585335942,
+        "max": 6.204570907387472
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          51
+        ],
+        [
+          "0",
+          3
+        ]
+      ]
+    },
+    {
+      "tid": 188381,
+      "name": "release_thread",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.25,
+      "one_core_pct": 2.830336177141911,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 2.8185552063347243,
+        "median": 3.07072415096399,
+        "p95": 3.835597654436148,
+        "min": 2.0505517393933306,
+        "max": 3.835597654436148
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "do_select",
+          51
+        ],
+        [
+          "0",
+          4
+        ]
+      ]
+    },
+    {
+      "tid": 188367,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.22999999999999998,
+      "one_core_pct": 2.603909282970558,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 2.606040289357285,
+        "median": 2.646451307280777,
+        "p95": 3.0977111012672762,
+        "min": 1.917798827218074,
+        "max": 3.0977111012672762
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          54
+        ],
+        [
+          "0",
+          1
+        ]
+      ]
+    },
+    {
+      "tid": 188848,
+      "name": "MSVP_UploaderDu",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.19,
+      "one_core_pct": 2.1696829684940044,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 2.1815643079669815,
+        "median": 2.0651407341781822,
+        "p95": 3.075827609089993,
+        "min": 1.027405792667971,
+        "max": 3.075827609089993
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          53
+        ],
+        [
+          "0",
+          1
+        ]
+      ]
+    },
+    {
+      "tid": 188875,
+      "name": "MSVP_Upld_5",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.15,
+      "one_core_pct": 1.7129076067057931,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 1.7026151768607831,
+        "median": 1.7643008715205235,
+        "p95": 3.0707241509639642,
+        "min": 1.0252758696966653,
+        "max": 3.0707241509639642
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188881,
+      "name": "MSVP_Dev_5",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.13,
+      "one_core_pct": 1.4845199258116872,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 1.4744511655990409,
+        "median": 1.2274200734733667,
+        "p95": 2.0681903024624906,
+        "min": 1.025275869696664,
+        "max": 2.0681903024624906
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hdcdrv_epoll_wait",
+          53
+        ],
+        [
+          "0",
+          1
+        ]
+      ]
+    },
+    {
+      "tid": 188353,
+      "name": "MainThread",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.12000000000000455,
+      "one_core_pct": 1.3585613650281687,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 1.335399140999922,
+        "median": 1.2274200734731213,
+        "p95": 2.8766982408272175,
+        "min": 0.0,
+        "max": 2.8766982408272175
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "ep_poll",
+          54
+        ],
+        [
+          "futex_wait_queue_me",
+          1
+        ]
+      ]
+    },
+    {
+      "tid": 188872,
+      "name": "MSVP_ChanBuffer",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.04,
+      "one_core_pct": 0.4567753617882115,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.4792740602131265,
+        "median": 0.0,
+        "p95": 1.2274200734733658,
+        "min": 0.0,
+        "max": 1.2274200734733658
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188863,
+      "name": "MSVP_ChanPool_7",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.03,
+      "one_core_pct": 0.3425815213411586,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.3259421584441142,
+        "median": 0.0,
+        "p95": 1.0274057926679698,
+        "min": 0.0,
+        "max": 1.0274057926679698
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          52
+        ],
+        [
+          "0",
+          2
+        ]
+      ]
+    },
+    {
+      "tid": 188866,
+      "name": "MSVP_ChanPool_1",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.03,
+      "one_core_pct": 0.3425815213411586,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.3259034383795799,
+        "median": 0.0,
+        "p95": 1.0274057926679698,
+        "min": 0.0,
+        "max": 1.0274057926679698
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188873,
+      "name": "MSVP_ChanPoll",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.02,
+      "one_core_pct": 0.22838768089410574,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.21174723919424995,
+        "median": 0.0,
+        "p95": 1.023574716987988,
+        "min": 0.0,
+        "max": 1.023574716987988
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          53
+        ],
+        [
+          "0",
+          1
+        ]
+      ]
+    },
+    {
+      "tid": 188851,
+      "name": "MSVP_UploaderDu",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.01,
+      "one_core_pct": 0.11419384044705287,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.11443348715196594,
+        "median": 0.0,
+        "p95": 1.0299013843676934,
+        "min": 0.0,
+        "max": 1.0299013843676934
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188355,
+      "name": "PlogFlush",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.010000000000000002,
+      "one_core_pct": 0.11321344708567646,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.11391954107740718,
+        "median": 0.0,
+        "p95": 1.0252758696966646,
+        "min": 0.0,
+        "max": 1.0252758696966646
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188641,
+      "name": "asyncio_1",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.010000000000000002,
+      "one_core_pct": 0.11321344708567646,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.11376924417431075,
+        "median": 0.0,
+        "p95": 1.0239231975687968,
+        "min": 0.0,
+        "max": 1.0239231975687968
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188377,
+      "name": "MONITOR_0",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.009999999999999998,
+      "one_core_pct": 0.11321344708567642,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.11373052410977645,
+        "median": 0.0,
+        "p95": 1.023574716987988,
+        "min": 0.0,
+        "max": 1.023574716987988
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188354,
+      "name": "WatchdogMonitor",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188368,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188369,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188370,
+      "name": "adx_data_dump_t",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hdcdrv_epoll_wait",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188371,
+      "name": "MSVP_DYN_PROF",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188372,
+      "name": "PlogReportRecv",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hdcdrv_recv_peek_wait",
+          53
+        ],
+        [
+          "hrtimer_nanosleep",
+          2
+        ]
+      ]
+    },
+    {
+      "tid": 188378,
+      "name": "REPORT_RAS",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "dms_event_wait_interrupt",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188382,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188392,
+      "name": "CaffeTaskThread",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188393,
+      "name": "CaffeTaskThread",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188394,
+      "name": "CaffeTaskThread",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188395,
+      "name": "CaffeTaskThread",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188396,
+      "name": "CaffeTaskThread",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188397,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188398,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188399,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188400,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188401,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188402,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188403,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188404,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188407,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188408,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188409,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188410,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188411,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188412,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188413,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188414,
+      "name": "AOE_RTKB",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188634,
+      "name": "asyncio_0",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188635,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188636,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188637,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188638,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188639,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188640,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188642,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188643,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188644,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188645,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188646,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188647,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188648,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188649,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188650,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188651,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188652,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188653,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188654,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188655,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188656,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188657,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188658,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188659,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188660,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188661,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188662,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188663,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188664,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188665,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188666,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188667,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188668,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188669,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188670,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188671,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188672,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188673,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188674,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188675,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188676,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188677,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188678,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188679,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188680,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188681,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188682,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188683,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188684,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188685,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188686,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188687,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188688,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188689,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188690,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188691,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188692,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188693,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188694,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188695,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188696,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188697,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188698,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188699,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188700,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188701,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188702,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188703,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188704,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188705,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188706,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188707,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188708,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188709,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188710,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188711,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188712,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188713,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188714,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188715,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188716,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188717,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188718,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188719,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188720,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188721,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188722,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188723,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188724,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188725,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188726,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188727,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188728,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188729,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188730,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188731,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188732,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188733,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188734,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188735,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188736,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188737,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188738,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188739,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188740,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188741,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188742,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188743,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188744,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188745,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188746,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188747,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188748,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188749,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188750,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188751,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188752,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188753,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188754,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188755,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188756,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188757,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188758,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188759,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188760,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188761,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188762,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188763,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188764,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188765,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188766,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188767,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188768,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188769,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188770,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188771,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188772,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188773,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188774,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188775,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188776,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188777,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188778,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188779,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188780,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188781,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188782,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188783,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188784,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188785,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188786,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188787,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188788,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188789,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188790,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188791,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188792,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188793,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188794,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188795,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188796,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188797,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188798,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188799,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188800,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188801,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188802,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188803,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188804,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188805,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188806,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188807,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188808,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188809,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188810,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188811,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188812,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188813,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188814,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188815,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188816,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188817,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188818,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188819,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188820,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188821,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188822,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188823,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188824,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188825,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188826,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188827,
+      "name": "python",
+      "observed_seconds": 8.832873,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          55
+        ]
+      ]
+    },
+    {
+      "tid": 188845,
+      "name": "MSVP_DYN_PROF",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188846,
+      "name": "MSVP_MstxDataHa",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "hrtimer_nanosleep",
+          52
+        ],
+        [
+          "0",
+          2
+        ]
+      ]
+    },
+    {
+      "tid": 188852,
+      "name": "MSVP_TypeInfoUp",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188854,
+      "name": "MSVP_ProfTask",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188855,
+      "name": "MSVP_Dev_64",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188856,
+      "name": "MSVP_ChanPool_0",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188857,
+      "name": "MSVP_ChanPool_1",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188858,
+      "name": "MSVP_ChanPool_2",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188859,
+      "name": "MSVP_ChanPool_3",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188860,
+      "name": "MSVP_ChanPool_4",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188861,
+      "name": "MSVP_ChanPool_5",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188862,
+      "name": "MSVP_ChanPool_6",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188864,
+      "name": "MSVP_ChanPool_8",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188865,
+      "name": "MSVP_ChanPool_9",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188867,
+      "name": "MSVP_ChanPool_1",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188868,
+      "name": "MSVP_ChanPool_1",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188869,
+      "name": "MSVP_ChanPool_1",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188870,
+      "name": "MSVP_ChanPool_1",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188871,
+      "name": "MSVP_ChanPool_1",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188874,
+      "name": "MSVP_Diagnostic",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "dms_event_wait_interrupt",
+          53
+        ],
+        [
+          "0",
+          1
+        ]
+      ]
+    },
+    {
+      "tid": 188877,
+      "name": "MSVP_ProfTask",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188878,
+      "name": "MSVP_Dev_5",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "futex_wait_queue_me",
+          54
+        ]
+      ]
+    },
+    {
+      "tid": 188883,
+      "name": "MSVP_Dev_5",
+      "observed_seconds": 8.757039750000002,
+      "cpu_seconds": 0.0,
+      "one_core_pct": 0.0,
+      "one_second_bins": {
+        "n": 9,
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "bins_ge90": 0,
+      "wait_channels": [
+        [
+          "sched_wait_event",
+          54
+        ]
+      ]
+    }
+  ],
+  "rsi_marker_scopes": {}
+}

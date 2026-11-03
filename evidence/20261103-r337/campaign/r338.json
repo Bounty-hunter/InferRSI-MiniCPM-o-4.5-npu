@@ -1,0 +1,25 @@
+{
+  "tag": "r338",
+  "engine": "engine-r338",
+  "config": "config-r338.json",
+  "engine_sha256": "cd72a2f3494ff950fd6b7fcc982dac24ddf8b56bd06d665a9d1c8c16c01c2dfe",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19227,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "r332",
+  "hypothesis": "Fresh and suffix attention rebuild identical2048x2048 int8 causal mask every layer/call; cache immutable same-device/width mask perKV owner, keeping original attention/sparse mode/math and fallback",
+  "kind": "mask-cache"
+}

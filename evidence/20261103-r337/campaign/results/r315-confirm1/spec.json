@@ -1,0 +1,17 @@
+{
+  "tag": "r315-confirm1",
+  "engine": "engine-r315",
+  "config": "config-r315.json",
+  "engine_sha256": "363c3269d4e425f9b7067792a52d49f5e5dba016986a368bb848d3b8c50c624f",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19250,
+  "runner": "run_lowc.py",
+  "parent": "control309-mid1",
+  "hypothesis": "Clean adjacent same-source A/B repeat to distinguish optimization from run drift; not an algorithm round"
+}

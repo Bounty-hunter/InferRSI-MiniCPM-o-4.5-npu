@@ -1,0 +1,21 @@
+{
+  "tag": "r323",
+  "engine": "engine-r323",
+  "config": "config-r323.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19212,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Original greedy-verified prompt lookup: vary proposal cap to trade serial verification count against rejected-token work, keeping exact chunk boundaries and all target verification",
+  "kind": "draft16"
+}

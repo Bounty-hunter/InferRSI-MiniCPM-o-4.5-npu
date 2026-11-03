@@ -1,0 +1,5 @@
+{
+  "phase": "failed",
+  "utc": "2026-11-02T18:08:10Z",
+  "error": "AssertionError('native profiler failed; inspect actual exit/log')"
+}

@@ -1,0 +1,48 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        hift_static_weightnorm: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -148,6 +149,19 @@
+             spk_threads=spk_threads,
+             device=device,
+         )
++        self.hift_static_weightnorm = []
++        if hift_static_weightnorm:
++            # Inference-only weights are immutable. Materialize the exact
++            # existing parametrization once before any audio graph captures.
++            from torch.nn.utils import parametrize
++            for name, module in self.t2w.hift.named_modules():
++                if parametrize.is_parametrized(module, "weight"):
++                    before = module.weight.detach().clone()
++                    parametrize.remove_parametrizations(module, "weight", leave_parametrized=True)
++                    if not torch.equal(before, module.weight):
++                        raise RuntimeError("HiFT weight materialization changed values: " + name)
++                    self.hift_static_weightnorm.append(dict(name=name, shape=list(before.shape),
++                                                           dtype=str(before.dtype), exact=True))
+         self.t2w_batch = BatchedToken2Wav(
+             self.t2w,
+             use_graphs=False,
+@@ -767,6 +781,7 @@
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                 "t2w_startup_stats": dict(self.t2w_startup_stats),
++                "hift_static_weightnorm": self.hift_static_weightnorm,
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "hift_static_weightnorm": true
+ }

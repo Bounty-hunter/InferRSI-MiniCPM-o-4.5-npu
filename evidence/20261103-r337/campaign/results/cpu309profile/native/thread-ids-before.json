@@ -1,0 +1,18 @@
+[
+  {
+    "name": "MainThread",
+    "tid": 204943
+  },
+  {
+    "name": "npu-engine",
+    "tid": 204995
+  },
+  {
+    "name": "npu-token2wav",
+    "tid": 204996
+  },
+  {
+    "name": "npu-t2w-prepare_0",
+    "tid": 205005
+  }
+]

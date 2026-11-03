@@ -1,0 +1,29 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m       │ [36;1mDURATION[0;22m   │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                                              │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                        │ [36;1mUTIL[0;22m 
+─────┼──────────────┼────────────┼────────────┼──────┼──────────────────────────────────────────────────────────────────────┼────────────────────────────────────────┼─────────────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown    │ [2m-[22m          │ [2m-[22m    │ used by PID 3976932 (3h1m), PID 3953860 (3h3m)                       │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                           │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ zhanghan   │ 0h 7m 56s  │ RUN  │ heartbeat 0h 0m 55s ago, processes: PID 178496 (3m), PID 211234 (1m) │ [2m38134MB, 2 processes; owner unverified[22m │ pr529-full-pair-interactive │ 0%   
+ 2   │ [34m● IN_USE   [0m  │ yangnanxin │ 0h 3m 18s  │ RUN  │ heartbeat 0h 0m 17s ago, processes: PID 193358 (2m)                  │ [2m26413MB, 1 processes[22m                   │ -                           │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 38m 45s                                                  │ [2m0MB used[22m                               │ [2m-[22m                           │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 38m 45s                                                  │ [2m0MB used[22m                               │ [2m-[22m                           │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 0m 9s                                                    │ [2m0MB used[22m                               │ [2m-[22m                           │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 29m 14s                                                  │ [2m0MB used[22m                               │ [2m-[22m                           │ 0%   
+ 7   │ [34m● IN_USE   [0m  │ zhanghan   │ 0h 12m 53s │ RUN  │ heartbeat 0h 0m 53s ago, processes: PID 4186022 (11m)                │ [2m36680MB, 1 processes[22m                   │ pr529-full-pair-video       │ 49%  
+Reserved 1 GPU(s): [5] for command execution (timeout: 0h 20m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T13:14:48Z", "mode": "quality", "pid": 196676, "device": "5"}
+{"phase": "quality_generation", "utc": "2026-11-02T13:15:46Z"}
+{"phase": "loading", "utc": "2026-11-02T13:16:01Z", "mode": "native", "pid": 196949, "device": "5"}
+{"phase": "benchmark", "utc": "2026-11-02T13:17:01Z", "mode": "native", "concurrency": 2}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:18:10Z", "mode": "native", "concurrency": 2, "ttfp_ms": 814.4044994260184, "rtf": 0.37224480656740594, "req_s": 1.2811741492135047, "completed": 32, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T13:18:10Z", "mode": "native", "concurrency": 4}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:19:29Z", "mode": "native", "concurrency": 4, "ttfp_ms": 1184.7442588186823, "rtf": 0.535453531845234, "req_s": 1.7226260532452304, "completed": 64, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T13:19:29Z", "mode": "native", "concurrency": 8}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:21:06Z", "mode": "native", "concurrency": 8, "ttfp_ms": 1784.332130147959, "rtf": 0.8315262282850577, "req_s": 2.294394574619869, "completed": 128, "failed": 0}
+{"phase": "loading", "utc": "2026-11-02T13:21:13Z", "mode": "diagnostic", "pid": 197905, "device": "5"}
+{"phase": "benchmark", "utc": "2026-11-02T13:22:13Z", "mode": "diagnostic", "concurrency": 2}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:23:21Z", "mode": "diagnostic", "concurrency": 2, "ttfp_ms": 798.779574863147, "rtf": 0.362287049211341, "req_s": 1.3020574841351968, "completed": 32, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T13:23:21Z", "mode": "diagnostic", "concurrency": 4}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:24:43Z", "mode": "diagnostic", "concurrency": 4, "ttfp_ms": 1257.1464500797447, "rtf": 0.5777553001771112, "req_s": 1.5926120596859834, "completed": 64, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T13:24:43Z", "mode": "diagnostic", "concurrency": 8}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:26:22Z", "mode": "diagnostic", "concurrency": 8, "ttfp_ms": 1837.6137472951086, "rtf": 0.8414187489973712, "req_s": 2.2489944548095417, "completed": 128, "failed": 0}
+{"phase": "completed", "utc": "2026-11-02T13:26:31Z", "measurements": [{"mode": "native", "concurrency": 2, "ttfp_ms": 814.4044994260184, "rtf": 0.37224480656740594, "req_s": 1.2811741492135047, "completed": 32, "failed": 0}, {"mode": "native", "concurrency": 4, "ttfp_ms": 1184.7442588186823, "rtf": 0.535453531845234, "req_s": 1.7226260532452304, "completed": 64, "failed": 0}, {"mode": "native", "concurrency": 8, "ttfp_ms": 1784.332130147959, "rtf": 0.8315262282850577, "req_s": 2.294394574619869, "completed": 128, "failed": 0}, {"mode": "diagnostic", "concurrency": 2, "ttfp_ms": 798.779574863147, "rtf": 0.362287049211341, "req_s": 1.3020574841351968, "completed": 32, "failed": 0}, {"mode": "diagnostic", "concurrency": 4, "ttfp_ms": 1257.1464500797447, "rtf": 0.5777553001771112, "req_s": 1.5926120596859834, "completed": 64, "failed": 0}, {"mode": "diagnostic", "concurrency": 8, "ttfp_ms": 1837.6137472951086, "rtf": 0.8414187489973712, "req_s": 2.2489944548095417, "completed": 128, "failed": 0}], "quality": "generation only, not scored gate"}

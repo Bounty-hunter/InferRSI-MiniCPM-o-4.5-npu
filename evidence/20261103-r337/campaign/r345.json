@@ -1,0 +1,25 @@
+{
+  "tag": "r345",
+  "engine": "engine-r345",
+  "config": "config-r345.json",
+  "engine_sha256": "8160b7770319acff2938b43065e57526185bbe13649024ed0109dc68823b2c18",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19234,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Recovered1679 eager RMS pow/mean/rsqrt chains: fused native RMS with UNIT weight then original BF16 weight multiply preserves reference cast-before-scale boundary (unlike ordinary fused weighted RMS). Two op calls replace long Python/CANN chains. Reduction may still differ, user-authorized fusion tradeoff; strict16Thinker and frozen speech gates required, no bitwise-quality claim",
+  "kind": "rounding-native-rms"
+}

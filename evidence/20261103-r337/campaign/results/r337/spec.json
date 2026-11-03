@@ -1,0 +1,25 @@
+{
+  "tag": "r337",
+  "engine": "engine-r337",
+  "config": "config-r337.json",
+  "engine_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19226,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "r320",
+  "hypothesis": "Original prefix/verification attention reads NPU qo_indptr back toCPU every layer; publish builder-owned identical host cumulative lengths, validate packing invariant, preserve observation fallback for synthetic/malformed layouts",
+  "kind": "host-lengths"
+}

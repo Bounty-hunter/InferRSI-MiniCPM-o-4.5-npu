@@ -1,0 +1,112 @@
+{
+  "verified": true,
+  "concurrency": 1,
+  "measured_requests": 32,
+  "warmups": 2,
+  "supplementary_measurement": true,
+  "same_engine_source_and_config": true,
+  "same_omni_source_and_deploy": true,
+  "spec": {
+    "tag": "omni-c1",
+    "algorithm_round": false,
+    "baseline_repeat_of": "omni-final",
+    "server_sha": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+    "client_sha": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+    "port": 19370,
+    "tiers": [
+      [
+        32,
+        1
+      ]
+    ],
+    "chunk": 25,
+    "runner_sha256": "4860189a2c0a4272b28b27b8132a7ad8e450538877eedd89940dbf7139f4a663",
+    "reason": "User-requested C1 completion for same version and configuration; supplementary measurement time retained"
+  },
+  "engine_repeats": [
+    {
+      "tag": "r337-c1B1",
+      "completed": 32,
+      "failed": 0,
+      "info": {
+        "config_path": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/config-r337.json",
+        "config_sha256": "d1b3c3b8114fd1b16334ec38cdb2ac65ea143c2da87dfe415dac501bde3db8d9",
+        "backend": "engine.runtime.backend_npu:AscendTrackSBackend",
+        "engine_tree_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+        "python": "/workspace/minicpmo-r182/venv/bin/python",
+        "python_dists_sha256": "c856070dd209a353c95ac91178ff4b32819fb265e90c2b954d1bffaf861e35b0",
+        "pid": 276654,
+        "t2w_worker_pid": null,
+        "device_type": "npu",
+        "device_index": 0,
+        "device_name": "Ascend910B1",
+        "device_properties": "_NPUDeviceProperties(name='Ascend910B1', total_memory=62420MB, cube_core_num=24, vector_core_num=48, uuid=00cc0800-d000-0000-0000-24f603f15d18, L2_cache_size=192MB)",
+        "visible_devices": "7"
+      },
+      "status": {
+        "phase": "completed",
+        "utc": "2026-11-03T01:21:21Z",
+        "measurements": [
+          {
+            "mode": "native",
+            "concurrency": 1,
+            "ttfp_ms": 522.7217956271488,
+            "rtf": 0.2232806797378261,
+            "req_s": 1.0826186051410178,
+            "completed": 32,
+            "failed": 0
+          }
+        ],
+        "quality": "generation only, not scored gate"
+      }
+    },
+    {
+      "tag": "r337-c1B2",
+      "completed": 32,
+      "failed": 0,
+      "info": {
+        "config_path": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/config-r337.json",
+        "config_sha256": "d1b3c3b8114fd1b16334ec38cdb2ac65ea143c2da87dfe415dac501bde3db8d9",
+        "backend": "engine.runtime.backend_npu:AscendTrackSBackend",
+        "engine_tree_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+        "python": "/workspace/minicpmo-r182/venv/bin/python",
+        "python_dists_sha256": "c856070dd209a353c95ac91178ff4b32819fb265e90c2b954d1bffaf861e35b0",
+        "pid": 277227,
+        "t2w_worker_pid": null,
+        "device_type": "npu",
+        "device_index": 0,
+        "device_name": "Ascend910B1",
+        "device_properties": "_NPUDeviceProperties(name='Ascend910B1', total_memory=62420MB, cube_core_num=24, vector_core_num=48, uuid=00cc0800-d000-0000-0000-24f603f15d18, L2_cache_size=192MB)",
+        "visible_devices": "7"
+      },
+      "status": {
+        "phase": "completed",
+        "utc": "2026-11-03T01:23:38Z",
+        "measurements": [
+          {
+            "mode": "native",
+            "concurrency": 1,
+            "ttfp_ms": 509.9688179907389,
+            "rtf": 0.21711627066814843,
+            "req_s": 1.088306250334358,
+            "completed": 32,
+            "failed": 0
+          }
+        ],
+        "quality": "generation only, not scored gate"
+      }
+    }
+  ],
+  "omni_status": {
+    "phase": "completed",
+    "time_utc": "2026-11-03T01:18:57Z",
+    "cells": 1,
+    "completed": 32,
+    "failed": 0,
+    "quality_gate": "NOT_RUN",
+    "frozen_lcb": "NOT_RUN"
+  },
+  "request_errors": 0,
+  "speech_gate": "NOT_RUN",
+  "equal_quality_claim": false
+}

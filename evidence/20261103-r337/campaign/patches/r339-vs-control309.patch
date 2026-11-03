@@ -1,0 +1,70 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        decoder_rope_inv_cache: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -235,6 +236,8 @@
+             static_shape_capacity=talker_static_kv_capacity,
+         )
+         self.trun.capture_context = self._graph_capture_context
++        self.trun.rope_inv_cache = bool(decoder_rope_inv_cache)
++        self.arun.rope_inv_cache = bool(decoder_rope_inv_cache)
+         self.arun.capture_context = self._graph_capture_context
+         if self.t2w_batch.euler is not None:
+             self.t2w_batch.euler.capture_context = self._graph_capture_context
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -787,10 +787,28 @@
+             return self._fresh_prefill(query, key, value, layout)
+         return self._append_prefill(query, layer, layout)
+ 
++    def _rope_tables(self, positions, dtype):
++        if not getattr(self, "rope_inv_cache", False):
++            return hf_rope_tables(positions, self.spec.head_dim, self.spec.rope_theta, dtype)
++        # Same operation order/dtypes as hf_rope_tables. Only the immutable
++        # inverse-frequency vector is retained, never request positions or
++        # a graph input/output. Runner has one launch owner.
++        key = (str(positions.device), self.spec.head_dim, self.spec.rope_theta)
++        cache = getattr(self, "_rope_inverse", None)
++        if cache is None:
++            cache = self._rope_inverse = {}
++        if key not in cache:
++            d = self.spec.head_dim
++            cache[key] = 1.0 / (self.spec.rope_theta ** (
++                torch.arange(0, d, 2, device=positions.device, dtype=torch.int64).float() / d))
++        freqs = positions.float()[:, None] * cache[key][None]
++        emb = torch.cat([freqs, freqs], dim=-1)
++        return emb.cos().to(dtype)[:, None], emb.sin().to(dtype)[:, None]
++
+     def _forward_reference(self, x: torch.Tensor, layout: NpuBatchLayout) -> torch.Tensor:
+         spec = self.spec
+         nq, nk = spec.num_heads * spec.head_dim, spec.num_kv_heads * spec.head_dim
+-        tables = hf_rope_tables(layout.positions, spec.head_dim, spec.rope_theta, x.dtype)
++        tables = self._rope_tables(layout.positions, x.dtype)
+         for layer, weights in enumerate(self.layers):
+             hidden = hf_rms_norm(x, weights["ln1"], spec.rms_eps)
+             qkv = linear(hidden, weights["qkv"])
+@@ -817,7 +835,7 @@
+         """
+         spec = self.spec
+         nq, nk = spec.num_heads * spec.head_dim, spec.num_kv_heads * spec.head_dim
+-        tables = hf_rope_tables(layout.positions, spec.head_dim, spec.rope_theta, x.dtype)
++        tables = self._rope_tables(layout.positions, x.dtype)
+         native_rms = self.fused_mode in ("rms", "full")
+         native_add_rms = self.fused_mode in ("add-rms", "full")
+         native_swiglu = self.fused_mode in ("swiglu", "full")
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "decoder_rope_inv_cache": true
+ }

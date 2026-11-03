@@ -1,0 +1,14 @@
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:40.829.444 [trace_attr.c:81](tid:232583) get uid and gid failed, uid=1033, strerr=Success.
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:40.829.534 [trace_attr.c:179](tid:232583) init attr id failed.
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:40.829.538 [trace_core.c:29](tid:232583) init attr failed, ret=-1.
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:54.320.666 [atrace_client_thread.c:198](tid:232583) create thread failed, thread pool is not initialized.
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:54.320.674 [atrace_client_core.c:156](tid:232583) create thread failed, devId=2, ret=-1.
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:54.730.245 [tracer_core.c:53](tid:232583) 0, g_tracers[tracerType].mgr (nil)
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:54.730.267 [trace_event.c:178](tid:232583) g_eventsMgr has not been init successfully.
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:54.730.271 [trace_event.c:48](tid:232583) invalid event handle -1
+[ERROR] ATRACE(232583,python):2026-11-02-16:45:54.730.275 [trace_event.c:358](tid:232583) atrace event report failed
+[ERROR] RUNTIME(232583,python):2026-11-02-16:50:51.596.411 [aix_stars.cc:153]232612 InternalUpdateTaskPrepare:check kernel type failed, device_id=2, stream_id=66, task_id=44, old mixType=3, funcType=0, kernelAttrType=3, new mixType=0, funcType=3, kernelAttrType=2.
+[ERROR] RUNTIME(232583,python):2026-11-02-16:50:51.596.427 [aix_stars.cc:540]232612 StreamLaunchKernelV2:Check kernel task failed, stream_id=45, task_id=44, retCode=0x7080005.
+[ERROR] RUNTIME(232583,python):2026-11-02-16:50:51.596.489 [api_error.cc:773]232612 LaunchKernelV2:LaunchKernel failed.
+[ERROR] RUNTIME(232583,python):2026-11-02-16:50:51.596.533 [api_c_kernel.cc:80]232612 rtsLaunchKernelWithHostArgs:ErrCode=507000, desc=[kernel type error], InnerCode=0x7080005
+[ERROR] RUNTIME(232583,python):2026-11-02-16:50:51.596.542 [error_message_manage.cc:69]232612 FuncErrorReason:rtsLaunchKernelWithHostArgs execution failed, reason=kernel type error

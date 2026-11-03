@@ -1,0 +1,21 @@
+{
+  "tag": "r321",
+  "engine": "engine-r321",
+  "config": "config-r321.json",
+  "engine_sha256": "97c8b9d44247ef27a914d8dd406be90e179367486c8c15c05d64261fcc450ee3",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19210,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Fresh and suffix attention rebuild identical2048x2048 int8 causal mask every layer/call; cache immutable same-device/width mask perKV owner, keeping original attention/sparse mode/math and fallback",
+  "kind": "mask-cache"
+}

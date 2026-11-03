@@ -1,0 +1,80 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        t2w_pinned_pcm: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -353,6 +354,8 @@
+         self.t2w_startup_stats = {"request_rows": list(startup_rows), "keys": [], "duration_s": 0.0}
+         self.thread = threading.Thread(target=self._run, daemon=True, name="npu-engine")
+         self.t2w_first_audio_priority = bool(t2w_first_audio_priority)
++        self.t2w_pinned_pcm = bool(t2w_pinned_pcm)
++        self.t2w_pinned_pcm_calls = 0
+         self.t2w_first_audio_priority_stats = {"batches": 0, "reordered": 0}
+         self.thread.start()
+         if self.prompt_setup_batching:
+@@ -767,6 +770,7 @@
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                 "t2w_startup_stats": dict(self.t2w_startup_stats),
++                "t2w_pinned_pcm_calls": self.t2w_pinned_pcm_calls,
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+@@ -1263,7 +1267,15 @@
+             lv.mark(f"t2w_start:{window.index}")
+             items.append((lv.stream, window.tokens, window.last))
+         with self._t2w_lock, self._graph_gate.launch():
+-            wavs = self.t2w_batch.decode(items)
++            if self.t2w_pinned_pcm:
++                pending = self.t2w_batch.decode(items, async_result=True)
++                # Keep BOTH scratch ownership and graph launch ownership until
++                # the stream event completes. No cross-stream overwrite or
++                # graph capture is allowed to race unfinished PCM production.
++                wavs = pending.result()
++                self.t2w_pinned_pcm_calls += 1
++            else:
++                wavs = self.t2w_batch.decode(items)
+         now = time.perf_counter()
+         for lv, wav in zip(ready, wavs):
+             lv.mark("t2w_end", now)
+--- a/engine/runtime/token2wav_batch.py
++++ b/engine/runtime/token2wav_batch.py
+@@ -120,18 +120,21 @@
+ 
+     def __init__(self, flat: torch.Tensor | None, spans: list):
+         self.spans = spans
++        self.source = flat  # retain device storage through the copy event
+         self.host = None
+         if flat is not None:
+             self.host = torch.empty(flat.numel(), dtype=flat.dtype, pin_memory=True)
+             self.host.copy_(flat, non_blocking=True)
+-        self.event = torch.cuda.Event()
+-        self.event.record()
++        backend = (getattr(torch, "npu", torch.cuda) if flat is None else getattr(torch, flat.device.type))
++        self.event = backend.Event()
++        self.event.record(backend.current_stream())
+ 
+     def ready(self) -> bool:
+         return self.event.query()
+ 
+     def result(self) -> list[np.ndarray | None]:
+         self.event.synchronize()
++        self.source = None
+         flat = self.host.numpy() if self.host is not None else np.zeros(0, np.float32)
+         out = [flat[a:b].copy() if sp is not None else None for sp in self.spans for a, b in [sp or (0, 0)]]
+         self.host = None  # the pinned block goes back to the allocator
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "t2w_pinned_pcm": true
+ }

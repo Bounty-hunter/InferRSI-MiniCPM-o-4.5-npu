@@ -1,0 +1,86 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        thinker_pack_rotary: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -235,6 +236,7 @@
+             static_shape_capacity=talker_static_kv_capacity,
+         )
+         self.trun.capture_context = self._graph_capture_context
++        self.trun.pack_rotary = bool(thinker_pack_rotary)
+         self.arun.capture_context = self._graph_capture_context
+         if self.t2w_batch.euler is not None:
+             self.t2w_batch.euler.capture_context = self._graph_capture_context
+@@ -772,6 +774,7 @@
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+                 "thinker_prefix_cache_stats": dict(self._thinker_prefix_stats),
+                 "thinker_batch_append_prefill": self.trun.batch_append_prefill,
++                "thinker_packed_rotary_host_calls": self.trun.packed_rotary_host_calls,
+                 "thinker_batch_append_prefill_failures": list(self.trun.batch_append_prefill_failures),
+                 "talker_graph_buckets": sorted(self.arun.decode_graphs),
+                 "prompt_cache_entries": prompt_entries, "prompt_cache_refs": prompt_refs,
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -578,6 +578,8 @@
+         self.static_shape_capacity = int(static_shape_capacity)
+         self.batch_append_prefill = bool(batch_append_prefill)
+         self.batch_append_prefill_failures: list[str] = []
++        self.pack_rotary = False
++        self.packed_rotary_host_calls = 0
+         if self.static_shape_attention:
+             if self.static_shape_capacity < kv.page_size or self.static_shape_capacity % kv.page_size:
+                 raise ValueError("static_shape_capacity must be a positive multiple of the KV page size")
+@@ -689,6 +691,20 @@
+         )
+         return out
+ 
++    def _rope(self, query, key, layout, tables):
++        if not self.pack_rotary:
++            return hf_rope(query, key, layout.positions, self.spec.rope_theta, tables)
++        # Elementwise BF16 products and addition retain the old rounding
++        # order; this combines Q/K dispatch, not their arithmetic precision.
++        cos, sin = tables
++        heads = query.shape[1]
++        d = query.shape[-1]
++        combined = torch.cat([query, key], dim=1)
++        rotated = torch.cat([-combined[..., d // 2:], combined[..., :d // 2]], dim=-1)
++        result = combined * cos + rotated * sin
++        self.packed_rotary_host_calls += 1
++        return result[:, :heads].contiguous(), result[:, heads:].contiguous()
++
+     def _fresh_prefill(self, query: torch.Tensor, key: torch.Tensor, value: torch.Tensor, layout: NpuBatchLayout) -> torch.Tensor:
+         cumulative = layout.qo_indptr[1:].to("cpu").tolist()
+         width = max(2048, max(layout.new_tokens))
+@@ -800,7 +816,7 @@
+             if spec.qk_norm:
+                 query = hf_rms_norm(query.reshape(-1, spec.head_dim), weights["q_norm"], spec.rms_eps).view_as(query)
+                 key = hf_rms_norm(key.reshape(-1, spec.head_dim), weights["k_norm"], spec.rms_eps).view_as(key)
+-            query, key = hf_rope(query, key, layout.positions, spec.rope_theta, tables)
++            query, key = self._rope(query, key, layout, tables)
+             attended = self._attention(query, key, value, layer, layout)
+             x = x + linear(attended.reshape(-1, nq), weights["o"])
+             hidden = hf_rms_norm(x, weights["ln2"], spec.rms_eps)
+@@ -836,7 +852,7 @@
+             if spec.qk_norm:
+                 query = rms_norm(query, weights["q_norm"])
+                 key = rms_norm(key, weights["k_norm"])
+-            query, key = hf_rope(query, key, layout.positions, spec.rope_theta, tables)
++            query, key = self._rope(query, key, layout, tables)
+             attended = self._attention(query, key, value, layer, layout)
+             attention_branch = linear(attended.reshape(-1, nq), weights["o"])
+             if native_add_rms:
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "thinker_pack_rotary": true
+ }

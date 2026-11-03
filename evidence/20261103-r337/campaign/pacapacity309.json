@@ -1,0 +1,12 @@
+{
+  "tag": "pacapacity309",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19097,
+  "runner": "probe_pa_task_capacity.py",
+  "hypothesis": "Investigate r327/r335 task-count overflow: actual-context PA graph capture vs upstream6144 sentinel, across shape boundaries/cache10k100k. Sequential isolated operator children, not performance/quality or an algorithm round"
+}

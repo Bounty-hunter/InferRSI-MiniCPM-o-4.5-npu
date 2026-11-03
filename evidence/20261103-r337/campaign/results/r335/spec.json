@@ -1,0 +1,24 @@
+{
+  "tag": "r335",
+  "engine": "engine-r335",
+  "config": "config-r335.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19224,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_runtime_env.py",
+  "server_env": {
+    "ACLNN_CACHE_LIMIT": "100000"
+  },
+  "parent": "control309",
+  "hypothesis": "OfficialCANN9.1 defaultACLNN_CACHE_LIMIT10000 storesworkspace/executor/tiling perthread. Actualserverunsetusesdefault; trace7140MatmulWorkspacequeries~1.16swork suggests nativehostcache/shapechurn candidate. Raiseonlymodelprocesscacheto100000, preserveTASK_QUEUE1/graphs/math. Largerhostcachehasnoprovenbenefityet; requirefreshnative+QA and RSS audit",
+  "kind": "aclnn-cache100k"
+}

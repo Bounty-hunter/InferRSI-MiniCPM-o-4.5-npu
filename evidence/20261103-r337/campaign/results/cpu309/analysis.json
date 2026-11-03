@@ -1,0 +1,28 @@
+{
+  "tag": "cpu309",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 8,
+      "ttfp_ms": 1800.0226404183195,
+      "rtf": 0.8275121984827094,
+      "req_s": 2.315458646056466,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "native_tails": {
+    "c8": {
+      "mean_audio_rtf": 0.8275121984827094,
+      "median_audio_rtf": 0.7985401077843959,
+      "p50_audio_rtf": 0.7985401077843959,
+      "p95_audio_rtf": 1.1178682565999527,
+      "p99_audio_rtf": 1.1943653757978037,
+      "mean_audio_ttfp_ms": 1800.0226404183195,
+      "median_audio_ttfp_ms": 1794.7982903569937,
+      "p50_audio_ttfp_ms": 1794.7982903569937,
+      "p95_audio_ttfp_ms": 2201.430434873327,
+      "p99_audio_ttfp_ms": 2415.0571936182682
+    }
+  }
+}

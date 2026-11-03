@@ -1,0 +1,4 @@
+{
+  "passed": 5,
+  "scope": "36-layer reuse, per-seq separation, length boundary, new-layout invalidation, disabled fallback; NPU generation gate remains mandatory"
+}

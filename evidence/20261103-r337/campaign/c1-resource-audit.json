@@ -1,0 +1,27 @@
+{
+  "verified": true,
+  "utc": "2026-11-03T01:24:04Z",
+  "jobs": [
+    {
+      "tag": "omni-c1",
+      "server_pid": 274829,
+      "remaining_process_group_members": [],
+      "port": 19370,
+      "port_listening": false
+    },
+    {
+      "tag": "r337-c1B1",
+      "server_pid": 276654,
+      "remaining_process_group_members": [],
+      "port": 19371,
+      "port_listening": false
+    },
+    {
+      "tag": "r337-c1B2",
+      "server_pid": 277227,
+      "remaining_process_group_members": [],
+      "port": 19372,
+      "port_listening": false
+    }
+  ]
+}

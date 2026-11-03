@@ -1,124 +1,109 @@
 # MiniCPM-o 4.5 · Standalone Ascend NPU engine
 
-A streaming speech engine for [MiniCPM-o 4.5](https://huggingface.co/openbmb/MiniCPM-o-4_5) on one
-**Ascend 910B1 / A2**. A native `torch-npu` paged-KV runtime owns Thinker, Talker and Token2Wav;
-the OpenAI-compatible API streams text and 24 kHz audio. Serving does **not** import vLLM, vLLM-Omni,
-SGLang or InferRSI. vLLM-Omni is the external performance comparator.
+A streaming speech engine for MiniCPM-o 4.5 on one **Ascend 910B1 / A2**. A native torch-npu paged-KV runtime
+owns Thinker, Talker and Token2Wav. Its OpenAI-compatible API streams text and 24 kHz audio.
+Runtime dependencies are isolated from the vLLM, vLLM-Omni, SGLang and InferRSI reference repositories.
 
-**Latest measured candidate: r305, November 2, 2026.** Its mean TTFP, audio RTF and request/s improve over the
-pinned Omni main at C1/C2/C4/C8. P99 still regresses at C2/C4/C8. This is experimental code, not a quality-qualified
-release: Omni Flow uses FP32/10 steps while this engine uses FP16/6; the final speech gate remains NOT_RUN.
+**Latest measured experimental candidate — r337, November 3, 2026.** The comparison covers **C1/C2/C4/C8**
+against pinned vLLM-Omni main `9990f10d9`, using the official client `5917730a` on vLLM 0.32.0.
+The engine uses Flow FP16/6 steps and Omni uses FP32/10 steps. Final paired speech-quality acceptance is pending.
 
-[中文：从早期 RSI 到六层 profiling 的完整历程](docs/optimization-journey.zh-CN.md) ·
+[中文优化历程与最新结果](docs/rsi-r337-20261103.zh-CN.md) ·
 [全部 NPU 实验账本](docs/optimization-ledger-npu.zh-CN.md) ·
-[最新十轮详细分析](docs/rsi-profiling-20261102.zh-CN.md) ·
-[Measurements and provenance](docs/data/ascend-r305-20261102.json) ·
-[Reproduction and evidence](evidence/20261102-r305/README.md)
+[40轮逐项记录](evidence/20261103-r337/campaign/持续优化实验记录.md) ·
+[Mean/P99 and provenance](docs/current-results.md) ·
+[Reproduction and evidence](evidence/20261103-r337/README.md)
 
 ## Mean performance vs. vLLM-Omni
 
-Values are **Omni → r305**. Lower TTFP/RTF and higher request/s are better.
-Omni server: [`main@9990f10d9`](https://github.com/vllm-project/vllm-omni/commit/9990f10d9e898c3d38b1fa640513d55f771b8685);
-vLLM runtime: 0.32.0; both use the official client `5917730a`, Seed-TTS English and chunk25.
+Values are **Omni → r337**. Each engine point is the arithmetic mean of its two recorded run-level values.
+TTFP/RTF are lower-is-better and request/s is higher-is-better. Each chart shows one engine curve and one Omni curve.
 
 | C | Mean TTFP ms | Reduction | Mean RTF | Reduction | request/s | Increase |
 |---|---|---|---|---|---|---|
-| C1 | 848.21 → 559.57 | 34.03% | 0.3060 → 0.2509 | 17.99% | 0.8158 → 0.9619 | 17.90% |
-| C2 | 1035.28 → 906.21 | 12.47% | 0.4229 → 0.3885 | 8.15% | 1.1730 → 1.2105 | 3.20% |
-| C4 | 1384.52 → 1287.76 | 6.99% | 0.6038 → 0.5733 | 5.06% | 1.5805 → 1.5984 | 1.13% |
-| C8 | 1994.96 → 1806.22 | 9.46% | 0.9890 → 0.8085 | 18.25% | 2.0471 → 2.3884 | 16.67% |
+| C1 | 867.18 → 516.35 | 40.46% | 0.3114 → 0.2202 | 29.28% | 0.8012 → 1.0855 | 35.48% |
+| C2 | 1060.66 → 763.15 | 28.05% | 0.4142 → 0.3304 | 20.23% | 1.2062 → 1.4562 | 20.72% |
+| C4 | 1429.62 → 1187.96 | 16.90% | 0.5970 → 0.5220 | 12.56% | 1.6083 → 1.7489 | 8.74% |
+| C8 | 2049.72 → 1678.15 | 18.13% | 1.0234 → 0.7805 | 23.74% | 1.9637 → 2.4851 | 26.55% |
 
-![r305 vs Omni means](docs/figures/npu-r305-vs-omni-means.svg)
+![r337 vs Omni means](evidence/20261103-r337/campaign/独立引擎vs-vLLM-Omni-均值.svg)
 
-Each implementation completed 256 measured requests with zero request errors: 32/32/64/128 at C1/C2/C4/C8,
-two warmups per tier. Omni C1 is the same-day same-SHA archive; r305 C1 is a new unchanged-candidate measurement.
-C2/C4/C8 are the fresh serial comparison. These are single-run points, not confidence bounds.
-Audio lengths differ, so RTF improvements also depend on its generated-duration denominator.
-See the [full mean/P99 table](docs/rsi-profiling-20261102.zh-CN.md#完整均值与p99) and
-[earlier r292 five-tier results](docs/current-status-2026-11-02-main.md) for their separate scope.
+![r337 gains vs Omni](evidence/20261103-r337/campaign/独立引擎vs-vLLM-Omni-性能差值.svg)
 
-## What RSI found, and why r305 is faster
+The fixed workload is Seed-TTS English, chunk25, 32/32/64/128 timed requests at C1/C2/C4/C8 and two warmups per tier.
+All displayed source runs completed with zero request errors. C1 was supplemented on November 3 with the same
+source and configuration. C2/C4/C8 retain the preceding same-configuration measurements. Generated audio durations and RNG paths
+differ between deployments and are recorded in the evidence.
 
-### The complete optimization journey
+The P99 chart uses the arithmetic mean of the two candidate run-level P99 values. Each source run has
+32/32/64/128 requests per tier. Full raw values and the aggregation formula are available with the evidence.
 
-The engine did not start with the last ten rounds. Its NPU history goes from migration and the old frozen protocol
-(r32–r181), through RSI knowledge adaptation (r182–r239), stage profiling and AI-derived graph/cache/scheduling
-strategies (r240–r295), to L0 + six diagnostic layers and ten further experiments (r296–r306).
+[P99 chart](evidence/20261103-r337/campaign/独立引擎vs-vLLM-Omni-P99.svg) · [Machine-readable comparison](docs/data/ascend-r337-20261103.json)
 
-| Phase | Representative measured endpoints | Mean TTFP reduction | Mean RTF reduction | request/s increase |
+## How RSI and profiling changed the engine
+
+The complete history covers NPU migration and evidence contracts, RSI knowledge adaptation, profiling-led original
+strategies, six-layer diagnosis, r307–r309 follow-ups and **40 further algorithm attempts through r351**.
+Of those 40 attempts, 33 jobs exited zero and seven were rejected by framework/operator constraints or crashes.
+The archive retains successful, inconclusive and failed ideas, exact parent patches and fresh confirmations.
+
+| Phase | Measured comparison | Mean TTFP reduction | Mean RTF reduction | request/s increase |
 |---|---|---:|---:|---:|
-| RSI knowledge adaptation | r187 → stable hybrid r239; C1/C4/C8 | 7.90%–11.61% | 7.95%–10.89% | 8.94%–10.62% |
-| Profiling + AI-derived strategies | r239 → r292 measured in r295; C1/C4/C8 | 4.76%–7.34% | 4.62%–9.26% | 3.58%–9.26% |
-| Six-layer-guided optimization | fresh r292 control → r305 confirmation; C2/C4/C8 | 22.32%–32.03% | 13.30%–21.21% | 15.43%–28.39% |
+| RSI knowledge adaptation | r187 → hybrid r239, C1/C4/C8 | 7.90%–11.61% | 7.95%–10.89% | 8.94%–10.62% |
+| Profiling + AI-derived strategies | r239 → r292 measured in r295, C1/C4/C8 | 4.76%–7.34% | 4.62%–9.26% | 3.58%–9.26% |
+| Six-layer-guided optimization | fresh r292 control → r305, C2/C4/C8 | 22.32%–32.03% | 13.30%–21.21% | 15.43%–28.39% |
+| Follow-up profiling and resource/metadata changes | fresh r309 controls → r337, C2/C4/C8 | −1.82%–11.54% | 3.23%–11.33% | 1.23%–15.13% |
 
-The first two rows are cross-date **endpoint observations**, not isolated method effects. The final row uses its own
-same-config control, not the r295 endpoint. Workload/client/control snapshots changed over the project;
-do not add the rows or label the gap as a profiling-only causal gain. The phases describe the dominant evidence,
-not mutually exclusive methods: early work also used timings and original ideas, and later work still used RSI.
+The first two rows are cross-date endpoint observations. Later rows use their own contemporary controls.
+Each row has a distinct measurement scope and captures the changes of that stage. C4 TTFP in the final paired
+comparison spans both improvement and regression. Per-tier results and negative experiments remain in the full account.
 
-The [full Chinese history](docs/optimization-journey.zh-CN.md) explains the problems, knowledge sources, original
-strategies, failed ideas, changing bottlenecks and raw version progression. The [NPU ledger](docs/optimization-ledger-npu.zh-CN.md)
-preserves early migration/protocol work and every recoverable experiment through r306, including retracted gains.
+[Early r32–r306 history](docs/optimization-journey.zh-CN.md) ·
+[r307–r309](evidence/20261103-r337/followup/六层profiling继续优化-r307-r309.md) ·
+[r312–r351 and final comparisons](docs/rsi-r337-20261103.zh-CN.md)
 
-### The latest successful mechanism
+## Why the measured engine is faster
 
-The profiling loop found that **waiting for the first Thinker text chunk**, rather than HTTP serialization,
-was a major part of first-audio latency. At diagnostic C8, prefill-to-first-text fell from **1420.8 to 551.7 ms**;
-emit-to-client was only about 2–4 ms. These host intervals include contention, not exclusive kernel time.
+| Area | Measured engine mechanisms | Evidence and scope |
+|---|---|---|
+| First Thinker text | Prompt-lookup drafts from the current request, original-model block verification and KV truncation | Reduces serial decode/host round trips on this read-aloud workload. The earlier C8 diagnostic prefill-to-first-text interval fell from 1420.8 to 551.7 ms. |
+| Talker execution | K=10 device blocks with explicit sampler/history/EOS/KV ownership | The pinned Omni NPU deploy also has multi-frame decoding, with eight frames per step. |
+| Media graph startup | Euler/HiFT shapes initialized on the actual audio worker and prompt stream before health readiness | r307/r309 target observed first-use captures and preserve scratch ownership. |
+| Process resource use | r337 requests 12 Cube/24 Vector cores for its own process before model operators and graph capture | Fresh resource experiments inform this configuration. This is a process-local limit, with no demonstrated cross-process MPS mechanism. |
+| Host metadata | Reuses validated cumulative query lengths created by the layout builder | Removes repeated device-to-host observations in this engine. Malformed or absent metadata uses the existing fallback. |
+| Shared foundations | Paged KV, graph cohorts, batched Token2Wav, hybrid fused CFM and first-audio scheduling | The pinned Omni deploy also includes graphs, fusion and batching. The concrete routing and lifecycle differ. |
+| Compute and numerical path | Engine Flow FP16/6 steps and counter RNG, Omni FP32/10 steps | These differences contribute to the product-level measurements. Their speech-quality acceptance remains pending. |
 
-r305 uses **prompt-lookup proposals with original-model greedy verification**. It finds a continuation in this
-request's prompt using already-generated 2–4-token suffixes, verifies the entire causal block with the original
-Thinker, retains the matching prefix and target mismatch/bonus prediction, and truncates unused KV.
-No dataset IDs, saved answers or extra draft model are used. Ordinary decoding and KV-capacity fallbacks remain.
-The screen accepted 2223/3121 proposed tokens (71.23%; three tiers including warmups), reducing serial decode/host
-round trips. r305 itself does not change Flow precision, step count or chunk size relative to r292.
+L0 freezes workload identity and timing boundaries. L1–L6 organize pipeline timing, graph/scheduling gaps,
+redundant work/layout, operators/counters, copies/ownership, and component validation. Actual NPU evidence uses
+NPUGraph, msprof and CANN. Knowledge entries supply mechanisms and preconditions, while local profiles and
+source analysis determine the adaptations. The search also tested original ideas and retained their negative outcomes.
 
-Earlier NPU work supplies paged KV, fused decoder/CFM paths, K-step Talker graphs, batched Token2Wav and graph
-capture scheduling. These mechanisms are shared foundations, not new r305 speedup percentages.
-Omni also uses graphs and multi-frame Talker decoding; the comparison is not “graphs versus eager.”
+CPU/GIL evidence found a busy engine host thread and light HTTP work in the sampled C8 window. The published
+candidate still uses Python. Its measured gains come from the execution changes above. Detailed CPU evidence
+and the failed C++ dispatch experiment are included in the CPU analysis.
 
-## What six-layer profiling added
+[Profiling reference](https://github.com/vllm-project/vllm-omni/pull/9236) ·
+[Knowledge readset](evidence/20261103-r337/campaign/knowledge-readset.json) ·
+[CPU and language analysis](evidence/20261103-r337/campaign/CPU瓶颈与语言选择.md)
 
-L0 freezes workload identity and measurement boundaries. **L1–L6 are six diagnostic layers**:
-pipeline timing; graph/scheduling gaps; redundant work/layout; operators/counters; copies/ownership; component
-assessment and validation. Device evidence uses NPUGraph/msprof/CANN, following the logic of
-[PR #9236](https://github.com/vllm-project/vllm-omni/pull/9236).
-
-The additional **profiling-guided optimization campaign**, from r292 to unchanged-r305 serial confirmation,
-observed the following mean changes under the same engine FP16/6-step/chunk25 configuration:
-
-| C | Mean TTFP ms | Reduction | Mean RTF | Reduction | request/s | Increase |
-|---|---|---|---|---|---|---|
-| C2 | 1166.64 → 906.21 | 22.32% | 0.4770 → 0.3885 | 18.57% | 1.0354 → 1.2105 | 16.92% |
-| C4 | 1730.75 → 1287.76 | 25.60% | 0.6613 → 0.5733 | 13.30% | 1.3847 → 1.5984 | 15.43% |
-| C8 | 2657.29 → 1806.22 | 32.03% | 1.0261 → 0.8085 | 21.21% | 1.8602 → 2.3884 | 28.39% |
-
-![Profiling-guided incremental changes](docs/figures/npu-r305-incremental.svg)
-
-This is the observed **before/after optimization delta**, not a measured speedup from enabling a profiler.
-There is no isolated “RSI alone vs. RSI plus six layers” optimization study. Do not add these percentages to the
-Omni gains, or add gains across layers/rounds. Both screening and confirmation points are retained.
-
-The ten rounds also found negative results: larger Thinker graphs improved high-concurrency means but hurt P99;
-small decode groups regressed; constant AdaLN hoisting and NPU pending-audio output had no stable end-to-end gain.
-The [round-by-round Chinese account](docs/rsi-profiling-20261102.zh-CN.md#十轮实验包含无收益和失败方案)
-records hypotheses, knowledge sources, raw results, failures and decisions.
-
-## Architecture and quality
+## Architecture and speech quality
 
 ![Ascend architecture](docs/figures/architecture.svg)
 
-[Runtime architecture](docs/architecture-npu.md) · [NPU optimization map](docs/optimizations-npu.md)
+The r337 16-row development comparison against the engine control matched Thinker text/tokens on 16/16
+and codec tokens on 0/16. The user authorized exploring these numerical paths subject to the speech gate.
+Frozen WER, speaker-similarity, UTMOS and comparative speech thresholds remain applicable. Scoring preparation
+has moved to the Omni NPU environment, where a new evaluator fingerprint and matched reference/candidate
+scoring are required. The full current speech gate remains **NOT_RUN**.
 
-In the 16-row C8 r305 development screen, Thinker text/tokens matched r292 on 16/16, but codec tokens matched on
-0/16. This is not a speech-quality pass or proof of bitwise losslessness. Frozen WER/speaker-similarity/UTMOS gates
-remain incomplete because the existing scoring service was unreachable. Request-error rate zero is a different check.
-The pinned model and original acceptance plan are preserved. Unsupported graph paths retain correctness fallbacks.
+The candidate is selectable through `configs/engine/ascend_r337_experimental.json`. Its runtime matches the
+measured snapshot except for the public server's existing optional CPU-affinity API. The source manifest records
+that integration difference and reconstructs the exact measured tree. The preserved historical artifacts also
+reconstruct r305. Public default configurations retain their existing settings.
 
-The r305 runtime is included with **opt-in** `configs/engine/ascend_r305_experimental.json`; existing default configs
-are unchanged. The public server retains its optional CPU-affinity API; all other engine files match measured r305.
-The [source manifest](evidence/20261102-r305/source-manifest.json) records that publication difference and exact
-measured-source reconstruction. The integrated publication tree is not represented as another timed NPU run.
+[Architecture](docs/architecture-npu.md) · [Source binding](evidence/20261103-r337/source-manifest.json) ·
+[Current mean/P99 results](docs/current-results.md)
 
 ## Quickstart
 
@@ -155,21 +140,24 @@ repetition penalty 1.05 over 16 frames); `talker_sampling` overrides it per requ
 the usual `image_url`, `input_audio`/`audio_url` and `video_url` content parts. See [Ascend API and request flow](docs/architecture-npu.md).
 
 
-To select the measured experimental settings, use `ascend_r305_experimental` in the scheduler-wrapped command above.
+To select the measured experimental settings, use `ascend_r337_experimental` in the scheduler-wrapped command above.
 `ascend_r292_control` is supplied for the same-config internal comparison; prompt lookup defaults to disabled.
 
 ## Reproduce figures and verify artifacts
 
 ```bash
 python -m pip install matplotlib
-python tools/plot_r305_performance.py
+python tools/plot_r337_performance.py
+python tools/verify_r337_evidence.py
 python tools/verify_r305_evidence.py
 ```
 
-Raw native metric JSONs, workload commands, source/config hashes, receipts, ten-round patches and compact profiling
-analyses are under [evidence/20261102-r305](evidence/20261102-r305/README.md). Audio/model weights and large raw traces
-remain outside Git. The [original frozen plan](evidence/20261022-ascend910b1/plan/acceptance.json) is unchanged;
-these points do not complete its K=10/LCB/final-quality protocol.
+Chinese figure rendering requires a CJK font such as Microsoft YaHei or Noto Sans CJK SC.
+The compact evidence contains native outputs, commands, configuration/source hashes, scheduler receipts,
+all 40 parent patches, failure logs and derived profiling analyses. Large audio/model assets and device traces
+remain in the original audit store. The frozen acceptance plan continues to define statistical and speech gates.
+
+[Evidence index](evidence/20261103-r337/README.md) · [Frozen plan](evidence/20261022-ascend910b1/plan/acceptance.json)
 
 ## References
 

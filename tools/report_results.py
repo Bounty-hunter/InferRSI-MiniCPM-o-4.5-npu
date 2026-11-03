@@ -6,7 +6,7 @@ Reads every cell's measured run summaries (``run1`` .. ``runK``; ``run0`` is the
 envelope comparison (the one ``campaign/*_vs_envelope.json``, produced by ``tools/engine_vs_envelope.py`` on the raw cells).
 A snapshot that holds only engine cells names the snapshot with the unchanged baseline cells, tuning cells and traces
 in ``baselines.json`` (``{"evidence": "../<snapshot>"}``); its baseline cells are read from there.
-Writes ``docs/current-results.json``, ``docs/figures/full-comparison.svg`` and prints the README table.
+Writes ``docs/data/legacy-l20x-current-results.json``, ``docs/figures/full-comparison.svg`` and prints the historical table.
 """
 
 import json
@@ -123,7 +123,7 @@ def main():
     ratios = json.loads(ratios_path.read_text())
     rows = best_per_framework(cells)
     cs = sorted({c["C"] for c in cells})
-    (ROOT / "docs" / "current-results.json").write_text(json.dumps({"evidence": str(ev.relative_to(ROOT)), "baseline_evidence": str(base.relative_to(ROOT)), "cells": cells,
+    (ROOT / "docs" / "data" / "legacy-l20x-current-results.json").write_text(json.dumps({"evidence": str(ev.relative_to(ROOT)), "baseline_evidence": str(base.relative_to(ROOT)), "cells": cells,
                                                                     "tuning_cells": tuning, "traces": traces,
                                                                     "engine_vs_envelope": ratios}, indent=1) + "\n")
     (ROOT / "docs" / "figures").mkdir(parents=True, exist_ok=True)

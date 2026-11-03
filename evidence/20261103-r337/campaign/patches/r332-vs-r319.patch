@@ -1,0 +1,87 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        thinker_paged_suffix: bool = False,
+         decoder_host_qo_lengths: bool = False,
+         **_future_track_s_options,
+     ):
+@@ -238,6 +239,7 @@
+             static_shape_capacity=talker_static_kv_capacity,
+         )
+         self.trun.capture_context = self._graph_capture_context
++        self.trun.paged_suffix = bool(thinker_paged_suffix)
+         self.arun.capture_context = self._graph_capture_context
+         if self.t2w_batch.euler is not None:
+             self.t2w_batch.euler.capture_context = self._graph_capture_context
+@@ -775,6 +777,8 @@
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+                 "thinker_prefix_cache_stats": dict(self._thinker_prefix_stats),
+                 "thinker_batch_append_prefill": self.trun.batch_append_prefill,
++                "thinker_paged_suffix_calls": self.trun.paged_suffix_calls,
++                "thinker_paged_suffix_failures": self.trun.paged_suffix_failures,
+                 "thinker_batch_append_prefill_failures": list(self.trun.batch_append_prefill_failures),
+                 "talker_graph_buckets": sorted(self.arun.decode_graphs),
+                 "prompt_cache_entries": prompt_entries, "prompt_cache_refs": prompt_refs,
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -580,6 +580,9 @@
+         self.static_shape_capacity = int(static_shape_capacity)
+         self.batch_append_prefill = bool(batch_append_prefill)
+         self.batch_append_prefill_failures: list[str] = []
++        self.paged_suffix = False
++        self.paged_suffix_calls = 0
++        self.paged_suffix_failures = []
+         if self.static_shape_attention:
+             if self.static_shape_capacity < kv.page_size or self.static_shape_capacity % kv.page_size:
+                 raise ValueError("static_shape_capacity must be a positive multiple of the KV page size")
+@@ -742,6 +745,24 @@
+             offset += count
+         return torch.cat(outputs)
+ 
++    def _append_prefill_paged(self, query, layer, layout):
++        width = max(2048, max(layout.lengths))
++        causal_mask = torch.triu(
++            torch.ones(width, width, device=query.device, dtype=torch.int8), diagonal=1)
++        result = self.npu.npu_fused_infer_attention_score(
++            query=query.contiguous(),
++            key=self.kv.k[layer].view(self.kv.num_pages, self.kv.page_size, -1),
++            value=self.kv.v[layer].view(self.kv.num_pages, self.kv.page_size, -1),
++            block_table=layout.block_table.clamp_min(0).contiguous(),
++            block_size=self.kv.page_size, input_layout="TND", atten_mask=causal_mask,
++            actual_seq_lengths=self._query_ends(layout, query.shape[0]),
++            actual_seq_lengths_kv=list(layout.lengths),
++            num_key_value_heads=self.spec.num_kv_heads, num_heads=self.spec.num_heads,
++            scale=self.spec.head_dim ** -0.5, sparse_mode=3,
++            pre_tokens=_FIA_PRE_TOKENS, next_tokens=0)[0]
++        self.paged_suffix_calls += 1
++        return result
++
+     def _append_prefill_batched(self, query: torch.Tensor, layer: int, layout: NpuBatchLayout) -> torch.Tensor:
+         """One packed TND FIA for multiple suffix prefills with existing KV.
+ 
+@@ -751,6 +772,12 @@
+         cumulative Q and KV lengths let causal FIA align every suffix to the
+         right edge of its own context.
+         """
++        if self.paged_suffix and max(layout.new_tokens) <= 16:
++            try:
++                return self._append_prefill_paged(query, layer, layout)
++            except RuntimeError as error:
++                self.paged_suffix = False
++                self.paged_suffix_failures.append(f"{type(error).__name__}: {error}")
+         keys, values = [], []
+         cumulative_kv, total = [], 0
+         for seq, length in zip(layout.seqs, layout.lengths):
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -47,5 +47,6 @@
+     8
+   ],
+   "t2w_startup_extended": true,
+-  "decoder_host_qo_lengths": true
++  "decoder_host_qo_lengths": true,
++  "thinker_paged_suffix": true
+ }

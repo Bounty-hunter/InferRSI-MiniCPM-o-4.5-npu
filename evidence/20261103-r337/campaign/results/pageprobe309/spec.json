@@ -1,0 +1,12 @@
+{
+  "tag": "pageprobe309",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19254,
+  "runner": "probe_paged_fia.py",
+  "hypothesis": "PagedTND suffix-attention feasibility with real32Q/8KV/128dim and shuffled pages, mixed query/context/512 boundaries; operator probe not algorithm round"
+}

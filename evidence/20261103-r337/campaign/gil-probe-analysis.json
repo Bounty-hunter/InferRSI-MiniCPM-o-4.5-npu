@@ -1,0 +1,284 @@
+{
+  "valid": true,
+  "pid": 205549,
+  "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "sampling_window": {
+    "begin_wall_ns": 1793628695078960561,
+    "duration_s": 20,
+    "rate_hz": 100,
+    "only_gil_holder": true
+  },
+  "logged_selected_samples": 620,
+  "logged_errors": 0,
+  "nominal_sampling_opportunities": 2000,
+  "approx_gil_held_pct_of_nominal": 31.0,
+  "roles": {
+    "audio": {
+      "samples": 187,
+      "pct_of_selected_gil_samples": 30.161290322580644,
+      "approx_pct_of_nominal": 9.35
+    },
+    "engine": {
+      "samples": 330,
+      "pct_of_selected_gil_samples": 53.225806451612904,
+      "approx_pct_of_nominal": 16.5
+    },
+    "prepare": {
+      "samples": 49,
+      "pct_of_selected_gil_samples": 7.903225806451613,
+      "approx_pct_of_nominal": 2.45
+    },
+    "http": {
+      "samples": 50,
+      "pct_of_selected_gil_samples": 8.064516129032258,
+      "approx_pct_of_nominal": 2.5
+    },
+    "other": {
+      "samples": 4,
+      "pct_of_selected_gil_samples": 0.6451612903225806,
+      "approx_pct_of_nominal": 0.2
+    }
+  },
+  "top_leaf_frames": [
+    [
+      "__call__ (torch/_ops.py:1209)",
+      46
+    ],
+    [
+      "rot (engine/runtime/paged.py:172)",
+      28
+    ],
+    [
+      "hf_rms_norm (engine/runtime/paged.py:153)",
+      27
+    ],
+    [
+      "dense_layer (engine/runtime/npu_paged.py:215)",
+      22
+    ],
+    [
+      "hf_rope (engine/runtime/paged.py:174)",
+      16
+    ],
+    [
+      "iterencode (json/encoder.py:258)",
+      14
+    ],
+    [
+      "graph_task_update_end (torch_npu/npu/graphs.py:100)",
+      14
+    ],
+    [
+      "_wrapped_call_impl (torch/nn/modules/module.py:1776)",
+      13
+    ],
+    [
+      "_call_impl (torch/nn/modules/module.py:1781)",
+      13
+    ],
+    [
+      "forward (stepaudio2/flashcosyvoice/modules/hifigan_components/layers.py:85)",
+      12
+    ],
+    [
+      "linear (engine/runtime/fp8.py:44)",
+      10
+    ],
+    [
+      "_append_prefill_reference (engine/runtime/npu_paged.py:717)",
+      9
+    ],
+    [
+      "dropout (torch/nn/functional.py:1441)",
+      8
+    ],
+    [
+      "_append_prefill_reference (engine/runtime/npu_paged.py:719)",
+      8
+    ],
+    [
+      "_forward_native (engine/runtime/npu_paged.py:834)",
+      8
+    ],
+    [
+      "__getattr__ (torch/nn/modules/module.py:1953)",
+      7
+    ],
+    [
+      "_forward_native (engine/runtime/npu_paged.py:833)",
+      6
+    ],
+    [
+      "_call_impl (torch/nn/modules/module.py:1784)",
+      6
+    ],
+    [
+      "_append_prefill_reference (engine/runtime/npu_paged.py:725)",
+      6
+    ],
+    [
+      "_append_prefill_reference (engine/runtime/npu_paged.py:714)",
+      6
+    ],
+    [
+      "_scatter (engine/runtime/npu_paged.py:669)",
+      6
+    ],
+    [
+      "_conv_forward (torch/nn/modules/conv.py:371)",
+      6
+    ],
+    [
+      "_forward_impl (stepaudio2/cosyvoice2/transformer/encoder_layer.py:141)",
+      5
+    ],
+    [
+      "forward (torch/nn/modules/linear.py:134)",
+      5
+    ],
+    [
+      "b64encode (base64.py:58)",
+      5
+    ]
+  ],
+  "inclusive_path_sample_counts": {
+    "_vocode": 85,
+    "uniform": 10,
+    "setup_many": 20,
+    "features": 29,
+    "__getattr__": 19,
+    "_append_prefill_batched": 14,
+    "_update_attention": 18,
+    "dense_layer": 28,
+    "_append_prefill_reference": 84,
+    "_fresh_prefill": 5
+  },
+  "top_stacks": [
+    {
+      "role": "engine",
+      "count": 14,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:856);try_prompt_lookup_step (engine/runtime/thinker_lookup.py:57);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:915);run (engine/runtime/npu_paged.py:541);_update_attention (engine/runtime/npu_paged.py:528);graph_task_update_end (torch_npu/npu/graphs.py:100)"
+    },
+    {
+      "role": "http",
+      "count": 13,
+      "stack": "<module> (entry_native_cpu.py:20);main (engine/server.py:352);run_app (aiohttp/web.py:502);run_until_complete (asyncio/base_events.py:678);run_forever (asyncio/base_events.py:645);_run_once (asyncio/base_events.py:1999);_run (asyncio/events.py:88);_handle_request (aiohttp/web_protocol.py:577);_handle (aiohttp/web_app.py:563);chat (engine/server.py:277);_chunk (engine/server.py:243);dumps (json/__init__.py:231);encode (json/encoder.py:200);iterencode (json/encoder.py:258)"
+    },
+    {
+      "role": "engine",
+      "count": 12,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:715);dense_layer (engine/runtime/npu_paged.py:215)"
+    },
+    {
+      "role": "engine",
+      "count": 10,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:839);hf_rope (engine/runtime/paged.py:174);rot (engine/runtime/paged.py:172)"
+    },
+    {
+      "role": "engine",
+      "count": 10,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:815);_timed_stage (engine/runtime/backend_npu.py:632);_talker_step (engine/runtime/backend_npu.py:978);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:839);hf_rope (engine/runtime/paged.py:174);rot (engine/runtime/paged.py:172)"
+    },
+    {
+      "role": "engine",
+      "count": 10,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:720);__call__ (torch/_ops.py:1209)"
+    },
+    {
+      "role": "engine",
+      "count": 9,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:856);try_prompt_lookup_step (engine/runtime/thinker_lookup.py:73);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:839);hf_rope (engine/runtime/paged.py:174)"
+    },
+    {
+      "role": "engine",
+      "count": 8,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:856);try_prompt_lookup_step (engine/runtime/thinker_lookup.py:73);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:837);rms_norm (engine/runtime/npu_paged.py:828);hf_rms_norm (engine/runtime/paged.py:153)"
+    },
+    {
+      "role": "engine",
+      "count": 8,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:856);try_prompt_lookup_step (engine/runtime/thinker_lookup.py:73);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:839);hf_rope (engine/runtime/paged.py:174);rot (engine/runtime/paged.py:172)"
+    },
+    {
+      "role": "engine",
+      "count": 7,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:717)"
+    },
+    {
+      "role": "engine",
+      "count": 6,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:837);rms_norm (engine/runtime/npu_paged.py:828);hf_rms_norm (engine/runtime/paged.py:153)"
+    },
+    {
+      "role": "engine",
+      "count": 6,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:856);try_prompt_lookup_step (engine/runtime/thinker_lookup.py:73);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:838);rms_norm (engine/runtime/npu_paged.py:828);hf_rms_norm (engine/runtime/paged.py:153)"
+    },
+    {
+      "role": "engine",
+      "count": 6,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:815);_timed_stage (engine/runtime/backend_npu.py:632);_talker_step (engine/runtime/backend_npu.py:978);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:783);_scatter (engine/runtime/npu_paged.py:666);__call__ (torch/_ops.py:1209)"
+    },
+    {
+      "role": "audio",
+      "count": 6,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run_t2w (engine/runtime/backend_npu.py:1230);_decode_windows_threaded (engine/runtime/backend_npu.py:1266);decorate_context (torch/utils/_contextlib.py:124);decode (engine/runtime/token2wav_batch.py:243);_prof (engine/runtime/token2wav_batch.py:334);_vocode (engine/runtime/token2wav_batch.py:794);decorate_context (torch/utils/_contextlib.py:124);__call__ (engine/runtime/hift_graph.py:78);hift_forward_noise (engine/models/token2wav.py:252);_hift_decode (engine/models/token2wav.py:187);_wrapped_call_impl (torch/nn/modules/module.py:1776);_call_impl (torch/nn/modules/module.py:1787);forward (stepaudio2/flashcosyvoice/modules/hifigan_components/layers.py:140);_wrapped_call_impl (torch/nn/modules/module.py:1776);_call_impl (torch/nn/modules/module.py:1787);forward (stepaudio2/flashcosyvoice/modules/hifigan_components/layers.py:85)"
+    },
+    {
+      "role": "engine",
+      "count": 6,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:815);_timed_stage (engine/runtime/backend_npu.py:632);_talker_step (engine/runtime/backend_npu.py:978);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:715);dense_layer (engine/runtime/npu_paged.py:215)"
+    },
+    {
+      "role": "engine",
+      "count": 5,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:839);hf_rope (engine/runtime/paged.py:174)"
+    },
+    {
+      "role": "http",
+      "count": 5,
+      "stack": "<module> (entry_native_cpu.py:20);main (engine/server.py:352);run_app (aiohttp/web.py:502);run_until_complete (asyncio/base_events.py:678);run_forever (asyncio/base_events.py:645);_run_once (asyncio/base_events.py:1999);_run (asyncio/events.py:88);_handle_request (aiohttp/web_protocol.py:577);_handle (aiohttp/web_app.py:563);chat (engine/server.py:276);b64encode (base64.py:58)"
+    },
+    {
+      "role": "engine",
+      "count": 5,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:725)"
+    },
+    {
+      "role": "engine",
+      "count": 5,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:838);rms_norm (engine/runtime/npu_paged.py:828);hf_rms_norm (engine/runtime/paged.py:153)"
+    },
+    {
+      "role": "engine",
+      "count": 4,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:720)"
+    },
+    {
+      "role": "engine",
+      "count": 4,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:815);_timed_stage (engine/runtime/backend_npu.py:632);_talker_step (engine/runtime/backend_npu.py:978);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:719)"
+    },
+    {
+      "role": "engine",
+      "count": 4,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:856);try_prompt_lookup_step (engine/runtime/thinker_lookup.py:73);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:767);_append_prefill_batched (engine/runtime/npu_paged.py:741);dense_layer (engine/runtime/npu_paged.py:215)"
+    },
+    {
+      "role": "engine",
+      "count": 4,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:719)"
+    },
+    {
+      "role": "engine",
+      "count": 4,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:718)"
+    },
+    {
+      "role": "engine",
+      "count": 4,
+      "stack": "_bootstrap (threading.py:1032);_bootstrap_inner (threading.py:1075);run (threading.py:1012);_run (engine/runtime/backend_npu.py:800);_tick (engine/runtime/backend_npu.py:809);_tick_launched (engine/runtime/backend_npu.py:814);_timed_stage (engine/runtime/backend_npu.py:632);_thinker_step (engine/runtime/backend_npu.py:929);_thinker_step_group (engine/runtime/backend_npu.py:874);_decoder_forward (engine/runtime/backend_npu.py:646);decorate_context (torch/utils/_contextlib.py:124);forward (engine/runtime/npu_paged.py:919);_forward_impl (engine/runtime/npu_paged.py:877);_forward_native (engine/runtime/npu_paged.py:840);_attention (engine/runtime/npu_paged.py:788);_append_prefill (engine/runtime/npu_paged.py:773);_append_prefill_reference (engine/runtime/npu_paged.py:714)"
+    }
+  ],
+  "limitation": "External py-spy pauses the process briefly to sample. GIL-owner samples include C extensions that hold the GIL; they are not pure Python CPU time. Denominator is nominal100Hz*20s, not a measured native GIL duty cycle. Probe throughput/latency is perturbed and excluded from acceptance. No continuous GIL saturation or C++/Rust speedup estimate is established."
+}

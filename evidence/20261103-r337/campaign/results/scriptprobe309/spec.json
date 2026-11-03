@@ -1,0 +1,12 @@
+{
+  "tag": "scriptprobe309",
+  "engine": "engine-r341",
+  "config": "config-r341.json",
+  "engine_sha256": "c14d15d5adf8a603495056d9c02481f9dca1e528707f8ccf833a3b0ef3bd1585",
+  "native": [],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19097,
+  "runner": "probe_script_elementwise.py",
+  "hypothesis": "Exact TorchScript vs original PyTorch elementwise operators on BF16/FP16/FP32 and strided QKV; not an algorithm round"
+}

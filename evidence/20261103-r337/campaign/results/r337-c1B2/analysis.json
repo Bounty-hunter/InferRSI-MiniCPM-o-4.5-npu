@@ -1,0 +1,28 @@
+{
+  "tag": "r337-c1B2",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 1,
+      "ttfp_ms": 509.9688179907389,
+      "rtf": 0.21711627066814843,
+      "req_s": 1.088306250334358,
+      "completed": 32,
+      "failed": 0
+    }
+  ],
+  "native_tails": {
+    "c1": {
+      "mean_audio_rtf": 0.21711627066814843,
+      "median_audio_rtf": 0.2142365423601849,
+      "p50_audio_rtf": 0.2142365423601849,
+      "p95_audio_rtf": 0.25034537091436637,
+      "p99_audio_rtf": 0.2821636629198389,
+      "mean_audio_ttfp_ms": 509.9688179907389,
+      "median_audio_ttfp_ms": 523.7272884696722,
+      "p50_audio_ttfp_ms": 523.7272884696722,
+      "p95_audio_ttfp_ms": 565.41229467839,
+      "p99_audio_ttfp_ms": 577.1669007465243
+    }
+  }
+}

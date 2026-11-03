@@ -1,0 +1,16 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m       │ [36;1mDURATION[0;22m  │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                              │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                        │ [36;1mUTIL[0;22m 
+─────┼──────────────┼────────────┼───────────┼──────┼──────────────────────────────────────────────────────┼────────────────────────────────────────┼─────────────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown    │ [2m-[22m         │ [2m-[22m    │ used by PID 3976932 (2h59m), PID 3953860 (3h)        │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                           │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ zhanghan   │ 0h 5m 0s  │ RUN  │ heartbeat 0h 0m 0s ago                               │ [2mno usage detected[22m                      │ pr529-full-pair-interactive │ 0%   
+ 2   │ [34m● IN_USE   [0m  │ yangnanxin │ 0h 0m 22s │ RUN  │ heartbeat 0h 0m 22s ago                              │ [2mno usage detected[22m                      │ -                           │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m         │ [2m-[22m    │ free for 0h 35m 50s                                  │ [2m0MB used[22m                               │ [2m-[22m                           │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m         │ [2m-[22m    │ free for 0h 35m 50s                                  │ [2m0MB used[22m                               │ [2m-[22m                           │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m         │ [2m-[22m    │ free for 0h 0m 0s                                    │ [2m0MB used[22m                               │ [2m-[22m                           │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m         │ [2m-[22m    │ free for 0h 26m 18s                                  │ [2m0MB used[22m                               │ [2m-[22m                           │ 0%   
+ 7   │ [34m● IN_USE   [0m  │ zhanghan   │ 0h 9m 57s │ RUN  │ heartbeat 0h 0m 57s ago, processes: PID 4186022 (8m) │ [2m36680MB, 1 processes[22m                   │ pr529-full-pair-video       │ 64%  
+Reserved 1 GPU(s): [5] for command execution (timeout: 0h 10m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T13:11:52Z", "mode": "native", "pid": 196063, "device": "5"}
+{"phase": "benchmark", "utc": "2026-11-02T13:12:53Z", "mode": "native", "concurrency": 8}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:14:31Z", "mode": "native", "concurrency": 8, "ttfp_ms": 1800.0226404183195, "rtf": 0.8275121984827094, "req_s": 2.315458646056466, "completed": 128, "failed": 0}
+{"phase": "completed", "utc": "2026-11-02T13:14:38Z", "measurements": [{"mode": "native", "concurrency": 8, "ttfp_ms": 1800.0226404183195, "rtf": 0.8275121984827094, "req_s": 2.315458646056466, "completed": 128, "failed": 0}], "quality": "generation only, not scored gate"}

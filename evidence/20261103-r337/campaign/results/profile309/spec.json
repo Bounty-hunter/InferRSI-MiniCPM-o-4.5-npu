@@ -1,0 +1,14 @@
+{
+  "tag": "profile309",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [],
+  "diagnostic": [
+    8
+  ],
+  "quality": false,
+  "port": 19245,
+  "runner": "run_profile.py",
+  "hypothesis": "Current warmed C8 CPU stacks/NPU timeline on actual engine owner thread; separate diagnostic only, not an algorithm round"
+}

@@ -1,0 +1,59 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        thinker_rounding_native_rms: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -235,6 +236,7 @@
+             static_shape_capacity=talker_static_kv_capacity,
+         )
+         self.trun.capture_context = self._graph_capture_context
++        self.trun.rounding_native_rms = bool(thinker_rounding_native_rms)
+         self.arun.capture_context = self._graph_capture_context
+         if self.t2w_batch.euler is not None:
+             self.t2w_batch.euler.capture_context = self._graph_capture_context
+@@ -772,6 +774,7 @@
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+                 "thinker_prefix_cache_stats": dict(self._thinker_prefix_stats),
+                 "thinker_batch_append_prefill": self.trun.batch_append_prefill,
++                "thinker_rounding_rms_host_calls": getattr(self.trun,"rounding_rms_host_calls",0),
+                 "thinker_batch_append_prefill_failures": list(self.trun.batch_append_prefill_failures),
+                 "talker_graph_buckets": sorted(self.arun.decode_graphs),
+                 "prompt_cache_entries": prompt_entries, "prompt_cache_refs": prompt_refs,
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -823,6 +823,20 @@
+         native_swiglu = self.fused_mode in ("swiglu", "full")
+ 
+         def rms_norm(tensor: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
++            if getattr(self, "rounding_native_rms", False):
++                ones = getattr(self,"_rounding_rms_ones",None)
++                if ones is None:
++                    ones = self._rounding_rms_ones = {}
++                key = (tuple(weight.shape),weight.dtype,str(weight.device))
++                if key not in ones:
++                    ones[key] = torch.ones_like(weight)
++                self.rounding_rms_host_calls = getattr(self,"rounding_rms_host_calls",0)+1
++                # Normalize with unit scale, round to activation dtype, THEN
++                # apply the original weight in that dtype. This preserves the
++                # reference's cast/scale boundary unlike directly weighted
++                # fused RMSNorm. Fused reduction rounding still needs gates.
++                normalized = self.npu.npu_rms_norm(tensor,ones[key],epsilon=spec.rms_eps)[0]
++                return weight * normalized
+             if native_rms:
+                 return self.npu.npu_rms_norm(tensor, weight, epsilon=spec.rms_eps)[0]
+             return hf_rms_norm(tensor, weight, spec.rms_eps)
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "thinker_rounding_native_rms": true
+ }

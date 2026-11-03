@@ -1,0 +1,82 @@
+[
+  {
+    "request_id": "common_voice_en_10119832-common_voice_en_10119840",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_10119832-common_voice_en_10119847",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_103675-common_voice_en_103676",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_103675-common_voice_en_103677",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_10933823-common_voice_en_10933822",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_10933823-common_voice_en_10933825",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_120405-common_voice_en_120402",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_120405-common_voice_en_120406",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_1205005-common_voice_en_1205007",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_1205005-common_voice_en_1205008",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_123125-common_voice_en_123126",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_123125-common_voice_en_123127",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_125386-common_voice_en_125388",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_125386-common_voice_en_125389",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_137148-common_voice_en_137152",
+    "text_exact": true,
+    "tokens_exact": true
+  },
+  {
+    "request_id": "common_voice_en_13900-common_voice_en_13901",
+    "text_exact": true,
+    "tokens_exact": true
+  }
+]

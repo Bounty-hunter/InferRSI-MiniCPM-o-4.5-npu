@@ -1,0 +1,12 @@
+[
+  {
+    "ProcessId": 20028,
+    "ParentProcessId": 57332,
+    "CommandLine": "\"D:\\huawei\\code\\codex_workspace\\outputs\\npu-performance-plots-20261102\\.venv\\Scripts\\python.exe\" outputs/rsi-r312-r351-20261102/monitor.py"
+  },
+  {
+    "ProcessId": 48016,
+    "ParentProcessId": 20028,
+    "CommandLine": "\"D:\\huawei\\code\\codex_workspace\\outputs\\npu-performance-plots-20261102\\.venv\\Scripts\\python.exe\" outputs/rsi-r312-r351-20261102/monitor.py"
+  }
+]

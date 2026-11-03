@@ -1,0 +1,14 @@
+{
+  "tag": "cpu309",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [
+    8
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19252,
+  "runner": "run_native_cpu.py",
+  "hypothesis": "Read-only20s per-thread CPU in warmed native C8, no tensor/stack instrumentation; evaluate CPU/GIL hypothesis separately, not an algorithm round"
+}

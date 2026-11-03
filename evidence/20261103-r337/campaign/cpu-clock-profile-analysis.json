@@ -1,0 +1,11 @@
+{
+  "valid": false,
+  "collection_exit": 0,
+  "status": "INVALID_TIMER_ATTRIBUTION",
+  "wall_s": 12.116866647,
+  "owner_thread_cpu_s": 9.47195949,
+  "invalid_profile_total_cpu_s": -614.0824791389967,
+  "negative_exclusive_functions": 245,
+  "reason": "Custom thread_time cProfile produced negative/excessive function durations in this multithreaded Python3.12 runtime. No native/Python fractions may be derived. Root cause not fully established; likely cross-thread timer/event attribution requires a separate minimal reproduction.",
+  "usable": "Independent unprofiled/proc CPU clock measurements remain valid; use external py-spy GIL evidence separately."
+}

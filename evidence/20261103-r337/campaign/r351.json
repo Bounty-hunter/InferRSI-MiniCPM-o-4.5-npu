@@ -1,0 +1,23 @@
+{
+  "tag": "r351",
+  "engine": "engine-r351",
+  "config": "config-r351.json",
+  "engine_sha256": "a02a733195cf90ea9a9a46dba91cc33e3bdc113dc06ffd30bb9698f7c755a5ca",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    8
+  ],
+  "quality": true,
+  "port": 19240,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "r343",
+  "hypothesis": "Original prefix/verification attention reads NPU qo_indptr back toCPU every layer; publish builder-owned identical host cumulative lengths, validate packing invariant, preserve observation fallback for synthetic/malformed layouts",
+  "kind": "host-lengths"
+}

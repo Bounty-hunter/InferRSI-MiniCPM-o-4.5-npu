@@ -1,5 +1,24 @@
 # Reproducing the benchmark
 
+## Current Ascend NPU comparison
+
+The current workload uses the official vLLM-Omni bench client5917730a, pinned Omni main9990f10d9,
+chunk25, Seed-TTS English and C1/C2/C4/C8 with32/32/64/128timed requests and2warmups per tier.
+Run the complete server lifetime in the existing container as the personal user through `npu run`.
+The r337 engine configuration is `ascend_r337_experimental`. Exact server/client commands, source/config hashes
+and original device allocation are recorded under the current evidence bundle. Choose an available equivalent A2 card.
+
+```bash
+python tools/verify_r337_evidence.py
+python tools/plot_r337_performance.py
+```
+
+[Current NPU evidence](../evidence/20261103-r337/README.md) · [Current results](current-results.md)
+
+## Historical multi-framework harness
+
+The following section documents the earlier harness and GPU predecessor environments.
+
 The harness (`bench/`) drives the engine, vLLM-Omni and SGLang-Omni with the same requests and computes every metric
 from client timestamps. A measured cell is self-describing: its `experiment.json` freezes the spec, the source and
 environment fingerprints and the server launch, and `bench.verify` re-checks the cell from its artifacts.

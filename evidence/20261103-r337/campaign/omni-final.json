@@ -1,0 +1,27 @@
+{
+  "tag": "omni-final",
+  "algorithm_round": false,
+  "baseline_repeat_of": "omni-lowc",
+  "server_sha": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+  "client_sha": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+  "port": 19360,
+  "tiers": [
+    [
+      32,
+      2
+    ],
+    [
+      64,
+      4
+    ],
+    [
+      128,
+      8
+    ]
+  ],
+  "chunk": 25,
+  "flow": "Original Omni FP32/10 steps; unchanged deploy and model",
+  "prior_script_sha256": "40127d5f94c55c6e203226538fd6df06bdfed3f37d1ba4cdb890e843a51b2845",
+  "runner_sha256": "c2e58580f6fc5058c700b2021b660130fa3e98597e06a9ab6b32faccd1e975d3",
+  "reason": "Contemporary pinned Omni reference after visible same-source control drift; retain original reference too; not an algorithm round or equal-quality proof"
+}

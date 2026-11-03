@@ -1,0 +1,28 @@
+Mon Nov  2 10:48:40 AM UTC 2026
+uid=1033(dengyunyang) gid=1033(dengyunyang) groups=1033(dengyunyang),944(docker),1000(HwHiAiUser)
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m    │ [36;1mDURATION[0;22m │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                      │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m │ [36;1mUTIL[0;22m 
+─────┼──────────────┼─────────┼──────────┼──────┼──────────────────────────────────────────────┼────────────────────────────────────────┼──────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown │ [2m-[22m        │ [2m-[22m    │ used by PID 3976932 (35m), PID 3953860 (36m) │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m    │ 0%   
+ 1   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 3m 9s                            │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 3m 9s                            │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 3m 9s                            │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 3m 9s                            │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 3m 9s                            │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 1m 41s                           │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 1h 12m 58s                          │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+GPU Reservation Queue
+=====================
+
+Pos  ID         User            Requested       Allocated    Waiting
+---  --         ----            ---------       ---------    -------
+1    f5fdc440   wfy             8 GPUs          0/8          1h 21m 20s
+2    e6acb742   why             IDs: [0 1 2 ... 0/8          1h 17m 8s
+
+Total: 2 entries waiting for 16 GPUs (0 partially allocated)
+
+Running Tasks
+=============
+No GPUs are currently reserved.
+{"listeners": [{"port": 55449, "inode": "3517525447"}], "followup_processes": []}
+
+STDERR

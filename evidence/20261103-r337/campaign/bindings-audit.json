@@ -1,0 +1,302 @@
+{
+  "utc": "2026-11-02T20:20:32.658009+00:00",
+  "prepared_rounds": 40,
+  "max_rounds": 40,
+  "bindings": [
+    {
+      "tag": "r312",
+      "source_sha256": "36a84e43d0d45decfc7b85c90a306df7bd4570f709920ef50202451ff22e455b",
+      "config_sha256": "019fe21026edf02c10e1169508b192469ce8e899c7ad453dd2e512c078ab527c",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r313",
+      "source_sha256": "bc81b7577bb14370738683cd0a4251159bb20731f5dbab89f8d3a412b81d3148",
+      "config_sha256": "f594e287a90515d3f37e7b7280b9e3633e07069edcc096bae4576585ef1ef0c3",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r314",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "config_sha256": "2ac689c3b08d82616ed89bf263b4c1b0dc89576a7e9aae8dc042d7d8966b5855",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r315",
+      "source_sha256": "363c3269d4e425f9b7067792a52d49f5e5dba016986a368bb848d3b8c50c624f",
+      "config_sha256": "3ed39922e837518fb48702be2017e649c287c8689a7552b6c740bf93acfcfefc",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r316",
+      "source_sha256": "07aecdc717baa09c0b21da0053b8bccf56d9c4ffc866e3435c8c45aa86de8554",
+      "config_sha256": "3ed39922e837518fb48702be2017e649c287c8689a7552b6c740bf93acfcfefc",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r317",
+      "source_sha256": "6327c214be8b15286c4015724ca937ae241d5c72f4b6ebe31ddaeafb283a6a39",
+      "config_sha256": "3ed39922e837518fb48702be2017e649c287c8689a7552b6c740bf93acfcfefc",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r318",
+      "source_sha256": "f95b71ea6f5dcb95237c8d366fd4ce260dc1ba5cca772f4da145d909c422c233",
+      "config_sha256": "384d2db0ac9e14bd8a8839f789710f0d0eb4b4e2b87239177ef62596ba8f4714",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r319",
+      "source_sha256": "5c23808b5971e7c3f137098b89a816ea05ce2b87a1f88a637b3949d471faa581",
+      "config_sha256": "45fa94a1154bc1fd1e2c34e6d5d437778507caa05f0ceab0b55ccf5f6c4b324e",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r320",
+      "source_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a",
+      "config_sha256": "31f745d5dcf63312870ef07c5ccdd8c0fea41abb67b85f547e11a62a2a6c1cd4",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r321",
+      "source_sha256": "97c8b9d44247ef27a914d8dd406be90e179367486c8c15c05d64261fcc450ee3",
+      "config_sha256": "b1bcbecbe505792d5c7d1f5095901b67f345e9b2db1249088cf4a1d829e5b5c4",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r322",
+      "source_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a",
+      "config_sha256": "efba7fe879e7df00c9d7ec141150d93b8fa0c6a3e576e50c435fa4ff0f2d08e9",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r323",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "config_sha256": "316ec1a86d33e5d2ccd95ce513b6b20151477118ef72fe6a370ce0c2b3102635",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r324",
+      "source_sha256": "0be03a72d22e4193a09824d1035b11231df96f5d6a26fe123b6e27faa14a1e42",
+      "config_sha256": "3ed39922e837518fb48702be2017e649c287c8689a7552b6c740bf93acfcfefc",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r325",
+      "source_sha256": "b53e4b7b9069500a175c478b93b368edc9b4cf9deb73536b66e4baf174b0a3b6",
+      "config_sha256": "524f4a1c8b9a09b6010a0b365aee816c43d6127900c8e38b4c6024e21aa55988",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r326",
+      "source_sha256": "c9482b60701e81164c95cec809cd9c6ad2f80fde85fae5aaa6a1a70a2e8ea64b",
+      "config_sha256": "336ccb64041f89c0d32f2fbf388177ead2f7f370eb12199f650de75707b5df98",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r327",
+      "source_sha256": "0ef10fe12070e7d52ca10f436820aa366b004844357d4a7f322eef6d339f5372",
+      "config_sha256": "0cb5785606f502fe83340c4c3c75afb9b560a5a7ecd62ffd1ce6ec3f07b48ff0",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r328",
+      "source_sha256": "2e92b872b2934851fdfb3b464a8e9633edb0abd8084519dde621527bc7d1e357",
+      "config_sha256": "6d2bc50436829dc953110c3c3ff5d32f644b825aacc762cab7b643c6eb8a41c5",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r329",
+      "source_sha256": "f65f73e764e82169beaa385cbb2c762da30947baac0050f5d4e7200ae2d87785",
+      "config_sha256": "228720e3e98af2fbdf3c5e31ca19651613f405e39badc5d1b0c2e984ff214036",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r330",
+      "source_sha256": "f65f73e764e82169beaa385cbb2c762da30947baac0050f5d4e7200ae2d87785",
+      "config_sha256": "1ea7d6a9e2a486eff6aff2d2fc9291eab3f3e8c39491e29c5cd3d3920945038e",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r331",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "config_sha256": "3ed39922e837518fb48702be2017e649c287c8689a7552b6c740bf93acfcfefc",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r332",
+      "source_sha256": "da50bbee726fc5b6d8c42129d63322cdc5999d74161804a325873db95f92c9d5",
+      "config_sha256": "b8f90fb14784244b633a5ea5b1ae8288a81747fbb163875d9111e30c87614a1e",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r333",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "config_sha256": "3ed39922e837518fb48702be2017e649c287c8689a7552b6c740bf93acfcfefc",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r334",
+      "source_sha256": "5410ba7dc44fb4eb8a47361f19c139d261740f688d9bc3e970abacb456884614",
+      "config_sha256": "3a956e2553637e957c2677958fbd3b33ab414943d22797dced5049505aba6717",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r335",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "config_sha256": "3ed39922e837518fb48702be2017e649c287c8689a7552b6c740bf93acfcfefc",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r336",
+      "source_sha256": "edc3a7c510abd33193e8b01b4b4543cc62a62311d54ba8ba333b453a41dde847",
+      "config_sha256": "4c27aaa5ba8fe1464739ac6fc12f9e40e87a6c79002345eeb9e3a985c024051a",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r337",
+      "source_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+      "config_sha256": "d1b3c3b8114fd1b16334ec38cdb2ac65ea143c2da87dfe415dac501bde3db8d9",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r338",
+      "source_sha256": "cd72a2f3494ff950fd6b7fcc982dac24ddf8b56bd06d665a9d1c8c16c01c2dfe",
+      "config_sha256": "ed005522f5b2507eea78bf79678e732b95ff71457fd3ecd2fea420a20f771d15",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r339",
+      "source_sha256": "ce61f85f50297cc007e5801dd4c5fc91dbda0be837cf6cc8ca3a442e4e0fb2af",
+      "config_sha256": "c858009c0049bf1b94d531182d692be12321f1b5d5894ab144cac274bbf3ca79",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r340",
+      "source_sha256": "4490ee0fd96b38b9256abe764ffc095a414b423b7d191546373037699007bea7",
+      "config_sha256": "b7295d6a354b591117f6d9cf795a4b98d98e6931af97afe402b845c93f97cc7a",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r341",
+      "source_sha256": "c14d15d5adf8a603495056d9c02481f9dca1e528707f8ccf833a3b0ef3bd1585",
+      "config_sha256": "5c6e0299134cc98fa3b88466c799066b66cddab20e925b3c4d89159cf6cf22e4",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r342",
+      "source_sha256": "8b4bd89ad83318aeec07ad71b61fb73c079a49c68b04be3d71a838871a53cc59",
+      "config_sha256": "73e61dc553a164aee68f9d563c3c12c214d1a4085efb51a75ed05f8805e77589",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r343",
+      "source_sha256": "1af1507d58f86c8f92c9cb9f30a7da470151d65fbae4bc83d462e397dad835a2",
+      "config_sha256": "63f1f8b3c392f754c820eba51627b789ac23a7749ff8f211d9fad9ddd4e74b4a",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r344",
+      "source_sha256": "9a47e222aa63683f484e6c4606fee6d40c9c3356fa3b170f349048bb812ad222",
+      "config_sha256": "132299f3f05a1afeb4a727f3a465b022f0706045915215be4968027953285da6",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r345",
+      "source_sha256": "8160b7770319acff2938b43065e57526185bbe13649024ed0109dc68823b2c18",
+      "config_sha256": "29d116c2238019fd20fee2627ad0e19772d60f1ce18a92e63fdee828621912bf",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r346",
+      "source_sha256": "b91fe9aa03716141138fc0ebb123025c3d5c74dbd3e12dee6e1794e82e07cf81",
+      "config_sha256": "91d9f180218cd3bea21c999c63c7b0aac9d10fc37a848136f49a75bd4957f423",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r347",
+      "source_sha256": "708f79441274b3c2a13699a8e2161f712b00d8a41d96e97010987983fe651353",
+      "config_sha256": "39f2cba5da3d7a3958791687f82b07c9c77bc1b95f14b8c5be04ac6108321677",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r348",
+      "source_sha256": "e91a05501905fec2ed656098a214f05e03d846722e2753e0334a99d70adbfb92",
+      "config_sha256": "94e9517005ba79c6a2d8e63722f4b616d682689aabfff9d9f97dbd2687685a2d",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r349",
+      "source_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+      "config_sha256": "753953b7404cd1c1fee5b94ecb6a9643ef5bace390d6d900c716f46f4689f637",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r350",
+      "source_sha256": "c8f628a428b35d8e60dd5038c55c6ba797ccbdcd7868c151bbea406dfe1c5b47",
+      "config_sha256": "91d9f180218cd3bea21c999c63c7b0aac9d10fc37a848136f49a75bd4957f423",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    },
+    {
+      "tag": "r351",
+      "source_sha256": "a02a733195cf90ea9a9a46dba91cc33e3bdc113dc06ffd30bb9698f7c755a5ca",
+      "config_sha256": "02497a2cd514f3973aa8dc6b4f016780291b24727bb3fa22512a4cabd368de12",
+      "exact_prebenchmark_thinker_gate": true,
+      "model_and_workload_config_fixed": true
+    }
+  ],
+  "commands": [
+    {
+      "c": 2,
+      "sha256": "f573e2f0f398f4580d2c9a5a51c7966a1e73268dbf74614a4295cdd8a0bbb07e"
+    },
+    {
+      "c": 4,
+      "sha256": "f4a2ac6a751e80e9c15f7052fb5483248666f1f9071e248c9fa6a4db4f3974a6"
+    },
+    {
+      "c": 8,
+      "sha256": "d9118a6a90e3b4fddf43bf5f9c3e86cbb3489270df7710898fa9078aa40ee815"
+    }
+  ],
+  "scope": "Static source/config/workload audit only; not execution, speed, or speech-quality acceptance"
+}

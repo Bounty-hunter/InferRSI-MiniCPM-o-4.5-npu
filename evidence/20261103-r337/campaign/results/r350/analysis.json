@@ -1,0 +1,145 @@
+{
+  "tag": "r350",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 2,
+      "ttfp_ms": 776.171204255661,
+      "rtf": 0.3617937335082644,
+      "req_s": 1.3056533207540213,
+      "completed": 32,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 4,
+      "ttfp_ms": 1184.4420724228257,
+      "rtf": 0.5400522344493598,
+      "req_s": 1.6991009344485397,
+      "completed": 64,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 8,
+      "ttfp_ms": 1769.8376992120757,
+      "rtf": 0.8159438692965251,
+      "req_s": 2.3750402665252657,
+      "completed": 128,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 8,
+      "ttfp_ms": 1686.639739345992,
+      "rtf": 0.780057385107604,
+      "req_s": 2.435108843982316,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "native_tails": {
+    "c2": {
+      "mean_audio_rtf": 0.3617937335082644,
+      "median_audio_rtf": 0.35708626375223196,
+      "p50_audio_rtf": 0.35708626375223196,
+      "p95_audio_rtf": 0.45293431069924506,
+      "p99_audio_rtf": 0.4984519829241826,
+      "mean_audio_ttfp_ms": 776.171204255661,
+      "median_audio_ttfp_ms": 760.9596261754632,
+      "p50_audio_ttfp_ms": 760.9596261754632,
+      "p95_audio_ttfp_ms": 1008.9474819134921,
+      "p99_audio_ttfp_ms": 1047.2711905930191
+    },
+    "c4": {
+      "mean_audio_rtf": 0.5400522344493598,
+      "median_audio_rtf": 0.5125188349426505,
+      "p50_audio_rtf": 0.5125188349426505,
+      "p95_audio_rtf": 0.7405106355375107,
+      "p99_audio_rtf": 0.8867807734420459,
+      "mean_audio_ttfp_ms": 1184.4420724228257,
+      "median_audio_ttfp_ms": 1162.620352115482,
+      "p50_audio_ttfp_ms": 1162.620352115482,
+      "p95_audio_ttfp_ms": 1411.6791939362884,
+      "p99_audio_ttfp_ms": 1580.9619146492328
+    },
+    "c8": {
+      "mean_audio_rtf": 0.8159438692965251,
+      "median_audio_rtf": 0.8190342073731866,
+      "p50_audio_rtf": 0.8190342073731866,
+      "p95_audio_rtf": 0.99121324920657,
+      "p99_audio_rtf": 1.1188510393404842,
+      "mean_audio_ttfp_ms": 1769.8376992120757,
+      "median_audio_ttfp_ms": 1783.8371521793306,
+      "p50_audio_ttfp_ms": 1783.8371521793306,
+      "p95_audio_ttfp_ms": 2291.090444056317,
+      "p99_audio_ttfp_ms": 2373.197027016431
+    }
+  },
+  "diagnostic": {
+    "c8": {
+      "native": {
+        "ttfp_ms": 1686.639739345992,
+        "rtf": 0.780057385107604,
+        "req_s": 2.435108843982316
+      },
+      "underrun": 0,
+      "n": 128,
+      "buffer": {
+        "n": 128,
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "buffer_scenarios": [
+        {
+          "initial_buffer_s": 0,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 0.2,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 0.5,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 1.0,
+          "requests_with_underrun": 0
+        }
+      ],
+      "first_audio_ledger_ms": {
+        "dispatch_to_admit": 104.4485974998679,
+        "admit_to_prefilled": 164.04709513881244,
+        "prefilled_to_first_text_chunk": 491.6210106748622,
+        "text_to_first_window_ready": 494.79210796562256,
+        "first_window_queue": 154.52189625648316,
+        "first_window_decode": 274.31526772124926,
+        "emit_to_client": 2.5213985063601285
+      },
+      "queue_ms": {
+        "n": 583,
+        "mean": 216.15935820689998,
+        "p50": 195.33053692430258,
+        "p95": 559.4331920146942,
+        "max": 1164.154740050435
+      },
+      "decode_ms": {
+        "n": 583,
+        "mean": 300.7243254683643,
+        "p50": 268.35876051336527,
+        "p95": 503.5687740892172,
+        "max": 660.5083839967847
+      }
+    }
+  },
+  "development_quality": {
+    "n": 16,
+    "thinker_text_exact": 16,
+    "thinker_tokens_exact": 16,
+    "codec_tokens_exact": 9,
+    "speech_quality_gate": "NOT_RUN"
+  }
+}

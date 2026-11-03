@@ -1,0 +1,80 @@
+{
+  "utc": "2026-11-02T20:22:53.131752+00:00",
+  "algorithm_rounds_attempted": 40,
+  "algorithm_successful_receipts": 33,
+  "algorithm_failed_or_rejected": [
+    "r322",
+    "r327",
+    "r329",
+    "r330",
+    "r331",
+    "r335",
+    "r339"
+  ],
+  "final_engine_confirmation_jobs": 8,
+  "final_omni_confirmation_jobs": 1,
+  "final_native_verifications_passed": true,
+  "all_campaign_inference_jobs_finished": true,
+  "own_npu_processes_remaining": 0,
+  "local_readonly_monitor_stopped": true,
+  "default_repository_head": "f0eeaa288fce5b6975dc6b4322f7e62ad148f751",
+  "default_repository_dirty": false,
+  "speech_gate": "NOT_RUN",
+  "scorer_status": "NPU_ASSET_PREPARATION_RUNNING",
+  "equal_quality_claim": false,
+  "default_promoted": false,
+  "publication_performed": false,
+  "stop_reason": "40-round algorithm search completed. Four-tier comparison supplement and NPU quality follow-up are tracked separately.",
+  "global_optimum_proven": false,
+  "historical_cuda_scorer_check": {
+    "status": "BLOCKED_CONNECTION_CLOSED",
+    "endpoint": "106.15.124.84:31014"
+  },
+  "scorer_location": "Omni NPU environment, dyy-v032-r182",
+  "quality_followup": {
+    "assets_tmux": "minicpmo-quality-assets-npu-20261103",
+    "assets_pane_pid": 804114,
+    "status": "C1 chain completed. CPU-only exact-hash asset preparation running, four small files verified as of latest snapshot.",
+    "full_gate": "NOT_RUN"
+  },
+  "c1_supplement": {
+    "status": "COMPLETED_VERIFIED",
+    "jobs": [
+      "omni-c1",
+      "r337-c1B1",
+      "r337-c1B2"
+    ],
+    "concurrency": 1,
+    "timed_requests": 32,
+    "warmups": 2,
+    "algorithm_round": false,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "request_errors": 0,
+    "resource_release_verified": true,
+    "physical_device": 7,
+    "verification": "c1-completion-verification.json",
+    "resource_audit": "c1-resource-audit.json"
+  },
+  "updated_utc": "2026-11-03T01:25:37.493906+00:00",
+  "direct_comparison_concurrencies": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "direct_plot_exports_updated": 9,
+  "direct_plots_visually_inspected": true,
+  "direct_curve_presentation": {
+    "candidate_curves": 1,
+    "baseline_curves": 1,
+    "aggregation": "Arithmetic mean of two candidate run-level values per metric and tier",
+    "p99": "Arithmetic mean of two run-level P99 values",
+    "source_runs_preserved": true,
+    "exports": 9,
+    "visually_inspected": true
+  }
+}

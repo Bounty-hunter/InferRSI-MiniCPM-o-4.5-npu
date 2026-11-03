@@ -1,0 +1,5676 @@
+{
+  "valid_recovered_trace": true,
+  "original_job_exit": 137,
+  "trace": "D:\\huawei\\code\\codex_workspace\\outputs\\rsi-r312-r351-20261102\\results\\profile309e\\trace\\torch\\trace_view.json",
+  "native_timing": false,
+  "device_event_window": {
+    "span_ms": 7636.63598,
+    "busy_union_ms": 5867.6395,
+    "busy_pct": 76.83539604830031,
+    "uncovered_ms": 1768.99648,
+    "selected_work_events": 717410
+  },
+  "matched_enqueue_dequeue_pairs": 104950,
+  "queue_end_to_dequeue_start_us": {
+    "n": 104950,
+    "mean": 80.89933968556456,
+    "median": 2.61,
+    "p05": 1.6,
+    "p95": 167.8,
+    "max": 113214.09
+  },
+  "queue_by_component_us": {
+    "engine_other": {
+      "n": 10527,
+      "mean": 28.849127956682814,
+      "median": 2.57,
+      "p05": 1.57,
+      "p95": 113.33,
+      "max": 2444.06
+    },
+    "RSI:thinker:decode": {
+      "n": 661,
+      "mean": 4.139682299546142,
+      "median": 2.02,
+      "p05": 0.94,
+      "p95": 15.19,
+      "max": 246.4
+    },
+    "audio": {
+      "n": 31732,
+      "mean": 88.00849457960419,
+      "median": 3.48,
+      "p05": 1.76,
+      "p95": 302.51,
+      "max": 3576.56
+    },
+    "RSI:talker:prefill_or_verify": {
+      "n": 11118,
+      "mean": 17.33156413023925,
+      "median": 2.45,
+      "p05": 1.53,
+      "p95": 100.46,
+      "max": 549.66
+    },
+    "RSI:thinker:prefill_or_verify": {
+      "n": 43179,
+      "mean": 101.81636675235647,
+      "median": 2.43,
+      "p05": 1.55,
+      "p95": 80.05,
+      "max": 113214.09
+    },
+    "prepare": {
+      "n": 7733,
+      "mean": 103.74341394025605,
+      "median": 4.32,
+      "p05": 1.8,
+      "p95": 588.25,
+      "max": 2725.9
+    }
+  },
+  "device_flow_coverage": {
+    "device_events_with_torch_op": 73058,
+    "device_events_with_runtime_api": 124562,
+    "device_events_with_enqueue_dequeue": 124499
+  },
+  "torch_op_end_to_device_start_us": {
+    "n": 73058,
+    "mean": 374.112424375154,
+    "median": 114.255,
+    "p05": 19.32,
+    "p95": 648.62,
+    "max": 113384.76
+  },
+  "runtime_api_end_to_device_start_us": {
+    "n": 124562,
+    "mean": 14071.403028933382,
+    "median": 101.19,
+    "p05": 5.78,
+    "p95": 104688.87,
+    "max": 159976.36
+  },
+  "host_workspace_and_sync": [
+    {
+      "component": "audio",
+      "name": "AscendCL@aclrtSynchronizeStream",
+      "count": 25,
+      "work_sum_ms": 2215.40782,
+      "observed_union_ms": 2215.40782
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclrtSynchronizeStream",
+      "count": 559,
+      "work_sum_ms": 1432.20753,
+      "observed_union_ms": 1432.20753
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclrtSynchronizeStreamWithTimeout",
+      "count": 22,
+      "work_sum_ms": 1175.84835,
+      "observed_union_ms": 1175.84835
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclrtSynchronizeStream",
+      "count": 66,
+      "work_sum_ms": 322.82811,
+      "observed_union_ms": 322.82811
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnConvolutionGetWorkspaceSize",
+      "count": 859,
+      "work_sum_ms": 108.35526,
+      "observed_union_ms": 108.35526
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnMatmulGetWorkspaceSize",
+      "count": 994,
+      "work_sum_ms": 102.26233,
+      "observed_union_ms": 102.26233
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnScatterPaKvCacheGetWorkspaceSize",
+      "count": 828,
+      "work_sum_ms": 76.68059,
+      "observed_union_ms": 76.68059
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnCatGetWorkspaceSize",
+      "count": 1605,
+      "work_sum_ms": 69.03112,
+      "observed_union_ms": 69.03112
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnInplaceCopyGetWorkspaceSize",
+      "count": 2485,
+      "work_sum_ms": 55.38257,
+      "observed_union_ms": 55.38257
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclrtSynchronizeStream",
+      "count": 2520,
+      "work_sum_ms": 41.19026,
+      "observed_union_ms": 41.19026
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnMulGetWorkspaceSize",
+      "count": 1572,
+      "work_sum_ms": 38.41036,
+      "observed_union_ms": 38.41036
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnAddGetWorkspaceSize",
+      "count": 1619,
+      "work_sum_ms": 37.31613,
+      "observed_union_ms": 37.31613
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnAddmmGetWorkspaceSize",
+      "count": 201,
+      "work_sum_ms": 37.12343,
+      "observed_union_ms": 37.12343
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnInnerFusedInferAttentionScoreGetWorkspaceSize",
+      "count": 1512,
+      "work_sum_ms": 36.98156,
+      "observed_union_ms": 36.98156
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnScatterPaKvCacheGetWorkspaceSize",
+      "count": 360,
+      "work_sum_ms": 32.30377,
+      "observed_union_ms": 32.30377
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnAddmmGetWorkspaceSize",
+      "count": 153,
+      "work_sum_ms": 30.20716,
+      "observed_union_ms": 30.20716
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnPowTensorScalarGetWorkspaceSize",
+      "count": 720,
+      "work_sum_ms": 26.60554,
+      "observed_union_ms": 26.60554
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnInplaceCopyGetWorkspaceSize",
+      "count": 957,
+      "work_sum_ms": 15.54753,
+      "observed_union_ms": 15.54753
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnMatmulGetWorkspaceSize",
+      "count": 110,
+      "work_sum_ms": 13.18321,
+      "observed_union_ms": 13.18321
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnRightShiftGetWorkspaceSize",
+      "count": 550,
+      "work_sum_ms": 12.83512,
+      "observed_union_ms": 12.83512
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnInnerFusedInferAttentionScoreGetWorkspaceSize",
+      "count": 460,
+      "work_sum_ms": 12.39389,
+      "observed_union_ms": 12.39389
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnSinGetWorkspaceSize",
+      "count": 750,
+      "work_sum_ms": 12.18686,
+      "observed_union_ms": 12.18686
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnInplaceCopyGetWorkspaceSize",
+      "count": 335,
+      "work_sum_ms": 11.34506,
+      "observed_union_ms": 11.31131
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnSoftmaxGetWorkspaceSize",
+      "count": 251,
+      "work_sum_ms": 10.84652,
+      "observed_union_ms": 10.84652
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnConvolutionGetWorkspaceSize",
+      "count": 62,
+      "work_sum_ms": 9.09256,
+      "observed_union_ms": 9.09256
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnCatGetWorkspaceSize",
+      "count": 331,
+      "work_sum_ms": 7.86594,
+      "observed_union_ms": 7.86594
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnInplaceMaskedFillScalarGetWorkspaceSize",
+      "count": 502,
+      "work_sum_ms": 7.53892,
+      "observed_union_ms": 7.53892
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclrtSynchronizeStream",
+      "count": 460,
+      "work_sum_ms": 7.52076,
+      "observed_union_ms": 7.52076
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnMatmulGetWorkspaceSize",
+      "count": 28,
+      "work_sum_ms": 7.26239,
+      "observed_union_ms": 7.26239
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnDivsGetWorkspaceSize",
+      "count": 301,
+      "work_sum_ms": 6.61829,
+      "observed_union_ms": 6.61829
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclrtSynchronizeStreamWithTimeout",
+      "count": 1982,
+      "work_sum_ms": 6.36301,
+      "observed_union_ms": 6.36301
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnCatGetWorkspaceSize",
+      "count": 137,
+      "work_sum_ms": 5.88928,
+      "observed_union_ms": 5.88928
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnEqScalarGetWorkspaceSize",
+      "count": 251,
+      "work_sum_ms": 5.73038,
+      "observed_union_ms": 5.73038
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnAddGetWorkspaceSize",
+      "count": 144,
+      "work_sum_ms": 4.7864,
+      "observed_union_ms": 4.7864
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnLayerNormWithImplModeGetWorkspaceSize",
+      "count": 61,
+      "work_sum_ms": 4.17762,
+      "observed_union_ms": 4.17762
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnCastGetWorkspaceSize",
+      "count": 251,
+      "work_sum_ms": 3.41538,
+      "observed_union_ms": 3.41538
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnLayerNormWithImplModeGetWorkspaceSize",
+      "count": 69,
+      "work_sum_ms": 3.29465,
+      "observed_union_ms": 3.29465
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnMulGetWorkspaceSize",
+      "count": 78,
+      "work_sum_ms": 3.24391,
+      "observed_union_ms": 3.24391
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnCatGetWorkspaceSize",
+      "count": 106,
+      "work_sum_ms": 3.20507,
+      "observed_union_ms": 3.20507
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclStftGetWorkspaceSize",
+      "count": 15,
+      "work_sum_ms": 3.16268,
+      "observed_union_ms": 3.16268
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnMulsGetWorkspaceSize",
+      "count": 80,
+      "work_sum_ms": 3.0926,
+      "observed_union_ms": 3.0926
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnStackGetWorkspaceSize",
+      "count": 106,
+      "work_sum_ms": 2.72785,
+      "observed_union_ms": 2.72785
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnInplaceCopyGetWorkspaceSize",
+      "count": 76,
+      "work_sum_ms": 2.65087,
+      "observed_union_ms": 2.65087
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnMatmulGetWorkspaceSize",
+      "count": 12,
+      "work_sum_ms": 2.64556,
+      "observed_union_ms": 2.64556
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnRepeatGetWorkspaceSize",
+      "count": 69,
+      "work_sum_ms": 2.549,
+      "observed_union_ms": 2.549
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnMulsGetWorkspaceSize",
+      "count": 96,
+      "work_sum_ms": 2.46114,
+      "observed_union_ms": 2.46114
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnScatterAddGetWorkspaceSize",
+      "count": 18,
+      "work_sum_ms": 2.04783,
+      "observed_union_ms": 2.04783
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnConstantPadNdGetWorkspaceSize",
+      "count": 30,
+      "work_sum_ms": 1.99558,
+      "observed_union_ms": 1.99558
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnInplaceZeroGetWorkspaceSize",
+      "count": 82,
+      "work_sum_ms": 1.79758,
+      "observed_union_ms": 1.79758
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnMulGetWorkspaceSize",
+      "count": 71,
+      "work_sum_ms": 1.7908,
+      "observed_union_ms": 1.7908
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnUpsampleLinear1dGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 1.63178,
+      "observed_union_ms": 1.63178
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnStackGetWorkspaceSize",
+      "count": 30,
+      "work_sum_ms": 1.4035,
+      "observed_union_ms": 1.4035
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnSoftmaxGetWorkspaceSize",
+      "count": 30,
+      "work_sum_ms": 1.32199,
+      "observed_union_ms": 1.32199
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnInplaceUniformGetWorkspaceSize",
+      "count": 70,
+      "work_sum_ms": 1.30576,
+      "observed_union_ms": 1.30576
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnInplaceCopyGetWorkspaceSize",
+      "count": 29,
+      "work_sum_ms": 1.24114,
+      "observed_union_ms": 1.24114
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnInplaceNormalGetWorkspaceSize",
+      "count": 70,
+      "work_sum_ms": 1.19835,
+      "observed_union_ms": 1.19835
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnIm2colBackwardGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 1.13729,
+      "observed_union_ms": 1.13729
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnMeanGetWorkspaceSize",
+      "count": 21,
+      "work_sum_ms": 1.1075,
+      "observed_union_ms": 1.1075
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnGeTensorGetWorkspaceSize",
+      "count": 32,
+      "work_sum_ms": 1.07565,
+      "observed_union_ms": 1.07565
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnEluGetWorkspaceSize",
+      "count": 50,
+      "work_sum_ms": 1.04573,
+      "observed_union_ms": 1.04573
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnReplicationPad2dGetWorkspaceSize",
+      "count": 11,
+      "work_sum_ms": 1.01133,
+      "observed_union_ms": 1.01133
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnArangeGetWorkspaceSize",
+      "count": 32,
+      "work_sum_ms": 0.99065,
+      "observed_union_ms": 0.99065
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnPowTensorScalarGetWorkspaceSize",
+      "count": 21,
+      "work_sum_ms": 0.8978,
+      "observed_union_ms": 0.8978
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnIndexGetWorkspaceSize",
+      "count": 12,
+      "work_sum_ms": 0.85025,
+      "observed_union_ms": 0.85025
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnInplaceOneGetWorkspaceSize",
+      "count": 52,
+      "work_sum_ms": 0.83816,
+      "observed_union_ms": 0.83816
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnStackGetWorkspaceSize",
+      "count": 21,
+      "work_sum_ms": 0.80864,
+      "observed_union_ms": 0.80864
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnUpsampleNearest1dV2GetWorkspaceSize",
+      "count": 13,
+      "work_sum_ms": 0.77704,
+      "observed_union_ms": 0.77704
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnLeakyReluGetWorkspaceSize",
+      "count": 43,
+      "work_sum_ms": 0.77249,
+      "observed_union_ms": 0.77249
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnReduceSumGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.72183,
+      "observed_union_ms": 0.72183
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnCatGetWorkspaceSize",
+      "count": 13,
+      "work_sum_ms": 0.71089,
+      "observed_union_ms": 0.71089
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnGeluGetWorkspaceSize",
+      "count": 31,
+      "work_sum_ms": 0.68433,
+      "observed_union_ms": 0.68433
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnMulGetWorkspaceSize",
+      "count": 21,
+      "work_sum_ms": 0.68406,
+      "observed_union_ms": 0.68406
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnCumsumGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.68316,
+      "observed_union_ms": 0.68316
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnReflectionPad1dGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 0.66463,
+      "observed_union_ms": 0.66463
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnBitwiseNotGetWorkspaceSize",
+      "count": 32,
+      "work_sum_ms": 0.64598,
+      "observed_union_ms": 0.64598
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnNegGetWorkspaceSize",
+      "count": 12,
+      "work_sum_ms": 0.61367,
+      "observed_union_ms": 0.61367
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnUpsampleNearest1dV2GetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.61143,
+      "observed_union_ms": 0.61143
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnSiluGetWorkspaceSize",
+      "count": 30,
+      "work_sum_ms": 0.5888,
+      "observed_union_ms": 0.5888
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnMatmulGetWorkspaceSize",
+      "count": 2,
+      "work_sum_ms": 0.57195,
+      "observed_union_ms": 0.57195
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnClampGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 0.56021,
+      "observed_union_ms": 0.56021
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnSiluGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 0.5343,
+      "observed_union_ms": 0.5343
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnNegGetWorkspaceSize",
+      "count": 14,
+      "work_sum_ms": 0.51806,
+      "observed_union_ms": 0.51806
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnAddsGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 0.50183,
+      "observed_union_ms": 0.50183
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnSearchSortedGetWorkspaceSize",
+      "count": 18,
+      "work_sum_ms": 0.4914,
+      "observed_union_ms": 0.4914
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnDivsGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 0.4909,
+      "observed_union_ms": 0.4909
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "name": "AscendCL@aclnnInplaceCopyGetWorkspaceSize",
+      "count": 29,
+      "work_sum_ms": 0.48978,
+      "observed_union_ms": 0.48978
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnAddRmsNormGetWorkspaceSize",
+      "count": 7,
+      "work_sum_ms": 0.44269,
+      "observed_union_ms": 0.44269
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnAddGetWorkspaceSize",
+      "count": 14,
+      "work_sum_ms": 0.40475,
+      "observed_union_ms": 0.40475
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnInplaceZeroGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 0.40078,
+      "observed_union_ms": 0.40078
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnFlipGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.39104,
+      "observed_union_ms": 0.39104
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnInplaceFillScalarGetWorkspaceSize",
+      "count": 22,
+      "work_sum_ms": 0.39098,
+      "observed_union_ms": 0.39098
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnGtScalarGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.38718,
+      "observed_union_ms": 0.38718
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnRemainderTensorScalarGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.35566,
+      "observed_union_ms": 0.35566
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnCastGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 0.34242,
+      "observed_union_ms": 0.34242
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnRsqrtGetWorkspaceSize",
+      "count": 20,
+      "work_sum_ms": 0.3296,
+      "observed_union_ms": 0.3296
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnEmbeddingGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.3275,
+      "observed_union_ms": 0.3275
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnRepeatGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.31787,
+      "observed_union_ms": 0.31787
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnSiluGetWorkspaceSize",
+      "count": 7,
+      "work_sum_ms": 0.30672,
+      "observed_union_ms": 0.30672
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnArangeGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.30369,
+      "observed_union_ms": 0.30369
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnRsubsGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.30096,
+      "observed_union_ms": 0.30096
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnDivGetWorkspaceSize",
+      "count": 12,
+      "work_sum_ms": 0.29205,
+      "observed_union_ms": 0.29205
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnTanhGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.24433,
+      "observed_union_ms": 0.24433
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnLinalgVectorNormGetWorkspaceSize",
+      "count": 2,
+      "work_sum_ms": 0.23228,
+      "observed_union_ms": 0.23228
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnGtTensorGetWorkspaceSize",
+      "count": 8,
+      "work_sum_ms": 0.23012,
+      "observed_union_ms": 0.23012
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnAddsGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.2284,
+      "observed_union_ms": 0.2284
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnLeakyReluGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.22818,
+      "observed_union_ms": 0.22818
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnInplaceFillScalarGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.22699,
+      "observed_union_ms": 0.22699
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnExpGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.22644,
+      "observed_union_ms": 0.22644
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnMeanGetWorkspaceSize",
+      "count": 3,
+      "work_sum_ms": 0.21264,
+      "observed_union_ms": 0.21264
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnRsubsGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.20455,
+      "observed_union_ms": 0.20455
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnNegGetWorkspaceSize",
+      "count": 6,
+      "work_sum_ms": 0.2019,
+      "observed_union_ms": 0.2019
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnTanhGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.1969,
+      "observed_union_ms": 0.1969
+    },
+    {
+      "component": "prepare",
+      "name": "AscendCL@aclnnRoundGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.19253,
+      "observed_union_ms": 0.19253
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclrtSynchronizeStreamWithTimeout",
+      "count": 39,
+      "work_sum_ms": 0.17078,
+      "observed_union_ms": 0.17078
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnAddRmsNormGetWorkspaceSize",
+      "count": 3,
+      "work_sum_ms": 0.17065,
+      "observed_union_ms": 0.17065
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnArangeGetWorkspaceSize",
+      "count": 6,
+      "work_sum_ms": 0.17058,
+      "observed_union_ms": 0.17058
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnAbsGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.17037,
+      "observed_union_ms": 0.17037
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnInplaceMulsGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.15422,
+      "observed_union_ms": 0.15422
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnComplexGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.15302,
+      "observed_union_ms": 0.15302
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnCosGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.14597,
+      "observed_union_ms": 0.14597
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnPowTensorScalarGetWorkspaceSize",
+      "count": 3,
+      "work_sum_ms": 0.14203,
+      "observed_union_ms": 0.14203
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnGtTensorGetWorkspaceSize",
+      "count": 5,
+      "work_sum_ms": 0.13714,
+      "observed_union_ms": 0.13714
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnCosGetWorkspaceSize",
+      "count": 7,
+      "work_sum_ms": 0.13495,
+      "observed_union_ms": 0.13495
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "name": "AscendCL@aclnnSinGetWorkspaceSize",
+      "count": 7,
+      "work_sum_ms": 0.13259,
+      "observed_union_ms": 0.13259
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnNegGetWorkspaceSize",
+      "count": 10,
+      "work_sum_ms": 0.12646,
+      "observed_union_ms": 0.12646
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnSiluGetWorkspaceSize",
+      "count": 3,
+      "work_sum_ms": 0.12212,
+      "observed_union_ms": 0.12212
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "name": "AscendCL@aclrtSynchronizeStream",
+      "count": 10,
+      "work_sum_ms": 0.11336,
+      "observed_union_ms": 0.11336
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnEmbeddingGetWorkspaceSize",
+      "count": 2,
+      "work_sum_ms": 0.09102,
+      "observed_union_ms": 0.09102
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnEmbeddingGetWorkspaceSize",
+      "count": 3,
+      "work_sum_ms": 0.08675,
+      "observed_union_ms": 0.08675
+    },
+    {
+      "component": "engine_other",
+      "name": "AscendCL@aclnnArgMaxGetWorkspaceSize",
+      "count": 2,
+      "work_sum_ms": 0.08175,
+      "observed_union_ms": 0.08175
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "name": "AscendCL@aclrtSynchronizeStreamWithTimeout",
+      "count": 8,
+      "work_sum_ms": 0.07107,
+      "observed_union_ms": 0.07107
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnAddGetWorkspaceSize",
+      "count": 3,
+      "work_sum_ms": 0.06849,
+      "observed_union_ms": 0.06849
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnClampMinGetWorkspaceSize",
+      "count": 2,
+      "work_sum_ms": 0.06812,
+      "observed_union_ms": 0.06812
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnConstantPadNdGetWorkspaceSize",
+      "count": 1,
+      "work_sum_ms": 0.05815,
+      "observed_union_ms": 0.05815
+    },
+    {
+      "component": "audio",
+      "name": "AscendCL@aclnnLtTensorGetWorkspaceSize",
+      "count": 2,
+      "work_sum_ms": 0.05772,
+      "observed_union_ms": 0.05772
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnCosGetWorkspaceSize",
+      "count": 3,
+      "work_sum_ms": 0.05465,
+      "observed_union_ms": 0.05465
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnSinGetWorkspaceSize",
+      "count": 3,
+      "work_sum_ms": 0.0527,
+      "observed_union_ms": 0.0527
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnAddsGetWorkspaceSize",
+      "count": 2,
+      "work_sum_ms": 0.05217,
+      "observed_union_ms": 0.05217
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "name": "AscendCL@aclnnRsqrtGetWorkspaceSize",
+      "count": 2,
+      "work_sum_ms": 0.03399,
+      "observed_union_ms": 0.03399
+    }
+  ],
+  "top_correlated_ops": [
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnMul",
+      "kernel_events": 8349,
+      "kernel_work_sum_ms": 112.3811
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnInplaceCopy",
+      "kernel_events": 8346,
+      "kernel_work_sum_ms": 87.62378
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnCat",
+      "kernel_events": 4847,
+      "kernel_work_sum_ms": 41.376
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnIndexSelect",
+      "kernel_events": 3888,
+      "kernel_work_sum_ms": 30.85146
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnMatmul",
+      "kernel_events": 3312,
+      "kernel_work_sum_ms": 626.22506
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnNeg",
+      "kernel_events": 3312,
+      "kernel_work_sum_ms": 21.00662
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnMul",
+      "kernel_events": 2934,
+      "kernel_work_sum_ms": 22.55134
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnArange",
+      "kernel_events": 1895,
+      "kernel_work_sum_ms": 17.3183
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnCat",
+      "kernel_events": 1818,
+      "kernel_work_sum_ms": 11.49238
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnPowTensorScalar",
+      "kernel_events": 1679,
+      "kernel_work_sum_ms": 22.7282
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnMean",
+      "kernel_events": 1679,
+      "kernel_work_sum_ms": 23.27186
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnAdds",
+      "kernel_events": 1679,
+      "kernel_work_sum_ms": 3.95294
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnRsqrt",
+      "kernel_events": 1679,
+      "kernel_work_sum_ms": 3.4832
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnAdd",
+      "kernel_events": 1656,
+      "kernel_work_sum_ms": 15.57404
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnAddRmsNorm",
+      "kernel_events": 1656,
+      "kernel_work_sum_ms": 26.31128
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnSilu",
+      "kernel_events": 1656,
+      "kernel_work_sum_ms": 17.56122
+    },
+    {
+      "component": "engine_other",
+      "op": "aclnnInplaceOne",
+      "kernel_events": 1652,
+      "kernel_work_sum_ms": 3.27992
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnInplaceCopy",
+      "kernel_events": 1528,
+      "kernel_work_sum_ms": 18.19084
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnFusedInferAttentionScoreV3",
+      "kernel_events": 1512,
+      "kernel_work_sum_ms": 69.7841
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnMatmul",
+      "kernel_events": 1440,
+      "kernel_work_sum_ms": 22.96874
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnNeg",
+      "kernel_events": 1440,
+      "kernel_work_sum_ms": 4.92864
+    },
+    {
+      "component": "engine_other",
+      "op": "aclnnInplaceCopy",
+      "kernel_events": 1207,
+      "kernel_work_sum_ms": 1.78066
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnGtTensor",
+      "kernel_events": 936,
+      "kernel_work_sum_ms": 9.36678
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "op": "aclnnScatterPaKvCache",
+      "kernel_events": 828,
+      "kernel_work_sum_ms": 9.80144
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnAdd",
+      "kernel_events": 720,
+      "kernel_work_sum_ms": 3.01406
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnAddRmsNorm",
+      "kernel_events": 720,
+      "kernel_work_sum_ms": 4.07812
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnSilu",
+      "kernel_events": 720,
+      "kernel_work_sum_ms": 3.83944
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnArange",
+      "kernel_events": 618,
+      "kernel_work_sum_ms": 5.00222
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "op": "aclnnIndexSelect",
+      "kernel_events": 600,
+      "kernel_work_sum_ms": 3.4661
+    },
+    {
+      "component": "engine_other",
+      "op": "aclnnBitwiseAndScalar",
+      "kernel_events": 600,
+      "kernel_work_sum_ms": 1.15788
+    }
+  ],
+  "source_kernel_work": [
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+      "count": 3312,
+      "work_sum_ms": 626.22506
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+      "count": 33191,
+      "work_sum_ms": 590.88722
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnConvolution_TransData_TransData",
+      "count": 28893,
+      "work_sum_ms": 511.43506
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+      "count": 27326,
+      "work_sum_ms": 476.41436
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMul_MulAiCore_Mul",
+      "count": 53913,
+      "work_sum_ms": 452.64158
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+      "count": 92349,
+      "work_sum_ms": 439.01048
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnLayerNormWithImplMode_LayerNormV3WithImplMode_LayerNormV3",
+      "count": 21718,
+      "work_sum_ms": 413.41516
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+      "count": 18329,
+      "work_sum_ms": 297.26572
+    },
+    {
+      "component": "unmapped",
+      "kernel": "FusedInferAttentionScore",
+      "count": 6400,
+      "work_sum_ms": 219.3519
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnFlashAttentionScore_FlashAttentionScore_FlashAttentionScore",
+      "count": 3582,
+      "work_sum_ms": 206.35186
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCat_ConcatD_ConcatD",
+      "count": 22018,
+      "work_sum_ms": 189.19892
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnLayerNormWithImplMode_TransposeAiCore_Transpose",
+      "count": 10746,
+      "work_sum_ms": 182.82788
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnConvolution_Conv2dWithFlag_Conv2D",
+      "count": 9544,
+      "work_sum_ms": 182.05442
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceCopy_ViewCopyAiCore_ViewCopy",
+      "count": 10167,
+      "work_sum_ms": 162.6254
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAdd_AddAiCore_Add",
+      "count": 29073,
+      "work_sum_ms": 161.23258
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnIm2colBackward_Col2im_Col2im",
+      "count": 58,
+      "work_sum_ms": 157.79762
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnConvolution_TransposeAiCore_Transpose",
+      "count": 7164,
+      "work_sum_ms": 138.91654
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnConvolution_TransData_MemSet",
+      "count": 7166,
+      "work_sum_ms": 114.0885
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnMul_MulAiCore_Mul",
+      "count": 7521,
+      "work_sum_ms": 106.7243
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceCopy_AsStridedAiCore_AsStrided",
+      "count": 10747,
+      "work_sum_ms": 103.45784
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "FusedInferAttentionScore",
+      "count": 1512,
+      "work_sum_ms": 69.7841
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnFlashAttentionScore_SliceAiCore_Slice",
+      "count": 7164,
+      "work_sum_ms": 69.41018
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMul_TransposeAiCore_Transpose",
+      "count": 3611,
+      "work_sum_ms": 63.10368
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCat_SliceAiCore_Slice",
+      "count": 20863,
+      "work_sum_ms": 60.15574
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnConvolution_ConvTranspose2dWithFlag_Conv2DTranspose",
+      "count": 87,
+      "work_sum_ms": 55.30778
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMul_SliceAiCore_Slice",
+      "count": 19808,
+      "work_sum_ms": 53.81302
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnConvolution_TransData_TransData",
+      "count": 4059,
+      "work_sum_ms": 50.88276
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAddRmsNorm_AddRmsNorm_AddRmsNorm",
+      "count": 13376,
+      "work_sum_ms": 49.31094
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+      "count": 2268,
+      "work_sum_ms": 48.08016
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnGelu_Gelu_Gelu",
+      "count": 3582,
+      "work_sum_ms": 47.86566
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMish_MishAiCore_Mish",
+      "count": 3582,
+      "work_sum_ms": 46.23078
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnIm2colBackward_Col2im_Col2im",
+      "count": 30,
+      "work_sum_ms": 42.1566
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnNeg_SliceAiCore_Slice",
+      "count": 13376,
+      "work_sum_ms": 41.6583
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnPowTensorScalar_PowsAiCore_Pows",
+      "count": 3021,
+      "work_sum_ms": 38.76934
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+      "count": 49,
+      "work_sum_ms": 36.48272
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSin_SinAiCore_Sin",
+      "count": 2503,
+      "work_sum_ms": 36.44794
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+      "count": 7164,
+      "work_sum_ms": 34.75742
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCat_SliceAiCore_Slice",
+      "count": 1144,
+      "work_sum_ms": 34.44086
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSilu_SiluAiCore_Swish",
+      "count": 10496,
+      "work_sum_ms": 33.92606
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMul_MulAiCore_Mul",
+      "count": 3492,
+      "work_sum_ms": 32.07356
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+      "count": 3888,
+      "work_sum_ms": 30.85146
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnLogicalNot_LogicalNotAiCore_LogicalNot",
+      "count": 3582,
+      "work_sum_ms": 30.50368
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCat_ConcatD_ConcatD",
+      "count": 1640,
+      "work_sum_ms": 28.89068
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnNorm_LpNormV2_LpNormV2",
+      "count": 2378,
+      "work_sum_ms": 28.05348
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnAddRmsNorm_AddRmsNorm_AddRmsNorm",
+      "count": 1656,
+      "work_sum_ms": 26.31128
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+      "count": 3450,
+      "work_sum_ms": 26.26776
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnNeg_NegAiCore_Neg",
+      "count": 13405,
+      "work_sum_ms": 26.1046
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnScatterPaKvCache_ScatterPaKvCache_ScatterPaKvCache",
+      "count": 6688,
+      "work_sum_ms": 24.52946
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnMean_ReduceMeanAiCore_ReduceMean",
+      "count": 1679,
+      "work_sum_ms": 23.27186
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+      "count": 895,
+      "work_sum_ms": 23.15492
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+      "count": 1440,
+      "work_sum_ms": 22.96874
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnPowTensorScalar_PowsAiCore_Pows",
+      "count": 1679,
+      "work_sum_ms": 22.7282
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnTriu_Triu_Triu",
+      "count": 576,
+      "work_sum_ms": 21.84532
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSilu_SliceAiCore_Slice",
+      "count": 6688,
+      "work_sum_ms": 21.53748
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnCat_ConcatD_ConcatD",
+      "count": 2507,
+      "work_sum_ms": 21.37048
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnAdd_AddAiCore_Add",
+      "count": 3141,
+      "work_sum_ms": 20.92214
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConvolution_TransDataFzToDst_TransData",
+      "count": 66,
+      "work_sum_ms": 20.5007
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnRightShift_RightShiftAiCpu_RightShift",
+      "count": 550,
+      "work_sum_ms": 18.65818
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnConvolution_Conv2dWithFlag_Conv2D",
+      "count": 1308,
+      "work_sum_ms": 18.39386
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnMul_MulAiCore_Mul",
+      "count": 1854,
+      "work_sum_ms": 18.28496
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAddmm_MatMulV3Common_MatMulV3",
+      "count": 701,
+      "work_sum_ms": 18.26946
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+      "count": 7264,
+      "work_sum_ms": 18.09562
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceCopy_ViewCopyAiCore_ViewCopy",
+      "count": 861,
+      "work_sum_ms": 18.05402
+    },
+    {
+      "component": "unmapped",
+      "kernel": "AI_CORE",
+      "count": 1143,
+      "work_sum_ms": 17.82754
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+      "count": 503,
+      "work_sum_ms": 17.6436
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnArange_ArangeAiCore_Range",
+      "count": 1895,
+      "work_sum_ms": 17.3183
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnStack_PackAiCore_Pack",
+      "count": 190,
+      "work_sum_ms": 16.7184
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnAddmm_MatMulV3Common_MatMulV3",
+      "count": 856,
+      "work_sum_ms": 16.52864
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+      "count": 900,
+      "work_sum_ms": 15.9279
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnPowTensorScalar_PowsAiCore_Pows",
+      "count": 1095,
+      "work_sum_ms": 15.64118
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnAdd_AddAiCore_Add",
+      "count": 1656,
+      "work_sum_ms": 15.57404
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "FusedInferAttentionScore",
+      "count": 460,
+      "work_sum_ms": 15.40124
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+      "count": 3816,
+      "work_sum_ms": 15.13684
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnNorm_LpNormV2_LpNormV2",
+      "count": 1230,
+      "work_sum_ms": 14.17006
+    },
+    {
+      "component": "unmapped",
+      "kernel": "SearchSorted",
+      "count": 320,
+      "work_sum_ms": 14.12456
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMatmul_TransposeAiCore_Transpose",
+      "count": 795,
+      "work_sum_ms": 13.87724
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+      "count": 2628,
+      "work_sum_ms": 13.27586
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCat_CastAiCore_Cast",
+      "count": 7165,
+      "work_sum_ms": 13.21622
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnUpsampleLinear1d_ResizeD_ResizeD",
+      "count": 29,
+      "work_sum_ms": 12.4017
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSWhere_SelectV2AiCore_SelectV2",
+      "count": 1920,
+      "work_sum_ms": 12.00646
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnSin_SinAiCore_Sin",
+      "count": 1125,
+      "work_sum_ms": 11.89322
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnBitwiseAndTensor_LogicalAndAiCore_LogicalAnd",
+      "count": 1600,
+      "work_sum_ms": 11.79834
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnNeg_NegAiCore_Neg",
+      "count": 1656,
+      "work_sum_ms": 11.53366
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceZero_ZerosLikeAiCore_ZerosLike",
+      "count": 536,
+      "work_sum_ms": 11.38494
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMatmul_TransposeAiCore_Transpose",
+      "count": 616,
+      "work_sum_ms": 10.9492
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCumsum_CumsumAiCore_Cumsum",
+      "count": 669,
+      "work_sum_ms": 10.75862
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+      "count": 825,
+      "work_sum_ms": 10.66312
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnSilu_SiluAiCore_Swish",
+      "count": 828,
+      "work_sum_ms": 10.47046
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnCat_TransposeAiCore_Transpose",
+      "count": 396,
+      "work_sum_ms": 10.41298
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnArange_ArangeAiCore_Range",
+      "count": 1125,
+      "work_sum_ms": 9.91288
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnScatterPaKvCache_ScatterPaKvCache_ScatterPaKvCache",
+      "count": 828,
+      "work_sum_ms": 9.80144
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMatmul_BatchMatMulNd_BatchMatMulV2",
+      "count": 795,
+      "work_sum_ms": 9.78994
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMul_CastAiCpu_Cast",
+      "count": 70,
+      "work_sum_ms": 9.67204
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnNeg_SliceAiCore_Slice",
+      "count": 1656,
+      "work_sum_ms": 9.47296
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnGtTensor_GreaterAiCore_Greater",
+      "count": 936,
+      "work_sum_ms": 9.36678
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCumsum_CumsumAiCore_MemSet",
+      "count": 669,
+      "work_sum_ms": 9.34398
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnLayerNormWithImplMode_LayerNormV3WithImplMode_LayerNormV3",
+      "count": 598,
+      "work_sum_ms": 9.30994
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceMaskedFillScalar_MaskedFillAiCore_MaskedFill",
+      "count": 520,
+      "work_sum_ms": 9.1966
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnCat_SliceAiCore_Slice",
+      "count": 1656,
+      "work_sum_ms": 9.18916
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+      "count": 576,
+      "work_sum_ms": 8.62798
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnAdd_AddAiCore_Add",
+      "count": 1023,
+      "work_sum_ms": 8.60472
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCat_TransposeAiCore_Transpose",
+      "count": 520,
+      "work_sum_ms": 8.58172
+    },
+    {
+      "component": "unmapped",
+      "kernel": "paged_attention_mask_1",
+      "count": 288,
+      "work_sum_ms": 8.1937
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConvolution_TransData_TransData",
+      "count": 297,
+      "work_sum_ms": 7.80614
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+      "count": 449,
+      "work_sum_ms": 7.78688
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnSilu_SliceAiCore_Slice",
+      "count": 828,
+      "work_sum_ms": 7.09076
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnLayerNormWithImplMode_LayerNormV3WithImplMode_LayerNormV3",
+      "count": 385,
+      "work_sum_ms": 7.05378
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMatmul_BatchMatMulNd_BatchMatMulV2",
+      "count": 462,
+      "work_sum_ms": 6.78214
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMuls_MulAiCore_Mul",
+      "count": 3337,
+      "work_sum_ms": 6.38352
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMean_ReduceMeanAiCore_ReduceMean",
+      "count": 904,
+      "work_sum_ms": 6.38
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnClamp_ClipByValueV2AiCore_ClipByValueV2",
+      "count": 1338,
+      "work_sum_ms": 6.34866
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceMaskedFillScalar_MaskedFillAiCore_MaskedFill",
+      "count": 642,
+      "work_sum_ms": 6.3225
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnDiv_RealDivAiCore_RealDiv",
+      "count": 2727,
+      "work_sum_ms": 6.26428
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+      "count": 1320,
+      "work_sum_ms": 6.18436
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAdds_AddAiCore_Add",
+      "count": 3440,
+      "work_sum_ms": 6.0464
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSoftmax_SoftmaxAiCore_SoftmaxV2",
+      "count": 641,
+      "work_sum_ms": 5.77356
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnTriu_Triu_Triu",
+      "count": 160,
+      "work_sum_ms": 5.76002
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnMul_SliceAiCore_Slice",
+      "count": 828,
+      "work_sum_ms": 5.6568
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceFillScalar_FillAiCore_Fill",
+      "count": 989,
+      "work_sum_ms": 5.5095
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMul_MulAiCpu_Mul",
+      "count": 70,
+      "work_sum_ms": 5.47694
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMul_MulAiCore_Mul",
+      "count": 429,
+      "work_sum_ms": 5.26492
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnArange_ArangeAiCore_Range",
+      "count": 618,
+      "work_sum_ms": 5.00222
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnTopk_TopkV2AiCore_TopKV2",
+      "count": 320,
+      "work_sum_ms": 4.99644
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceZero_ZerosLikeAiCore_ZerosLike",
+      "count": 865,
+      "work_sum_ms": 4.86194
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnSoftmax_SoftmaxAiCore_SoftmaxV2",
+      "count": 260,
+      "work_sum_ms": 4.78576
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnStack_PackAiCore_Pack",
+      "count": 252,
+      "work_sum_ms": 4.7785
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnCat_TransposeAiCore_Transpose",
+      "count": 300,
+      "work_sum_ms": 4.73564
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnAdd_AsStridedAiCore_AsStrided",
+      "count": 260,
+      "work_sum_ms": 4.54556
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMatmul_TransposeAiCore_Transpose",
+      "count": 256,
+      "work_sum_ms": 4.36072
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnMul_SliceAiCore_Slice",
+      "count": 1080,
+      "work_sum_ms": 4.26638
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+      "count": 242,
+      "work_sum_ms": 4.16644
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnPowTensorTensor_PowAiCore_Pow",
+      "count": 320,
+      "work_sum_ms": 4.14232
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnLtTensor_LessAiCore_Less",
+      "count": 320,
+      "work_sum_ms": 4.08526
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnAddRmsNorm_AddRmsNorm_AddRmsNorm",
+      "count": 720,
+      "work_sum_ms": 4.07812
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceCopy_CastAiCpu_Cast",
+      "count": 35,
+      "work_sum_ms": 4.0762
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnGeTensor_GreaterEqual_GreaterEqual",
+      "count": 320,
+      "work_sum_ms": 4.02448
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnLtScalar_LessAiCore_Less",
+      "count": 960,
+      "work_sum_ms": 3.98866
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnCat_TransposeAiCore_Transpose",
+      "count": 220,
+      "work_sum_ms": 3.95758
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnAdds_AddAiCore_Add",
+      "count": 1679,
+      "work_sum_ms": 3.95294
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnCat_ConcatD_ConcatD",
+      "count": 429,
+      "work_sum_ms": 3.81728
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnCat_ConcatD_ConcatD",
+      "count": 798,
+      "work_sum_ms": 3.7236
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnDivs_RealDivAiCore_RealDiv",
+      "count": 794,
+      "work_sum_ms": 3.70294
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnSoftmax_SoftmaxAiCore_SoftmaxV2",
+      "count": 176,
+      "work_sum_ms": 3.6624
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMuls_MulAiCore_Mul",
+      "count": 1482,
+      "work_sum_ms": 3.58848
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnRsqrt_RsqrtAiCore_Rsqrt",
+      "count": 1679,
+      "work_sum_ms": 3.4832
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+      "count": 600,
+      "work_sum_ms": 3.4661
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+      "count": 275,
+      "work_sum_ms": 3.44368
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnReciprocal_ReciprocalAiCore_Reciprocal",
+      "count": 2416,
+      "work_sum_ms": 3.29522
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+      "count": 1652,
+      "work_sum_ms": 3.27992
+    },
+    {
+      "component": "unmapped",
+      "kernel": "MEMCPY_ASYNC",
+      "count": 4125,
+      "work_sum_ms": 3.221
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAdds_ViewCopyAiCore_ViewCopy",
+      "count": 224,
+      "work_sum_ms": 3.09482
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConvolution_Conv2dWithFlag_Conv2D",
+      "count": 121,
+      "work_sum_ms": 3.09032
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnNeg_SliceAiCore_Slice",
+      "count": 720,
+      "work_sum_ms": 3.0835
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclStft_StftAiCore_STFT",
+      "count": 29,
+      "work_sum_ms": 3.0601
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnCat_SliceAiCore_Slice",
+      "count": 720,
+      "work_sum_ms": 3.03314
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMul_StridedSliceAiCore_StridedSlice",
+      "count": 264,
+      "work_sum_ms": 3.0271
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnAdd_AddAiCore_Add",
+      "count": 720,
+      "work_sum_ms": 3.01406
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+      "count": 176,
+      "work_sum_ms": 3.0113
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnConvolution_ConvTranspose2dWithFlag_Conv2DTranspose",
+      "count": 45,
+      "work_sum_ms": 3.0072
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnIndex_IndexAiCore_Index",
+      "count": 280,
+      "work_sum_ms": 2.95208
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnAdd_AsStridedAiCore_AsStrided",
+      "count": 110,
+      "work_sum_ms": 2.86044
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnGtTensor_GreaterAiCore_Greater",
+      "count": 300,
+      "work_sum_ms": 2.77126
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnDivs_RealDivAiCore_RealDiv",
+      "count": 335,
+      "work_sum_ms": 2.7397
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnCat_ConcatD_ConcatD",
+      "count": 382,
+      "work_sum_ms": 2.67236
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCat_BroadcastToAiCore_BroadcastTo",
+      "count": 224,
+      "work_sum_ms": 2.65402
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceCopy_TensorMoveAiCore_TensorMove",
+      "count": 300,
+      "work_sum_ms": 2.61844
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMuls_TransposeAiCore_Transpose",
+      "count": 132,
+      "work_sum_ms": 2.52734
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCast_CastAiCore_Cast",
+      "count": 260,
+      "work_sum_ms": 2.44166
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnEqScalar_EqualAiCore_Equal",
+      "count": 641,
+      "work_sum_ms": 2.44076
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+      "count": 160,
+      "work_sum_ms": 2.3449
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnAdd_AddAiCpu_Add",
+      "count": 35,
+      "work_sum_ms": 2.34416
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnScatterPaKvCache_ScatterPaKvCache_ScatterPaKvCache",
+      "count": 360,
+      "work_sum_ms": 2.26718
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnAdd_TransposeAiCore_Transpose",
+      "count": 143,
+      "work_sum_ms": 2.26338
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnSilu_SiluAiCore_Swish",
+      "count": 360,
+      "work_sum_ms": 2.22854
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnEqScalar_EqualAiCore_Equal",
+      "count": 260,
+      "work_sum_ms": 2.22146
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnUpsampleLinear1d_UpsampleLinear1dNcdhw_UpsampleLinear1d",
+      "count": 29,
+      "work_sum_ms": 2.17114
+    },
+    {
+      "component": "engine_other",
+      "kernel": "MEMCPY_ASYNC",
+      "count": 1558,
+      "work_sum_ms": 2.11096
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMuls_MulAiCore_Mul",
+      "count": 286,
+      "work_sum_ms": 2.06114
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+      "count": 520,
+      "work_sum_ms": 2.02582
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnUpsampleLinear1d_ResizeD_ResizeD",
+      "count": 15,
+      "work_sum_ms": 2.01134
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnDiv_RealDivAiCore_RealDiv",
+      "count": 1272,
+      "work_sum_ms": 2.01052
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnAddmm_MatMulV3Common_MatMulV3",
+      "count": 150,
+      "work_sum_ms": 2.0044
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnGather_GatherElementsV2_GatherElementsV2",
+      "count": 320,
+      "work_sum_ms": 2.00172
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnRepeat_TileAiCore_Tile",
+      "count": 224,
+      "work_sum_ms": 1.96904
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnSilu_SiluAiCore_Swish",
+      "count": 260,
+      "work_sum_ms": 1.94442
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnReduceSum_ReduceSumOpAiCore_ReduceSum",
+      "count": 320,
+      "work_sum_ms": 1.9136
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnGeScalar_GreaterEqual_GreaterEqual",
+      "count": 640,
+      "work_sum_ms": 1.9125
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnStack_SliceAiCore_Slice",
+      "count": 44,
+      "work_sum_ms": 1.91218
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSubs_SubAiCore_Sub",
+      "count": 600,
+      "work_sum_ms": 1.88696
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnNeg_NegAiCore_Neg",
+      "count": 720,
+      "work_sum_ms": 1.84514
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnScatterAdd_ScatterElements_ScatterElementsV2",
+      "count": 320,
+      "work_sum_ms": 1.74388
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnEqScalar_CastAiCore_Cast",
+      "count": 260,
+      "work_sum_ms": 1.7209
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnAdds_AddAiCore_Add",
+      "count": 1080,
+      "work_sum_ms": 1.71244
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnStack_PackAiCore_Pack",
+      "count": 44,
+      "work_sum_ms": 1.69312
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSub_SubAiCore_Sub",
+      "count": 767,
+      "work_sum_ms": 1.61126
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnSilu_SliceAiCore_Slice",
+      "count": 360,
+      "work_sum_ms": 1.6109
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConstantPadNd_PadV3AiCore_PadV3",
+      "count": 66,
+      "work_sum_ms": 1.52136
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConstantPadNd_TransposeAiCore_Transpose",
+      "count": 88,
+      "work_sum_ms": 1.45698
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnPowScalarTensor_PowAiCore_Pow",
+      "count": 328,
+      "work_sum_ms": 1.44238
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnClampMin_ClipByValueV2AiCore_ClipByValueV2",
+      "count": 320,
+      "work_sum_ms": 1.39128
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnReciprocal_ReciprocalAiCore_Reciprocal",
+      "count": 1080,
+      "work_sum_ms": 1.38694
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConvolution_TransDataToFzWithoutGroup_TransData",
+      "count": 66,
+      "work_sum_ms": 1.35388
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnBitwiseNot_LogicalNotAiCore_LogicalNot",
+      "count": 640,
+      "work_sum_ms": 1.32098
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnIm2colBackward_TransDataSpecial_TransData",
+      "count": 116,
+      "work_sum_ms": 1.30412
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnRsqrt_RsqrtAiCore_Rsqrt",
+      "count": 904,
+      "work_sum_ms": 1.30066
+    },
+    {
+      "component": "unmapped",
+      "kernel": "ViewCopy",
+      "count": 11,
+      "work_sum_ms": 1.2828
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCos_CosAiCore_Cos",
+      "count": 395,
+      "work_sum_ms": 1.24358
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnConvolution_TransData_MemSet",
+      "count": 78,
+      "work_sum_ms": 1.2305
+    },
+    {
+      "component": "audio",
+      "kernel": "MEMCPY_ASYNC",
+      "count": 1143,
+      "work_sum_ms": 1.213
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnIndex_IndexCheck_IndexCheck",
+      "count": 280,
+      "work_sum_ms": 1.20144
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnBitwiseXorTensor_BitwiseXorAiCore_BitwiseXor",
+      "count": 550,
+      "work_sum_ms": 1.16826
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnBitwiseAndScalar_BitwiseAndAiCore_BitwiseAnd",
+      "count": 600,
+      "work_sum_ms": 1.15788
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMul_TransposeAiCore_Transpose",
+      "count": 77,
+      "work_sum_ms": 1.15356
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnCast_CastAiCore_Cast",
+      "count": 110,
+      "work_sum_ms": 1.09542
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceFillScalar_FillAiCore_Fill",
+      "count": 659,
+      "work_sum_ms": 1.09082
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnEmbedding_GatherV2AiCore_GatherV2",
+      "count": 280,
+      "work_sum_ms": 1.08584
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnInplaceCopy_ViewCopyAiCore_ViewCopy",
+      "count": 77,
+      "work_sum_ms": 1.0734
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConstantPadNd_PadV3AiCore_MemSet",
+      "count": 66,
+      "work_sum_ms": 1.07042
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnElu_EluAiCore_Elu",
+      "count": 145,
+      "work_sum_ms": 1.06064
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConvolution_TransDataFzToDst_MemSet",
+      "count": 66,
+      "work_sum_ms": 1.02688
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnGelu_Gelu_Gelu",
+      "count": 88,
+      "work_sum_ms": 1.02664
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnDivs_RealDivAiCore_RealDiv",
+      "count": 110,
+      "work_sum_ms": 1.00734
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnScatterAdd_LinearIndex_LinearIndex",
+      "count": 320,
+      "work_sum_ms": 0.9725
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceCopy_BroadcastToAiCore_BroadcastTo",
+      "count": 413,
+      "work_sum_ms": 0.96066
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnRepeat_TileAiCore_Tile",
+      "count": 70,
+      "work_sum_ms": 0.95968
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnReduceSum_CastAiCore_Cast",
+      "count": 640,
+      "work_sum_ms": 0.94764
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnNeg_NegAiCore_Neg",
+      "count": 132,
+      "work_sum_ms": 0.94626
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnLeakyRelu_LeakyReluAICore_LeakyRelu",
+      "count": 117,
+      "work_sum_ms": 0.9352
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnIm2colBackward_Col2im_MemSet",
+      "count": 58,
+      "work_sum_ms": 0.9187
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnArgMax_ArgMaxV2AiCore_ArgMaxV2",
+      "count": 31,
+      "work_sum_ms": 0.90538
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnEmbedding_GatherV2AiCore_GatherV2",
+      "count": 151,
+      "work_sum_ms": 0.90312
+    },
+    {
+      "component": "audio",
+      "kernel": "aclStft_StftAiCore_STFT",
+      "count": 15,
+      "work_sum_ms": 0.89176
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnArange_ArangeAiCore_Range",
+      "count": 90,
+      "work_sum_ms": 0.85604
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAdds_SliceAiCore_Slice",
+      "count": 224,
+      "work_sum_ms": 0.84288
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnSilu_SiluAiCore_Swish",
+      "count": 110,
+      "work_sum_ms": 0.8357
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+      "count": 58,
+      "work_sum_ms": 0.82106
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCat_StridedSliceAiCore_StridedSlice",
+      "count": 58,
+      "work_sum_ms": 0.80124
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnIndex_IndexAiCore_Index",
+      "count": 77,
+      "work_sum_ms": 0.79648
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnMuls_MulAiCore_Mul",
+      "count": 350,
+      "work_sum_ms": 0.77532
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnUpsampleLinear1d_UpsampleLinear1dNcdhw_UpsampleLinear1d",
+      "count": 15,
+      "work_sum_ms": 0.77508
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnCat_SliceAiCore_Slice",
+      "count": 154,
+      "work_sum_ms": 0.77128
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnSearchSorted_SearchSorted_SearchSorted",
+      "count": 18,
+      "work_sum_ms": 0.73966
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnGather_CastAiCore_Cast",
+      "count": 320,
+      "work_sum_ms": 0.71298
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+      "count": 212,
+      "work_sum_ms": 0.71186
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnReflectionPad1d_MirrorPadAiCore_MirrorPad",
+      "count": 58,
+      "work_sum_ms": 0.71182
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "kernel": "MEMCPY_ASYNC",
+      "count": 317,
+      "work_sum_ms": 0.68136
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnNeg_SliceAiCore_Slice",
+      "count": 132,
+      "work_sum_ms": 0.64052
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnUpsampleLinear1d_TransposeAiCore_Transpose",
+      "count": 29,
+      "work_sum_ms": 0.62788
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnInplaceZero_ZerosLikeAiCore_ZerosLike",
+      "count": 220,
+      "work_sum_ms": 0.61792
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnStack_SliceAiCore_Slice",
+      "count": 138,
+      "work_sum_ms": 0.6075
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceLogicalOr_LogicalOrAiCore_LogicalOr",
+      "count": 320,
+      "work_sum_ms": 0.58178
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnInplaceZero_ZerosLikeAiCore_ZerosLike",
+      "count": 274,
+      "work_sum_ms": 0.55922
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnRemainderTensorScalar_FloorModAiCore_FloorMod",
+      "count": 29,
+      "work_sum_ms": 0.54364
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnLeakyRelu_LeakyReluAICore_LeakyRelu",
+      "count": 86,
+      "work_sum_ms": 0.52794
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnUpsampleNearest1dV2_UpsampleNearest3dNcdhw_UpsampleNearest3d",
+      "count": 41,
+      "work_sum_ms": 0.52502
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnCumsum_CumsumAiCore_MemSet",
+      "count": 36,
+      "work_sum_ms": 0.51112
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnConvolution_TransData_MemSet",
+      "count": 33,
+      "work_sum_ms": 0.49756
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnRepeat_SliceAiCore_Slice",
+      "count": 63,
+      "work_sum_ms": 0.49328
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnCat_StridedSliceAiCore_StridedSlice",
+      "count": 44,
+      "work_sum_ms": 0.49204
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnIm2colBackward_TransDataSpecial_TransData",
+      "count": 60,
+      "work_sum_ms": 0.49152
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnAdd_AddAiCore_Add",
+      "count": 79,
+      "work_sum_ms": 0.4851
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnTopk_CastAiCore_Cast",
+      "count": 320,
+      "work_sum_ms": 0.4832
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnStack_PackAiCore_Pack",
+      "count": 33,
+      "work_sum_ms": 0.4754
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnIm2colBackward_Col2im_MemSet",
+      "count": 30,
+      "work_sum_ms": 0.47238
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSin_TransposeAiCore_Transpose",
+      "count": 29,
+      "work_sum_ms": 0.45806
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclStft_PadV3AiCore_MemSet",
+      "count": 29,
+      "work_sum_ms": 0.44878
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMul_TransposeAiCore_Transpose",
+      "count": 30,
+      "work_sum_ms": 0.43004
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnFlip_ReverseV2Aicore_ReverseV2",
+      "count": 29,
+      "work_sum_ms": 0.42754
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnSWhere_SelectV2AiCore_SelectV2",
+      "count": 90,
+      "work_sum_ms": 0.4188
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMatmul_BatchMatMulNd_BatchMatMulV2",
+      "count": 31,
+      "work_sum_ms": 0.41372
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnCumsum_CumsumAiCore_Cumsum",
+      "count": 36,
+      "work_sum_ms": 0.41152
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnArange_ArangeAiCore_Range",
+      "count": 44,
+      "work_sum_ms": 0.40524
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "MEMCPY_ASYNC",
+      "count": 288,
+      "work_sum_ms": 0.40338
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnInplaceCopy_ViewCopyAiCore_ViewCopy",
+      "count": 40,
+      "work_sum_ms": 0.39712
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnUpsampleLinear1d_TransposeAiCore_Transpose",
+      "count": 15,
+      "work_sum_ms": 0.37918
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCumsum_TransposeAiCore_Transpose",
+      "count": 29,
+      "work_sum_ms": 0.37102
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnUpsampleNearest1dV2_UpsampleNearest3dNcdhw_UpsampleNearest3d",
+      "count": 29,
+      "work_sum_ms": 0.36178
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnBitwiseAndTensor_LogicalAndAiCore_LogicalAnd",
+      "count": 90,
+      "work_sum_ms": 0.35906
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCat_StridedSliceAiCore_StridedSlice",
+      "count": 30,
+      "work_sum_ms": 0.35102
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnInplaceFillScalar_FillAiCore_Fill",
+      "count": 166,
+      "work_sum_ms": 0.35032
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnMuls_TransposeAiCore_Transpose",
+      "count": 29,
+      "work_sum_ms": 0.3449
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnRsubs_SubAiCore_Sub",
+      "count": 67,
+      "work_sum_ms": 0.33826
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnComplex_ComplexAiCore_Complex",
+      "count": 29,
+      "work_sum_ms": 0.3195
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnSubs_SubAiCore_Sub",
+      "count": 95,
+      "work_sum_ms": 0.3154
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnGtScalar_SliceAiCore_Slice",
+      "count": 14,
+      "work_sum_ms": 0.29922
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnIm2colBackward_BroadcastToAiCore_BroadcastTo",
+      "count": 29,
+      "work_sum_ms": 0.29788
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnClamp_ClipByValueV2AiCore_ClipByValueV2",
+      "count": 54,
+      "work_sum_ms": 0.2904
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnElu_EluAiCore_Elu",
+      "count": 75,
+      "work_sum_ms": 0.2855
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnIndex_IndexCheck_IndexCheck",
+      "count": 77,
+      "work_sum_ms": 0.2848
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCumsum_CumsumAiCore_Cumsum",
+      "count": 15,
+      "work_sum_ms": 0.28002
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnTanh_Tanh_Tanh",
+      "count": 29,
+      "work_sum_ms": 0.27334
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnRemainderTensorScalar_BroadcastToAiCore_BroadcastTo",
+      "count": 29,
+      "work_sum_ms": 0.26724
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+      "count": 44,
+      "work_sum_ms": 0.26704
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnLinalgVectorNorm_LpNormV2_LpNormV2",
+      "count": 29,
+      "work_sum_ms": 0.26636
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnGtScalar_SliceAiCore_Slice",
+      "count": 14,
+      "work_sum_ms": 0.26516
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnClamp_ClipByValueV2AiCore_ClipByValueV2",
+      "count": 30,
+      "work_sum_ms": 0.26506
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCat_TensorMoveAiCore_TensorMove",
+      "count": 31,
+      "work_sum_ms": 0.2603
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnExp_ExpAiCore_Exp",
+      "count": 29,
+      "work_sum_ms": 0.25856
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnReflectionPad1d_MirrorPadAiCore_MirrorPad",
+      "count": 30,
+      "work_sum_ms": 0.25256
+    },
+    {
+      "component": "audio",
+      "kernel": "aclStft_PadV3AiCore_MemSet",
+      "count": 15,
+      "work_sum_ms": 0.24594
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+      "count": 54,
+      "work_sum_ms": 0.24442
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnMul_CastAiCore_Cast",
+      "count": 154,
+      "work_sum_ms": 0.24294
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnArange_ArangeAiCore_Range",
+      "count": 27,
+      "work_sum_ms": 0.24138
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnEmbedding_GatherV2AiCore_GatherV2",
+      "count": 27,
+      "work_sum_ms": 0.23872
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+      "count": 108,
+      "work_sum_ms": 0.23712
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnClampMin_ClipByValueV2AiCore_ClipByValueV2",
+      "count": 69,
+      "work_sum_ms": 0.23564
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnSin_TransposeAiCore_Transpose",
+      "count": 15,
+      "work_sum_ms": 0.2325
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceMuls_MulAiCore_Mul",
+      "count": 29,
+      "work_sum_ms": 0.23126
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCumsum_CumsumAiCore_MemSet",
+      "count": 15,
+      "work_sum_ms": 0.22682
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnGtScalar_GreaterAiCore_Greater",
+      "count": 29,
+      "work_sum_ms": 0.2231
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnFlip_SliceAiCore_Slice",
+      "count": 29,
+      "work_sum_ms": 0.22174
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnGtScalar_StridedSliceAiCore_StridedSlice",
+      "count": 15,
+      "work_sum_ms": 0.21844
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnSoftmax_SoftmaxAiCore_SoftmaxV2",
+      "count": 36,
+      "work_sum_ms": 0.21514
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnUpsampleNearest1dV2_UpsampleNearest3dNcdhw_UpsampleNearest3d",
+      "count": 11,
+      "work_sum_ms": 0.21354
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCumsum_TransposeAiCore_Transpose",
+      "count": 15,
+      "work_sum_ms": 0.21302
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCat_CastAiCore_Cast",
+      "count": 52,
+      "work_sum_ms": 0.21212
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnBitwiseXorScalar_BitwiseXorAiCore_BitwiseXor",
+      "count": 100,
+      "work_sum_ms": 0.2104
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnDiv_BroadcastToAiCore_BroadcastTo",
+      "count": 29,
+      "work_sum_ms": 0.20878
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnDiv_RealDivAiCore_RealDiv",
+      "count": 47,
+      "work_sum_ms": 0.20868
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnRemainderTensorScalar_FloorModAiCore_FloorMod",
+      "count": 15,
+      "work_sum_ms": 0.1955
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnTopk_TopkV2AiCore_TopKV2",
+      "count": 18,
+      "work_sum_ms": 0.19144
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnPowTensorScalar_PowsAiCore_Pows",
+      "count": 18,
+      "work_sum_ms": 0.19002
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnInplaceMaskedFillScalar_MaskedFillAiCore_MaskedFill",
+      "count": 36,
+      "work_sum_ms": 0.18826
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMuls_TransposeAiCore_Transpose",
+      "count": 15,
+      "work_sum_ms": 0.18812
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnReplicationPad2d_TransposeAiCore_Transpose",
+      "count": 11,
+      "work_sum_ms": 0.18462
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnFlip_ReverseV2Aicore_ReverseV2",
+      "count": 15,
+      "work_sum_ms": 0.17604
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnInplaceCopy_BroadcastToAiCore_BroadcastTo",
+      "count": 22,
+      "work_sum_ms": 0.16292
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnLtScalar_LessAiCore_Less",
+      "count": 54,
+      "work_sum_ms": 0.16196
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnLinalgVectorNorm_LpNormV2_LpNormV2",
+      "count": 27,
+      "work_sum_ms": 0.15954
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnEqScalar_EqualAiCore_Equal",
+      "count": 36,
+      "work_sum_ms": 0.15862
+    },
+    {
+      "component": "unmapped",
+      "kernel": "MIX_AIV",
+      "count": 8,
+      "work_sum_ms": 0.1586
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnIm2colBackward_BroadcastToAiCore_BroadcastTo",
+      "count": 15,
+      "work_sum_ms": 0.15704
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnMul_MulAiCore_Mul",
+      "count": 36,
+      "work_sum_ms": 0.15684
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceCopy_ViewCopyAiCpu_ViewCopy",
+      "count": 1,
+      "work_sum_ms": 0.1559
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnLayerNormWithImplMode_TransposeAiCore_Transpose",
+      "count": 11,
+      "work_sum_ms": 0.1554
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceCopy_TensorMoveAiCore_TensorMove",
+      "count": 17,
+      "work_sum_ms": 0.15448
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnPowTensorTensor_PowAiCore_Pow",
+      "count": 18,
+      "work_sum_ms": 0.1535
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnRepeat_TileAiCore_Tile",
+      "count": 11,
+      "work_sum_ms": 0.1528
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnInplaceCopy_TensorMoveAiCore_TensorMove",
+      "count": 11,
+      "work_sum_ms": 0.14642
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclStft_PadV3AiCore_PadV3",
+      "count": 29,
+      "work_sum_ms": 0.14268
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnMean_ReduceMeanAiCore_ReduceMean",
+      "count": 18,
+      "work_sum_ms": 0.1423
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnComplex_ComplexAiCore_Complex",
+      "count": 15,
+      "work_sum_ms": 0.13748
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnCos_CosAiCore_Cos",
+      "count": 23,
+      "work_sum_ms": 0.13426
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnRemainderTensorScalar_BroadcastToAiCore_BroadcastTo",
+      "count": 15,
+      "work_sum_ms": 0.13044
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnLtTensor_LessAiCore_Less",
+      "count": 12,
+      "work_sum_ms": 0.12796
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "kernel": "aclnnCat_ConcatD_ConcatD",
+      "count": 20,
+      "work_sum_ms": 0.11658
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnReplicationPad2d_PadV3AiCore_PadV3",
+      "count": 11,
+      "work_sum_ms": 0.1163
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnGeScalar_GreaterEqual_GreaterEqual",
+      "count": 36,
+      "work_sum_ms": 0.11534
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnSin_SinAiCore_Sin",
+      "count": 23,
+      "work_sum_ms": 0.11482
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnCos_CosAiCore_Cos",
+      "count": 15,
+      "work_sum_ms": 0.1123
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnInplaceFillScalar_FillAiCore_Fill",
+      "count": 66,
+      "work_sum_ms": 0.11022
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnGather_GatherElementsV2_GatherElementsV2",
+      "count": 18,
+      "work_sum_ms": 0.10998
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnInplaceMuls_MulAiCore_Mul",
+      "count": 15,
+      "work_sum_ms": 0.10962
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnLinspace_LinspaceAiCore_LinSpace",
+      "count": 38,
+      "work_sum_ms": 0.10958
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnExp_ExpAiCore_Exp",
+      "count": 15,
+      "work_sum_ms": 0.1075
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnLtTensor_LessAiCore_Less",
+      "count": 18,
+      "work_sum_ms": 0.1073
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnPowScalarTensor_PowAiCore_Pow",
+      "count": 23,
+      "work_sum_ms": 0.10546
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnExp_SliceAiCore_Slice",
+      "count": 15,
+      "work_sum_ms": 0.10364
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnEmbedding_GatherV2AiCore_GatherV2",
+      "count": 11,
+      "work_sum_ms": 0.09642
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnSin_SliceAiCore_Slice",
+      "count": 15,
+      "work_sum_ms": 0.09556
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnNeg_NegAiCore_Neg",
+      "count": 15,
+      "work_sum_ms": 0.09496
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnGeTensor_GreaterEqual_GreaterEqual",
+      "count": 33,
+      "work_sum_ms": 0.09192
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnScatterAdd_ScatterElements_ScatterElementsV2",
+      "count": 18,
+      "work_sum_ms": 0.09154
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnTanh_Tanh_Tanh",
+      "count": 15,
+      "work_sum_ms": 0.08908
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnAddmm_CastAiCore_Cast",
+      "count": 58,
+      "work_sum_ms": 0.08784
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnAdds_AddAiCore_Add",
+      "count": 55,
+      "work_sum_ms": 0.0845
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnReduceSum_ReduceSumOpAiCore_ReduceSum",
+      "count": 18,
+      "work_sum_ms": 0.0844
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnBitwiseNot_LogicalNotAiCore_LogicalNot",
+      "count": 36,
+      "work_sum_ms": 0.08344
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnLeakyRelu_LeakyReluAICore_LeakyRelu",
+      "count": 11,
+      "work_sum_ms": 0.08154
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnPowScalarTensor_PowAiCore_Pow",
+      "count": 18,
+      "work_sum_ms": 0.0814
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnDiv_BroadcastToAiCore_BroadcastTo",
+      "count": 27,
+      "work_sum_ms": 0.08006
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnReduceSum_ReduceSumOpAiCore_ReduceSum",
+      "count": 11,
+      "work_sum_ms": 0.07916
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "kernel": "aclnnInplaceCopy_ViewCopyAiCore_ViewCopy",
+      "count": 8,
+      "work_sum_ms": 0.07544
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnClampMin_ClipByValueV2AiCore_ClipByValueV2",
+      "count": 27,
+      "work_sum_ms": 0.07296
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnDivs_RealDivAiCore_RealDiv",
+      "count": 18,
+      "work_sum_ms": 0.07266
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnSubs_SubAiCore_Sub",
+      "count": 44,
+      "work_sum_ms": 0.07214
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnRelu_Relu_Relu",
+      "count": 29,
+      "work_sum_ms": 0.0707
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnRsubs_SubAiCore_Sub",
+      "count": 15,
+      "work_sum_ms": 0.06734
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnGtScalar_GreaterAiCore_Greater",
+      "count": 15,
+      "work_sum_ms": 0.06708
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnFloorDivides_CastAiCore_Cast",
+      "count": 44,
+      "work_sum_ms": 0.06404
+    },
+    {
+      "component": "audio",
+      "kernel": "aclStft_PadV3AiCore_PadV3",
+      "count": 15,
+      "work_sum_ms": 0.0631
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnDivs_RealDivAiCore_RealDiv",
+      "count": 23,
+      "work_sum_ms": 0.06142
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnSin_SinAiCore_Sin",
+      "count": 18,
+      "work_sum_ms": 0.06132
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnAdd_SliceAiCore_Slice",
+      "count": 20,
+      "work_sum_ms": 0.0579
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnFlip_SliceAiCore_Slice",
+      "count": 15,
+      "work_sum_ms": 0.0569
+    },
+    {
+      "component": "prepare",
+      "kernel": "MEMCPY_ASYNC",
+      "count": 77,
+      "work_sum_ms": 0.05648
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnLinalgVectorNorm_LpNormV2_LpNormV2",
+      "count": 11,
+      "work_sum_ms": 0.0547
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnPowScalarTensor_PowAiCore_Pow",
+      "count": 11,
+      "work_sum_ms": 0.05152
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnReduceSum_CastAiCore_Cast",
+      "count": 36,
+      "work_sum_ms": 0.05058
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnUpsampleLinear1d_CastAiCore_Cast",
+      "count": 29,
+      "work_sum_ms": 0.0498
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnBitwiseNot_LogicalNotAiCore_LogicalNot",
+      "count": 33,
+      "work_sum_ms": 0.0487
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAbs_AbsAiCore_Abs",
+      "count": 29,
+      "work_sum_ms": 0.04796
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnClamp_SliceAiCore_Slice",
+      "count": 15,
+      "work_sum_ms": 0.04778
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnFloorDivides_FloorDivAiCore_FloorDiv",
+      "count": 22,
+      "work_sum_ms": 0.04704
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnCos_CosAiCore_Cos",
+      "count": 18,
+      "work_sum_ms": 0.0466
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnArgMax_CastAiCore_Cast",
+      "count": 31,
+      "work_sum_ms": 0.04636
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnSub_SubAiCore_Sub",
+      "count": 18,
+      "work_sum_ms": 0.04608
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnScatterAdd_LinearIndex_LinearIndex",
+      "count": 18,
+      "work_sum_ms": 0.0433
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnGeTensor_CastAiCore_Cast",
+      "count": 33,
+      "work_sum_ms": 0.04232
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnMuls_MulAiCore_Mul",
+      "count": 18,
+      "work_sum_ms": 0.04168
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnCat_TensorMoveAiCore_TensorMove",
+      "count": 4,
+      "work_sum_ms": 0.04122
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnMuls_MulAiCore_Mul",
+      "count": 23,
+      "work_sum_ms": 0.0398
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnAdds_AddAiCore_Add",
+      "count": 18,
+      "work_sum_ms": 0.03868
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnReciprocal_ReciprocalAiCore_Reciprocal",
+      "count": 18,
+      "work_sum_ms": 0.03804
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "kernel": "aclnnArange_ArangeAiCore_Range",
+      "count": 5,
+      "work_sum_ms": 0.03746
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnDivs_RealDivAiCore_RealDiv",
+      "count": 18,
+      "work_sum_ms": 0.03382
+    },
+    {
+      "component": "RSI:thinker:prefill_or_verify",
+      "kernel": "aclnnReciprocal_ReciprocalAiCore_Reciprocal",
+      "count": 23,
+      "work_sum_ms": 0.03324
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnGtScalar_GreaterAiCore_Greater",
+      "count": 11,
+      "work_sum_ms": 0.03324
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnBitwiseOrTensor_LogicalOrAiCore_LogicalOr",
+      "count": 18,
+      "work_sum_ms": 0.03212
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAdd_SliceAiCore_Slice",
+      "count": 16,
+      "work_sum_ms": 0.03082
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnGather_CastAiCore_Cast",
+      "count": 18,
+      "work_sum_ms": 0.02994
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnMul_SliceAiCore_Slice",
+      "count": 12,
+      "work_sum_ms": 0.0275
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnTanh_Tanh_Tanh",
+      "count": 11,
+      "work_sum_ms": 0.02658
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnUpsampleLinear1d_CastAiCore_Cast",
+      "count": 15,
+      "work_sum_ms": 0.02646
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnAdd_AsStridedAiCore_AsStrided",
+      "count": 1,
+      "work_sum_ms": 0.02636
+    },
+    {
+      "component": "RSI:talker:prefill_or_verify",
+      "kernel": "aclnnRsqrt_RsqrtAiCore_Rsqrt",
+      "count": 18,
+      "work_sum_ms": 0.02538
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCat_TransposeAiCore_Transpose",
+      "count": 2,
+      "work_sum_ms": 0.0246
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnTopk_CastAiCore_Cast",
+      "count": 18,
+      "work_sum_ms": 0.02426
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "kernel": "aclnnInplaceZero_ZerosLikeAiCore_ZerosLike",
+      "count": 10,
+      "work_sum_ms": 0.02392
+    },
+    {
+      "component": "RSI:thinker:decode",
+      "kernel": "aclnnInplaceFillScalar_FillAiCore_Fill",
+      "count": 13,
+      "work_sum_ms": 0.02312
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnAbs_AbsAiCore_Abs",
+      "count": 15,
+      "work_sum_ms": 0.02212
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnInplaceCopy_BroadcastToAiCore_BroadcastTo",
+      "count": 15,
+      "work_sum_ms": 0.02002
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnConstantPadNd_PadV3AiCore_PadV3",
+      "count": 1,
+      "work_sum_ms": 0.01998
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnAny_ReduceAny_ReduceAny",
+      "count": 11,
+      "work_sum_ms": 0.01916
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnCat_SliceAiCore_Slice",
+      "count": 6,
+      "work_sum_ms": 0.0188
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnRound_RoundDecimalsAiCore_Round",
+      "count": 11,
+      "work_sum_ms": 0.01838
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnClampMin_ClipByValueV2AiCore_ClipByValueV2",
+      "count": 11,
+      "work_sum_ms": 0.0179
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnDiv_RealDivAiCore_RealDiv",
+      "count": 11,
+      "work_sum_ms": 0.01782
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnGtScalar_CastAiCore_Cast",
+      "count": 11,
+      "work_sum_ms": 0.01746
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnRsubs_SubAiCore_Sub",
+      "count": 11,
+      "work_sum_ms": 0.01732
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnDiv_BroadcastToAiCore_BroadcastTo",
+      "count": 11,
+      "work_sum_ms": 0.0168
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnConstantPadNd_PadV3AiCore_MemSet",
+      "count": 1,
+      "work_sum_ms": 0.01562
+    },
+    {
+      "component": "prepare",
+      "kernel": "aclnnCat_CastAiCore_Cast",
+      "count": 11,
+      "work_sum_ms": 0.01496
+    },
+    {
+      "component": "engine_other",
+      "kernel": "aclnnMul_SliceAiCore_Slice",
+      "count": 6,
+      "work_sum_ms": 0.01332
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnGtScalar_StridedSliceAiCore_StridedSlice",
+      "count": 1,
+      "work_sum_ms": 0.01168
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnCast_CastAiCore_Cast",
+      "count": 1,
+      "work_sum_ms": 0.0093
+    },
+    {
+      "component": "unmapped",
+      "kernel": "aclnnEqScalar_CastAiCore_Cast",
+      "count": 1,
+      "work_sum_ms": 0.00758
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnSin_SliceAiCore_Slice",
+      "count": 1,
+      "work_sum_ms": 0.00256
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnExp_SliceAiCore_Slice",
+      "count": 1,
+      "work_sum_ms": 0.0025
+    },
+    {
+      "component": "audio",
+      "kernel": "aclnnClamp_SliceAiCore_Slice",
+      "count": 1,
+      "work_sum_ms": 0.00212
+    }
+  ],
+  "global_gap_duration_bins": {
+    "100-1000us": {
+      "count": 4043,
+      "gap_ms": 744.1173800000024
+    },
+    "20-100us": {
+      "count": 19400,
+      "gap_ms": 811.6256600000011
+    },
+    "<20us": {
+      "count": 342127,
+      "gap_ms": 157.57770000104648
+    },
+    ">=1ms": {
+      "count": 34,
+      "gap_ms": 55.675740000000005
+    }
+  },
+  "global_gap_temporal_screen": {
+    "next_host_enqueue_started_during_idle": {
+      "count": 5494,
+      "gap_ms": 755.5686999999997
+    },
+    "enqueued_before_idle_runtime_not_finished": {
+      "count": 5722,
+      "gap_ms": 286.10381999999936
+    },
+    "runtime_already_submitted_before_idle": {
+      "count": 45654,
+      "gap_ms": 622.488779999956
+    },
+    "uncorrelated_graph_or_device_dependency": {
+      "count": 308002,
+      "gap_ms": 64.56439999986036
+    },
+    "enqueue_spans_idle_start": {
+      "count": 732,
+      "gap_ms": 40.270779999999995
+    }
+  },
+  "largest_gaps": [
+    {
+      "start_offset_ms": 5655.69892,
+      "gap_ms": 2.6351,
+      "next_kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "3982740353449984",
+        "api": [
+          1793631682419355870,
+          1793631682419362410,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "prepare",
+          null,
+          [
+            1793631682419341560,
+            1793631682419348650,
+            "Enqueue@aclnnAddmm",
+            215515
+          ],
+          [
+            1793631682419351550,
+            1793631682419364670,
+            "Dequeue@aclnnAddmm",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 5654.52772,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 102.15
+        },
+        {
+          "kernel": "aclnnLayerNormWithImplMode_LayerNormV3WithImplMode_LayerNormV3",
+          "device_offset_ms": 5654.60672,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 112.93
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 5654.87304,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 109.39
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 5655.28756,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 109.35
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 5655.69622,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 107.87
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 5658.33402,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 110.14
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 1860.38354,
+      "gap_ms": 2.45386,
+      "next_kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+      "next_source": {
+        "torch_flow": "1793631678623975930",
+        "op": [
+          1793631678623917530,
+          1793631678623925170,
+          "aclnnInplaceOne",
+          215504
+        ],
+        "component": "RSI:thinker:prefill_or_verify",
+        "host_flow": "2717979858960384",
+        "api": [
+          1793631678623932850,
+          1793631678623940450,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "RSI:thinker:prefill_or_verify",
+          [
+            1793631678623917530,
+            1793631678623925170,
+            "aclnnInplaceOne",
+            215504
+          ],
+          [
+            1793631678623918000,
+            1793631678623924780,
+            "Enqueue@aclnnInplaceOne",
+            215504
+          ],
+          [
+            1793631678623927780,
+            1793631678623943050,
+            "Dequeue@aclnnInplaceOne",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnAdd_AddAiCore_Add",
+          "device_offset_ms": 1859.25342,
+          "cpu_op": "aclnnAdd",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 303.78,
+          "runtime_end_lead_us": 39.22
+        },
+        {
+          "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+          "device_offset_ms": 1859.31474,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 323.09,
+          "runtime_end_lead_us": 38.56
+        },
+        {
+          "kernel": "aclnnScatterPaKvCache_ScatterPaKvCache_ScatterPaKvCache",
+          "device_offset_ms": 1859.3834,
+          "cpu_op": "aclnnScatterPaKvCache",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 205.49,
+          "runtime_end_lead_us": 34.05
+        },
+        {
+          "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+          "device_offset_ms": 1860.00908,
+          "cpu_op": "aclnnIndexSelect",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 52.38,
+          "runtime_end_lead_us": 33.18
+        },
+        {
+          "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+          "device_offset_ms": 1860.24672,
+          "cpu_op": "aclnnIndexSelect",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 45.72,
+          "runtime_end_lead_us": 33.57
+        },
+        {
+          "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+          "device_offset_ms": 1862.8374,
+          "cpu_op": "aclnnInplaceOne",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 50.76,
+          "runtime_end_lead_us": 35.48
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 904.45898,
+      "gap_ms": 2.44574,
+      "next_kernel": "aclnnArange_ArangeAiCore_Range",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "2392086330474496",
+        "api": [
+          1793631677668018320,
+          1793631677668026840,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "audio",
+          null,
+          [
+            1793631677667959940,
+            1793631677667965830,
+            "Enqueue@aclnnArange",
+            215505
+          ],
+          [
+            1793631677668011900,
+            1793631677668030250,
+            "Dequeue@aclnnArange",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 903.05824,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 14.49
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 903.09924,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 13.99
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 903.15606,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 15.05
+        },
+        {
+          "kernel": "aclnnLayerNormWithImplMode_LayerNormV3WithImplMode_LayerNormV3",
+          "device_offset_ms": 903.33294,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 14.5
+        },
+        {
+          "kernel": "aclnnMuls_MulAiCore_Mul",
+          "device_offset_ms": 904.45098,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 14.22
+        },
+        {
+          "kernel": "aclnnArange_ArangeAiCore_Range",
+          "device_offset_ms": 906.90472,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 16.41
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 3255.06796,
+      "gap_ms": 2.444,
+      "next_kernel": "aclnnAdd_AddAiCore_Add",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "3208057102270464",
+        "api": [
+          1793631680018579480,
+          1793631680018588890,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "prepare",
+          null,
+          [
+            1793631680018562070,
+            1793631680018570120,
+            "Enqueue@aclnnAdd",
+            215947
+          ],
+          [
+            1793631680018572300,
+            1793631680018592840,
+            "Dequeue@aclnnAdd",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 3252.32674,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 60.54
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 3252.66526,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 44.4
+        },
+        {
+          "kernel": "aclnnSilu_SiluAiCore_Swish",
+          "device_offset_ms": 3254.42542,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 47.79
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 3254.91476,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 46.28
+        },
+        {
+          "kernel": "aclnnMuls_MulAiCore_Mul",
+          "device_offset_ms": 3255.06294,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 44.54
+        },
+        {
+          "kernel": "aclnnAdd_AddAiCore_Add",
+          "device_offset_ms": 3257.51196,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 61.6
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 2202.0736,
+      "gap_ms": 2.14784,
+      "next_kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+      "next_source": {
+        "torch_flow": "1793631678965359970",
+        "op": [
+          1793631678965294940,
+          1793631678965305630,
+          "aclnnIndexSelect",
+          215504
+        ],
+        "component": "RSI:thinker:prefill_or_verify",
+        "host_flow": "2845063646281728",
+        "api": [
+          1793631678965311760,
+          1793631678965319030,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "RSI:thinker:prefill_or_verify",
+          [
+            1793631678965294940,
+            1793631678965305630,
+            "aclnnIndexSelect",
+            215504
+          ],
+          [
+            1793631678965295600,
+            1793631678965305170,
+            "Enqueue@aclnnIndexSelect",
+            215504
+          ],
+          [
+            1793631678965307140,
+            1793631678965321470,
+            "Dequeue@aclnnIndexSelect",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnArange_ArangeAiCore_Range",
+          "device_offset_ms": 2201.12122,
+          "cpu_op": "aclnnArange",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 47.41,
+          "runtime_end_lead_us": 35.93
+        },
+        {
+          "kernel": "aclnnGtTensor_GreaterAiCore_Greater",
+          "device_offset_ms": 2201.25504,
+          "cpu_op": "aclnnGtTensor",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 48.81,
+          "runtime_end_lead_us": 36.92
+        },
+        {
+          "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+          "device_offset_ms": 2201.5758,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 55.22,
+          "runtime_end_lead_us": 40.47
+        },
+        {
+          "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+          "device_offset_ms": 2201.81916,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 50.91,
+          "runtime_end_lead_us": 37.83
+        },
+        {
+          "kernel": "FusedInferAttentionScore",
+          "device_offset_ms": 2202.05732,
+          "cpu_op": "aclnnFusedInferAttentionScoreV3",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 59.44,
+          "runtime_end_lead_us": 37.91
+        },
+        {
+          "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+          "device_offset_ms": 2204.22144,
+          "cpu_op": "aclnnIndexSelect",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 54.34,
+          "runtime_end_lead_us": 40.94
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 1385.5993,
+      "gap_ms": 2.06748,
+      "next_kernel": "MEMCPY_ASYNC",
+      "next_source": {
+        "torch_flow": "1793631678148805310",
+        "op": [
+          1793631678148741670,
+          1793631678148750510,
+          "acl_memcpy_host_to_device",
+          215504
+        ],
+        "component": "engine_other",
+        "host_flow": "2569313860976640",
+        "api": [
+          1793631678148756600,
+          1793631678148766460,
+          "AscendCL@aclrtMemcpyAsync",
+          215484
+        ],
+        "queue": [
+          "engine_other",
+          [
+            1793631678148741670,
+            1793631678148750510,
+            "acl_memcpy_host_to_device",
+            215504
+          ],
+          [
+            1793631678148742410,
+            1793631678148750000,
+            "Enqueue@acl_memcpy_host_to_device",
+            215504
+          ],
+          [
+            1793631678148754140,
+            1793631678148767090,
+            "Dequeue@acl_memcpy_host_to_device",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnRightShift_RightShiftAiCpu_RightShift",
+          "device_offset_ms": 1385.2643,
+          "cpu_op": "aclnnRightShift",
+          "component": "engine_other",
+          "cpu_end_lead_us": 88.47,
+          "runtime_end_lead_us": 18.32
+        },
+        {
+          "kernel": "aclnnBitwiseAndScalar_BitwiseAndAiCore_BitwiseAnd",
+          "device_offset_ms": 1385.4762,
+          "cpu_op": "aclnnBitwiseAndScalar",
+          "component": "engine_other",
+          "cpu_end_lead_us": 40.55,
+          "runtime_end_lead_us": 25.17
+        },
+        {
+          "kernel": "aclnnBitwiseXorTensor_BitwiseXorAiCore_BitwiseXor",
+          "device_offset_ms": 1385.53656,
+          "cpu_op": "aclnnBitwiseXorTensor",
+          "component": "engine_other",
+          "cpu_end_lead_us": 74.69,
+          "runtime_end_lead_us": 27.94
+        },
+        {
+          "kernel": "aclnnBitwiseXorScalar_BitwiseXorAiCore_BitwiseXor",
+          "device_offset_ms": 1385.53962,
+          "cpu_op": "aclnnBitwiseXorScalar",
+          "component": "engine_other",
+          "cpu_end_lead_us": 36.54,
+          "runtime_end_lead_us": 15.75
+        },
+        {
+          "kernel": "aclnnBitwiseAndScalar_BitwiseAndAiCore_BitwiseAnd",
+          "device_offset_ms": 1385.56116,
+          "cpu_op": "aclnnBitwiseAndScalar",
+          "component": "engine_other",
+          "cpu_end_lead_us": 35.86,
+          "runtime_end_lead_us": 23.82
+        },
+        {
+          "kernel": "MEMCPY_ASYNC",
+          "device_offset_ms": 1387.66678,
+          "cpu_op": "acl_memcpy_host_to_device",
+          "component": "engine_other",
+          "cpu_end_lead_us": 54.8,
+          "runtime_end_lead_us": 38.85
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 5167.80686,
+      "gap_ms": 2.01942,
+      "next_kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+      "next_source": {
+        "torch_flow": "1793631681930964810",
+        "op": [
+          1793631681930842140,
+          1793631681930851330,
+          "aclnnInplaceCopy",
+          215504
+        ],
+        "component": "RSI:talker:prefill_or_verify",
+        "host_flow": "3778175356108800",
+        "api": [
+          1793631681930859790,
+          1793631681930866400,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "RSI:talker:prefill_or_verify",
+          [
+            1793631681930842140,
+            1793631681930851330,
+            "aclnnInplaceCopy",
+            215504
+          ],
+          [
+            1793631681930842540,
+            1793631681930850880,
+            "Enqueue@aclnnInplaceCopy",
+            215504
+          ],
+          [
+            1793631681930855100,
+            1793631681930868870,
+            "Dequeue@aclnnInplaceCopy",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnNeg_NegAiCore_Neg",
+          "device_offset_ms": 5167.71926,
+          "cpu_op": "aclnnNeg",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 249.37,
+          "runtime_end_lead_us": 99.12
+        },
+        {
+          "kernel": "aclnnCat_SliceAiCore_Slice",
+          "device_offset_ms": 5167.7417,
+          "cpu_op": "aclnnCat",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 218.16,
+          "runtime_end_lead_us": 107.26
+        },
+        {
+          "kernel": "aclnnCat_ConcatD_ConcatD",
+          "device_offset_ms": 5167.74524,
+          "cpu_op": "aclnnCat",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 221.7,
+          "runtime_end_lead_us": 105.63
+        },
+        {
+          "kernel": "aclnnMul_MulAiCore_Mul",
+          "device_offset_ms": 5167.74802,
+          "cpu_op": "aclnnMul",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 201.27,
+          "runtime_end_lead_us": 95.58
+        },
+        {
+          "kernel": "aclnnAdd_AddAiCore_Add",
+          "device_offset_ms": 5167.80386,
+          "cpu_op": "aclnnAdd",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 236.91,
+          "runtime_end_lead_us": 95.19
+        },
+        {
+          "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+          "device_offset_ms": 5169.82628,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 113.48,
+          "runtime_end_lead_us": 98.41
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 618.61304,
+      "gap_ms": 1.96686,
+      "next_kernel": "aclnnArange_ArangeAiCore_Range",
+      "next_source": {
+        "torch_flow": "1793631677381718430",
+        "op": [
+          1793631677381687700,
+          1793631677381696490,
+          "aclnnArange",
+          215504
+        ],
+        "component": "RSI:talker:prefill_or_verify",
+        "host_flow": "2331840824213504",
+        "api": [
+          1793631677381701960,
+          1793631677381708650,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "RSI:talker:prefill_or_verify",
+          [
+            1793631677381687700,
+            1793631677381696490,
+            "aclnnArange",
+            215504
+          ],
+          [
+            1793631677381688310,
+            1793631677381695870,
+            "Enqueue@aclnnArange",
+            215504
+          ],
+          [
+            1793631677381697920,
+            1793631677381710950,
+            "Dequeue@aclnnArange",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+          "device_offset_ms": 618.07578,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 15.35,
+          "runtime_end_lead_us": 3.64
+        },
+        {
+          "kernel": "FusedInferAttentionScore",
+          "device_offset_ms": 618.22862,
+          "cpu_op": "aclnnFusedInferAttentionScoreV3",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 33.21,
+          "runtime_end_lead_us": 9.83
+        },
+        {
+          "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+          "device_offset_ms": 618.4538,
+          "cpu_op": "aclnnIndexSelect",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 23.36,
+          "runtime_end_lead_us": 10.11
+        },
+        {
+          "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+          "device_offset_ms": 618.51826,
+          "cpu_op": "aclnnIndexSelect",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 19.83,
+          "runtime_end_lead_us": 8.3
+        },
+        {
+          "kernel": "aclnnArange_ArangeAiCore_Range",
+          "device_offset_ms": 618.60814,
+          "cpu_op": "aclnnArange",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 20.11,
+          "runtime_end_lead_us": 8.85
+        },
+        {
+          "kernel": "aclnnArange_ArangeAiCore_Range",
+          "device_offset_ms": 620.5799,
+          "cpu_op": "aclnnArange",
+          "component": "RSI:talker:prefill_or_verify",
+          "cpu_end_lead_us": 21.94,
+          "runtime_end_lead_us": 9.78
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 6032.23138,
+      "gap_ms": 1.94502,
+      "next_kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+      "next_source": {
+        "torch_flow": "1793631682795314930",
+        "op": [
+          1793631682795171180,
+          1793631682795179020,
+          "aclnnInplaceOne",
+          215504
+        ],
+        "component": "engine_other",
+        "host_flow": "4122004668022784",
+        "api": [
+          1793631682795187280,
+          1793631682795197400,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "engine_other",
+          [
+            1793631682795171180,
+            1793631682795179020,
+            "aclnnInplaceOne",
+            215504
+          ],
+          [
+            1793631682795171650,
+            1793631682795178600,
+            "Enqueue@aclnnInplaceOne",
+            215504
+          ],
+          [
+            1793631682795181130,
+            1793631682795200950,
+            "Dequeue@aclnnInplaceOne",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+          "device_offset_ms": 6030.47748,
+          "cpu_op": "aclnnInplaceOne",
+          "component": "engine_other",
+          "cpu_end_lead_us": 191.29,
+          "runtime_end_lead_us": 112.11
+        },
+        {
+          "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+          "device_offset_ms": 6030.70308,
+          "cpu_op": "aclnnInplaceOne",
+          "component": "engine_other",
+          "cpu_end_lead_us": 138.29,
+          "runtime_end_lead_us": 109.8
+        },
+        {
+          "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+          "device_offset_ms": 6030.95046,
+          "cpu_op": "aclnnInplaceOne",
+          "component": "engine_other",
+          "cpu_end_lead_us": 130.98,
+          "runtime_end_lead_us": 117.75
+        },
+        {
+          "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+          "device_offset_ms": 6031.15852,
+          "cpu_op": "aclnnInplaceOne",
+          "component": "engine_other",
+          "cpu_end_lead_us": 131.38,
+          "runtime_end_lead_us": 116.82
+        },
+        {
+          "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+          "device_offset_ms": 6031.97064,
+          "cpu_op": "aclnnInplaceOne",
+          "component": "engine_other",
+          "cpu_end_lead_us": 134.89,
+          "runtime_end_lead_us": 116.46
+        },
+        {
+          "kernel": "aclnnInplaceOne_OnesLikeAiCore_OnesLike",
+          "device_offset_ms": 6034.1764,
+          "cpu_op": "aclnnInplaceOne",
+          "component": "engine_other",
+          "cpu_end_lead_us": 135.91,
+          "runtime_end_lead_us": 117.53
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 5651.69418,
+      "gap_ms": 1.93314,
+      "next_kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "3982439705739264",
+        "api": [
+          1793631682414649000,
+          1793631682414655790,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "prepare",
+          null,
+          [
+            1793631682414633800,
+            1793631682414641580,
+            "Enqueue@aclnnAddmm",
+            215515
+          ],
+          [
+            1793631682414644250,
+            1793631682414658300,
+            "Dequeue@aclnnAddmm",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 5650.72124,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 109.65
+        },
+        {
+          "kernel": "aclnnLayerNormWithImplMode_LayerNormV3WithImplMode_LayerNormV3",
+          "device_offset_ms": 5651.15406,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 108.79
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 5651.51642,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 109.08
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 5651.55784,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 102.04
+        },
+        {
+          "kernel": "aclnnSilu_SiluAiCore_Swish",
+          "device_offset_ms": 5651.68704,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 117.7
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 5653.62732,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 110.06
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 1422.05512,
+      "gap_ms": 1.86878,
+      "next_kernel": "aclnnAdd_AsStridedAiCore_AsStrided",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "2578844393406464",
+        "api": [
+          1793631678185030420,
+          1793631678185036270,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "prepare",
+          null,
+          [
+            1793631678185016380,
+            1793631678185024040,
+            "Enqueue@aclnnAdd",
+            215515
+          ],
+          [
+            1793631678185026770,
+            1793631678185043630,
+            "Dequeue@aclnnAdd",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnMatmul_TransposeAiCore_Transpose",
+          "device_offset_ms": 1420.17008,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 26.01
+        },
+        {
+          "kernel": "aclnnMatmul_TransposeAiCore_Transpose",
+          "device_offset_ms": 1420.19072,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 41.1
+        },
+        {
+          "kernel": "aclnnMatmul_BatchMatMulNd_BatchMatMulV2",
+          "device_offset_ms": 1420.20896,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 54.23
+        },
+        {
+          "kernel": "aclnnInplaceZero_ZerosLikeAiCore_ZerosLike",
+          "device_offset_ms": 1420.54604,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 26.18
+        },
+        {
+          "kernel": "aclnnCat_ConcatD_ConcatD",
+          "device_offset_ms": 1421.08676,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 25.91
+        },
+        {
+          "kernel": "aclnnAdd_AsStridedAiCore_AsStrided",
+          "device_offset_ms": 1423.9239,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 26.16
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 7193.91046,
+      "gap_ms": 1.83014,
+      "next_kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "4479882817961984",
+        "api": [
+          1793631683956735170,
+          1793631683956741490,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "prepare",
+          null,
+          [
+            1793631683956723370,
+            1793631683956729030,
+            "Enqueue@aclnnInplaceCopy",
+            215515
+          ],
+          [
+            1793631683956730930,
+            1793631683956743840,
+            "Dequeue@aclnnInplaceCopy",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnSilu_SiluAiCore_Swish",
+          "device_offset_ms": 7193.3646,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 137.38
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 7193.6259,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 135.54
+        },
+        {
+          "kernel": "aclnnMuls_MulAiCore_Mul",
+          "device_offset_ms": 7193.66412,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 137.21
+        },
+        {
+          "kernel": "aclnnAdd_AddAiCore_Add",
+          "device_offset_ms": 7193.7193,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 136.98
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 7193.90908,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 135.44
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 7195.7406,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 137.64
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 2194.05558,
+      "gap_ms": 1.78082,
+      "next_kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+      "next_source": {
+        "torch_flow": "1793631678956974930",
+        "op": [
+          1793631678956908400,
+          1793631678956920090,
+          "aclnnIndexSelect",
+          215504
+        ],
+        "component": "RSI:thinker:prefill_or_verify",
+        "host_flow": "2843800925896704",
+        "api": [
+          1793631678956927720,
+          1793631678956936080,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "RSI:thinker:prefill_or_verify",
+          [
+            1793631678956908400,
+            1793631678956920090,
+            "aclnnIndexSelect",
+            215504
+          ],
+          [
+            1793631678956909180,
+            1793631678956919340,
+            "Enqueue@aclnnIndexSelect",
+            215504
+          ],
+          [
+            1793631678956922800,
+            1793631678956938950,
+            "Dequeue@aclnnIndexSelect",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnArange_ArangeAiCore_Range",
+          "device_offset_ms": 2193.64224,
+          "cpu_op": "aclnnArange",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 44.2,
+          "runtime_end_lead_us": 32.47
+        },
+        {
+          "kernel": "aclnnGtTensor_GreaterAiCore_Greater",
+          "device_offset_ms": 2193.68696,
+          "cpu_op": "aclnnGtTensor",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 47.64,
+          "runtime_end_lead_us": 36.14
+        },
+        {
+          "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+          "device_offset_ms": 2193.74822,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 50.12,
+          "runtime_end_lead_us": 36.91
+        },
+        {
+          "kernel": "aclnnInplaceCopy_TransposeAiCore_Transpose",
+          "device_offset_ms": 2193.78076,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 46.66,
+          "runtime_end_lead_us": 32.3
+        },
+        {
+          "kernel": "FusedInferAttentionScore",
+          "device_offset_ms": 2194.03896,
+          "cpu_op": "aclnnFusedInferAttentionScoreV3",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 56.86,
+          "runtime_end_lead_us": 36.71
+        },
+        {
+          "kernel": "aclnnIndexSelect_GatherV3AiCore_GatherV3",
+          "device_offset_ms": 2195.8364,
+          "cpu_op": "aclnnIndexSelect",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 54.84,
+          "runtime_end_lead_us": 38.85
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 3252.67752,
+      "gap_ms": 1.7479,
+      "next_kernel": "aclnnSilu_SiluAiCore_Swish",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "3207906778415104",
+        "api": [
+          1793631680015488420,
+          1793631680015516160,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "prepare",
+          null,
+          [
+            1793631680015439280,
+            1793631680015448140,
+            "Enqueue@aclnnSilu",
+            215947
+          ],
+          [
+            1793631680015450610,
+            1793631680015525950,
+            "Dequeue@aclnnSilu",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 3251.8712,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 59.57
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 3252.01584,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 61.05
+        },
+        {
+          "kernel": "aclnnLayerNormWithImplMode_LayerNormV3WithImplMode_LayerNormV3",
+          "device_offset_ms": 3252.2079,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 60.78
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 3252.32674,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 60.54
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 3252.66526,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 44.4
+        },
+        {
+          "kernel": "aclnnSilu_SiluAiCore_Swish",
+          "device_offset_ms": 3254.42542,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 47.79
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 7551.24926,
+      "gap_ms": 1.74306,
+      "next_kernel": "aclnnMatmul_TransposeAiCore_Transpose",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "4580805959483392",
+        "api": [
+          1793631684313956680,
+          1793631684313979090,
+          "Node@launch",
+          215484
+        ],
+        "queue": null
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "device_offset_ms": 7550.20082,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 148.44
+        },
+        {
+          "kernel": "aclnnAdd_AddAiCore_Add",
+          "device_offset_ms": 7550.62814,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 149.15
+        },
+        {
+          "kernel": "aclnnAdd_AddAiCore_Add",
+          "device_offset_ms": 7550.75654,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 148.32
+        },
+        {
+          "kernel": "aclnnMatmul_TransposeAiCore_Transpose",
+          "device_offset_ms": 7550.9344,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 148.0
+        },
+        {
+          "kernel": "aclnnMatmul_BatchMatMulNd_BatchMatMulV2",
+          "device_offset_ms": 7551.23892,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 146.74
+        },
+        {
+          "kernel": "aclnnMatmul_TransposeAiCore_Transpose",
+          "device_offset_ms": 7552.99232,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 151.76
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 2953.59426,
+      "gap_ms": 1.69266,
+      "next_kernel": "aclnnNeg_SliceAiCore_Slice",
+      "next_source": {
+        "torch_flow": "1793631679716425450",
+        "op": [
+          1793631679716342070,
+          1793631679716348940,
+          "aclnnNeg",
+          215504
+        ],
+        "component": "RSI:thinker:prefill_or_verify",
+        "host_flow": "3071812149706752",
+        "api": [
+          1793631679716354280,
+          1793631679716365780,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "RSI:thinker:prefill_or_verify",
+          [
+            1793631679716342070,
+            1793631679716348940,
+            "aclnnNeg",
+            215504
+          ],
+          [
+            1793631679716342570,
+            1793631679716348490,
+            "Enqueue@aclnnNeg",
+            215504
+          ],
+          [
+            1793631679716350870,
+            1793631679716373290,
+            "Dequeue@aclnnNeg",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnRsqrt_RsqrtAiCore_Rsqrt",
+          "device_offset_ms": 2953.085,
+          "cpu_op": "aclnnRsqrt",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 71.39,
+          "runtime_end_lead_us": 59.89
+        },
+        {
+          "kernel": "aclnnMul_MulAiCore_Mul",
+          "device_offset_ms": 2953.14086,
+          "cpu_op": "aclnnMul",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 62.88,
+          "runtime_end_lead_us": 51.2
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 2953.4178,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 68.15,
+          "runtime_end_lead_us": 57.18
+        },
+        {
+          "kernel": "aclnnMul_MulAiCore_Mul",
+          "device_offset_ms": 2953.4465,
+          "cpu_op": "aclnnMul",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 64.8,
+          "runtime_end_lead_us": 52.85
+        },
+        {
+          "kernel": "aclnnMul_MulAiCore_Mul",
+          "device_offset_ms": 2953.58174,
+          "cpu_op": "aclnnMul",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 68.02,
+          "runtime_end_lead_us": 57.19
+        },
+        {
+          "kernel": "aclnnNeg_SliceAiCore_Slice",
+          "device_offset_ms": 2955.28692,
+          "cpu_op": "aclnnNeg",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 76.51,
+          "runtime_end_lead_us": 59.67
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 3959.73876,
+      "gap_ms": 1.66044,
+      "next_kernel": "aclnnAdd_AddAiCore_Add",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "3430308774936576",
+        "api": [
+          1793631680722447100,
+          1793631680722463880,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "audio",
+          null,
+          [
+            1793631680722414360,
+            1793631680722422370,
+            "Enqueue@aclnnAdd",
+            215505
+          ],
+          [
+            1793631680722432060,
+            1793631680722466950,
+            "Dequeue@aclnnAdd",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 3959.44278,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 75.67
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 3959.50124,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 74.42
+        },
+        {
+          "kernel": "aclnnSilu_SiluAiCore_Swish",
+          "device_offset_ms": 3959.54724,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 73.08
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulCommon_MatMulV2",
+          "device_offset_ms": 3959.63854,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 72.32
+        },
+        {
+          "kernel": "aclnnMuls_MulAiCore_Mul",
+          "device_offset_ms": 3959.73534,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 74.13
+        },
+        {
+          "kernel": "aclnnAdd_AddAiCore_Add",
+          "device_offset_ms": 3961.3992,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 73.85
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 6994.96494,
+      "gap_ms": 1.65066,
+      "next_kernel": "aclnnPowTensorScalar_PowsAiCore_Pows",
+      "next_source": {
+        "torch_flow": "1793631683757754130",
+        "op": [
+          1793631683757596060,
+          1793631683757605180,
+          "aclnnPowTensorScalar",
+          215504
+        ],
+        "component": "RSI:thinker:prefill_or_verify",
+        "host_flow": "4419791930523648",
+        "api": [
+          1793631683757611640,
+          1793631683757616890,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "RSI:thinker:prefill_or_verify",
+          [
+            1793631683757596060,
+            1793631683757605180,
+            "aclnnPowTensorScalar",
+            215504
+          ],
+          [
+            1793631683757596780,
+            1793631683757604740,
+            "Enqueue@aclnnPowTensorScalar",
+            215504
+          ],
+          [
+            1793631683757607610,
+            1793631683757619210,
+            "Dequeue@aclnnPowTensorScalar",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "device_offset_ms": 6994.08014,
+          "cpu_op": "aclnnMatmul",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 151.76,
+          "runtime_end_lead_us": 140.36
+        },
+        {
+          "kernel": "aclnnAddRmsNorm_AddRmsNorm_AddRmsNorm",
+          "device_offset_ms": 6994.17424,
+          "cpu_op": "aclnnAddRmsNorm",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 177.9,
+          "runtime_end_lead_us": 166.51
+        },
+        {
+          "kernel": "aclnnMatmul_MatMulCommon_MatMulV2",
+          "device_offset_ms": 6994.44986,
+          "cpu_op": "aclnnMatmul",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 147.32,
+          "runtime_end_lead_us": 136.18
+        },
+        {
+          "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+          "device_offset_ms": 6994.95542,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 150.75,
+          "runtime_end_lead_us": 136.91
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 6994.95812,
+          "cpu_op": "aclnnInplaceCopy",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 153.45,
+          "runtime_end_lead_us": 134.26
+        },
+        {
+          "kernel": "aclnnPowTensorScalar_PowsAiCore_Pows",
+          "device_offset_ms": 6996.6156,
+          "cpu_op": "aclnnPowTensorScalar",
+          "component": "RSI:thinker:prefill_or_verify",
+          "cpu_end_lead_us": 148.95,
+          "runtime_end_lead_us": 137.24
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 7540.78472,
+      "gap_ms": 1.60814,
+      "next_kernel": "aclnnCat_ConcatD_ConcatD",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "4578237569040384",
+        "api": [
+          1793631684303363430,
+          1793631684303376360,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "audio",
+          null,
+          [
+            1793631684303343930,
+            1793631684303352620,
+            "Enqueue@aclnnCat",
+            215505
+          ],
+          [
+            1793631684303354890,
+            1793631684303380600,
+            "Dequeue@aclnnCat",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCpu_Cast",
+          "device_offset_ms": 7540.65994,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 65330.86
+        },
+        {
+          "kernel": "aclnnInplaceCopy_SliceAiCore_Slice",
+          "device_offset_ms": 7540.76188,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 65373.73
+        },
+        {
+          "kernel": "MEMCPY_ASYNC",
+          "device_offset_ms": 7540.76924,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 65315.53
+        },
+        {
+          "kernel": "MEMCPY_ASYNC",
+          "device_offset_ms": 7540.7701,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 65259.56
+        },
+        {
+          "kernel": "aclnnCat_ConcatD_ConcatD",
+          "device_offset_ms": 7540.77082,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 65057.34
+        },
+        {
+          "kernel": "aclnnCat_ConcatD_ConcatD",
+          "device_offset_ms": 7542.39286,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 155.03
+        }
+      ]
+    },
+    {
+      "start_offset_ms": 3258.94994,
+      "gap_ms": 1.47492,
+      "next_kernel": "aclnnCat_TransposeAiCore_Transpose",
+      "next_source": {
+        "torch_flow": null,
+        "op": null,
+        "component": null,
+        "host_flow": "3208297620439040",
+        "api": [
+          1793631680021488130,
+          1793631680021499630,
+          "Node@launch",
+          215484
+        ],
+        "queue": [
+          "prepare",
+          null,
+          [
+            1793631680021446640,
+            1793631680021449130,
+            "Enqueue@aclnnCat",
+            215947
+          ],
+          [
+            1793631680021482090,
+            1793631680021515760,
+            "Dequeue@aclnnCat",
+            215484
+          ]
+        ]
+      },
+      "preceding_same_stream": [
+        {
+          "kernel": "aclnnAddmm_MatMulV3Common_MatMulV3",
+          "device_offset_ms": 3258.42714,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 73.27
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 3258.56522,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 64.24
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulV3Common_MatMulV3",
+          "device_offset_ms": 3258.71774,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 64.84
+        },
+        {
+          "kernel": "aclnnInplaceCopy_CastAiCore_Cast",
+          "device_offset_ms": 3258.89916,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 61.66
+        },
+        {
+          "kernel": "aclnnAddmm_MatMulV3Common_MatMulV3",
+          "device_offset_ms": 3258.94108,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 52.17
+        },
+        {
+          "kernel": "aclnnCat_TransposeAiCore_Transpose",
+          "device_offset_ms": 3260.42486,
+          "cpu_op": null,
+          "component": null,
+          "cpu_end_lead_us": null,
+          "runtime_end_lead_us": 63.76
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "with_stack=False: explicit RSI source-component wrappers and CPU operators, not native C++ stacks or full Python call stacks.",
+    "Coverage counts direct flow-bound kernel starts; graph interior work may have runtime API links without an individual CPU-op link.",
+    "Host/API spans include blocking and overlap, queue waits and kernel work cannot be added as E2E speedup.",
+    "Gap temporal screen describes only the next correlated launch; hidden stream/device dependencies mean it is not a proven removable CPU bottleneck.",
+    "Recovered diagnostic instrumentation/window differs from native acceptance and earlier external trace. Do not compare busy percentages as an optimization gain."
+  ]
+}

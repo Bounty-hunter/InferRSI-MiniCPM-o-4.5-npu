@@ -1,0 +1,25 @@
+{
+  "tag": "r318",
+  "engine": "engine-r318",
+  "config": "config-r318.json",
+  "engine_sha256": "f95b71ea6f5dcb95237c8d366fd4ce260dc1ba5cca772f4da145d909c422c233",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19207,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "r312",
+  "hypothesis": "r312 changed batch timing and exposed Euler(4,56,512)1.22s first capture; bounded generic final-window rows2/4/8/16 on audio owner, testing whether startup stalls were displaced rather than removed",
+  "kind": "tail-coverage"
+}

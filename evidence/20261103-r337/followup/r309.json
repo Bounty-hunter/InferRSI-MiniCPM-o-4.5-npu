@@ -1,0 +1,24 @@
+{
+  "tag": "r309",
+  "engine": "engine-r309",
+  "config": "config-r309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19123,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "r307-control",
+  "runner": "run_lowc.py",
+  "parent": "r307",
+  "hypothesis": "Remaining measured C2 setup/final and continuation captures: extend bounded initialization on each actual audio/prompt stream, preserving solver/RNG/request math"
+}

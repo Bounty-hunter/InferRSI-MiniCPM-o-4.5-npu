@@ -1,0 +1,5 @@
+{
+  "phase": "failed",
+  "utc": "2026-11-02T11:56:32Z",
+  "error": "AssertionError({'status': 'started', 'thread': 'npu-engine', 'tid': 182495, 'wall_ns': 1793620563756164392, 'mono_ns': 7200547651299908, 'with_stack': True, 'window': '12 seconds after warmed C8 main run trigger'})"
+}

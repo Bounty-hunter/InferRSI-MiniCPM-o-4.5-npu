@@ -1,0 +1,25 @@
+{
+  "tag": "r340",
+  "engine": "engine-r340",
+  "config": "config-r340.json",
+  "engine_sha256": "4490ee0fd96b38b9256abe764ffc095a414b423b7d191546373037699007bea7",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19229,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Actual low-C audio cohorts include3/5/6/7 rows, but HiFT uses next power-of-two padded rows. Add exact-row steady HiFT graphs and prewarm only those shapes on the audio owner; preserve FP32, seeds and final eager path. Report actual requested/executed row counters, not assumed gain or changed Flow graphs",
+  "kind": "hift-exact-rows"
+}

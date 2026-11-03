@@ -1,0 +1,29 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m     │ [36;1mDURATION[0;22m   │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                             │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m               │ [36;1mUTIL[0;22m 
+─────┼──────────────┼──────────┼────────────┼──────┼─────────────────────────────────────────────────────┼────────────────────────────────────────┼────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown  │ [2m-[22m          │ [2m-[22m    │ used by PID 3478278 (1h41m), PID 3497609 (1h40m)    │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                  │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ zhanghan │ 0h 19m 25s │ RUN  │ heartbeat 0h 0m 25s ago, processes: PID 47124 (18m) │ [2m36680MB, 1 processes[22m                   │ pr553-full-pair-ad │ 43%  
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 0h 0m 4s                                   │ [2m0MB used[22m                               │ [2m-[22m                  │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 1h 43m 6s                                  │ [2m0MB used[22m                               │ [2m-[22m                  │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 0h 45m 9s                                  │ [2m0MB used[22m                               │ [2m-[22m                  │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 2h 8m 58s                                  │ [2m0MB used[22m                               │ [2m-[22m                  │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 0h 0m 43s                                  │ [2m0MB used[22m                               │ [2m-[22m                  │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 0h 45m 10s                                 │ [2m0MB used[22m                               │ [2m-[22m                  │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 20m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T15:53:09Z", "mode": "quality", "pid": 222521, "device": "2"}
+{"phase": "quality_generation", "utc": "2026-11-02T15:54:11Z"}
+{"phase": "loading", "utc": "2026-11-02T15:54:25Z", "mode": "native", "pid": 222808, "device": "2"}
+{"phase": "benchmark", "utc": "2026-11-02T15:55:26Z", "mode": "native", "concurrency": 2}
+{"phase": "benchmark_completed", "utc": "2026-11-02T15:56:34Z", "mode": "native", "concurrency": 2, "ttfp_ms": 814.995777211152, "rtf": 0.355869459937748, "req_s": 1.327923458014177, "completed": 32, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T15:56:34Z", "mode": "native", "concurrency": 4}
+{"phase": "benchmark_completed", "utc": "2026-11-02T15:57:55Z", "mode": "native", "concurrency": 4, "ttfp_ms": 1262.2632230340969, "rtf": 0.5562810830239754, "req_s": 1.6717667665327227, "completed": 64, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T15:57:55Z", "mode": "native", "concurrency": 8}
+{"phase": "failed", "utc": "2026-11-02T15:59:28Z", "error": "AssertionError()"}
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_runtime_env.py", line 126, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_runtime_env.py", line 111, in main
+    assert raw['failed']==0 and raw['completed']==int(command[command.index('--num-prompts')+1])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

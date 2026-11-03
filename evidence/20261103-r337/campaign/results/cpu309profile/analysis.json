@@ -1,0 +1,28 @@
+{
+  "tag": "cpu309profile",
+  "timing": [
+    {
+      "mode": "native",
+      "concurrency": 8,
+      "ttfp_ms": 1874.123368965229,
+      "rtf": 0.8660174493522139,
+      "req_s": 2.1870636422158705,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "native_tails": {
+    "c8": {
+      "mean_audio_rtf": 0.8660174493522139,
+      "median_audio_rtf": 0.8492773428861786,
+      "p50_audio_rtf": 0.8492773428861786,
+      "p95_audio_rtf": 1.1159082990183888,
+      "p99_audio_rtf": 1.196072425813492,
+      "mean_audio_ttfp_ms": 1874.123368965229,
+      "median_audio_ttfp_ms": 1865.5605213716626,
+      "p50_audio_ttfp_ms": 1865.5605213716626,
+      "p95_audio_ttfp_ms": 2451.2655007652934,
+      "p99_audio_ttfp_ms": 2672.056045653299
+    }
+  }
+}

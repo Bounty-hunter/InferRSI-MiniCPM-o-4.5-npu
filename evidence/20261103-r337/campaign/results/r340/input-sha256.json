@@ -1,0 +1,5 @@
+{
+  "/workspace/minicpmo-r182/vllm-omni/vllm_omni/deploy/minicpmo_4_5.yaml": "63d261057a8c262d83597dd092f753607cde48e5cec664f78b57316ea4c6cfb5",
+  "/dataset/models/MiniCPM-o-4_5/config.json": "b0c03cf9f0cfc1178ade50e4ba62727ca7a77aa6a6a71eda6668d8f289e96c1d",
+  "/dataset/models/seed-tts-eval/en/meta.lst": "7cd29f701743e6c7033edbca764ddc0b979de8c4f4907eff5e5454682114661f"
+}

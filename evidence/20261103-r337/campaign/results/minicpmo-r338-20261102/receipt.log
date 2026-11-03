@@ -1,0 +1,29 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m     │ [36;1mDURATION[0;22m  │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                          │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                    │ [36;1mUTIL[0;22m 
+─────┼──────────────┼──────────┼───────────┼──────┼──────────────────────────────────────────────────┼────────────────────────────────────────┼─────────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown  │ [2m-[22m         │ [2m-[22m    │ used by PID 3478278 (2h11m), PID 3497609 (2h10m) │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                       │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ zhanghan │ 0h 1m 43s │ RUN  │ heartbeat 0h 0m 42s ago                          │ [2mno usage detected[22m                      │ pr553-full-pair-product │ 0%   
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 0h 0m 9s                                │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 2h 13m 22s                              │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 1h 15m 24s                              │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 2h 39m 14s                              │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 0h 30m 59s                              │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 1h 15m 25s                              │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 20m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T16:23:24Z", "mode": "quality", "pid": 228496, "device": "2"}
+{"phase": "quality_generation", "utc": "2026-11-02T16:24:25Z"}
+{"phase": "loading", "utc": "2026-11-02T16:24:39Z", "mode": "native", "pid": 228768, "device": "2"}
+{"phase": "benchmark", "utc": "2026-11-02T16:25:39Z", "mode": "native", "concurrency": 2}
+{"phase": "benchmark_completed", "utc": "2026-11-02T16:26:46Z", "mode": "native", "concurrency": 2, "ttfp_ms": 741.7172093410045, "rtf": 0.34991626997309583, "req_s": 1.3488283048990233, "completed": 32, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T16:26:46Z", "mode": "native", "concurrency": 4}
+{"phase": "benchmark_completed", "utc": "2026-11-02T16:28:03Z", "mode": "native", "concurrency": 4, "ttfp_ms": 1164.1933528298978, "rtf": 0.5272801422585716, "req_s": 1.7347441983690812, "completed": 64, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T16:28:03Z", "mode": "native", "concurrency": 8}
+{"phase": "benchmark_completed", "utc": "2026-11-02T16:29:37Z", "mode": "native", "concurrency": 8, "ttfp_ms": 1718.6482373581384, "rtf": 0.7956840314430242, "req_s": 2.437297435594735, "completed": 128, "failed": 0}
+{"phase": "loading", "utc": "2026-11-02T16:29:43Z", "mode": "diagnostic", "pid": 229718, "device": "2"}
+{"phase": "benchmark", "utc": "2026-11-02T16:30:40Z", "mode": "diagnostic", "concurrency": 2}
+{"phase": "benchmark_completed", "utc": "2026-11-02T16:31:45Z", "mode": "diagnostic", "concurrency": 2, "ttfp_ms": 749.8630549525842, "rtf": 0.35049904313980496, "req_s": 1.357011187150776, "completed": 32, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T16:31:45Z", "mode": "diagnostic", "concurrency": 4}
+{"phase": "benchmark_completed", "utc": "2026-11-02T16:33:03Z", "mode": "diagnostic", "concurrency": 4, "ttfp_ms": 1162.5791527185356, "rtf": 0.5218085129308042, "req_s": 1.759682414245854, "completed": 64, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T16:33:03Z", "mode": "diagnostic", "concurrency": 8}
+{"phase": "benchmark_completed", "utc": "2026-11-02T16:34:37Z", "mode": "diagnostic", "concurrency": 8, "ttfp_ms": 1659.1048999325722, "rtf": 0.7847938218064419, "req_s": 2.4457618632888845, "completed": 128, "failed": 0}
+{"phase": "completed", "utc": "2026-11-02T16:34:43Z", "measurements": [{"mode": "native", "concurrency": 2, "ttfp_ms": 741.7172093410045, "rtf": 0.34991626997309583, "req_s": 1.3488283048990233, "completed": 32, "failed": 0}, {"mode": "native", "concurrency": 4, "ttfp_ms": 1164.1933528298978, "rtf": 0.5272801422585716, "req_s": 1.7347441983690812, "completed": 64, "failed": 0}, {"mode": "native", "concurrency": 8, "ttfp_ms": 1718.6482373581384, "rtf": 0.7956840314430242, "req_s": 2.437297435594735, "completed": 128, "failed": 0}, {"mode": "diagnostic", "concurrency": 2, "ttfp_ms": 749.8630549525842, "rtf": 0.35049904313980496, "req_s": 1.357011187150776, "completed": 32, "failed": 0}, {"mode": "diagnostic", "concurrency": 4, "ttfp_ms": 1162.5791527185356, "rtf": 0.5218085129308042, "req_s": 1.759682414245854, "completed": 64, "failed": 0}, {"mode": "diagnostic", "concurrency": 8, "ttfp_ms": 1659.1048999325722, "rtf": 0.7847938218064419, "req_s": 2.4457618632888845, "completed": 128, "failed": 0}], "quality": "generation only, not scored gate"}

@@ -1,0 +1,14 @@
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:21.169.016 [trace_attr.c:81](tid:214400) get uid and gid failed, uid=1033, strerr=Success.
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:21.169.106 [trace_attr.c:179](tid:214400) init attr id failed.
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:21.169.110 [trace_core.c:29](tid:214400) init attr failed, ret=-1.
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:33.833.511 [atrace_client_thread.c:198](tid:214400) create thread failed, thread pool is not initialized.
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:33.833.522 [atrace_client_core.c:156](tid:214400) create thread failed, devId=2, ret=-1.
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:34.263.205 [tracer_core.c:53](tid:214400) 0, g_tracers[tracerType].mgr (nil)
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:34.263.216 [trace_event.c:178](tid:214400) g_eventsMgr has not been init successfully.
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:34.263.219 [trace_event.c:48](tid:214400) invalid event handle -1
+[ERROR] ATRACE(214400,python):2026-11-02-14:54:34.263.223 [trace_event.c:358](tid:214400) atrace event report failed
+[ERROR] RUNTIME(214400,python):2026-11-02-14:58:57.877.565 [stream.cc:4545]214421 UpdateTask:The number of tasks cannot exceed the size of the task group, current task index=1, task group size=1.
+[ERROR] RUNTIME(214400,python):2026-11-02-14:58:57.877.624 [aix_stars.cc:529]214421 StreamLaunchKernelV2:Failed to alloc task, stream_id=45. retCode=0x7030024.
+[ERROR] RUNTIME(214400,python):2026-11-02-14:58:57.877.640 [api_error.cc:773]214421 LaunchKernelV2:LaunchKernel failed.
+[ERROR] RUNTIME(214400,python):2026-11-02-14:58:57.877.656 [api_c_kernel.cc:80]214421 rtsLaunchKernelWithHostArgs:ErrCode=507000, desc=[task group update error], InnerCode=0x7030024
+[ERROR] RUNTIME(214400,python):2026-11-02-14:58:57.877.662 [error_message_manage.cc:69]214421 FuncErrorReason:rtsLaunchKernelWithHostArgs execution failed, reason=task group update error

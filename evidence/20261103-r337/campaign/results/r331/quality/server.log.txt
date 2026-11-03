@@ -1,0 +1,45 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+[W1102 14:34:07.067158050 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[W1102 14:34:07.068549686 op_api_common.cpp:43] Warning: A common user is using the files of the root user. (function operator())
+[transformers] `MiniCPMOProcessor` defines `image_processor_class = 'AutoImageProcessor'`, which is deprecated. Register the correct mapping in `AutoImageProcessor` instead.
+[transformers] Requested torchvision backend is not available. Falling back to pil backend.
+[transformers] `MiniCPMOProcessor` defines `audio_processor_class = 'AutoFeatureExtractor'`, which is deprecated. Register the correct mapping in `AutoFeatureExtractor` instead.
+/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r331/engine/runtime/npu_paged.py:354: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at ../torch_npu/csrc/aten/common/TensorFactories.cpp:423.)
+  self.workspace_block_table = workspace_pages.remainder(runner.kv.num_pages).repeat(batch, 1)
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/entry_runtime_env.py", line 9, in <module>
+    exec(compile(source.read_text(),str(source),'exec'),globals())
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/entry_lowc.py", line 23, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r331/engine/server.py", line 349, in main
+    backend = getattr(__import__(mod, fromlist=[cls]), cls).from_config(a.config)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r331/engine/runtime/backend_s.py", line 314, in from_config
+    return cls(**cfg)
+           ^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r331/engine/runtime/backend_npu.py", line 348, in __init__
+    self._warm_full_talker_blocks()
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r331/engine/runtime/backend_npu.py", line 492, in _warm_full_talker_blocks
+    graph.run(feeds, state, [0] * batch, [list(self.akv.pages[seq]) for seq in seqs])
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r331/engine/runtime/talker_block_graph.py", line 115, in run
+    with torch.npu.graph(graph, stream=stream, pool=self.pool, capture_error_mode='thread_local'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/graphs.py", line 874, in __enter__
+    self.npu_graph.capture_begin(
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/graphs.py", line 625, in capture_begin
+    super().capture_begin(pool=pool, capture_error_mode=capture_error_mode, report_shape=True)
+RuntimeError: Do not support TASK_QUEUE_ENABLE = 2 during NPU graph capture, please export TASK_QUEUE_ENABLE=1/0.
+[ERROR] 2026-11-02-14:34:33 (PID:210381, Device:0, RankID:-1) ERR00007 PTA feature not supported

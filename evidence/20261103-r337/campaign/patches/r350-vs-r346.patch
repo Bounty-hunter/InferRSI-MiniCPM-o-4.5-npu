@@ -1,0 +1,31 @@
+--- a/engine/runtime/native_rotary.py
++++ b/engine/runtime/native_rotary.py
+@@ -1,11 +1,23 @@
+-"""Standalone use of the same rotary operator seen in Ascend Qwen2.
++"""Reference cast boundaries using two unit-part rotary kernels.
+ 
+-The fused arithmetic may have different intermediate rounding; it is not
+-bitwise-qualified by construction and requires the existing quality gates.
++For finite activations, round q*cos and rotate(q)*sin separately to the
++activation dtype before adding, as the original hf_rope expression does.
++The operator probe requires exact outputs; no tolerance is introduced.
+ """
++import torch
++_zeros = {}
++
+ def apply(query,key,tables):
+     import torch_npu
+     cos,sin=tables
+     cosine,sine=cos.unsqueeze(0),sin.unsqueeze(0)
+-    return (torch_npu.npu_rotary_mul(query.unsqueeze(0),cosine,sine).squeeze(0),
+-            torch_npu.npu_rotary_mul(key.unsqueeze(0),cosine,sine).squeeze(0))
++    cache_key=(str(cos.device),cos.dtype,tuple(cosine.shape))
++    if cache_key not in _zeros:
++        _zeros[cache_key]=torch.zeros_like(cosine)
++    zero=_zeros[cache_key]  # immutable, retained through every graph lifetime
++    def rotate(value):
++        x=value.unsqueeze(0)
++        first=torch_npu.npu_rotary_mul(x,cosine,zero)
++        second=torch_npu.npu_rotary_mul(x,zero,sine)
++        return (first+second).squeeze(0)
++    return rotate(query),rotate(key)

@@ -1,0 +1,381 @@
+{
+  "max_algorithm_rounds": 40,
+  "first_round": "r312",
+  "last_possible_round": "r351",
+  "completed_rounds": 40,
+  "measurement": "frozen official native client5917730a, C2/32 C4/64 C8/128, two warmups; diagnostics separate",
+  "primary_metrics": [
+    "mean_audio_ttfp_ms",
+    "mean_audio_rtf",
+    "request_throughput"
+  ],
+  "tail_metrics": "diagnostic only at current small counts, not primary success criterion",
+  "fixed": "model revision, Seed-TTS requests, sampling/RNG, FP16 Flow6, chunk25; no precision/step change",
+  "promotion": "require repeated native gain and established speech gate; no unscored default change",
+  "stop": "40 actual algorithm rounds, or multi-mechanism local plateau confirmed by fresh profiling and reverse native checks; never claim global optimum",
+  "counting": "controls/repeats/profiling and implementation-error retries do not count as algorithm rounds",
+  "candidate_backlog": [
+    "owner-thread Thinker startup coverage",
+    "Talker three-row 2+1 full-block split",
+    "prompt lookup draft-length / acceptance cost",
+    "speculative-vs-ordinary lane ordering",
+    "single packed verification for mixed lanes",
+    "window coalescing / first-window latency",
+    "preparation pool and prompt batching",
+    "bounded PCM delivery groups",
+    "batch embedding upload consolidation",
+    "Talker graph metadata binding transfers"
+  ],
+  "rounds": [
+    {
+      "tag": "r312",
+      "parent": "control309",
+      "kind": "thinker-init",
+      "status": "prepared",
+      "hypothesis": "Remaining actual Thinker batch3/7 captures on npu-engine: bounded2/4/8 initialization on the eventual owner; inert KV and deterministic inputs, startup cost separated",
+      "source_sha256": "36a84e43d0d45decfc7b85c90a306df7bd4570f709920ef50202451ff22e455b"
+    },
+    {
+      "tag": "r313",
+      "parent": "control309",
+      "kind": "split-three",
+      "status": "prepared",
+      "hypothesis": "81 measured three-row Talker calls use ten graph lanes; preserve excluded exact-row3 kernel, instead ordered2+1 already-qualified full K-block graphs; same counter seeds/frame/chunk",
+      "source_sha256": "bc81b7577bb14370738683cd0a4251159bb20731f5dbab89f8d3a412b81d3148"
+    },
+    {
+      "tag": "r314",
+      "parent": "control309",
+      "kind": "draft4",
+      "status": "prepared",
+      "hypothesis": "Original greedy-verified prompt lookup: vary proposal cap to trade serial verification count against rejected-token work, keeping exact chunk boundaries and all target verification",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486"
+    },
+    {
+      "tag": "r315",
+      "parent": "control309",
+      "kind": "unified-lookup",
+      "status": "prepared",
+      "hypothesis": "Mixed ordinary/speculative tick issues two decoder calls; pack ordinary zero-draft rows into original verified suffix call, with per-row accepted KV truncation and exact Thinker gate",
+      "source_sha256": "363c3269d4e425f9b7067792a52d49f5e5dba016986a368bb848d3b8c50c624f"
+    },
+    {
+      "tag": "r316",
+      "parent": "control309",
+      "kind": "batch-embedding",
+      "status": "prepared",
+      "hypothesis": "Ordinary Thinker uploads one tiny token tensor per row then concatenates embeddings. Consolidate identical token order into one upload/embedding gather; original multimodal embedding fallback retained",
+      "source_sha256": "07aecdc717baa09c0b21da0053b8bccf56d9c4ffc866e3435c8c45aa86de8554"
+    },
+    {
+      "tag": "r317",
+      "parent": "control309",
+      "kind": "bind-uploads",
+      "status": "prepared",
+      "hypothesis": "Talker full-block bind performs2+batch int32 host uploads per K-block; pack slot/length/zero-padded block-table metadata into one identical int32 upload, preserving all persistent graph input buffers",
+      "source_sha256": "6327c214be8b15286c4015724ca937ae241d5c72f4b6ebe31ddaeafb283a6a39"
+    },
+    {
+      "tag": "r318",
+      "parent": "r312",
+      "kind": "tail-coverage",
+      "status": "prepared",
+      "hypothesis": "r312 changed batch timing and exposed Euler(4,56,512)1.22s first capture; bounded generic final-window rows2/4/8/16 on audio owner, testing whether startup stalls were displaced rather than removed",
+      "source_sha256": "f95b71ea6f5dcb95237c8d366fd4ce260dc1ba5cca772f4da145d909c422c233"
+    },
+    {
+      "tag": "r319",
+      "parent": "control309",
+      "kind": "host-lengths",
+      "status": "prepared",
+      "hypothesis": "Original prefix/verification attention reads NPU qo_indptr back toCPU every layer; publish builder-owned identical host cumulative lengths, validate packing invariant, preserve observation fallback for synthetic/malformed layouts",
+      "source_sha256": "5c23808b5971e7c3f137098b89a816ea05ce2b87a1f88a637b3949d471faa581"
+    },
+    {
+      "tag": "r320",
+      "parent": "control309",
+      "kind": "cores50",
+      "status": "prepared",
+      "hypothesis": "User MPS/concurrent-sharing hypothesis adapted to A2: process-local Cube/Vector cap before all graphs, testing whether current independent streams overlap better with narrower kernels; no multiprocess duplication or shared-device setting",
+      "source_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a"
+    },
+    {
+      "tag": "r321",
+      "parent": "control309",
+      "kind": "mask-cache",
+      "status": "prepared",
+      "hypothesis": "Fresh and suffix attention rebuild identical2048x2048 int8 causal mask every layer/call; cache immutable same-device/width mask perKV owner, keeping original attention/sparse mode/math and fallback",
+      "source_sha256": "97c8b9d44247ef27a914d8dd406be90e179367486c8c15c05d64261fcc450ee3"
+    },
+    {
+      "tag": "r322",
+      "parent": "control309",
+      "kind": "cores75",
+      "status": "prepared",
+      "hypothesis": "User MPS/concurrent-sharing hypothesis adapted to A2: process-local Cube/Vector cap before all graphs, testing whether current independent streams overlap better with narrower kernels; no multiprocess duplication or shared-device setting",
+      "source_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a"
+    },
+    {
+      "tag": "r323",
+      "parent": "control309",
+      "kind": "draft16",
+      "status": "prepared",
+      "hypothesis": "Original greedy-verified prompt lookup: vary proposal cap to trade serial verification count against rejected-token work, keeping exact chunk boundaries and all target verification",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486"
+    },
+    {
+      "tag": "r324",
+      "parent": "control309",
+      "kind": "unified-min5",
+      "status": "prepared",
+      "hypothesis": "r315 reverse repeat preserved C8 benefit but C4 RTF/throughput regressed3%; merge ordinary zero-draft rows only when actual work cohort has >=5 rows, keeping the original small-cohort path",
+      "source_sha256": "0be03a72d22e4193a09824d1035b11231df96f5d6a26fe123b6e27faa14a1e42"
+    },
+    {
+      "tag": "r325",
+      "parent": "control309",
+      "kind": "page-id-cache",
+      "status": "prepared",
+      "hypothesis": "Source audit after native engine82% CPU: suffix attention creates identical NPU page-index tensor per row on every decoder layer; retain one immutable tensor per layout/seq/length forward lifetime, keeping the same gathers/math and no cross-request cache",
+      "source_sha256": "b53e4b7b9069500a175c478b93b368edc9b4cf9deb73536b66e4baf174b0a3b6"
+    },
+    {
+      "tag": "r326",
+      "parent": "control309",
+      "kind": "hift-static-weightnorm",
+      "status": "prepared",
+      "hypothesis": "Recovered Python samples show HiFT torch parametrizations weight access in eager tails. Materialize immutable inference weight_norm values once before graph capture; validate every weight exact at startup, no changed convolution/precision/seed",
+      "source_sha256": "c9482b60701e81164c95cec809cd9c6ad2f80fde85fae5aaa6a1a70a2e8ea64b"
+    },
+    {
+      "tag": "r327",
+      "parent": "control309",
+      "kind": "private-prompt-flow",
+      "status": "prepared",
+      "hypothesis": "Actual12.05s diagnostic: audio waits1.23s for shared flow scratch, setup holds2.67s. Give prompt setup a private copied flow module and SETUP-only Euler arena+lock, retaining shared speaker/features/HiFT and original audio/decoder; not a duplicate full engine. Test useful independent-stream overlap with no global sharing settings",
+      "source_sha256": "0ef10fe12070e7d52ca10f436820aa366b004844357d4a7f322eef6d339f5372"
+    },
+    {
+      "tag": "r328",
+      "parent": "control309",
+      "kind": "packed-rotary",
+      "status": "prepared",
+      "hypothesis": "DirectexternalGILprobe:44/2000 nominal samples in rotate/RoPE leaf frames. Pack ThinkerQ/K heads for the same separate BF16 multiply+multiply+add sequence, reducing eager dispatch while restoring contiguous outputs; no fused FMA/precision change. Extra concat/copy may outweigh saved launches; require16exactThinker gate and nativemeans",
+      "source_sha256": "2e92b872b2934851fdfb3b464a8e9633edb0abd8084519dde621527bc7d1e357"
+    },
+    {
+      "tag": "r329",
+      "parent": "control309",
+      "kind": "cube50",
+      "status": "prepared",
+      "hypothesis": "Causal ablation after r32050% both-core gains and r32275% STFT invalidaiv36: cube50 separates Cube count from Vector count using already-supported24/48 Vector counts; all process-local before capture, no shared-device change or model/precision change",
+      "source_sha256": "f65f73e764e82169beaa385cbb2c762da30947baac0050f5d4e7200ae2d87785"
+    },
+    {
+      "tag": "r330",
+      "parent": "control309",
+      "kind": "vector50",
+      "status": "prepared",
+      "hypothesis": "Causal ablation after r32050% both-core gains and r32275% STFT invalidaiv36: vector50 separates Cube count from Vector count using already-supported24/48 Vector counts; all process-local before capture, no shared-device change or model/precision change",
+      "source_sha256": "f65f73e764e82169beaa385cbb2c762da30947baac0050f5d4e7200ae2d87785"
+    },
+    {
+      "tag": "r331",
+      "parent": "control309",
+      "kind": "taskqueue2",
+      "status": "prepared",
+      "hypothesis": "Nativeengine82%core but externalGIL only31%nominal; CANN trace7140MatmulGetWorkspaceSize calls~1.16swork. ActualserverTASK_QUEUE_ENABLE=1. OfficialAscendLevel2movesworkspaceworkontoasyncworker; testserver-onlyTASK_QUEUE_ENABLE=2 beforetorchimport, no model/precision/shared-env change",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486"
+    },
+    {
+      "tag": "r332",
+      "parent": "r319",
+      "kind": "paged-suffix",
+      "status": "prepared",
+      "hypothesis": "After standalone pagedTND causal/mixed-length/512-boundary qualification: use page-table FIA for Thinker suffix verification to avoid full-KV gathers+concatenations each layer. Host metadata parent held fixed; per-seqQ<=16 eligibility and original dense fallback retained; numerical grouping still requires16-row exact Thinker and frozen speech gates",
+      "source_sha256": "da50bbee726fc5b6d8c42129d63322cdc5999d74161804a325873db95f92c9d5"
+    },
+    {
+      "tag": "r333",
+      "parent": "control309",
+      "kind": "taskqueue0",
+      "status": "prepared",
+      "hypothesis": "After runtime explicitly rejects queue2 with NPUGraph but allows0/1: ablate queue-hop overhead with server-onlyTASK_QUEUE_ENABLE0, preserving all graphs/model/math. This also removes async hostworker overlap and may worsen CPUcriticalpath; negative result will separate dispatchqueue cost from benefit",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486"
+    },
+    {
+      "tag": "r334",
+      "parent": "control309",
+      "kind": "low-pressure-split",
+      "status": "prepared",
+      "hypothesis": "ExternalGILprobe84inclusiveappend-reference samples shows mixed fresh/decode still forces fullKVgathers. Revalidate prior r280/r283 decode-first pressure-scoped split on NEW prompt-lookup baseline: earlierC4benefitbutC16regressionretained, busyepochpeak>=9keepsoldpath. This is an interaction re-test, not a novel invention or reused old gain; fresh16QA/allnative mandatory",
+      "source_sha256": "5410ba7dc44fb4eb8a47361f19c139d261740f688d9bc3e970abacb456884614"
+    },
+    {
+      "tag": "r335",
+      "parent": "control309",
+      "kind": "aclnn-cache100k",
+      "status": "prepared",
+      "hypothesis": "OfficialCANN9.1 defaultACLNN_CACHE_LIMIT10000 storesworkspace/executor/tiling perthread. Actualserverunsetusesdefault; trace7140MatmulWorkspacequeries~1.16swork suggests nativehostcache/shapechurn candidate. Raiseonlymodelprocesscacheto100000, preserveTASK_QUEUE1/graphs/math. Largerhostcachehasnoprovenbenefityet; requirefreshnative+QA and RSS audit",
+      "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486"
+    },
+    {
+      "tag": "r336",
+      "parent": "control309",
+      "kind": "pinned-pcm",
+      "status": "prepared",
+      "hypothesis": "Recovered audio sync spans motivate narrow first step: NPU-event-owned pinned PCM D2H instead of pageable .cpu; retain device source and both scratch/graph gates until completion. No pipelining or unsafe early lock release; compare actual native gains before wider rewrite",
+      "source_sha256": "edc3a7c510abd33193e8b01b4b4543cc62a62311d54ba8ba333b453a41dde847"
+    },
+    {
+      "tag": "r337",
+      "parent": "r320",
+      "kind": "host-lengths",
+      "status": "prepared",
+      "hypothesis": "Original prefix/verification attention reads NPU qo_indptr back toCPU every layer; publish builder-owned identical host cumulative lengths, validate packing invariant, preserve observation fallback for synthetic/malformed layouts",
+      "source_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31"
+    },
+    {
+      "tag": "r338",
+      "parent": "r332",
+      "kind": "mask-cache",
+      "status": "prepared",
+      "hypothesis": "Fresh and suffix attention rebuild identical2048x2048 int8 causal mask every layer/call; cache immutable same-device/width mask perKV owner, keeping original attention/sparse mode/math and fallback",
+      "source_sha256": "cd72a2f3494ff950fd6b7fcc982dac24ddf8b56bd06d665a9d1c8c16c01c2dfe"
+    },
+    {
+      "tag": "r339",
+      "parent": "control309",
+      "kind": "rope-invariant",
+      "status": "prepared",
+      "hypothesis": "Recovered eager verification/CPU operator trace still constructs invariant inverse frequencies each call; cache exact device-local FP32 inverse vector per decoder owner, preserve sin/cos/multiply rounding and every dynamic position. Reduces host dispatch without language rewrite",
+      "source_sha256": "ce61f85f50297cc007e5801dd4c5fc91dbda0be837cf6cc8ca3a442e4e0fb2af"
+    },
+    {
+      "tag": "r340",
+      "parent": "control309",
+      "kind": "hift-exact-rows",
+      "status": "prepared",
+      "hypothesis": "Actual low-C audio cohorts include3/5/6/7 rows, but HiFT uses next power-of-two padded rows. Add exact-row steady HiFT graphs and prewarm only those shapes on the audio owner; preserve FP32, seeds and final eager path. Report actual requested/executed row counters, not assumed gain or changed Flow graphs",
+      "source_sha256": "4490ee0fd96b38b9256abe764ffc095a414b423b7d191546373037699007bea7"
+    },
+    {
+      "tag": "r341",
+      "parent": "control309",
+      "kind": "script-elementwise",
+      "status": "prepared",
+      "hypothesis": "User language hypothesis tested narrowly: execute unchanged eager Thinker RMSNorm/RoPE/SiLU op chains through TorchScript C++ interpreter to reduce Python/GIL dispatch, keep separate BF16 intermediate rounding and same model/kernels. Standalone exact dtype/strided probes and16-row Thinker parity required; native means decide, not fewer Python frames",
+      "source_sha256": "c14d15d5adf8a603495056d9c02481f9dca1e528707f8ccf833a3b0ef3bd1585"
+    },
+    {
+      "tag": "r342",
+      "parent": "r320",
+      "kind": "low-pressure-split",
+      "status": "prepared",
+      "hypothesis": "ExternalGILprobe84inclusiveappend-reference samples shows mixed fresh/decode still forces fullKVgathers. Revalidate prior r280/r283 decode-first pressure-scoped split on NEW prompt-lookup baseline: earlierC4benefitbutC16regressionretained, busyepochpeak>=9keepsoldpath. This is an interaction re-test, not a novel invention or reused old gain; fresh16QA/allnative mandatory",
+      "source_sha256": "8b4bd89ad83318aeec07ad71b61fb73c079a49c68b04be3d71a838871a53cc59"
+    },
+    {
+      "tag": "r343",
+      "parent": "control309",
+      "kind": "audio-stream-cores",
+      "status": "prepared",
+      "hypothesis": "MPS-like spatial-overlap hypothesis refined after whole-process12Cube/24Vector gains: cap only audio stream at12/24, retain full engine and prompt resources. Explicit Euler/HiFT capture uses current owner stream so capture tiling receives actual quota; metrics verify stream/device limits. Installed torch_npu set_stream_limit source audited, no daemon or shared-device change",
+      "source_sha256": "1af1507d58f86c8f92c9cb9f30a7da470151d65fbae4bc83d462e397dad835a2"
+    },
+    {
+      "tag": "r344",
+      "parent": "control309",
+      "kind": "euler-exact-rows",
+      "status": "prepared",
+      "hypothesis": "Actual3/5/6/7 audio cohorts also pad CFG Euler rows6/10/12/14 up to8/16. Add exact even row buckets and prewarm steady50/final56 shapes on audio owner; retain FP16/6step equations/seed/cache ownership and original HiFT buckets. Counter reports actual requested/bucketed rows; unlike HiFT-only trial, targets whole6-step Flow work",
+      "source_sha256": "9a47e222aa63683f484e6c4606fee6d40c9c3356fa3b170f349048bb812ad222"
+    },
+    {
+      "tag": "r345",
+      "parent": "control309",
+      "kind": "rounding-native-rms",
+      "status": "prepared",
+      "hypothesis": "Recovered1679 eager RMS pow/mean/rsqrt chains: fused native RMS with UNIT weight then original BF16 weight multiply preserves reference cast-before-scale boundary (unlike ordinary fused weighted RMS). Two op calls replace long Python/CANN chains. Reduction may still differ, user-authorized fusion tradeoff; strict16Thinker and frozen speech gates required, no bitwise-quality claim",
+      "source_sha256": "8160b7770319acff2938b43065e57526185bbe13649024ed0109dc68823b2c18"
+    },
+    {
+      "tag": "r346",
+      "parent": "control309",
+      "kind": "native-rotary",
+      "status": "prepared",
+      "hypothesis": "Direct Ascend reference comparison: Qwen2 uses two npu_rotary_mul calls, dedicated engine still issues separate BF16 mul/rotate/add chains. Isolate Thinker-native RoPE only, retain eager correctness fallback; fused rounding may differ so standalone characterization plus16Thinker/frozen speech gates required. Not a repeat of old full RMS+SwiGLU fusion rejected by speech screen",
+      "source_sha256": "b91fe9aa03716141138fc0ebb123025c3d5c74dbd3e12dee6e1794e82e07cf81"
+    },
+    {
+      "tag": "r347",
+      "parent": "r337",
+      "kind": "mask-cache",
+      "status": "prepared",
+      "hypothesis": "Fresh and suffix attention rebuild identical2048x2048 int8 causal mask every layer/call; cache immutable same-device/width mask perKV owner, keeping original attention/sparse mode/math and fallback",
+      "source_sha256": "708f79441274b3c2a13699a8e2161f712b00d8a41d96e97010987983fe651353"
+    },
+    {
+      "tag": "r348",
+      "parent": "control309",
+      "kind": "thinker-static-fia",
+      "status": "prepared",
+      "hypothesis": "After three full-service OpExecCache/task-update crashes but224isolatedPAchecks pass: transfer existing Talker device-masked constant-shape FIA graph path to Thinker capacity512, eliminating host task-update transactions for covered contexts. Larger contexts retain PA fallback; source cache/math/model unchanged apart from qualified attention implementation. Strict16Thinker and speech gates, actual static/fallback counters and memory required; not a claimed fix before validation",
+      "source_sha256": "e91a05501905fec2ed656098a214f05e03d846722e2753e0334a99d70adbfb92"
+    },
+    {
+      "tag": "r349",
+      "parent": "r337",
+      "kind": "cores-third",
+      "status": "prepared",
+      "hypothesis": "Resource-ladder after12Cube/24Vector fresh A/B/A gains: retune only process-local quota to8Cube/16Vector (same supported FIA1:2 ratio) on r337 host-length baseline, before all operators/graphs. Test memory-bound small-model stream overlap vs loss of per-kernel parallelism; STFT16support and exact16Thinker gate required, no expected gain assumed",
+      "source_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31"
+    },
+    {
+      "tag": "r350",
+      "parent": "r346",
+      "kind": "rounded-native-rotary",
+      "status": "prepared",
+      "hypothesis": "Accuracy/performance ladder after direct native RoPE: two native kernels separately produce rounded q*cos and rotate(q)*sin, then same-dtype addition; immutable zero tables retained outside graph lifetimes. Four native calls+two adds vs original ten elementwise ops across Q/K. Strict exact operator probe required before16Thinker/native/speech gates; not assumed faster or quality-qualified",
+      "source_sha256": "c8f628a428b35d8e60dd5038c55c6ba797ccbdcd7868c151bbea406dfe1c5b47"
+    },
+    {
+      "tag": "r351",
+      "parent": "r343",
+      "kind": "host-lengths",
+      "status": "prepared",
+      "hypothesis": "Original prefix/verification attention reads NPU qo_indptr back toCPU every layer; publish builder-owned identical host cumulative lengths, validate packing invariant, preserve observation fallback for synthetic/malformed layouts",
+      "source_sha256": "a02a733195cf90ea9a9a46dba91cc33e3bdc113dc06ffd30bb9698f7c755a5ca"
+    }
+  ],
+  "execution_summary": {
+    "utc": "2026-11-02T20:22:53.131752+00:00",
+    "algorithm_rounds_attempted": 40,
+    "algorithm_successful_receipts": 33,
+    "algorithm_failed_or_rejected": [
+      "r322",
+      "r327",
+      "r329",
+      "r330",
+      "r331",
+      "r335",
+      "r339"
+    ],
+    "final_engine_confirmation_jobs": 8,
+    "final_omni_confirmation_jobs": 1,
+    "final_native_verifications_passed": true,
+    "all_campaign_inference_jobs_finished": true,
+    "own_npu_processes_remaining": 0,
+    "local_readonly_monitor_stopped": true,
+    "default_repository_head": "f0eeaa288fce5b6975dc6b4322f7e62ad148f751",
+    "default_repository_dirty": false,
+    "speech_gate": "NOT_RUN",
+    "scorer_status": "BLOCKED_CONNECTION_CLOSED",
+    "scorer_endpoint": "106.15.124.84:31014",
+    "equal_quality_claim": false,
+    "default_promoted": false,
+    "publication_performed": false,
+    "stop_reason": "User cap40 reached; independent performance work completed, frozen full speech gate requires restored scorer environment.",
+    "global_optimum_proven": false
+  }
+}

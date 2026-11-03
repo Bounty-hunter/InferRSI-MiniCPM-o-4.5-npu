@@ -1,0 +1,25 @@
+{
+  "tag": "r312",
+  "engine": "engine-r312",
+  "config": "config-r312.json",
+  "engine_sha256": "36a84e43d0d45decfc7b85c90a306df7bd4570f709920ef50202451ff22e455b",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19201,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Remaining actual Thinker batch3/7 captures on npu-engine: bounded2/4/8 initialization on the eventual owner; inert KV and deterministic inputs, startup cost separated",
+  "kind": "thinker-init"
+}

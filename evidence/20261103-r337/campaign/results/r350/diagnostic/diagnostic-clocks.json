@@ -1,0 +1,1 @@
+{"mono_ns": 7226572350439679, "wall_ns": 1793646588455308143, "native_stack_capture": false, "stack_source": "10ms Python samples plus explicit host-observation stacks", "profiler": "External CANN msprof dynamic collection; no torch profiler start/stop"}

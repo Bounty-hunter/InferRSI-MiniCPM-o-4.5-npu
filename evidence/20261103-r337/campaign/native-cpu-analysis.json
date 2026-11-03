@@ -1,0 +1,3546 @@
+{
+  "source_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "device": "Ascend910B1",
+  "window_s": 19.909659296,
+  "observations": 133,
+  "whole_process_core_pct": 295.18335359865915,
+  "threads": [
+    {
+      "tid": 196109,
+      "name": "python",
+      "cpu_core_pct": 82.47253132703734,
+      "wait_states": {
+        "R": 111,
+        "S": 21,
+        "D": 1
+      },
+      "python_thread_name": "npu-engine",
+      "max_rolling_1s_core_pct": 91.55136781490835,
+      "observed_wait_channels": {
+        "0": 106,
+        "futex_wait_queue_me": 16,
+        "eventfd_read": 11
+      }
+    },
+    {
+      "tid": 196092,
+      "name": "python",
+      "cpu_core_pct": 36.06289737686529,
+      "wait_states": {
+        "R": 48,
+        "S": 85,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 70.7873435878088,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 85,
+        "0": 48
+      }
+    },
+    {
+      "tid": 196110,
+      "name": "python",
+      "cpu_core_pct": 35.76153611744859,
+      "wait_states": {
+        "R": 50,
+        "S": 83,
+        "D": 0
+      },
+      "python_thread_name": "npu-token2wav",
+      "max_rolling_1s_core_pct": 55.91572007457108,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 42,
+        "eventfd_read": 3,
+        "0": 50,
+        "hrtimer_nanosleep": 37,
+        "runqueues": 1
+      }
+    },
+    {
+      "tid": 196539,
+      "name": "python",
+      "cpu_core_pct": 33.04928478269827,
+      "wait_states": {
+        "R": 43,
+        "S": 90,
+        "D": 0
+      },
+      "python_thread_name": "campplus_0",
+      "max_rolling_1s_core_pct": 61.41671226164002,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 90,
+        "0": 43
+      }
+    },
+    {
+      "tid": 196084,
+      "name": "RT_RECYCLE_5",
+      "cpu_core_pct": 32.59724289357321,
+      "wait_states": {
+        "R": 46,
+        "S": 87,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 44.404855562888926,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 80,
+        "0": 53
+      }
+    },
+    {
+      "tid": 196085,
+      "name": "acl_thread",
+      "cpu_core_pct": 31.64293223875366,
+      "wait_states": {
+        "R": 36,
+        "S": 97,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 41.69985903866314,
+      "observed_wait_channels": {
+        "eventfd_read": 89,
+        "hrtimer_nanosleep": 4,
+        "0": 39,
+        "runqueues": 1
+      }
+    },
+    {
+      "tid": 196119,
+      "name": "python",
+      "cpu_core_pct": 19.337347479238346,
+      "wait_states": {
+        "R": 23,
+        "S": 110,
+        "D": 0
+      },
+      "python_thread_name": "npu-t2w-prepare_0",
+      "max_rolling_1s_core_pct": 51.15934559320259,
+      "observed_wait_channels": {
+        "0": 24,
+        "futex_wait_queue_me": 105,
+        "hrtimer_nanosleep": 4
+      }
+    },
+    {
+      "tid": 196545,
+      "name": "python",
+      "cpu_core_pct": 18.433263700988245,
+      "wait_states": {
+        "R": 26,
+        "S": 107,
+        "D": 0
+      },
+      "python_thread_name": "npu-t2w-prepare_1",
+      "max_rolling_1s_core_pct": 36.15637991179708,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 102,
+        "0": 27,
+        "hrtimer_nanosleep": 4
+      }
+    },
+    {
+      "tid": 196086,
+      "name": "release_thread",
+      "cpu_core_pct": 3.214520100444817,
+      "wait_states": {
+        "R": 6,
+        "S": 127,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 4.7691801012669215,
+      "observed_wait_channels": {
+        "do_select": 128,
+        "0": 5
+      }
+    },
+    {
+      "tid": 196063,
+      "name": "python",
+      "cpu_core_pct": 2.2602094456252404,
+      "wait_states": {
+        "R": 3,
+        "S": 130,
+        "D": 0
+      },
+      "python_thread_name": "MainThread",
+      "max_rolling_1s_core_pct": 4.731058410987401,
+      "observed_wait_channels": {
+        "ep_poll": 129,
+        "0": 3,
+        "futex_wait_queue_me": 1
+      }
+    },
+    {
+      "tid": 196345,
+      "name": "python",
+      "cpu_core_pct": 0.15068062970835078,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": "asyncio_1",
+      "max_rolling_1s_core_pct": 0.9538360202533792,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196338,
+      "name": "python",
+      "cpu_core_pct": 0.10045375313890048,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": "asyncio_0",
+      "max_rolling_1s_core_pct": 0.9545780861906319,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196065,
+      "name": "PlogFlush",
+      "cpu_core_pct": 0.05022687656945027,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.943648927718132,
+      "observed_wait_channels": {
+        "hrtimer_nanosleep": 133
+      }
+    },
+    {
+      "tid": 196083,
+      "name": "REPORT_RAS",
+      "cpu_core_pct": 0.05022687656945026,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.9536227313687563,
+      "observed_wait_channels": {
+        "dms_event_wait_interrupt": 130,
+        "hrtimer_nanosleep": 3
+      }
+    },
+    {
+      "tid": 196064,
+      "name": "WatchdogMonitor",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "hrtimer_nanosleep": 133
+      }
+    },
+    {
+      "tid": 196078,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196079,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196080,
+      "name": "adx_data_dump_t",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "hdcdrv_epoll_wait": 133
+      }
+    },
+    {
+      "tid": 196081,
+      "name": "PlogReportRecv",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "hdcdrv_recv_peek_wait": 133
+      }
+    },
+    {
+      "tid": 196082,
+      "name": "MONITOR_0",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "hrtimer_nanosleep": 133
+      }
+    },
+    {
+      "tid": 196088,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196094,
+      "name": "CaffeTaskThread",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196095,
+      "name": "CaffeTaskThread",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196096,
+      "name": "CaffeTaskThread",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196097,
+      "name": "CaffeTaskThread",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196098,
+      "name": "CaffeTaskThread",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196101,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196102,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196103,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196104,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196105,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196106,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196107,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196108,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196111,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196112,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196113,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196114,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196115,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196116,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196117,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196118,
+      "name": "AOE_RTKB",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196339,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196340,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196341,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196342,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196343,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196344,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196346,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196347,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196348,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196349,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196350,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196351,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196352,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196353,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196354,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196355,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196356,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196357,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196358,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196359,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196360,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196361,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196362,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196363,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196364,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196365,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196366,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196367,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196368,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196369,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196370,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196371,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196372,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196373,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196374,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196375,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196376,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196377,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196378,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196379,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196380,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196381,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196382,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196383,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196384,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196385,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196386,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196387,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196388,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196389,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196390,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196391,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196392,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196393,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196394,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196395,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196396,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196397,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196398,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196399,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196400,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196401,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196402,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196403,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196404,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196405,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196406,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196407,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196408,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196409,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196410,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196411,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196412,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196413,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196414,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196415,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196416,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196417,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196418,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196419,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196420,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196421,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196422,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196423,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196424,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196425,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196426,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196427,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196428,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196429,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196430,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196431,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196432,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196433,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196434,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196435,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196436,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196437,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196438,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196439,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196440,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196441,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196442,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196443,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196444,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196445,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196446,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196447,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196448,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196449,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196450,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196451,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196452,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196453,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196454,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196455,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196456,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196457,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196458,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196459,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196460,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196461,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196462,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196463,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196464,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196465,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196466,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196467,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196468,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196469,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196470,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196471,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196472,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196473,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196474,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196475,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196476,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196477,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196478,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196479,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196480,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196481,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196482,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196483,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196484,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196485,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196486,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196487,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196488,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196489,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196490,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196491,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196492,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196493,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196494,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196495,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196496,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196497,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196498,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196499,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196500,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196501,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196502,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196503,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196504,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196505,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196506,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196507,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196508,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196509,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196510,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196511,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196512,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196513,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196514,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196515,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196516,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196517,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196518,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196519,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196520,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196521,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196522,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196523,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196524,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196525,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196526,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196527,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196528,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196529,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196530,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    },
+    {
+      "tid": 196531,
+      "name": "python",
+      "cpu_core_pct": 0.0,
+      "wait_states": {
+        "R": 0,
+        "S": 133,
+        "D": 0
+      },
+      "python_thread_name": null,
+      "max_rolling_1s_core_pct": 0.0,
+      "observed_wait_channels": {
+        "futex_wait_queue_me": 133
+      }
+    }
+  ],
+  "native": {
+    "ttfp_ms": 1800.0226404183195,
+    "rtf": 0.8275121984827094,
+    "request_s": 2.315458646056466
+  },
+  "interpretation": "Main engine thread is heavily utilized in this native window. CPU clocks include Python, PyTorch, CANN and possible runtime polling; R state includes runnable. No direct GIL ownership, Python fraction, runqueue delay or native-stack attribution. CPU saturation and benefit of C++/Rust are not established.",
+  "sampling": "External /proc read-only nominal 100ms; no tensor wrappers, Python stack sampler or NPU profiler. Actual sample spacing and proc reads impose some observer overhead; native means are probe context, not optimization acceptance."
+}

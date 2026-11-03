@@ -1,0 +1,393 @@
+{
+  "valid_json": true,
+  "original_job_exit": 137,
+  "scope": "Recovered complete JSON file; original job timed out during remaining export. Not a successful native benchmark.",
+  "events": 3838211,
+  "process_names": {
+    "215454": "Python",
+    "220625378": "AI Core Freq",
+    "220625151": "CANN",
+    "220625890": "Overlap Analysis",
+    "220625346": "Ascend Hardware"
+  },
+  "thread_names": {
+    "215454/215504": "Thread 215504",
+    "215454/215484": "Thread 215484",
+    "215454/215505": "Thread 215505",
+    "215454/215515": "Thread 215515",
+    "215454/215947": "Thread 215947",
+    "220625151/215484": "Thread 215484",
+    "220625151/215504": "Thread 215504",
+    "220625151/215505": "Thread 215505",
+    "220625151/215515": "Thread 215515",
+    "220625151/215947": "Thread 215947",
+    "220625890/0": "Computing",
+    "220625890/1": "Communication",
+    "220625890/2": "Communication(Not Overlapped)",
+    "220625890/3": "Free",
+    "220625346/0": "Stream 0",
+    "220625346/1": "Stream 1",
+    "220625346/2": "Stream 2",
+    "220625346/3": "Stream 3",
+    "220625346/4": "Stream 4",
+    "220625346/5": "Stream 5",
+    "220625346/6": "Stream 6",
+    "220625346/7": "Stream 7",
+    "220625346/8": "Stream 8",
+    "220625346/9": "Stream 9",
+    "220625346/10": "Stream 10",
+    "220625346/11": "Stream 11",
+    "220625346/12": "Stream 12",
+    "220625346/27": "Stream 27",
+    "220625346/44": "Stream 44",
+    "220625346/45": "Stream 45",
+    "220625346/47": "Stream 47",
+    "220625346/48": "Stream 48",
+    "220625346/88": "Stream 88",
+    "220625346/89": "Stream 89",
+    "220625346/91": "Stream 91",
+    "220625346/92": "Stream 92",
+    "220625346/93": "Stream 93",
+    "220625346/94": "Stream 94",
+    "220625346/95": "Stream 95",
+    "220625346/97": "Stream 97",
+    "220625346/98": "Stream 98",
+    "220625346/99": "Stream 99"
+  },
+  "phase_categories": {
+    "('X', 'cpu_op')": 416746,
+    "('X', 'dequeue')": 104950,
+    "('f', 'async_task_queue')": 104950,
+    "('X', 'enqueue')": 104950,
+    "('s', 'async_task_queue')": 104950,
+    "('M', '')": 102,
+    "('C', '')": 4,
+    "('X', '')": 2012132,
+    "('s', 'HostToDevice')": 125262,
+    "('f', 'HostToDevice')": 716949,
+    "('s', 'async_npu')": 73608,
+    "('f', 'async_npu')": 73608
+  },
+  "samples": {
+    "('X', 'cpu_op')": [
+      {
+        "ph": "X",
+        "name": "aten::empty",
+        "pid": 215454,
+        "tid": 215504,
+        "ts": "1793631676760346.130",
+        "dur": 8.26,
+        "cat": "cpu_op",
+        "args": {
+          "Sequence number": -1,
+          "Fwd thread id": 0
+        }
+      },
+      {
+        "ph": "X",
+        "name": "aten::to",
+        "pid": 215454,
+        "tid": 215504,
+        "ts": "1793631676760405.780",
+        "dur": 1.3,
+        "cat": "cpu_op",
+        "args": {
+          "Sequence number": -1,
+          "Fwd thread id": 0
+        }
+      }
+    ],
+    "('X', 'dequeue')": [
+      {
+        "ph": "X",
+        "name": "Dequeue@acl_memcpy_host_to_device",
+        "pid": 215454,
+        "tid": 215484,
+        "ts": "1793631676760515.540",
+        "dur": 29.66,
+        "cat": "dequeue",
+        "args": {
+          "correlation_id": 542958
+        }
+      },
+      {
+        "ph": "X",
+        "name": "Dequeue@acl_memcpy_host_to_device",
+        "pid": 215454,
+        "tid": 215484,
+        "ts": "1793631676760653.050",
+        "dur": 21.65,
+        "cat": "dequeue",
+        "args": {
+          "correlation_id": 542959
+        }
+      }
+    ],
+    "('f', 'async_task_queue')": [
+      {
+        "ph": "f",
+        "bp": "e",
+        "name": "enqueue_to_dequeue",
+        "id": 542958,
+        "pid": 215454,
+        "tid": 215484,
+        "ts": "1793631676760515.540",
+        "cat": "async_task_queue"
+      },
+      {
+        "ph": "f",
+        "bp": "e",
+        "name": "enqueue_to_dequeue",
+        "id": 542959,
+        "pid": 215454,
+        "tid": 215484,
+        "ts": "1793631676760653.050",
+        "cat": "async_task_queue"
+      }
+    ],
+    "('X', 'enqueue')": [
+      {
+        "ph": "X",
+        "name": "Enqueue@acl_memcpy_host_to_device",
+        "pid": 215454,
+        "tid": 215504,
+        "ts": "1793631676760503.710",
+        "dur": 8.77,
+        "cat": "enqueue",
+        "args": {
+          "correlation_id": 542958
+        }
+      },
+      {
+        "ph": "X",
+        "name": "Enqueue@acl_memcpy_host_to_device",
+        "pid": 215454,
+        "tid": 215504,
+        "ts": "1793631676760643.340",
+        "dur": 7.17,
+        "cat": "enqueue",
+        "args": {
+          "correlation_id": 542959
+        }
+      }
+    ],
+    "('s', 'async_task_queue')": [
+      {
+        "ph": "s",
+        "bp": "e",
+        "name": "enqueue_to_dequeue",
+        "id": 542958,
+        "pid": 215454,
+        "tid": 215504,
+        "ts": "1793631676760503.710",
+        "cat": "async_task_queue"
+      },
+      {
+        "ph": "s",
+        "bp": "e",
+        "name": "enqueue_to_dequeue",
+        "id": 542959,
+        "pid": 215454,
+        "tid": 215504,
+        "ts": "1793631676760643.340",
+        "cat": "async_task_queue"
+      }
+    ],
+    "('M', '')": [
+      {
+        "ph": "M",
+        "name": "process_name",
+        "pid": 215454,
+        "tid": 0,
+        "args": {
+          "name": "Python"
+        }
+      },
+      {
+        "ph": "M",
+        "name": "process_labels",
+        "pid": 215454,
+        "tid": 0,
+        "args": {
+          "labels": "CPU"
+        }
+      }
+    ],
+    "('C', '')": [
+      {
+        "name": "AI Core Freq",
+        "pid": 220625378,
+        "tid": 0,
+        "ts": "1793631676759735.000",
+        "ph": "C",
+        "args": {
+          "MHz": 1850
+        }
+      },
+      {
+        "name": "AI Core Freq",
+        "pid": 220625378,
+        "tid": 0,
+        "ts": "1793631684420883.000",
+        "ph": "C",
+        "args": {
+          "MHz": 1850
+        }
+      }
+    ],
+    "('X', '')": [
+      {
+        "name": "AscendCL@aclrtMemcpyAsync",
+        "pid": 220625151,
+        "tid": 215484,
+        "ts": "1793631676760517.470",
+        "dur": 27.06,
+        "ph": "X",
+        "args": {
+          "Thread Id": 215484,
+          "Mode": "ACL_RTS",
+          "level": "acl",
+          "id": "aclrtMemcpyAsync",
+          "item_id": "0",
+          "connection_id": 501506
+        }
+      },
+      {
+        "name": "AscendCL@aclrtPointerGetAttributes",
+        "pid": 220625151,
+        "tid": 215504,
+        "ts": "1793631676760517.540",
+        "dur": 5.61,
+        "ph": "X",
+        "args": {
+          "Thread Id": 215504,
+          "Mode": "ACL_RTS",
+          "level": "acl",
+          "id": "aclrtPointerGetAttributes",
+          "item_id": "0",
+          "connection_id": 501507
+        }
+      }
+    ],
+    "('s', 'HostToDevice')": [
+      {
+        "name": "HostToDevice2154020588224512",
+        "pid": 220625151,
+        "tid": 215484,
+        "ph": "s",
+        "cat": "HostToDevice",
+        "id": "2154020588224512",
+        "ts": "1793631676761118.900"
+      },
+      {
+        "name": "HostToDevice2154046358028288",
+        "pid": 220625151,
+        "tid": 215484,
+        "ph": "s",
+        "cat": "HostToDevice",
+        "id": "2154046358028288",
+        "ts": "1793631676761287.940"
+      }
+    ],
+    "('f', 'HostToDevice')": [
+      {
+        "name": "HostToDevice2154020588224512",
+        "pid": 220625346,
+        "tid": 47,
+        "ph": "f",
+        "cat": "HostToDevice",
+        "id": "2154020588224512",
+        "ts": "1793631676761138.530",
+        "bp": "e"
+      },
+      {
+        "name": "HostToDevice2154046358028288",
+        "pid": 220625346,
+        "tid": 47,
+        "ph": "f",
+        "cat": "HostToDevice",
+        "id": "2154046358028288",
+        "ts": "1793631676761292.810",
+        "bp": "e"
+      }
+    ],
+    "('s', 'async_npu')": [
+      {
+        "ph": "s",
+        "bp": "e",
+        "name": "torch_to_npu",
+        "id": 1793631676761138530,
+        "pid": 215454,
+        "tid": 215504,
+        "ts": "1793631676761099.540",
+        "cat": "async_npu"
+      },
+      {
+        "ph": "s",
+        "bp": "e",
+        "name": "torch_to_npu",
+        "id": 1793631676761292810,
+        "pid": 215454,
+        "tid": 215504,
+        "ts": "1793631676761271.430",
+        "cat": "async_npu"
+      }
+    ],
+    "('f', 'async_npu')": [
+      {
+        "ph": "f",
+        "bp": "e",
+        "name": "torch_to_npu",
+        "id": 1793631676761138530,
+        "pid": 220625346,
+        "tid": 47,
+        "ts": "1793631676761138.530",
+        "cat": "async_npu"
+      },
+      {
+        "ph": "f",
+        "bp": "e",
+        "name": "torch_to_npu",
+        "id": 1793631676761292810,
+        "pid": 220625346,
+        "tid": 47,
+        "ts": "1793631676761292.810",
+        "cat": "async_npu"
+      }
+    ]
+  },
+  "rsi_scopes": {
+    "RSI:thinker:decode:tokens2": 3,
+    "RSI:talker:prefill_or_verify:tokens5": 2,
+    "RSI:thinker:prefill_or_verify:tokens18": 2,
+    "RSI:talker:prefill_or_verify:tokens22": 1,
+    "RSI:talker:prefill_or_verify:tokens20": 2,
+    "RSI:thinker:prefill_or_verify:tokens136": 1,
+    "RSI:talker:prefill_or_verify:tokens7": 1,
+    "RSI:thinker:decode:tokens1": 5,
+    "RSI:thinker:prefill_or_verify:tokens273": 1,
+    "RSI:thinker:prefill_or_verify:tokens8": 1,
+    "RSI:talker:prefill_or_verify:tokens11": 5,
+    "RSI:thinker:prefill_or_verify:tokens140": 1,
+    "RSI:thinker:prefill_or_verify:tokens148": 1,
+    "RSI:thinker:prefill_or_verify:tokens23": 1,
+    "RSI:talker:prefill_or_verify:tokens33": 1,
+    "RSI:thinker:prefill_or_verify:tokens36": 2,
+    "RSI:thinker:prefill_or_verify:tokens141": 1,
+    "RSI:thinker:prefill_or_verify:tokens265": 1,
+    "RSI:talker:prefill_or_verify:tokens3": 1,
+    "RSI:thinker:prefill_or_verify:tokens17": 1,
+    "RSI:thinker:prefill_or_verify:tokens27": 1,
+    "RSI:talker:prefill_or_verify:tokens4": 2,
+    "RSI:thinker:prefill_or_verify:tokens137": 1,
+    "RSI:talker:prefill_or_verify:tokens12": 1,
+    "RSI:talker:prefill_or_verify:tokens10": 1,
+    "RSI:thinker:prefill_or_verify:tokens9": 3,
+    "RSI:thinker:prefill_or_verify:tokens143": 1,
+    "RSI:thinker:prefill_or_verify:tokens415": 1,
+    "RSI:thinker:prefill_or_verify:tokens145": 1,
+    "RSI:thinker:prefill_or_verify:tokens35": 1,
+    "RSI:talker:prefill_or_verify:tokens45": 1,
+    "RSI:thinker:prefill_or_verify:tokens138": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "tag": "nativecpu337",
+  "native_tails": {
+    "c8": {
+      "mean_audio_rtf": 0.8665603106435591,
+      "median_audio_rtf": 0.7660537831351306,
+      "p50_audio_rtf": 0.7660537831351306,
+      "p95_audio_rtf": 1.4293176711704119,
+      "p99_audio_rtf": 1.7404027704020688,
+      "mean_audio_ttfp_ms": 1902.8520236824988,
+      "median_audio_ttfp_ms": 1732.5842776335776,
+      "p50_audio_ttfp_ms": 1732.5842776335776,
+      "p95_audio_ttfp_ms": 3358.9068599045277,
+      "p99_audio_ttfp_ms": 4444.313950072977
+    }
+  }
+}

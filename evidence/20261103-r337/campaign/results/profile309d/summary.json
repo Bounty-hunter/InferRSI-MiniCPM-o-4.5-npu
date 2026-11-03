@@ -1,0 +1,11 @@
+[
+  {
+    "mode": "diagnostic",
+    "concurrency": 8,
+    "ttfp_ms": 2093.9904884653515,
+    "rtf": 0.9646410088038259,
+    "req_s": 1.99188020454717,
+    "completed": 128,
+    "failed": 0
+  }
+]

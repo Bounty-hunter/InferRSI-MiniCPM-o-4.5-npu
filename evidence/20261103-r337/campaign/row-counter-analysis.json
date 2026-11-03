@@ -1,0 +1,66 @@
+{
+  "pinned_pcm": [
+    {
+      "c": 2,
+      "cumulative_calls": 107,
+      "interval_calls": 107,
+      "includes_warmups": true
+    },
+    {
+      "c": 4,
+      "cumulative_calls": 245,
+      "interval_calls": 138,
+      "includes_warmups": true
+    },
+    {
+      "c": 8,
+      "cumulative_calls": 404,
+      "interval_calls": 159,
+      "includes_warmups": true
+    }
+  ],
+  "hift": [
+    {
+      "c": 2,
+      "interval_requested_rows": {
+        "2": 10,
+        "1": 96
+      },
+      "actual_rows": 116,
+      "same_cohorts_original_power2_hypothetical_rows": 116,
+      "hypothetical_padding_rows_saved": 0,
+      "includes_warmups": true
+    },
+    {
+      "c": 4,
+      "interval_requested_rows": {
+        "2": 37,
+        "1": 104,
+        "3": 15,
+        "4": 3
+      },
+      "actual_rows": 235,
+      "same_cohorts_original_power2_hypothetical_rows": 250,
+      "hypothetical_padding_rows_saved": 15,
+      "includes_warmups": true
+    },
+    {
+      "c": 8,
+      "interval_requested_rows": {
+        "2": 48,
+        "1": 69,
+        "3": 25,
+        "4": 22,
+        "7": 2,
+        "8": 2,
+        "6": 7,
+        "5": 11
+      },
+      "actual_rows": 455,
+      "same_cohorts_original_power2_hypothetical_rows": 529,
+      "hypothetical_padding_rows_saved": 74,
+      "includes_warmups": true
+    }
+  ],
+  "scope": "Per-tier difference of cumulative server counters, including warmup requests. Hypothetical padding on candidate cohorts is not an observed baseline workload or measured speedup. Native benchmark timers exclude warmups."
+}

@@ -1,0 +1,60 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+[W1102 14:54:36.179140310 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[W1102 14:54:36.180425663 op_api_common.cpp:43] Warning: A common user is using the files of the root user. (function operator())
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/storage.py:55: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  if self.device.type != 'cpu':
+[transformers] `MiniCPMOProcessor` defines `image_processor_class = 'AutoImageProcessor'`, which is deprecated. Register the correct mapping in `AutoImageProcessor` instead.
+[transformers] Requested torchvision backend is not available. Falling back to pil backend.
+[transformers] `MiniCPMOProcessor` defines `audio_processor_class = 'AutoFeatureExtractor'`, which is deprecated. Register the correct mapping in `AutoFeatureExtractor` instead.
+/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r327/engine/runtime/npu_paged.py:354: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at ../torch_npu/csrc/aten/common/TensorFactories.cpp:423.)
+  self.workspace_block_table = workspace_pages.remainder(runner.kv.num_pages).repeat(batch, 1)
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 50, 512], 'seconds': 1.1419310476630926}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [1, 50], 'seconds': 0.3347098780795932}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [1, 58], 'seconds': 0.12286915630102158}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [4, 50, 512], 'seconds': 0.6436783485114574}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [2, 50], 'seconds': 0.12589765433222055}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [2, 58], 'seconds': 0.12750487495213747}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [8, 50, 512], 'seconds': 0.6523204231634736}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [4, 50], 'seconds': 0.13058894593268633}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [4, 58], 'seconds': 0.13298771809786558}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [16, 50, 512], 'seconds': 0.681659022346139}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [8, 50], 'seconds': 0.1308756722137332}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [8, 58], 'seconds': 0.17655492667108774}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 56, 512], 'lane': 'audio_tail', 'seconds': 0.637950100004673}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 256, 0], 'lane': 'prompt_setup', 'seconds': 0.6511452523991466}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 512, 0], 'lane': 'prompt_setup', 'seconds': 0.6394826406612992}}
+[E1102 14:58:57.776049493 OpParamMaker.cpp:453] operator():../third_party/op-plugin/op_plugin/utils/op_api_common.h:192 NPU function error: call failed, error code is 507000
+[ERROR] 2026-11-02-14:58:57 (PID:214400, Device:0, RankID:-1) ERR00100 PTA call acl api failed
+[Error]: An internal error occurs in the runtime module on the host. 
+        Rectify the fault based on the error information in the ascend log.
+[PID: 214400] 2026-11-02-14:58:57.878.443 AclNN_Runtime_Error(EZ9903): aclrtLaunchKernelWithHostArgs failed: 507000
+        Solution: In this scenario, collect the plog when the fault occurs and locate the fault based on the plog.
+TraceBack (most recent call last):
+        The number of tasks cannot exceed the size of the task group, current task index=1, task group size=1.[FUNC:UpdateTask][FILE:stream.cc][LINE:4545]
+        Failed to alloc task, stream_id=45. retCode=0x7030024.[FUNC:StreamLaunchKernelV2][FILE:aix_stars.cc][LINE:529]
+        rtsLaunchKernelWithHostArgs execution failed, reason=task group update error[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:69]
+        aclrtLaunchKernelWithHostArgs failed: 507000
+        Kernel launch from cache failed.
+        OpExecCache run fail.
+
+Exception raised from operator() at ../third_party/op-plugin/op_plugin/utils/op_api_common.h:192 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xc8 (0xffff8c345978 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0xc4 (0xffff8c2e9adc in /usr/local/python3.12.13/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x1ee6088 (0xffff820b6088 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x4b10768 (0xffff84ce0768 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0x1927070 (0xffff81af7070 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0x192810c (0xffff81af810c in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0x1925b38 (0xffff81af5b38 in /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0x7dcd24 (0xffff7fffcd24 in /usr/local/Ascend/cann-9.1.0/lib64/libhccl.so)
+frame #8: <unknown function> + 0x803c8 (0xffff9c4503c8 in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xe9edc (0xffff9c4b9edc in /lib/aarch64-linux-gnu/libc.so.6)
+

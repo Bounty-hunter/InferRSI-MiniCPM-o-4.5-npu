@@ -1,0 +1,16 @@
+{
+  "tag": "nativecpu337",
+  "engine": "engine-r337",
+  "config": "config-r337.json",
+  "engine_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+  "native": [
+    8
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19283,
+  "runner": "run_native_austin.py",
+  "diagnostic_only": true,
+  "algorithm_round": false,
+  "hypothesis": "Separate warmed C8 current promising r337: Austin4.1.0 sameUID external native+Python/onCPU10ms20s and /proc clocks. Source/config fixed, no tensor wrappers, all timing excluded from performance acceptance"
+}

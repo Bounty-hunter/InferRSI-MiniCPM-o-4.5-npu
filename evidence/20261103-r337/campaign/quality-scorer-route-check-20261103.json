@@ -1,0 +1,10 @@
+{
+  "endpoint": "106.15.124.84:31014",
+  "account_route": "root then su - dyy (skill configured entry)",
+  "direct_error": "Connection closed by 106.15.124.84 port 31014",
+  "proxy_jump": "dengyunyang@121.37.97.96",
+  "jump_error": "channel 0: open failed: connect failed: Connection refused; stdio forwarding failed",
+  "shell_exit": 1,
+  "scope": "Read-only reachability checks, no scorer process started; no SSH configuration or credentials modified",
+  "quality_gate": "NOT_RUN"
+}

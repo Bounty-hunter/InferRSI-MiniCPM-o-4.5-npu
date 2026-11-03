@@ -1,0 +1,321 @@
+{
+  "live": 0,
+  "queued": 0,
+  "admitted": 0,
+  "max_live": 32,
+  "first_chunk": 25,
+  "steady_chunk": 25,
+  "t2w_cache_offload": false,
+  "t2w_timesteps": 6,
+  "t2w_euler_graph_failures": {},
+  "t2w_npu_fused_body": true,
+  "t2w_npu_fused_variant": "hybrid",
+  "t2w_hift_graph_failures": {},
+  "t2w_encoder_graph_failures": {},
+  "t2w_offload_stats": {
+    "h2d_tensor_copies": 0,
+    "h2d_tensor_reuses": 0,
+    "d2h_tensor_copies": 0,
+    "d2h_tensor_reuses": 0
+  },
+  "t2w_flow_batch_hist": {
+    "1": 152,
+    "2": 133,
+    "3": 47,
+    "4": 54,
+    "5": 17,
+    "6": 9,
+    "7": 11,
+    "8": 6
+  },
+  "t2w_flow_cache_bucket_hist": {
+    "512": 429
+  },
+  "t2w_threaded": true,
+  "t2w_live": 0,
+  "t2w_batch_wait_ms": 10.0,
+  "t2w_batch_wait_min_active": 1,
+  "t2w_batch_min_ready": 4,
+  "prompt_setup_batches": {},
+  "talker_graph_ring_failures": {},
+  "talker_graph_ring_capture_retries": {},
+  "talker_graph_ring_capture_retry_errors": {},
+  "talker_static_shape_attention": true,
+  "talker_static_kv_capacity": 256,
+  "talker_static_graph_buckets": [],
+  "talker_static_graph_failures": {},
+  "talker_post_graph_failures": {},
+  "talker_post_graph_replays": {
+    "4": 1040
+  },
+  "talker_full_block_graphs_enabled": true,
+  "talker_full_block_graph_batches": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "talker_full_block_graphs": [
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      8,
+      10
+    ]
+  ],
+  "talker_full_block_replays": {
+    "2": 236,
+    "1": 209,
+    "4": 119,
+    "8": 34,
+    "7": 42,
+    "6": 28,
+    "5": 51
+  },
+  "talker_full_block_warmup_s": {
+    "1": 1.8910484677180648,
+    "2": 1.0263057556003332,
+    "4": 0.9596158843487501,
+    "5": 1.0113164968788624,
+    "6": 0.965135327540338,
+    "7": 0.9753281427547336,
+    "8": 0.9553373036906123
+  },
+  "t2w_first_audio_priority": true,
+  "t2w_first_audio_priority_stats": {
+    "batches": 413,
+    "reordered": 88
+  },
+  "thinker_graph_buckets": [
+    2,
+    4,
+    8
+  ],
+  "thinker_prompt_lookup_stats": {
+    "verification_calls": 234,
+    "draft_tokens": 3105,
+    "matched_draft_tokens": 2219,
+    "target_tokens": 2614,
+    "kv_fallbacks": 0
+  },
+  "t2w_startup_stats": {
+    "request_rows": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "keys": [
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          50,
+          512
+        ],
+        "seconds": 1.2248726971447468
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          1,
+          50
+        ],
+        "seconds": 0.3540834151208401
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          1,
+          58
+        ],
+        "seconds": 0.12954020034521818
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          4,
+          50,
+          512
+        ],
+        "seconds": 0.695358288474381
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          2,
+          50
+        ],
+        "seconds": 0.13280779588967562
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          2,
+          58
+        ],
+        "seconds": 0.13242087606340647
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          8,
+          50,
+          512
+        ],
+        "seconds": 0.7133992873132229
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          4,
+          50
+        ],
+        "seconds": 0.13549991603940725
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          4,
+          58
+        ],
+        "seconds": 0.13824096601456404
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          16,
+          50,
+          512
+        ],
+        "seconds": 0.760480958968401
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          8,
+          50
+        ],
+        "seconds": 0.14663968421518803
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          8,
+          58
+        ],
+        "seconds": 0.151516729965806
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          56,
+          512
+        ],
+        "lane": "audio_tail",
+        "seconds": 0.7022395674139261
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          256,
+          0
+        ],
+        "lane": "prompt_setup",
+        "seconds": 0.7582363802939653
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          512,
+          0
+        ],
+        "lane": "prompt_setup",
+        "seconds": 0.7330756671726704
+      }
+    ],
+    "duration_s": 6.910977387800813,
+    "allocated_before_bytes": 27174896128,
+    "allocated_after_bytes": 34311485440,
+    "reserved_after_bytes": 35850813440
+  },
+  "audio_stream_core_policy": {
+    "before": {
+      "cube_core_num": 24,
+      "vector_core_num": 48
+    },
+    "after": {
+      "cube_core_num": 12,
+      "vector_core_num": 24
+    },
+    "device_limit": {
+      "cube_core_num": 24,
+      "vector_core_num": 48
+    },
+    "prompt_limit": {
+      "cube_core_num": 24,
+      "vector_core_num": 48
+    },
+    "capture_on_current_stream": true
+  },
+  "thinker_prefix_cache_enabled": true,
+  "thinker_prefix_cache_tokens": 0,
+  "thinker_prefix_cache_min_live": 9,
+  "thinker_prefix_cache_stats": {
+    "hits": 0,
+    "misses": 0,
+    "tokens_reused": 0,
+    "tokens_computed": 0,
+    "requests_bypassed_below_min_live": 230
+  },
+  "thinker_batch_append_prefill": true,
+  "thinker_batch_append_prefill_failures": [],
+  "talker_graph_buckets": [],
+  "prompt_cache_entries": 0,
+  "prompt_cache_refs": 0,
+  "thinker_kv_pages_used": 1,
+  "talker_kv_pages_used": 1,
+  "thinker_kv_pages": 128,
+  "talker_kv_pages": 128,
+  "npu_memory_allocated_bytes": 35253772800,
+  "npu_memory_reserved_bytes": 43031461888,
+  "rss_max_kib": 7259288,
+  "rss_kib": 4528680,
+  "live_requests": [],
+  "prefill_token_budget": null,
+  "prefill_tokens_tick_max": 0,
+  "prefill_chunked_ticks": 0,
+  "prefill_kv_wait_ticks": 0,
+  "talker_starts_deferred_ticks": 0,
+  "talker_kv_wait_ticks": 0,
+  "cancelled_streams": 0,
+  "failed_streams": 0
+}

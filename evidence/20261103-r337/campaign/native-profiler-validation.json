@@ -1,0 +1,80 @@
+{
+  "rows": [
+    {
+      "tag": "nativecpu337",
+      "original_job_exit": 1,
+      "profiler_exit": 254,
+      "model_exit": 0,
+      "model_requests_completed": 128,
+      "model_requests_failed": 0,
+      "stream_bytes": 3897731,
+      "parsed_samples": 223668,
+      "metadata": {
+        "austin": "4.1.0",
+        "interval": "10000",
+        "mode": "cpu",
+        "python": "3.12.13",
+        "cwd": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r337",
+        "venv": "/workspace/minicpmo-r182/venv",
+        "pythonpath": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r337:/workspace/minicpmo-r182/rsi-r312-r351-20261102:/usr/local/Ascend/cann-9.1.0/python/site-packages:/usr/local/Ascend/cann-9.1.0/opp/built-in/op_impl/ai_core/tbe:/usr/local/Ascend/ascend-toolkit/latest/python/site-packages:/usr/local/Ascend/ascend-toolkit/latest/opp/built-in/op_impl/ai_core/tbe:",
+        "count": "223668",
+        "duration": "20012501",
+        "sampling": "5447,9448,17536",
+        "saturation": "366/1026",
+        "errors": "1/223668"
+      },
+      "critical_threads": [
+        {
+          "role": "npu-engine",
+          "cpu_core_pct": 46.61224563293095,
+          "valid_stack_samples": 0
+        },
+        {
+          "role": "npu-token2wav",
+          "cpu_core_pct": 23.381547162149833,
+          "valid_stack_samples": 0
+        }
+      ],
+      "stack_payload_counts": {
+        "campplus_0": 410,
+        "python": 469,
+        "npu-t2w-prepare_1": 9,
+        "npu-t2w-prepare_0": 4,
+        "MainThread": 1
+      },
+      "valid_for_overall_cpu_attribution": false,
+      "reason": "Frame-pointer observer omitted engine/audio stack payload despite nonzero CPU clocks",
+      "validation_bug": "Original exposure check required exactly20.00s; actual20.01s and expected254 completion, receipt remains1",
+      "limitation": "Empty payloads on genuinely idle native threads are expected; missing busy engine/audio coverage is the rejection reason. Profiler read errors are not model request errors."
+    },
+    {
+      "tag": "nativep337",
+      "original_job_exit": 1,
+      "profiler_exit": -11,
+      "model_exit": 0,
+      "model_requests_completed": 128,
+      "model_requests_failed": 0,
+      "stream_bytes": 4,
+      "parsed_samples": 0,
+      "metadata": {},
+      "critical_threads": [
+        {
+          "role": "npu-engine",
+          "cpu_core_pct": 76.03447841632966,
+          "valid_stack_samples": 0
+        },
+        {
+          "role": "npu-token2wav",
+          "cpu_core_pct": 37.765469412084265,
+          "valid_stack_samples": 0
+        }
+      ],
+      "stack_payload_counts": {},
+      "valid_for_overall_cpu_attribution": false,
+      "reason": "libunwind observer itself SIGSEGV; header-only4byte output has no samples",
+      "validation_bug": null,
+      "limitation": "Empty payloads on genuinely idle native threads are expected; missing busy engine/audio coverage is the rejection reason. Profiler read errors are not model request errors."
+    }
+  ],
+  "verdict": "Do not publish Python/CANN CPU-time percentages from either observer; keep existing /proc/GIL/device evidence with its narrower scope."
+}

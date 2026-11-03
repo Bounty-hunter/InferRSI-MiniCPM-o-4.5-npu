@@ -1,0 +1,21 @@
+{
+  "tag": "r326",
+  "engine": "engine-r326",
+  "config": "config-r326.json",
+  "engine_sha256": "c9482b60701e81164c95cec809cd9c6ad2f80fde85fae5aaa6a1a70a2e8ea64b",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19215,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Recovered Python samples show HiFT torch parametrizations weight access in eager tails. Materialize immutable inference weight_norm values once before graph capture; validate every weight exact at startup, no changed convolution/precision/seed",
+  "kind": "hift-static-weightnorm"
+}

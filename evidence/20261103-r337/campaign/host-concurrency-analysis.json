@@ -1,0 +1,349 @@
+{
+  "window": {
+    "start_us": 1793622580867065.0,
+    "end_us": 1793622592917693.8,
+    "span_ms": 12050.62875,
+    "busy_union_ms": 7310.51575,
+    "busy_pct": 60.66501509309214,
+    "uncovered_ms": 4740.113,
+    "largest_internal_gaps_ms": [
+      8.872,
+      8.6515,
+      4.2385,
+      3.168,
+      2.474,
+      1.988,
+      1.95075,
+      1.9025,
+      1.899,
+      1.8965,
+      1.862,
+      1.83125,
+      1.78,
+      1.7375,
+      1.71325,
+      1.69175,
+      1.678,
+      1.67625,
+      1.66575,
+      1.66
+    ]
+  },
+  "wait_by_caller": {
+    "_decode_windows_threaded": {
+      "n": 33,
+      "sum_ms": 1229.96792,
+      "mean_ms": 37.27175515151515,
+      "max_ms": 262.657559,
+      "p95_ms": 198.986176
+    },
+    "_setup_prompts": {
+      "n": 16,
+      "sum_ms": 2494.461277,
+      "mean_ms": 155.9038298125,
+      "max_ms": 315.640713,
+      "p95_ms": 315.640713
+    },
+    "_run_t2w": {
+      "n": 18,
+      "sum_ms": 713.08253,
+      "mean_ms": 39.61569611111111,
+      "max_ms": 355.818052,
+      "p95_ms": 355.818052
+    }
+  },
+  "hold_by_caller": {
+    "_decode_windows_threaded": {
+      "n": 33,
+      "sum_ms": 7261.5136760000005,
+      "mean_ms": 220.04586896969698,
+      "max_ms": 359.246681,
+      "p95_ms": 349.24647
+    },
+    "_setup_prompts": {
+      "n": 16,
+      "sum_ms": 2667.247742,
+      "mean_ms": 166.702983875,
+      "max_ms": 209.316806,
+      "p95_ms": 209.316806
+    },
+    "_run_t2w": {
+      "n": 18,
+      "sum_ms": 0.864083,
+      "mean_ms": 0.04800461111111111,
+      "max_ms": 0.084122,
+      "p95_ms": 0.084122
+    }
+  },
+  "sampled_top_stacks": {
+    "npu-t2w-prepare_1": [
+      [
+        "thread.py:90:_worker",
+        839
+      ],
+      [
+        "capture_hooks.py:48:__enter__",
+        100
+      ],
+      [
+        "streams.py:85:synchronize",
+        75
+      ],
+      [
+        "linear.py:134:forward",
+        25
+      ],
+      [
+        "entry_external_d.py:14:observed_to",
+        21
+      ],
+      [
+        "functional.py:2935:layer_norm",
+        9
+      ],
+      [
+        "model.py:58:forward",
+        7
+      ],
+      [
+        "functional.py:681:stft",
+        6
+      ],
+      [
+        "audio.py:72:mel_spectrogram",
+        4
+      ],
+      [
+        "model_v2.py:70:apply_rotary_emb",
+        4
+      ],
+      [
+        "functional.py:5418:pad",
+        3
+      ],
+      [
+        "attention.py:325:forward",
+        3
+      ]
+    ],
+    "campplus_0": [
+      [
+        "thread.py:90:_worker",
+        941
+      ],
+      [
+        "onnxruntime_inference_collection.py:395:run",
+        224
+      ]
+    ],
+    "asyncio_1": [
+      [
+        "thread.py:90:_worker",
+        1164
+      ],
+      [
+        "tokenization_utils_tokenizers.py:1063:_encode_plus",
+        1
+      ]
+    ],
+    "asyncio_0": [
+      [
+        "thread.py:90:_worker",
+        1163
+      ],
+      [
+        "tokenization_utils_tokenizers.py:1063:_encode_plus",
+        2
+      ]
+    ],
+    "npu-t2w-prepare_0": [
+      [
+        "thread.py:90:_worker",
+        813
+      ],
+      [
+        "capture_hooks.py:48:__enter__",
+        141
+      ],
+      [
+        "streams.py:85:synchronize",
+        65
+      ],
+      [
+        "entry_external_d.py:14:observed_to",
+        29
+      ],
+      [
+        "linear.py:134:forward",
+        16
+      ],
+      [
+        "model.py:58:forward",
+        8
+      ],
+      [
+        "audio.py:72:mel_spectrogram",
+        5
+      ],
+      [
+        "model_v2.py:68:apply_rotary_emb",
+        4
+      ],
+      [
+        "soundfile.py:1293:_open",
+        3
+      ],
+      [
+        "conv.py:370:_conv_forward",
+        3
+      ],
+      [
+        "functional.py:681:stft",
+        3
+      ],
+      [
+        "embedding.py:93:forward",
+        3
+      ]
+    ],
+    "npu-token2wav": [
+      [
+        "threading.py:359:wait",
+        273
+      ],
+      [
+        "diagnostic_entry.py:90:wrapped",
+        245
+      ],
+      [
+        "capture_hooks.py:48:__enter__",
+        186
+      ],
+      [
+        "linear.py:134:forward",
+        84
+      ],
+      [
+        "layers.py:85:forward",
+        53
+      ],
+      [
+        "parametrizations.py:327:forward",
+        52
+      ],
+      [
+        "conv.py:370:_conv_forward",
+        33
+      ],
+      [
+        "_tensor.py:1120:__rdiv__",
+        20
+      ],
+      [
+        "functional.py:2935:layer_norm",
+        17
+      ],
+      [
+        "layers.py:82:forward",
+        11
+      ],
+      [
+        "attention.py:320:forward",
+        10
+      ],
+      [
+        "attention.py:113:forward_attention",
+        9
+      ]
+    ],
+    "npu-engine": [
+      [
+        "diagnostic_entry.py:90:wrapped",
+        154
+      ],
+      [
+        "fp8.py:44:linear",
+        141
+      ],
+      [
+        "_ops.py:1209:__call__",
+        126
+      ],
+      [
+        "entry_external_d.py:14:observed_to",
+        84
+      ],
+      [
+        "npu_paged.py:215:dense_layer",
+        84
+      ],
+      [
+        "paged.py:153:hf_rms_norm",
+        73
+      ],
+      [
+        "paged.py:172:rot",
+        59
+      ],
+      [
+        "npu_paged.py:216:dense_layer",
+        41
+      ],
+      [
+        "npu_paged.py:217:dense_layer",
+        38
+      ],
+      [
+        "paged.py:174:hf_rope",
+        37
+      ],
+      [
+        "npu_paged.py:721:_append_prefill_reference",
+        37
+      ],
+      [
+        "entry_external_d.py:17:observed_to",
+        28
+      ]
+    ],
+    "MainThread": [
+      [
+        "selectors.py:468:select",
+        1144
+      ],
+      [
+        "selector_events.py:1075:write",
+        5
+      ],
+      [
+        "selector_events.py:1102:_write_sendmsg",
+        4
+      ],
+      [
+        "selector_events.py:1013:_read_ready__data_received",
+        3
+      ],
+      [
+        "_methods.py:99:_clip",
+        3
+      ],
+      [
+        "soundfile.py:1287:<lambda>",
+        2
+      ],
+      [
+        "selector_events.py:132:_read_from_self",
+        2
+      ],
+      [
+        "socket.py:499:_real_close",
+        1
+      ],
+      [
+        "backend_npu.py:650:_acquire_prompt",
+        1
+      ]
+    ]
+  },
+  "limitation": "Recovered instrumented diagnostic, sampled Python stacks include off-CPU waits/native calls; not GIL ownership. Lock wait sums can overlap and are not recoverable E2E time."
+}

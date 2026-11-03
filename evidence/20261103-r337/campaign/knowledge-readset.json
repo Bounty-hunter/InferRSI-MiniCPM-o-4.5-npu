@@ -1,0 +1,32 @@
+[
+  {
+    "path": "repos/InferRSI/src/inferrsi/data/knowledge_packs/peer/deepinfer/common/llm/speculative-verification-budget.json",
+    "sha256": "a729e1fc00be44e1480a5dc65bbcdd58df8599681df74dbc651a5a49f27e9028",
+    "id": "deepinfer.common.llm.speculative_verification_budget",
+    "evidence": "source guidance; external reported gains not transferred"
+  },
+  {
+    "path": "repos/InferRSI/src/inferrsi/data/knowledge_packs/peer/deepinfer/common/llm/zero-overhead-deferred-scheduling.json",
+    "sha256": "ed5426af145f066f6183bd316c4073c46f324f5ee83aa9bd616387c0d0e7149c",
+    "id": "deepinfer.common.llm.zero_overhead_deferred_scheduling",
+    "evidence": "source guidance; external reported gains not transferred"
+  },
+  {
+    "path": "repos/InferRSI/src/inferrsi/data/knowledge_packs/peer/qwen3_tts_engine/ascend/audio/graph-batching-state-ownership.json",
+    "sha256": "130741a9f7ac9d366784d6c4dd42860262235caff0c277de1e8a8f8ec933b37f",
+    "id": "qwen3_tts_engine.ascend.audio.graph_batching_state_ownership",
+    "evidence": "source guidance; external reported gains not transferred"
+  },
+  {
+    "path": "repos/InferRSI/src/inferrsi/data/knowledge_packs/dependency/pytorch/cuda/compiler/cudagraph-shapes-and-lifetimes.json",
+    "sha256": "7fef4122ff794967e61f55d02a4a6b558d7e498d9513607f5ca86db6386928a8",
+    "id": "pytorch.cuda.compiler.cudagraph_shapes_and_lifetimes",
+    "evidence": "Conceptual host-launch/lifetime/resource guidance; CUDA/HIP compatibility and foreign gains not transferred"
+  },
+  {
+    "path": "repos/InferRSI/src/inferrsi/data/knowledge_packs/dependency/triton/common/kernel/bandwidth-fusion-resource-limits.json",
+    "sha256": "6e9673d1a600a6ad34820e4325f2a6417f44f0f96d8ed0bcf21466d998f19ee4",
+    "id": "triton.common.kernel.bandwidth_fusion_resource_limits",
+    "evidence": "Conceptual host-launch/lifetime/resource guidance; CUDA/HIP compatibility and foreign gains not transferred"
+  }
+]

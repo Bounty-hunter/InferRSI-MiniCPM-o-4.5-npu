@@ -1,0 +1,18 @@
+Mon Nov  2 12:40:14 PM UTC 2026
+[INFO] Start profiling....
+[INFO] Start export data in PROF_000001_20261102122940811_00188353NIAPJJCQ.
+Mon 02 Nov 2026 12:40:15 [INFO] [MSVP] [190512] msprof_export.py: The data in "/workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/host" has been analyzed. Parsing phase will be skipped.
+Mon 02 Nov 2026 12:40:15 [INFO] [MSVP] [190512] msprof_export.py: The data in "/workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/device_5" has been analyzed. Parsing phase will be skipped.
+Mon 02 Nov 2026 12:40:15 [INFO] [MSVP] [190512] msprof_export.py: All collected data will be exported, path is: /workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/device_5.
+Mon 02 Nov 2026 12:42:08 [INFO] [MSVP] [190561] msprof_export.py: The data in "/workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/host" has been analyzed. Parsing phase will be skipped.
+Mon 02 Nov 2026 12:42:08 [INFO] [MSVP] [190561] msprof_export.py: The data in "/workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/device_5" has been analyzed. Parsing phase will be skipped.
+Mon 02 Nov 2026 12:42:08 [INFO] [MSVP] [190561] msprof_export.py: All collected data will be exported, path is: /workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/device_5.
+Mon 02 Nov 2026 12:42:12 [INFO] [MSVP] [190561] msprof_export.py: There is no summary data to export for "/workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/host"
+Mon 02 Nov 2026 12:43:56 [INFO] [MSVP] [190561] msprof_export.py: All collected data will be exported, path is: /workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/device_5.
+Mon 02 Nov 2026 12:43:56 [INFO] [MSVP] [190561] msprof_export.py: There is no summary data to export for "/workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/device_5"
+Mon 02 Nov 2026 12:43:56 [INFO] [MSVP] [190561] msprof_common.py: Start exporting summary output_file.
+Mon 02 Nov 2026 12:43:56 [INFO] [MSVP] [190561] msprof_common.py: End exporting summary output_file.The file is stored in the /workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ/mindstudio_profiler_output path.
+[INFO] Export all data in PROF_000001_20261102122940811_00188353NIAPJJCQ done.
+[INFO] Profiling finished.
+[INFO] Process profiling data complete. Data is saved in /workspace/minicpmo-r182/artifacts/rsi-r312-r351-20261102/profile309d/diagnostic/msprof/PROF_000001_20261102122940811_00188353NIAPJJCQ
+Mon Nov  2 12:43:57 PM UTC 2026

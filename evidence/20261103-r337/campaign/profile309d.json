@@ -1,0 +1,14 @@
+{
+  "tag": "profile309d",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [],
+  "diagnostic": [
+    8
+  ],
+  "quality": false,
+  "port": 19248,
+  "runner": "run_external_d.py",
+  "hypothesis": "External collection repair: unique CPU sampler uses true modelPID; stop own application and allow msprof normal export/exit; not an algorithm round"
+}

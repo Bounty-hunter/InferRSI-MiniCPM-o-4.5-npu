@@ -1,0 +1,351 @@
+{
+  "scope": "Direct one-card NPU comparison by concurrency, not iteration number",
+  "candidate": "r337",
+  "omni_server_sha": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+  "concurrencies": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "measured_requests": [
+    32,
+    32,
+    64,
+    128
+  ],
+  "warmups_per_tier": 2,
+  "request_errors": 0,
+  "c1_supplement": {
+    "verified": true,
+    "concurrency": 1,
+    "measured_requests": 32,
+    "warmups": 2,
+    "supplementary_measurement": true,
+    "same_engine_source_and_config": true,
+    "same_omni_source_and_deploy": true,
+    "spec": {
+      "tag": "omni-c1",
+      "algorithm_round": false,
+      "baseline_repeat_of": "omni-final",
+      "server_sha": "9990f10d9e898c3d38b1fa640513d55f771b8685",
+      "client_sha": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+      "port": 19370,
+      "tiers": [
+        [
+          32,
+          1
+        ]
+      ],
+      "chunk": 25,
+      "runner_sha256": "4860189a2c0a4272b28b27b8132a7ad8e450538877eedd89940dbf7139f4a663",
+      "reason": "User-requested C1 completion for same version and configuration; supplementary measurement time retained"
+    },
+    "engine_repeats": [
+      {
+        "tag": "r337-c1B1",
+        "completed": 32,
+        "failed": 0,
+        "info": {
+          "config_path": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/config-r337.json",
+          "config_sha256": "d1b3c3b8114fd1b16334ec38cdb2ac65ea143c2da87dfe415dac501bde3db8d9",
+          "backend": "engine.runtime.backend_npu:AscendTrackSBackend",
+          "engine_tree_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+          "python": "/workspace/minicpmo-r182/venv/bin/python",
+          "python_dists_sha256": "c856070dd209a353c95ac91178ff4b32819fb265e90c2b954d1bffaf861e35b0",
+          "pid": 276654,
+          "t2w_worker_pid": null,
+          "device_type": "npu",
+          "device_index": 0,
+          "device_name": "Ascend910B1",
+          "device_properties": "_NPUDeviceProperties(name='Ascend910B1', total_memory=62420MB, cube_core_num=24, vector_core_num=48, uuid=00cc0800-d000-0000-0000-24f603f15d18, L2_cache_size=192MB)",
+          "visible_devices": "7"
+        },
+        "status": {
+          "phase": "completed",
+          "utc": "2026-11-03T01:21:21Z",
+          "measurements": [
+            {
+              "mode": "native",
+              "concurrency": 1,
+              "ttfp_ms": 522.7217956271488,
+              "rtf": 0.2232806797378261,
+              "req_s": 1.0826186051410178,
+              "completed": 32,
+              "failed": 0
+            }
+          ],
+          "quality": "generation only, not scored gate"
+        }
+      },
+      {
+        "tag": "r337-c1B2",
+        "completed": 32,
+        "failed": 0,
+        "info": {
+          "config_path": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/config-r337.json",
+          "config_sha256": "d1b3c3b8114fd1b16334ec38cdb2ac65ea143c2da87dfe415dac501bde3db8d9",
+          "backend": "engine.runtime.backend_npu:AscendTrackSBackend",
+          "engine_tree_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+          "python": "/workspace/minicpmo-r182/venv/bin/python",
+          "python_dists_sha256": "c856070dd209a353c95ac91178ff4b32819fb265e90c2b954d1bffaf861e35b0",
+          "pid": 277227,
+          "t2w_worker_pid": null,
+          "device_type": "npu",
+          "device_index": 0,
+          "device_name": "Ascend910B1",
+          "device_properties": "_NPUDeviceProperties(name='Ascend910B1', total_memory=62420MB, cube_core_num=24, vector_core_num=48, uuid=00cc0800-d000-0000-0000-24f603f15d18, L2_cache_size=192MB)",
+          "visible_devices": "7"
+        },
+        "status": {
+          "phase": "completed",
+          "utc": "2026-11-03T01:23:38Z",
+          "measurements": [
+            {
+              "mode": "native",
+              "concurrency": 1,
+              "ttfp_ms": 509.9688179907389,
+              "rtf": 0.21711627066814843,
+              "req_s": 1.088306250334358,
+              "completed": 32,
+              "failed": 0
+            }
+          ],
+          "quality": "generation only, not scored gate"
+        }
+      }
+    ],
+    "omni_status": {
+      "phase": "completed",
+      "time_utc": "2026-11-03T01:18:57Z",
+      "cells": 1,
+      "completed": 32,
+      "failed": 0,
+      "quality_gate": "NOT_RUN",
+      "frozen_lcb": "NOT_RUN"
+    },
+    "request_errors": 0,
+    "speech_gate": "NOT_RUN",
+    "equal_quality_claim": false
+  },
+  "sources": [
+    {
+      "path": "results/omni-c1/summary.json",
+      "sha256": "13ead99363b3a899daf0726215958e332487498eda3f8cb28ef6a6221c149cf1"
+    },
+    {
+      "path": "results/omni-final/summary.json",
+      "sha256": "e24710797e9905e185200b711953a483da69dc9d9569fa752c0733f7ff8a74e7"
+    },
+    {
+      "path": "results/r337-c1B1/native/c1.json",
+      "sha256": "cf055b0ffdc553ea004b5fcd3683c60cda21e55c9137c9e8f56c09143f9c303e"
+    },
+    {
+      "path": "results/r337-finalB1/native/c2.json",
+      "sha256": "cb4af92e42f988ff6231c4a0efe6092c453625dd746ccc91d252be6a5d24d0fc"
+    },
+    {
+      "path": "results/r337-finalB1/native/c4.json",
+      "sha256": "55a1b2145b49d61ce8d04e08b4f14c1583de597c230947b64d1868111623a3ee"
+    },
+    {
+      "path": "results/r337-finalB1/native/c8.json",
+      "sha256": "1ee6936909d4c9452455fd870149471731727b85ea64709c166743d35b3cf137"
+    },
+    {
+      "path": "results/r337-c1B2/native/c1.json",
+      "sha256": "bccedfead21003815afe68ed8591fbede584b9d700e3dc8ee8c353ae5b3af668"
+    },
+    {
+      "path": "results/r337-finalB2/native/c2.json",
+      "sha256": "5f4f42bbc259a98b1666b5bc1e4700eaf75ef9d97844047f19e4523655cfe39a"
+    },
+    {
+      "path": "results/r337-finalB2/native/c4.json",
+      "sha256": "2968b1ca263873c7b6779a0dc309f9f0151caadc8e99cbbc0877ac3acc1e4166"
+    },
+    {
+      "path": "results/r337-finalB2/native/c8.json",
+      "sha256": "0c47d5524deaada8097221cbc6a09ae5ee347f4ef8ffd8e72675f27dc67892fd"
+    }
+  ],
+  "rows": [
+    {
+      "concurrency": 1,
+      "measured_requests": 32,
+      "supplementary_measurement": true,
+      "omni": {
+        "mean_audio_ttfp_ms": 867.1766117913648,
+        "mean_audio_rtf": 0.3113603539299176,
+        "request_throughput": 0.8011817748554725,
+        "p99_audio_ttfp_ms": 1367.9244583658876,
+        "p99_audio_rtf": 0.3740800579051104,
+        "total_audio_duration_s": 130.28
+      },
+      "engine_result": {
+        "mean_audio_ttfp_ms": 516.3453068089439,
+        "mean_audio_rtf": 0.22019847520298724,
+        "request_throughput": 1.0854624277376879,
+        "p99_audio_ttfp_ms": 582.5273203849792,
+        "p99_audio_rtf": 0.28697653823258784,
+        "total_audio_duration_s": 136.51999999999998
+      },
+      "engine_repeats": [
+        {
+          "mean_audio_ttfp_ms": 522.7217956271488,
+          "mean_audio_rtf": 0.2232806797378261,
+          "request_throughput": 1.0826186051410178,
+          "p99_audio_ttfp_ms": 587.8877400234342,
+          "p99_audio_rtf": 0.2917894135453368,
+          "total_audio_duration_s": 134.88
+        },
+        {
+          "mean_audio_ttfp_ms": 509.9688179907389,
+          "mean_audio_rtf": 0.21711627066814843,
+          "request_throughput": 1.088306250334358,
+          "p99_audio_ttfp_ms": 577.1669007465243,
+          "p99_audio_rtf": 0.2821636629198389,
+          "total_audio_duration_s": 138.16
+        }
+      ]
+    },
+    {
+      "concurrency": 2,
+      "measured_requests": 32,
+      "supplementary_measurement": false,
+      "omni": {
+        "mean_audio_ttfp_ms": 1060.6630487600341,
+        "mean_audio_rtf": 0.41418870707429434,
+        "request_throughput": 1.2062151225448137,
+        "p99_audio_ttfp_ms": 1492.4173803068697,
+        "p99_audio_rtf": 0.5481557488465004,
+        "total_audio_duration_s": 129.64
+      },
+      "engine_result": {
+        "mean_audio_ttfp_ms": 763.1479334231699,
+        "mean_audio_rtf": 0.33038778810426966,
+        "request_throughput": 1.456162924616054,
+        "p99_audio_ttfp_ms": 950.2508907346055,
+        "p99_audio_rtf": 0.46534106099252365,
+        "total_audio_duration_s": 136.06
+      },
+      "engine_repeats": [
+        {
+          "mean_audio_ttfp_ms": 794.1753315681126,
+          "mean_audio_rtf": 0.3347740438494865,
+          "request_throughput": 1.4349796424010486,
+          "p99_audio_ttfp_ms": 980.0613088626415,
+          "p99_audio_rtf": 0.4687587145705252,
+          "total_audio_duration_s": 136.92
+        },
+        {
+          "mean_audio_ttfp_ms": 732.1205352782272,
+          "mean_audio_rtf": 0.3260015323590528,
+          "request_throughput": 1.477346206831059,
+          "p99_audio_ttfp_ms": 920.4404726065695,
+          "p99_audio_rtf": 0.4619234074145221,
+          "total_audio_duration_s": 135.2
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "measured_requests": 64,
+      "supplementary_measurement": false,
+      "omni": {
+        "mean_audio_ttfp_ms": 1429.6158416982507,
+        "mean_audio_rtf": 0.5970206659688169,
+        "request_throughput": 1.6082713294481612,
+        "p99_audio_ttfp_ms": 1958.9528113324188,
+        "p99_audio_rtf": 0.823626110309763,
+        "total_audio_duration_s": 267.8
+      },
+      "engine_result": {
+        "mean_audio_ttfp_ms": 1187.9630964976968,
+        "mean_audio_rtf": 0.5220054139544991,
+        "request_throughput": 1.7488818956285654,
+        "p99_audio_ttfp_ms": 1599.3205868359655,
+        "p99_audio_rtf": 0.7408182803718086,
+        "total_audio_duration_s": 285.64
+      },
+      "engine_repeats": [
+        {
+          "mean_audio_ttfp_ms": 1202.2007612977177,
+          "mean_audio_rtf": 0.5390972250731492,
+          "request_throughput": 1.6821994026457288,
+          "p99_audio_ttfp_ms": 1615.0515842158345,
+          "p99_audio_rtf": 0.8160377224261889,
+          "total_audio_duration_s": 288.52
+        },
+        {
+          "mean_audio_ttfp_ms": 1173.725431697676,
+          "mean_audio_rtf": 0.504913602835849,
+          "request_throughput": 1.8155643886114023,
+          "p99_audio_ttfp_ms": 1583.5895894560963,
+          "p99_audio_rtf": 0.6655988383174285,
+          "total_audio_duration_s": 282.76
+        }
+      ]
+    },
+    {
+      "concurrency": 8,
+      "measured_requests": 128,
+      "supplementary_measurement": false,
+      "omni": {
+        "mean_audio_ttfp_ms": 2049.720173497917,
+        "mean_audio_rtf": 1.0233874221344461,
+        "request_throughput": 1.96368511836572,
+        "p99_audio_ttfp_ms": 2677.0565777551383,
+        "p99_audio_rtf": 1.3988768723270333,
+        "total_audio_duration_s": 518.24
+      },
+      "engine_result": {
+        "mean_audio_ttfp_ms": 1678.1500721153861,
+        "mean_audio_rtf": 0.7804703783286973,
+        "request_throughput": 2.4851377660372393,
+        "p99_audio_ttfp_ms": 2235.192088163458,
+        "p99_audio_rtf": 1.1390164787699895,
+        "total_audio_duration_s": 539.1800000000001
+      },
+      "engine_repeats": [
+        {
+          "mean_audio_ttfp_ms": 1686.193266796181,
+          "mean_audio_rtf": 0.7814887819694083,
+          "request_throughput": 2.4622199908765685,
+          "p99_audio_ttfp_ms": 2235.301288506016,
+          "p99_audio_rtf": 1.1507911039955967,
+          "total_audio_duration_s": 542.92
+        },
+        {
+          "mean_audio_ttfp_ms": 1670.1068774345913,
+          "mean_audio_rtf": 0.7794519746879861,
+          "request_throughput": 2.50805554119791,
+          "p99_audio_ttfp_ms": 2235.0828878209,
+          "p99_audio_rtf": 1.1272418535443822,
+          "total_audio_duration_s": 535.44
+        }
+      ]
+    }
+  ],
+  "aggregation": "Arithmetic mean of the two candidate run-level values for every metric and tier. Gains computed from the aggregated values against Omni.",
+  "p99_definition": "Arithmetic mean of two run-level P99 values, not a pooled-request P99.",
+  "baseline_curves_shown": 1,
+  "engine_curves_shown": 1,
+  "engine_repeats_shown": 0,
+  "candidate_source_runs_per_tier": 2,
+  "speech_gate": "NOT_RUN",
+  "equal_quality_claim": false,
+  "qualification": "Omni Flow FP32/10 vs engine FP16/6; RNG and generated audio lengths differ; raw gains cannot all be assigned to RSI.",
+  "files": [
+    "独立引擎vs-vLLM-Omni-均值.png",
+    "独立引擎vs-vLLM-Omni-均值.svg",
+    "独立引擎vs-vLLM-Omni-均值.pdf",
+    "独立引擎vs-vLLM-Omni-性能差值.png",
+    "独立引擎vs-vLLM-Omni-性能差值.svg",
+    "独立引擎vs-vLLM-Omni-性能差值.pdf",
+    "独立引擎vs-vLLM-Omni-P99.png",
+    "独立引擎vs-vLLM-Omni-P99.svg",
+    "独立引擎vs-vLLM-Omni-P99.pdf"
+  ]
+}

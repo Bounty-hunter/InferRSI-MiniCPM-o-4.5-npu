@@ -1,0 +1,25 @@
+{
+  "tag": "r327",
+  "engine": "engine-r327",
+  "config": "config-r327.json",
+  "engine_sha256": "0ef10fe12070e7d52ca10f436820aa366b004844357d4a7f322eef6d339f5372",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19216,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Actual12.05s diagnostic: audio waits1.23s for shared flow scratch, setup holds2.67s. Give prompt setup a private copied flow module and SETUP-only Euler arena+lock, retaining shared speaker/features/HiFT and original audio/decoder; not a duplicate full engine. Test useful independent-stream overlap with no global sharing settings",
+  "kind": "private-prompt-flow"
+}

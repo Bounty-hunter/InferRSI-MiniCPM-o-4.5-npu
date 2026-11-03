@@ -1,0 +1,21 @@
+{
+  "tag": "r313",
+  "engine": "engine-r313",
+  "config": "config-r313.json",
+  "engine_sha256": "bc81b7577bb14370738683cd0a4251159bb20731f5dbab89f8d3a412b81d3148",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19202,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "81 measured three-row Talker calls use ten graph lanes; preserve excluded exact-row3 kernel, instead ordered2+1 already-qualified full K-block graphs; same counter seeds/frame/chunk",
+  "kind": "split-three"
+}

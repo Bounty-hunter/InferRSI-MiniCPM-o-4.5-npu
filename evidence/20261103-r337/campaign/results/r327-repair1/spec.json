@@ -1,0 +1,26 @@
+{
+  "tag": "r327-repair1",
+  "engine": "engine-r327-repair1",
+  "config": "config-r327-repair1.json",
+  "engine_sha256": "4e11ab71933bb48b0e1b4a6840ae5456a34ff8cf647efcb98176f7f6a89aa925",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19276,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "repair_of": "r327",
+  "algorithm_round": false,
+  "hypothesis": "Implementation repair: r327 CANN507000 task-group count mismatch under increased prompt concurrency. Exclude unrelated host launches only while issuing PA begin/operator/end/event transaction; keep device overlap, same private prompt copy/math, retain original crash. Interleaving cause remains hypothesis"
+}

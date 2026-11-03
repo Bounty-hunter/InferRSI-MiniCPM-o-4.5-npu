@@ -1,0 +1,14 @@
+{
+  "tag": "profile309e",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [],
+  "diagnostic": [
+    8
+  ],
+  "quality": false,
+  "port": 19258,
+  "runner": "run_profile_e.py",
+  "hypothesis": "Repair Python CPU-op\u2192async CANN\u2192device correlation with owner-thread scheduledCPU+NPU profiler WITHOUT known-crashing nativewith_stack. Explicit Python samples and record_function scopes retained; never a native performance result or algorithm round"
+}

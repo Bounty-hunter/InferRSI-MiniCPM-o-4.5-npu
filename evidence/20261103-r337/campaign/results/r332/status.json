@@ -1,0 +1,61 @@
+{
+  "phase": "completed",
+  "utc": "2026-11-02T14:53:00Z",
+  "measurements": [
+    {
+      "mode": "native",
+      "concurrency": 2,
+      "ttfp_ms": 750.1060579379555,
+      "rtf": 0.3577589989098664,
+      "req_s": 1.3328061182313509,
+      "completed": 32,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 4,
+      "ttfp_ms": 1149.6915445895866,
+      "rtf": 0.5312454201088274,
+      "req_s": 1.6294511867011818,
+      "completed": 64,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 8,
+      "ttfp_ms": 1751.1252931653871,
+      "rtf": 0.8126615414471856,
+      "req_s": 2.3548524251076293,
+      "completed": 128,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 2,
+      "ttfp_ms": 759.4345882826019,
+      "rtf": 0.35930454935806194,
+      "req_s": 1.3068737742257441,
+      "completed": 32,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 4,
+      "ttfp_ms": 1164.9254675867269,
+      "rtf": 0.5320662182924543,
+      "req_s": 1.7238638939405997,
+      "completed": 64,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 8,
+      "ttfp_ms": 1815.7564702269156,
+      "rtf": 0.8220419966181525,
+      "req_s": 2.3264296591049374,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "quality": "generation only, not scored gate"
+}

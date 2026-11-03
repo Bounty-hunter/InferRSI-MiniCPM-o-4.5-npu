@@ -1,0 +1,18 @@
+{
+  "tag": "control309-finalA2",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19345,
+  "runner": "run_lowc.py",
+  "confirmation_of": "control309",
+  "algorithm_round": false,
+  "hypothesis": "Fresh official unprofiled native confirmation, source/config unchanged; not an algorithm round"
+}

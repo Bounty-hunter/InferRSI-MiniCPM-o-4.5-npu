@@ -1,0 +1,123 @@
+{
+  "order": [
+    "control309-coreA1",
+    "r320-confirm1",
+    "control309-coreA2"
+  ],
+  "rows": [
+    {
+      "c": 2,
+      "metrics": {
+        "control309-coreA1": {
+          "mean_audio_ttfp_ms": 843.8319639826659,
+          "mean_audio_rtf": 0.37477557470302564,
+          "request_throughput": 1.2661404236945724
+        },
+        "r320-confirm1": {
+          "mean_audio_ttfp_ms": 805.7254130253568,
+          "mean_audio_rtf": 0.32989558664533974,
+          "request_throughput": 1.4831651903837304
+        },
+        "control309-coreA2": {
+          "mean_audio_ttfp_ms": 857.4018328508828,
+          "mean_audio_rtf": 0.3686068610770071,
+          "request_throughput": 1.2754697799385186
+        }
+      },
+      "gain_pct": {
+        "control309-coreA1": {
+          "mean_audio_ttfp_ms": 4.515893280156891,
+          "mean_audio_rtf": 11.975163561085612,
+          "request_throughput": 17.140655382906434
+        },
+        "control309-coreA2": {
+          "mean_audio_ttfp_ms": 6.027094630029017,
+          "mean_audio_rtf": 10.502049342912256,
+          "request_throughput": 16.28383625484433
+        }
+      },
+      "audio_s": {
+        "control309-coreA1": 137.8,
+        "r320-confirm1": 135.56,
+        "control309-coreA2": 139.16
+      }
+    },
+    {
+      "c": 4,
+      "metrics": {
+        "control309-coreA1": {
+          "mean_audio_ttfp_ms": 1237.4400819535367,
+          "mean_audio_rtf": 0.5510707658623455,
+          "request_throughput": 1.6580218210197821
+        },
+        "r320-confirm1": {
+          "mean_audio_ttfp_ms": 1199.5205848797923,
+          "mean_audio_rtf": 0.5322060025291349,
+          "request_throughput": 1.727048398701585
+        },
+        "control309-coreA2": {
+          "mean_audio_ttfp_ms": 1229.633728202316,
+          "mean_audio_rtf": 0.5602931468031513,
+          "request_throughput": 1.656757749402018
+        }
+      },
+      "gain_pct": {
+        "control309-coreA1": {
+          "mean_audio_ttfp_ms": 3.0643501553530794,
+          "mean_audio_rtf": 3.423292343169393,
+          "request_throughput": 4.16318873531758
+        },
+        "control309-coreA2": {
+          "mean_audio_ttfp_ms": 2.448952288137718,
+          "mean_audio_rtf": 5.012937322948263,
+          "request_throughput": 4.24266307641763
+        }
+      },
+      "audio_s": {
+        "control309-coreA1": 284.76,
+        "r320-confirm1": 285.8,
+        "control309-coreA2": 284.2
+      }
+    },
+    {
+      "c": 8,
+      "metrics": {
+        "control309-coreA1": {
+          "mean_audio_ttfp_ms": 1790.0579745983123,
+          "mean_audio_rtf": 0.8325263033177283,
+          "request_throughput": 2.305563146698098
+        },
+        "r320-confirm1": {
+          "mean_audio_ttfp_ms": 1694.9044207431143,
+          "mean_audio_rtf": 0.7761350460110075,
+          "request_throughput": 2.4802629416048694
+        },
+        "control309-coreA2": {
+          "mean_audio_ttfp_ms": 1739.6608011840726,
+          "mean_audio_rtf": 0.819924357535012,
+          "request_throughput": 2.335706807222104
+        }
+      },
+      "gain_pct": {
+        "control309-coreA1": {
+          "mean_audio_ttfp_ms": 5.315668833382359,
+          "mean_audio_rtf": 6.773510588433551,
+          "request_throughput": 7.577315553337449
+        },
+        "control309-coreA2": {
+          "mean_audio_ttfp_ms": 2.5727073007850487,
+          "mean_audio_rtf": 5.340652600643669,
+          "request_throughput": 6.188967465256856
+        }
+      },
+      "audio_s": {
+        "control309-coreA1": 542.4,
+        "r320-confirm1": 544.12,
+        "control309-coreA2": 541.16
+      }
+    }
+  ],
+  "quality_gate": "NOT_RUN",
+  "adopted": false,
+  "scope": "Unprofiled official benchmark, same source/client/config per A/B role. Both controls retained. Per-request variation is not independent server-run replication; no confidence interval claim."
+}

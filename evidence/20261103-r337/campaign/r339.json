@@ -1,0 +1,25 @@
+{
+  "tag": "r339",
+  "engine": "engine-r339",
+  "config": "config-r339.json",
+  "engine_sha256": "ce61f85f50297cc007e5801dd4c5fc91dbda0be837cf6cc8ca3a442e4e0fb2af",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19228,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Recovered eager verification/CPU operator trace still constructs invariant inverse frequencies each call; cache exact device-local FP32 inverse vector per decoder owner, preserve sin/cos/multiply rounding and every dynamic position. Reduces host dispatch without language rewrite",
+  "kind": "rope-invariant"
+}

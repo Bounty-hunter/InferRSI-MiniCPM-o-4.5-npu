@@ -1,0 +1,950 @@
+{
+  "verified": true,
+  "links": [
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "独立引擎vs-vLLM-Omni-均值.png",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "独立引擎vs-vLLM-Omni-均值.svg",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "独立引擎vs-vLLM-Omni-均值.pdf",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "独立引擎vs-vLLM-Omni-性能差值.png",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "独立引擎vs-vLLM-Omni-P99.png",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "独立引擎vs-vLLM-Omni-绘图数据.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "knowledge-readset.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "CPU瓶颈与语言选择.md",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "benchmark-sampling-audit.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "results/omni-final/deploy.yaml",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "../../publish/InferRSI-MiniCPM-o-4.5-npu/docs/optimization-journey.zh-CN.md",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "../../publish/InferRSI-MiniCPM-o-4.5-npu/docs/optimization-ledger-npu.zh-CN.md",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "../rsi-r297-r306-20261102/六层profiling继续优化-r307-r309.md",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "持续优化实验记录.md",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "正反序确认与Omni对照.md",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "算法迭代原生均值.png",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "plot-manifest.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "config-r337.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "bindings-audit.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "patches/manifest.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "core-confirmation-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "final-confirmation-summary.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "omni-confirmation-verification.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "关键优化总结数据.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "finalization.json",
+      "exists": true
+    },
+    {
+      "document": "关键优化历程与Omni对比总结.md",
+      "target": "quality-scorer-final-check-20261103.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "关键优化历程与Omni对比总结.md",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "正反序确认与Omni对照.md",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "CPU瓶颈与语言选择.md",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "finalization.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r312.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r312-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r312/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r313.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r313-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r313/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r314.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r314-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r314/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r315.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r315-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r315/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r316.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r316-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r316/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r317.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r317-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r317/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r318.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r318-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r318/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r319.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r319-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r319/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r320.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r320-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r320/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r321.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r321-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r321/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r322.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r322-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r322/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r323.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r323-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r323/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r324.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r324-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r324/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r325.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r325-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r325/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r326.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r326-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r326/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r327.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r327-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r327/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r328.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r328-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r328/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r329.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r329-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r329/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r330.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r330-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r330/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r331.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r331-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r331/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r332.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r332-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r332/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r333.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r333-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r333/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r334.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r334-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r334/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r335.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r335-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r335/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r336.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r336-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r336/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r337.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r337-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r337/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r338.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r338-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r338/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r339.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r339-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r339/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r340.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r340-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r340/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r341.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r341-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r341/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r342.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r342-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r342/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r343.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r343-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r343/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r344.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r344-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r344/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r345.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r345-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r345/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r346.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r346-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r346/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r347.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r347-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r347/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r348.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r348-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r348/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r349.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r349-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r349/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r350.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r350-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r350/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "r351.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/minicpmo-r351-20261102/run.log",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/r351/status.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "core-confirmation-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "native-cpu-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "current-profile-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "gil-probe-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "cpu-clock-profile-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "confirmation1-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "confirmation-overlap-audit.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "campaign-results.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "campaign.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "profilee-bridge-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "profilee-transfer-audit.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/pacapacity309/operator-results.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "../minicpmo-v032-main-r182-20261026/r226-quality-screen-receipt.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "quality-scorer-route-check-20261103.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "bindings-audit.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "private-flow-retry-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "row-counter-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "算法迭代原生均值.png",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "算法迭代原生均值.svg",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "plot-manifest.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "CPU瓶颈与语言选择.md",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "native-profiler-validation.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "scheduler-cpu-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "cgroup-v1-quota-snapshot.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/normprobe309/operator-results.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/rotaryprobe309/operator-results.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "results/roundedrope350/operator-results.json",
+      "exists": true
+    },
+    {
+      "document": "持续优化实验记录.md",
+      "target": "正反序确认与Omni对照.md",
+      "exists": true
+    },
+    {
+      "document": "正反序确认与Omni对照.md",
+      "target": "final-forward-confirmation-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "正反序确认与Omni对照.md",
+      "target": "final-reverse-confirmation-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "正反序确认与Omni对照.md",
+      "target": "持续优化实验记录.md",
+      "exists": true
+    },
+    {
+      "document": "正反序确认与Omni对照.md",
+      "target": "CPU瓶颈与语言选择.md",
+      "exists": true
+    },
+    {
+      "document": "CPU瓶颈与语言选择.md",
+      "target": "scheduler-cpu-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "CPU瓶颈与语言选择.md",
+      "target": "cgroup-v1-quota-snapshot.json",
+      "exists": true
+    },
+    {
+      "document": "CPU瓶颈与语言选择.md",
+      "target": "native-cpu-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "CPU瓶颈与语言选择.md",
+      "target": "gil-probe-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "CPU瓶颈与语言选择.md",
+      "target": "profilee-bridge-analysis.json",
+      "exists": true
+    },
+    {
+      "document": "CPU瓶颈与语言选择.md",
+      "target": "native-profiler-validation.json",
+      "exists": true
+    },
+    {
+      "document": "CPU瓶颈与语言选择.md",
+      "target": "持续优化实验记录.md",
+      "exists": true
+    }
+  ]
+}

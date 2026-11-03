@@ -1,0 +1,621 @@
+{
+  "rows": [
+    {
+      "tag": "r312",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "36a84e43d0d45decfc7b85c90a306df7bd4570f709920ef50202451ff22e455b",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r312-vs-control309.patch",
+      "patch_sha256": "43ca7ac6eb95da11c029d3ed3c21186488d02967f9c347b6eb629e1b8f609d33",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r313",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "bc81b7577bb14370738683cd0a4251159bb20731f5dbab89f8d3a412b81d3148",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r313-vs-control309.patch",
+      "patch_sha256": "3ced39a92d79d96e1690e357a709b72086cac34fd486125025e47a2a76f96009",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r314",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [],
+      "patch": "patches/r314-vs-control309.patch",
+      "patch_sha256": "6e45927f50625e0acd956290052107d58783ac5259d7ebbfeca084afb4cc097a",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r315",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "363c3269d4e425f9b7067792a52d49f5e5dba016986a368bb848d3b8c50c624f",
+      "status": "promising_needs_reverse_confirmation",
+      "changed_engine_files": [
+        "engine/runtime/thinker_lookup.py"
+      ],
+      "patch": "patches/r315-vs-control309.patch",
+      "patch_sha256": "b779f9605f978d53d05a56ce7b60f6aa1d8ae18530f867307b5f83fe47d3396d",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r316",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "07aecdc717baa09c0b21da0053b8bccf56d9c4ffc866e3435c8c45aa86de8554",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r316-vs-control309.patch",
+      "patch_sha256": "eff31b2f46adeceb17b88e990893d7e084c6a2042c99e55a5713505907ff0fac",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r317",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "6327c214be8b15286c4015724ca937ae241d5c72f4b6ebe31ddaeafb283a6a39",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/talker_block_graph.py"
+      ],
+      "patch": "patches/r317-vs-control309.patch",
+      "patch_sha256": "13eaa90fb37f7baa1b260a13333d40158c043704fe827c046640057f67b6164f",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r318",
+      "parent": "r312",
+      "parent_sha256": "36a84e43d0d45decfc7b85c90a306df7bd4570f709920ef50202451ff22e455b",
+      "candidate_sha256": "f95b71ea6f5dcb95237c8d366fd4ce260dc1ba5cca772f4da145d909c422c233",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r318-vs-r312.patch",
+      "patch_sha256": "995745b010b012cfaa1465d190e40ecf3a4fa3e6fad3ca9d737ced68f02ad3f6",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r319",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "5c23808b5971e7c3f137098b89a816ea05ce2b87a1f88a637b3949d471faa581",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r319-vs-control309.patch",
+      "patch_sha256": "04f315a1dd04f584e136aaf685e8df34923be9c7fc669dff192ddb47668ef8e0",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r320",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r320-vs-control309.patch",
+      "patch_sha256": "c1ed6405e09ee8bd60b6cb077b5f566d8b297d74271a45dda714f1e1fd358b6c",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r321",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "97c8b9d44247ef27a914d8dd406be90e179367486c8c15c05d64261fcc450ee3",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r321-vs-control309.patch",
+      "patch_sha256": "bbe8be96b69385d5174cd970b77c7aaa536975c0d6ef721375c9b812c8576e88",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r322",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a",
+      "status": "rejected_operator_resource_limit",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r322-vs-control309.patch",
+      "patch_sha256": "813c2b4fcc635cdc47037333ae4cf8f2458c5b85d4fd2173a4c2ca014f597279",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r323",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [],
+      "patch": "patches/r323-vs-control309.patch",
+      "patch_sha256": "5f8e3719695fb89c9168fec7e78f6552a94a047756a355a9aa1708d8a80d4e09",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r324",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "0be03a72d22e4193a09824d1035b11231df96f5d6a26fe123b6e27faa14a1e42",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/thinker_lookup.py"
+      ],
+      "patch": "patches/r324-vs-control309.patch",
+      "patch_sha256": "336054cd98a7b70b3d8d542448231d9d5125a972b32d22b0d1541d133211b744",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r325",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "b53e4b7b9069500a175c478b93b368edc9b4cf9deb73536b66e4baf174b0a3b6",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r325-vs-control309.patch",
+      "patch_sha256": "93136eb51cb09cc8b3f4273ae7e498f1b1d44e7acc0fc73302ed7bdc6fe072dc",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r326",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "c9482b60701e81164c95cec809cd9c6ad2f80fde85fae5aaa6a1a70a2e8ea64b",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r326-vs-control309.patch",
+      "patch_sha256": "294fb81cf43175192405cb72e42413a32422e29d25ea2a40eb3f771a238d14cf",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r327",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "0ef10fe12070e7d52ca10f436820aa366b004844357d4a7f322eef6d339f5372",
+      "status": "rejected_native_crash",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r327-vs-control309.patch",
+      "patch_sha256": "e90e8df8a648bd615112650e4df4d101435d6f5312e6af00ca48936da94a926b",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r328",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "2e92b872b2934851fdfb3b464a8e9633edb0abd8084519dde621527bc7d1e357",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r328-vs-control309.patch",
+      "patch_sha256": "8f61c52dccaf1af812266113b529c8870ff70eaf4f82d0e64e35eec7cee119ed",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r329",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "f65f73e764e82169beaa385cbb2c762da30947baac0050f5d4e7200ae2d87785",
+      "status": "rejected_operator_resource_limit",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r329-vs-control309.patch",
+      "patch_sha256": "e257f059e5b9200b18d071cfed36f8bff16cb29f631702e0916975e195ef2884",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r330",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "f65f73e764e82169beaa385cbb2c762da30947baac0050f5d4e7200ae2d87785",
+      "status": "rejected_operator_resource_limit",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r330-vs-control309.patch",
+      "patch_sha256": "82278d472f0635d7cded110652c85c4af21f20d8be701921f7222491fe4e9930",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r331",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "status": "rejected_framework_graph_compatibility",
+      "changed_engine_files": [],
+      "patch": "patches/r331-vs-control309.patch",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_env": {
+        "TASK_QUEUE_ENABLE": "2"
+      },
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r332",
+      "parent": "r319",
+      "parent_sha256": "5c23808b5971e7c3f137098b89a816ea05ce2b87a1f88a637b3949d471faa581",
+      "candidate_sha256": "da50bbee726fc5b6d8c42129d63322cdc5999d74161804a325873db95f92c9d5",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r332-vs-r319.patch",
+      "patch_sha256": "858f31407a7dbdebf7908690c728f5ca5b659a4f62f5432f19d91dee586508ed",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r333",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [],
+      "patch": "patches/r333-vs-control309.patch",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_env": {
+        "TASK_QUEUE_ENABLE": "0"
+      },
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r334",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "5410ba7dc44fb4eb8a47361f19c139d261740f688d9bc3e970abacb456884614",
+      "status": "promising_needs_reverse_confirmation",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r334-vs-control309.patch",
+      "patch_sha256": "bb975663708526bc35ceaefb01bdb8d2ee09386be3ffa797c2c379d51b2b44c3",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r335",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "status": "rejected_native_crash",
+      "changed_engine_files": [],
+      "patch": "patches/r335-vs-control309.patch",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_env": {
+        "ACLNN_CACHE_LIMIT": "100000"
+      },
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r336",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "edc3a7c510abd33193e8b01b4b4543cc62a62311d54ba8ba333b453a41dde847",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/token2wav_batch.py"
+      ],
+      "patch": "patches/r336-vs-control309.patch",
+      "patch_sha256": "821fac98bc7fb349cbf16563bbd6f20a9a132eec31256de131df11a14245f507",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r337",
+      "parent": "r320",
+      "parent_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a",
+      "candidate_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+      "status": "promising_needs_reverse_confirmation",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r337-vs-r320.patch",
+      "patch_sha256": "d413d63fe89fa0cde0b9cd8f06d8fcdf32c54117753d21e7475dbbf4e3dea52b",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r338",
+      "parent": "r332",
+      "parent_sha256": "da50bbee726fc5b6d8c42129d63322cdc5999d74161804a325873db95f92c9d5",
+      "candidate_sha256": "cd72a2f3494ff950fd6b7fcc982dac24ddf8b56bd06d665a9d1c8c16c01c2dfe",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r338-vs-r332.patch",
+      "patch_sha256": "7750f5e14b97e15dfd41135d8e45cfc5ac46a32fb50716f3076b2c49abd8e908",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r339",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "ce61f85f50297cc007e5801dd4c5fc91dbda0be837cf6cc8ca3a442e4e0fb2af",
+      "status": "rejected_diagnostic_crash",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r339-vs-control309.patch",
+      "patch_sha256": "4a6da8f911e6427160acea036d27ff3dff1d4f4463ceee8fd9ab9170767dbc1e",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r340",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "4490ee0fd96b38b9256abe764ffc095a414b423b7d191546373037699007bea7",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/hift_graph.py"
+      ],
+      "patch": "patches/r340-vs-control309.patch",
+      "patch_sha256": "7f079b6563bd19160d3f2f3c0685b4fcc39ecd620be55e6f91a8bb82108f9d4f",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r341",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "c14d15d5adf8a603495056d9c02481f9dca1e528707f8ccf833a3b0ef3bd1585",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py",
+        "engine/runtime/script_elementwise.py"
+      ],
+      "patch": "patches/r341-vs-control309.patch",
+      "patch_sha256": "3eca10ce316924ab74e13150924502c575d440d2dfd8e7eaa2985d403c56b870",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r342",
+      "parent": "r320",
+      "parent_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a",
+      "candidate_sha256": "8b4bd89ad83318aeec07ad71b61fb73c079a49c68b04be3d71a838871a53cc59",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py"
+      ],
+      "patch": "patches/r342-vs-r320.patch",
+      "patch_sha256": "f9cb2a225c13d1fc6c85a8020d375f839952d0cb03b72abe0c2b2ab15ae35ea8",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r343",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "1af1507d58f86c8f92c9cb9f30a7da470151d65fbae4bc83d462e397dad835a2",
+      "status": "promising_needs_reverse_confirmation",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/dit_graph.py",
+        "engine/runtime/hift_graph.py"
+      ],
+      "patch": "patches/r343-vs-control309.patch",
+      "patch_sha256": "96302eed3a6f17ee99d9df1a55ec922457c7800c1d8f50c045da5a67233f661a",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r344",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "9a47e222aa63683f484e6c4606fee6d40c9c3356fa3b170f349048bb812ad222",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/dit_graph.py",
+        "engine/runtime/token2wav_batch.py"
+      ],
+      "patch": "patches/r344-vs-control309.patch",
+      "patch_sha256": "33875234fa62a7df88d07ac4e9e1a55a67f58b20bbbbce5e0e01a8278c405a53",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r345",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "8160b7770319acff2938b43065e57526185bbe13649024ed0109dc68823b2c18",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r345-vs-control309.patch",
+      "patch_sha256": "4a10ea6e887cc870981bab732745cc5064130bc128d3db155b19cdb154fbb9d2",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r346",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "b91fe9aa03716141138fc0ebb123025c3d5c74dbd3e12dee6e1794e82e07cf81",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/native_rotary.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r346-vs-control309.patch",
+      "patch_sha256": "145495492720502707d5da420a67b700742477826a56eb5677d175bc65c648c3",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r347",
+      "parent": "r337",
+      "parent_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+      "candidate_sha256": "708f79441274b3c2a13699a8e2161f712b00d8a41d96e97010987983fe651353",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r347-vs-r337.patch",
+      "patch_sha256": "bf935dd170ab8f9be0ca3ccb87b712a27f43a66ddd5e241e689f2a0ae15fb9ff",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r348",
+      "parent": "control309",
+      "parent_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+      "candidate_sha256": "e91a05501905fec2ed656098a214f05e03d846722e2753e0334a99d70adbfb92",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r348-vs-control309.patch",
+      "patch_sha256": "e30cce801b0209fd5d013f17617a7c27c75cd05f6853862ce4aceecbce512c8c",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r349",
+      "parent": "r337",
+      "parent_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+      "candidate_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [],
+      "patch": "patches/r349-vs-r337.patch",
+      "patch_sha256": "d374b950b7b8120232674ff09446daec905a0ecc773cf379baf131e884ab2856",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r350",
+      "parent": "r346",
+      "parent_sha256": "b91fe9aa03716141138fc0ebb123025c3d5c74dbd3e12dee6e1794e82e07cf81",
+      "candidate_sha256": "c8f628a428b35d8e60dd5038c55c6ba797ccbdcd7868c151bbea406dfe1c5b47",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/native_rotary.py"
+      ],
+      "patch": "patches/r350-vs-r346.patch",
+      "patch_sha256": "48504bfd47f60a6f4ca7b92616724cdfb5227d705facbe4e52043abd146e1b73",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    },
+    {
+      "tag": "r351",
+      "parent": "r343",
+      "parent_sha256": "1af1507d58f86c8f92c9cb9f30a7da470151d65fbae4bc83d462e397dad835a2",
+      "candidate_sha256": "a02a733195cf90ea9a9a46dba91cc33e3bdc113dc06ffd30bb9698f7c755a5ca",
+      "status": "no_consistent_gain_or_inconclusive",
+      "changed_engine_files": [
+        "engine/runtime/backend_npu.py",
+        "engine/runtime/npu_paged.py"
+      ],
+      "patch": "patches/r351-vs-r343.patch",
+      "patch_sha256": "1e1c05a80ddcafd2016647966b72d64ec48e25a62ae657587e61d1c56c0dc99a",
+      "server_env": {},
+      "adopted": false,
+      "speech_gate": "NOT_RUN"
+    }
+  ],
+  "scope": "Apply only to the exact recorded parent source/config. Review artifact, not a promoted release; runner environment changes recorded separately."
+}

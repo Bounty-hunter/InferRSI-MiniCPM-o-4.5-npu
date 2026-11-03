@@ -1,0 +1,7 @@
+{
+  "ProcessId": 2008,
+  "ParentProcessId": 37376,
+  "ExecutablePath": "C:\\Users\\58479\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+  "CreationDate": "2026-11-03T01:08:43.44184+08:00",
+  "CommandLine": "\"D:\\huawei\\code\\codex_workspace\\outputs\\npu-performance-plots-20261102\\.venv\\Scripts\\python.exe\" outputs/rsi-r312-r351-20261102/monitor_resume.py --hours 3 --extra pcmprobe309 pacapacity309 scriptprobe309 normprobe309 rotaryprobe309 r327-repair1"
+}

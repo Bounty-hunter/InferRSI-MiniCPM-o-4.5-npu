@@ -1,0 +1,25 @@
+{
+  "tag": "r319",
+  "engine": "engine-r319",
+  "config": "config-r319.json",
+  "engine_sha256": "5c23808b5971e7c3f137098b89a816ea05ce2b87a1f88a637b3949d471faa581",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19208,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Original prefix/verification attention reads NPU qo_indptr back toCPU every layer; publish builder-owned identical host cumulative lengths, validate packing invariant, preserve observation fallback for synthetic/malformed layouts",
+  "kind": "host-lengths"
+}

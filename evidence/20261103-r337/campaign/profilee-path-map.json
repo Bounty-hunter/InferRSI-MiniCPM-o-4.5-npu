@@ -1,0 +1,2437 @@
+[
+  {
+    "original": "profile309e",
+    "local": "profile309e",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/spec.json",
+    "local": "profile309e/spec.json",
+    "bytes": 578
+  },
+  {
+    "original": "profile309e/config.json",
+    "local": "profile309e/config.json",
+    "bytes": 1334
+  },
+  {
+    "original": "profile309e/input-sha256.json",
+    "local": "profile309e/input-sha256.json",
+    "bytes": 376
+  },
+  {
+    "original": "profile309e/diagnostic",
+    "local": "profile309e/diagnostic",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/server.log",
+    "local": "profile309e/diagnostic/server.log",
+    "bytes": 11772
+  },
+  {
+    "original": "profile309e/diagnostic/profile-code-sha256.json",
+    "local": "profile309e/diagnostic/profile-code-sha256.json",
+    "bytes": 278
+  },
+  {
+    "original": "profile309e/diagnostic/info.json",
+    "local": "profile309e/diagnostic/info.json",
+    "bytes": 822
+  },
+  {
+    "original": "profile309e/diagnostic/c8-command.json",
+    "local": "profile309e/diagnostic/c8-command.json",
+    "bytes": 1089
+  },
+  {
+    "original": "profile309e/diagnostic/c8.log",
+    "local": "profile309e/diagnostic/c8.log",
+    "bytes": 10711
+  },
+  {
+    "original": "profile309e/diagnostic/profile.flag",
+    "local": "profile309e/diagnostic/profile.flag",
+    "bytes": 31
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace",
+    "local": "profile309e/diagnostic/owner-trace",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt",
+    "local": "profile309e/trace",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN",
+    "local": "profile309e/trace/cann",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host",
+    "local": "profile309e/trace/cann/host",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sample.json",
+    "local": "profile309e/trace/cann/host/sample.json",
+    "bytes": 3172
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sample.json.done",
+    "local": "profile309e/trace/cann/host/sample.json.done",
+    "bytes": 14
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data",
+    "local": "profile309e/trace/cann/host/data",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.task_track.slice_0",
+    "local": "profile309e/trace/cann/host/data/aging.compact.task_track.slice_0",
+    "bytes": 2098432
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.stream_sq_info.slice_0",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.stream_sq_info.slice_0",
+    "bytes": 3968
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.expand_stream_spec.slice_0",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.expand_stream_spec.slice_0",
+    "bytes": 64
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_0",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_0",
+    "bytes": 2098720
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_0",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_0",
+    "bytes": 2109696
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.node_basic_info.slice_0",
+    "local": "profile309e/trace/cann/host/data/aging.compact.node_basic_info.slice_0",
+    "bytes": 2098944
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.context_id_info.slice_0",
+    "local": "profile309e/trace/cann/host/data/aging.additional.context_id_info.slice_0",
+    "bytes": 1424128
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.task_track.slice_0",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.task_track.slice_0",
+    "bytes": 2268992
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.variable.capture_op_info.slice_0",
+    "local": "profile309e/trace/cann/host/data/unaging.variable.capture_op_info.slice_0",
+    "bytes": 13078824
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.capture_stream_info.slice_0",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.capture_stream_info.slice_0",
+    "bytes": 1472
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.capture_op_info.slice_0",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.capture_op_info.slice_0",
+    "bytes": 19432704
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_0.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_1",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_1",
+    "bytes": 2100992
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.task_track.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.task_track.slice_0.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.task_track.slice_1",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.task_track.slice_1",
+    "bytes": 2213440
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_1.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_1.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_2",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_2",
+    "bytes": 2099968
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_0.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_1",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_1",
+    "bytes": 2101240
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_2.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_2.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_3",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_3",
+    "bytes": 2097920
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.type_info_dic.slice_0",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.type_info_dic.slice_0",
+    "bytes": 27740
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.hash_dic.slice_0",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.hash_dic.slice_0",
+    "bytes": 503701
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_3.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_3.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_4",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_4",
+    "bytes": 2100992
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.task_track.slice_1.done",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.task_track.slice_1.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.task_track.slice_2",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.task_track.slice_2",
+    "bytes": 2261440
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_4.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_4.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_5",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_5",
+    "bytes": 2097664
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_1.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_1.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_2",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_2",
+    "bytes": 2099640
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_5.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_5.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_6",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_6",
+    "bytes": 2133760
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_6.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_6.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_7",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_7",
+    "bytes": 2103552
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.task_track.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/aging.compact.task_track.slice_0.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.task_track.slice_1",
+    "local": "profile309e/trace/cann/host/data/aging.compact.task_track.slice_1",
+    "bytes": 2097664
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_7.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_7.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_8",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_8",
+    "bytes": 2105856
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.node_basic_info.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/aging.compact.node_basic_info.slice_0.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.node_basic_info.slice_1",
+    "local": "profile309e/trace/cann/host/data/aging.compact.node_basic_info.slice_1",
+    "bytes": 2097472
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_2.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_2.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_3",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_3",
+    "bytes": 2101960
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_8.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_8.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_9",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_9",
+    "bytes": 2099456
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_9.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_9.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_10",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_10",
+    "bytes": 2099712
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_10.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_10.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_11",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_11",
+    "bytes": 2104832
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_3.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_3.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_4",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_4",
+    "bytes": 2101240
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_11.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_11.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_12",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_12",
+    "bytes": 2104832
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_12.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_12.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_13",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_13",
+    "bytes": 2099968
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_13.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_13.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_14",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_14",
+    "bytes": 2105344
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_4.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_4.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_5",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_5",
+    "bytes": 2099160
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_14.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_14.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_15",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_15",
+    "bytes": 2105344
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_15.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_15.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_16",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_16",
+    "bytes": 2103808
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.task_track.slice_1.done",
+    "local": "profile309e/trace/cann/host/data/aging.compact.task_track.slice_1.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.task_track.slice_2",
+    "local": "profile309e/trace/cann/host/data/aging.compact.task_track.slice_2",
+    "bytes": 2098304
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.node_basic_info.slice_1.done",
+    "local": "profile309e/trace/cann/host/data/aging.compact.node_basic_info.slice_1.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.node_basic_info.slice_2",
+    "local": "profile309e/trace/cann/host/data/aging.compact.node_basic_info.slice_2",
+    "bytes": 2098176
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_16.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_16.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_17",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_17",
+    "bytes": 2097664
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_5.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_5.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_6",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_6",
+    "bytes": 2104080
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_17.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_17.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_18",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_18",
+    "bytes": 2104064
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.task_track.slice_2.done",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.task_track.slice_2.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_18.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_18.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_19",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_19",
+    "bytes": 2107648
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_7",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_7",
+    "bytes": 2097760
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_19.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_19.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_20",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_20",
+    "bytes": 2100736
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_6.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_6.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_20.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_20.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_21",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_21",
+    "bytes": 2099200
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.task_track.slice_3",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.task_track.slice_3",
+    "bytes": 522176
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_21.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_21.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_22",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_22",
+    "bytes": 2115072
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_22.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_22.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_23",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_23",
+    "bytes": 2105088
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_7.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_7.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_8",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_8",
+    "bytes": 2099920
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_23.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_23.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_24",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_24",
+    "bytes": 2105600
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.task_track.slice_2.done",
+    "local": "profile309e/trace/cann/host/data/aging.compact.task_track.slice_2.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.task_track.slice_3",
+    "local": "profile309e/trace/cann/host/data/aging.compact.task_track.slice_3",
+    "bytes": 1886336
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_24.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_24.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_25",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_25",
+    "bytes": 2109696
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.node_basic_info.slice_2.done",
+    "local": "profile309e/trace/cann/host/data/aging.compact.node_basic_info.slice_2.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.node_basic_info.slice_3",
+    "local": "profile309e/trace/cann/host/data/aging.compact.node_basic_info.slice_3",
+    "bytes": 1608576
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_25.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_25.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_26",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_26",
+    "bytes": 2100736
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_8.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_8.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_9",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_9",
+    "bytes": 2098800
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_26.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_26.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_27",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_27",
+    "bytes": 2099456
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_27.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_27.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_28",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_28",
+    "bytes": 2099712
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_28.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_28.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_29",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_29",
+    "bytes": 2102272
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_9.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_9.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_10",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_10",
+    "bytes": 1918440
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_29.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_29.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_30",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_30",
+    "bytes": 2097920
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_30.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_30.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_31",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_31",
+    "bytes": 1047040
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.context_id_info.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.context_id_info.slice_0.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.additional.tensor_info.slice_31.done",
+    "local": "profile309e/trace/cann/host/data/aging.additional.tensor_info.slice_31.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.api_event.data.slice_10.done",
+    "local": "profile309e/trace/cann/host/data/aging.api_event.data.slice_10.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.node_basic_info.slice_3.done",
+    "local": "profile309e/trace/cann/host/data/aging.compact.node_basic_info.slice_3.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/aging.compact.task_track.slice_3.done",
+    "local": "profile309e/trace/cann/host/data/aging.compact.task_track.slice_3.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.capture_op_info.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.capture_op_info.slice_0.done",
+    "bytes": 42
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.hash_dic.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.hash_dic.slice_0.done",
+    "bytes": 40
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.type_info_dic.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.type_info_dic.slice_0.done",
+    "bytes": 39
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.capture_stream_info.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.capture_stream_info.slice_0.done",
+    "bytes": 38
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.expand_stream_spec.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.expand_stream_spec.slice_0.done",
+    "bytes": 36
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.stream_sq_info.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.stream_sq_info.slice_0.done",
+    "bytes": 38
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.task_track.slice_3.done",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.task_track.slice_3.done",
+    "bytes": 40
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.variable.capture_op_info.slice_0.done",
+    "local": "profile309e/trace/cann/host/data/unaging.variable.capture_op_info.slice_0.done",
+    "bytes": 42
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.hash_dic.slice_1",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.hash_dic.slice_1",
+    "bytes": 503701
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.hash_dic.slice_1.done",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.hash_dic.slice_1.done",
+    "bytes": 40
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.expand_stream_spec.slice_0.complete",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.expand_stream_spec.slice_0.complete",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.compact.capture_stream_info.slice_0.complete",
+    "local": "profile309e/trace/cann/host/data/unaging.compact.capture_stream_info.slice_0.complete",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/unaging.additional.capture_op_info.slice_0.complete",
+    "local": "profile309e/trace/cann/host/data/unaging.additional.capture_op_info.slice_0.complete",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/data/all_file.complete",
+    "local": "profile309e/trace/cann/host/data/all_file.complete",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/host_start.log",
+    "local": "profile309e/trace/cann/host/host_start.log",
+    "bytes": 84
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/host_start.log.done",
+    "local": "profile309e/trace/cann/host/host_start.log.done",
+    "bytes": 12
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/info.json",
+    "local": "profile309e/trace/cann/host/info.json",
+    "bytes": 601
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/info.json.done",
+    "local": "profile309e/trace/cann/host/info.json.done",
+    "bytes": 13
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/start_info",
+    "local": "profile309e/trace/cann/host/start_info",
+    "bytes": 178
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/start_info.done",
+    "local": "profile309e/trace/cann/host/start_info.done",
+    "bytes": 13
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/end_info",
+    "local": "profile309e/trace/cann/host/end_info",
+    "bytes": 178
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/end_info.done",
+    "local": "profile309e/trace/cann/host/end_info.done",
+    "bytes": 13
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite",
+    "local": "profile309e/trace/cann/host/sqlite",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite/time.db",
+    "local": "profile309e/trace/cann/host/sqlite/time.db",
+    "bytes": 8192
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite/stream_expand_spec.db",
+    "local": "profile309e/trace/cann/host/sqlite/stream_expand_spec.db",
+    "bytes": 8192
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite/stream_info.db",
+    "local": "profile309e/trace/cann/host/sqlite/stream_info.db",
+    "bytes": 8192
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite/rts_track.db",
+    "local": "profile309e/trace/cann/host/sqlite/rts_track.db",
+    "bytes": 21422080
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite/ge_hash.db",
+    "local": "profile309e/trace/cann/host/sqlite/ge_hash.db",
+    "bytes": 593920
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite/api_event.db",
+    "local": "profile309e/trace/cann/host/sqlite/api_event.db",
+    "bytes": 41795584
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite/runtime.db",
+    "local": "profile309e/trace/cann/host/sqlite/runtime.db",
+    "bytes": 31604736
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/host/sqlite/ge_info.db",
+    "local": "profile309e/trace/cann/host/sqlite/ge_info.db",
+    "bytes": 47349760
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2",
+    "local": "profile309e/trace/cann/device_2",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sample.json",
+    "local": "profile309e/trace/cann/device_2/sample.json",
+    "bytes": 3181
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sample.json.done",
+    "local": "profile309e/trace/cann/device_2/sample.json.done",
+    "bytes": 14
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data",
+    "local": "profile309e/trace/cann/device_2/data",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_0",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_0",
+    "bytes": 2131392
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_0.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_0.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_0",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_0",
+    "bytes": 2102400
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_0.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_0.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_1",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_1",
+    "bytes": 2102528
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_1.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_1.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_1",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_1",
+    "bytes": 2117632
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_1.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_1.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_2",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_2",
+    "bytes": 2105088
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_2.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_2.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_2",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_2",
+    "bytes": 2149632
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_2.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_2.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_3",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_3",
+    "bytes": 2188544
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_3.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_3.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_4",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_4",
+    "bytes": 2113792
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_4.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_4.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_3",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_3",
+    "bytes": 2104000
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_3.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_3.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_5",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_5",
+    "bytes": 2099200
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_5.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_5.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_6",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_6",
+    "bytes": 2180992
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_6.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_6.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_4",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_4",
+    "bytes": 2206784
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_4.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_4.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_7",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_7",
+    "bytes": 2112640
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_7.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_7.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_8",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_8",
+    "bytes": 2102400
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_8.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_8.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_5",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_5",
+    "bytes": 2122240
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_5.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_5.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_9",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_9",
+    "bytes": 2104064
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_9.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_9.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_10",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_10",
+    "bytes": 2106752
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_10.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_10.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_6",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_6",
+    "bytes": 2147840
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_6.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_6.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_11",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_11",
+    "bytes": 2100736
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_11.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_11.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_7",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_7",
+    "bytes": 2111744
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_7.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_7.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_12",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_12",
+    "bytes": 2106112
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_12.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_12.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_13",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_13",
+    "bytes": 2099072
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_13.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_13.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_8",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_8",
+    "bytes": 2144256
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_8.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_8.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_14",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_14",
+    "bytes": 2108288
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_14.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_14.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_15",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_15",
+    "bytes": 2099968
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_15.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_15.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_9",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_9",
+    "bytes": 2135616
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_9.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_9.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_16",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_16",
+    "bytes": 2105216
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_16.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_16.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_10",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_10",
+    "bytes": 2099136
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_10.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_10.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_17",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_17",
+    "bytes": 2103296
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_17.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_17.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_18",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_18",
+    "bytes": 2099584
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_18.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_18.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_11",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_11",
+    "bytes": 2106816
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_11.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_11.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_19",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_19",
+    "bytes": 2108032
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_19.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_19.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_12",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_12",
+    "bytes": 2121088
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_12.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_12.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_20",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_20",
+    "bytes": 2114048
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_20.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_20.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_21",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_21",
+    "bytes": 2099456
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_21.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_21.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_13",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_13",
+    "bytes": 2115904
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_13.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_13.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_22",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_22",
+    "bytes": 2125824
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_22.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_22.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_23",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_23",
+    "bytes": 2102272
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_23.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_23.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_14",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_14",
+    "bytes": 2098944
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_14.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_14.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_24",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_24",
+    "bytes": 2099584
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_24.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_24.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_15",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_15",
+    "bytes": 2107520
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_15.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_15.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_25",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_25",
+    "bytes": 2114432
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_25.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_25.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_26",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_26",
+    "bytes": 2100224
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_26.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_26.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_16",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_16",
+    "bytes": 2122688
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_16.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_16.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_27",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_27",
+    "bytes": 2101760
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_27.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_27.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_17",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_17",
+    "bytes": 2191616
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_17.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_17.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_28",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_28",
+    "bytes": 2113536
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_28.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_28.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_29",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_29",
+    "bytes": 2099840
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_29.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_29.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_18",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_18",
+    "bytes": 2109760
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_18.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_18.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_30",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_30",
+    "bytes": 2135552
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_30.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_30.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_19",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_19",
+    "bytes": 2137472
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_19.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_19.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_31",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_31",
+    "bytes": 2144128
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_31.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_31.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_32",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_32",
+    "bytes": 2115840
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_32.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_32.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_20",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_20",
+    "bytes": 2113984
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_20.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_20.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_33",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_33",
+    "bytes": 2098688
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_33.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_33.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_34",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_34",
+    "bytes": 2098816
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_34.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_34.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_21",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_21",
+    "bytes": 2162496
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_21.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_21.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_35",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_35",
+    "bytes": 2109440
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_35.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_35.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_22",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_22",
+    "bytes": 2145984
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_22.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_22.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_36",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_36",
+    "bytes": 2104832
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_36.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_36.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_37",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_37",
+    "bytes": 2099968
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_37.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_37.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_23",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_23",
+    "bytes": 2103872
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_23.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_23.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_38",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_38",
+    "bytes": 2103936
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_38.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_38.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_24",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_24",
+    "bytes": 2103936
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_24.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_24.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_39",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_39",
+    "bytes": 2112512
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_39.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_39.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_40",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_40",
+    "bytes": 2101888
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_40.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_40.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_25",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_25",
+    "bytes": 2110848
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_25.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_25.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_41",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_41",
+    "bytes": 2104704
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_41.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_41.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_42",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_42",
+    "bytes": 2131968
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_42.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_42.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_26",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_26",
+    "bytes": 2153984
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_26.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_26.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_43",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_43",
+    "bytes": 2102272
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_43.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_43.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_44",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_44",
+    "bytes": 2098816
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_44.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_44.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_27",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_27",
+    "bytes": 2140672
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_27.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_27.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_45",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_45",
+    "bytes": 2099968
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_45.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_45.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_28",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_28",
+    "bytes": 2106240
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_28.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_28.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_46",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_46",
+    "bytes": 2104704
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_46.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_46.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_47",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_47",
+    "bytes": 2103424
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_47.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_47.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_29",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_29",
+    "bytes": 2125312
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_29.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_29.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_48",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_48",
+    "bytes": 2103680
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_48.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_48.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_30",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_30",
+    "bytes": 2097216
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_30.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_30.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_49",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_49",
+    "bytes": 2106112
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_49.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_49.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_50",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_50",
+    "bytes": 2112256
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_50.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_50.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_31",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_31",
+    "bytes": 2111680
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_31.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_31.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_51",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_51",
+    "bytes": 2098560
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_51.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_51.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_52",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_52",
+    "bytes": 2107904
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_52.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_52.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_32",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_32",
+    "bytes": 2129920
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_32.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_32.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_53",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_53",
+    "bytes": 2100480
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_53.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_53.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_54",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_54",
+    "bytes": 2122112
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_54.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_54.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_33",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_33",
+    "bytes": 2138880
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_33.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_33.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_55",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_55",
+    "bytes": 2098048
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_55.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_55.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_34",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_34",
+    "bytes": 2099520
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_34.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_34.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_56",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_56",
+    "bytes": 2098816
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_56.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_56.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_57",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_57",
+    "bytes": 2109312
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_57.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_57.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_35",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_35",
+    "bytes": 2141504
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_35.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_35.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_58",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_58",
+    "bytes": 2104832
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_58.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_58.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_36",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_36",
+    "bytes": 2118528
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_36.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_36.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_59",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_59",
+    "bytes": 2098304
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_59.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_59.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_60",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_60",
+    "bytes": 2102400
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_60.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_60.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_37",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_37",
+    "bytes": 2098368
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_37.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_37.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_61",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_61",
+    "bytes": 2113152
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_61.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_61.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_62",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_62",
+    "bytes": 2099968
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_62.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_62.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_38",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_38",
+    "bytes": 2199232
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_38.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_38.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_63",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_63",
+    "bytes": 2106368
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_63.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_63.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_39",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_39",
+    "bytes": 2136064
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_39.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_39.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_64",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_64",
+    "bytes": 2099200
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_64.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_64.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_65",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_65",
+    "bytes": 2101760
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_65.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_65.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_40",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_40",
+    "bytes": 2099072
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_40.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_40.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_66",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_66",
+    "bytes": 2102272
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_66.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_66.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_41",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_41",
+    "bytes": 2134144
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_41.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_41.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_67",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_67",
+    "bytes": 2099584
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_67.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_67.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_68",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_68",
+    "bytes": 2108416
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_68.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_68.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_42",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_42",
+    "bytes": 2136768
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_42.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_42.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_69",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_69",
+    "bytes": 2102016
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_69.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_69.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_70",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_70",
+    "bytes": 2109184
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_70.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_70.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_43",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_43",
+    "bytes": 2144064
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_43.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_43.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_71",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_71",
+    "bytes": 2115584
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_71.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_71.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_72",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_72",
+    "bytes": 2104704
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_72.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_72.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_44",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_44",
+    "bytes": 2153024
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_44.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_44.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/lpmInfoConv.data.2.slice_0",
+    "local": "profile309e/trace/cann/device_2/data/lpmInfoConv.data.2.slice_0",
+    "bytes": 1776
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ts_track.data.2.slice_0",
+    "local": "profile309e/trace/cann/device_2/data/ts_track.data.2.slice_0",
+    "bytes": 80
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_45",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_45",
+    "bytes": 751936
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_73",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_73",
+    "bytes": 1353728
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ffts_profile.data.2.slice_73.done",
+    "local": "profile309e/trace/cann/device_2/data/ffts_profile.data.2.slice_73.done",
+    "bytes": 41
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/lpmInfoConv.data.2.slice_0.done",
+    "local": "profile309e/trace/cann/device_2/data/lpmInfoConv.data.2.slice_0.done",
+    "bytes": 38
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/stars_soc.data.2.slice_45.done",
+    "local": "profile309e/trace/cann/device_2/data/stars_soc.data.2.slice_45.done",
+    "bytes": 40
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ts_track.data.2.slice_0.done",
+    "local": "profile309e/trace/cann/device_2/data/ts_track.data.2.slice_0.done",
+    "bytes": 36
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/lpmInfoConv.data.2.slice_0.complete",
+    "local": "profile309e/trace/cann/device_2/data/lpmInfoConv.data.2.slice_0.complete",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/ts_track.data.2.slice_0.complete",
+    "local": "profile309e/trace/cann/device_2/data/ts_track.data.2.slice_0.complete",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/data/all_file.complete",
+    "local": "profile309e/trace/cann/device_2/data/all_file.complete",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/dev_start.log.2",
+    "local": "profile309e/trace/cann/device_2/dev_start.log.2",
+    "bytes": 62
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/dev_start.log.2.done",
+    "local": "profile309e/trace/cann/device_2/dev_start.log.2.done",
+    "bytes": 12
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/host_start.log.2",
+    "local": "profile309e/trace/cann/device_2/host_start.log.2",
+    "bytes": 87
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/host_start.log.2.done",
+    "local": "profile309e/trace/cann/device_2/host_start.log.2.done",
+    "bytes": 12
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/info.json.2",
+    "local": "profile309e/trace/cann/device_2/info.json.2",
+    "bytes": 946
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/info.json.2.done",
+    "local": "profile309e/trace/cann/device_2/info.json.2.done",
+    "bytes": 13
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/start_info.2",
+    "local": "profile309e/trace/cann/device_2/start_info.2",
+    "bytes": 178
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/start_info.2.done",
+    "local": "profile309e/trace/cann/device_2/start_info.2.done",
+    "bytes": 13
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/end_info.2",
+    "local": "profile309e/trace/cann/device_2/end_info.2",
+    "bytes": 178
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/end_info.2.done",
+    "local": "profile309e/trace/cann/device_2/end_info.2.done",
+    "bytes": 13
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite",
+    "local": "profile309e/trace/cann/device_2/sqlite",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/time.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/time.db",
+    "bytes": 8192
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/freq.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/freq.db",
+    "bytes": 8192
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/voltage.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/voltage.db",
+    "bytes": 8192
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/step_trace.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/step_trace.db",
+    "bytes": 8192
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/metric_summary.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/metric_summary.db",
+    "bytes": 96608256
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/ascend_task.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/ascend_task.db",
+    "bytes": 47194112
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/biu_perf.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/biu_perf.db",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/ai_core_op_summary.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/ai_core_op_summary.db",
+    "bytes": 174772224
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/device_2/sqlite/op_counter.db",
+    "local": "profile309e/trace/cann/device_2/sqlite/op_counter.db",
+    "bytes": 53116928
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_log",
+    "local": "profile309e/trace/cann/mindstudio_profiler_log",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_log/collection_host.log",
+    "local": "profile309e/trace/cann/mindstudio_profiler_log/collection_host.log",
+    "bytes": 5100
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_log/msprof_analysis_216027.log",
+    "local": "profile309e/trace/cann/mindstudio_profiler_log/msprof_analysis_216027.log",
+    "bytes": 499170
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_log/collection_device_2.log",
+    "local": "profile309e/trace/cann/mindstudio_profiler_log/collection_device_2.log",
+    "bytes": 10465
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_log/msprof_analysis_216145.log",
+    "local": "profile309e/trace/cann/mindstudio_profiler_log/msprof_analysis_216145.log",
+    "bytes": 1215745
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_log/msprof_analysis_216182.log",
+    "local": "profile309e/trace/cann/mindstudio_profiler_log/msprof_analysis_216182.log",
+    "bytes": 96446
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_log/msprof_analysis_216239.log",
+    "local": "profile309e/trace/cann/mindstudio_profiler_log/msprof_analysis_216239.log",
+    "bytes": 77411
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_log/collection_analyze.log",
+    "local": "profile309e/trace/cann/mindstudio_profiler_log/collection_analyze.log",
+    "bytes": 342
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_output",
+    "local": "profile309e/trace/cann/mindstudio_profiler_output",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_output/msprof_20261102150251.json",
+    "local": "profile309e/trace/cann/mindstudio_profiler_output/msprof_20261102150251.json",
+    "bytes": 533747618
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_output/op_statistic_20261102150511.csv",
+    "local": "profile309e/trace/cann/mindstudio_profiler_output/op_statistic_20261102150511.csv",
+    "bytes": 6032
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_output/api_statistic_20261102150511.csv",
+    "local": "profile309e/trace/cann/mindstudio_profiler_output/api_statistic_20261102150511.csv",
+    "bytes": 16758
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_output/task_time_20261102150511.csv",
+    "local": "profile309e/trace/cann/mindstudio_profiler_output/task_time_20261102150511.csv",
+    "bytes": 98221049
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_output/op_summary_20261102150511.csv",
+    "local": "profile309e/trace/cann/mindstudio_profiler_output/op_summary_20261102150511.csv",
+    "bytes": 230570316
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/PROF_000001_20261102150116532_00215454IQRRNNIN/mindstudio_profiler_output/README.txt",
+    "local": "profile309e/trace/cann/mindstudio_profiler_output/README.txt",
+    "bytes": 3439
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/FRAMEWORK",
+    "local": "profile309e/trace/framework",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/FRAMEWORK/torch.op_mark",
+    "local": "profile309e/trace/framework/torch.op_mark",
+    "bytes": 27195532
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/FRAMEWORK/torch.op_range",
+    "local": "profile309e/trace/framework/torch.op_range",
+    "bytes": 34653297
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/profiler_info.json",
+    "local": "profile309e/trace/metadata/profiler_info.json",
+    "bytes": 1572
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/profiler_metadata.json",
+    "local": "profile309e/trace/metadata/profiler_metadata.json",
+    "bytes": 296
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT",
+    "local": "profile309e/trace/torch",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+    "local": "profile309e/trace/torch/trace_view.json",
+    "bytes": 757992212
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+    "local": "profile309e/trace/torch/operator_details.csv",
+    "bytes": 15695540
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+    "local": "profile309e/trace/torch/op_statistic.csv",
+    "bytes": 6132
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+    "local": "profile309e/trace/torch/api_statistic.csv",
+    "bytes": 17012
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT/ascend_pytorch_profiler.db",
+    "local": "profile309e/trace/torch/ascend_pytorch_profiler.db",
+    "bytes": 488394752
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+    "local": "profile309e/trace/torch/task_time.csv",
+    "bytes": 98943464
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+    "local": "profile309e/trace/torch/kernel_details.csv",
+    "bytes": 233222922
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+    "local": "profile309e/trace/torch/step_trace_time.csv",
+    "bytes": 2355
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs",
+    "local": "profile309e/trace/metadata/logs",
+    "bytes": 0
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150125_215991_ProfilingParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150125_215991_ProfilingParser.log",
+    "bytes": 2065
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150125_215999_CANNExportParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150125_215999_CANNExportParser.log",
+    "bytes": 490
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150133_216023_TracePreParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150133_216023_TracePreParser.log",
+    "bytes": 477
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150511_216262_TraceViewParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150511_216262_TraceViewParser.log",
+    "bytes": 483
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150511_216263_CANNAnalyzeParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150511_216263_CANNAnalyzeParser.log",
+    "bytes": 495
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150535_216268_TraceStepTimeParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150535_216268_TraceStepTimeParser.log",
+    "bytes": 509
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150535_216269_OperatorViewParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150535_216269_OperatorViewParser.log",
+    "bytes": 501
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150535_216270_CommunicationParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150535_216270_CommunicationParser.log",
+    "bytes": 507
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150542_216278_KernelViewParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150542_216278_KernelViewParser.log",
+    "bytes": 489
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150542_216279_IntegrateParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150542_216279_IntegrateParser.log",
+    "bytes": 483
+  },
+  {
+    "original": "profile309e/diagnostic/owner-trace/de33f9ab7dc4_215454_20261102150116504_ascend_pt/logs/profiler_20261102150542_216281_MemoryViewParser.log",
+    "local": "profile309e/trace/metadata/logs/profiler_20261102150542_216281_MemoryViewParser.log",
+    "bytes": 489
+  },
+  {
+    "original": "profile309e/diagnostic/owner-profile-status.json",
+    "local": "profile309e/diagnostic/owner-profile-status.json",
+    "bytes": 230
+  },
+  {
+    "original": "profile309e/diagnostic-server-command.json",
+    "local": "profile309e/diagnostic-server-command.json",
+    "bytes": 261
+  },
+  {
+    "original": "profile309e/diagnostic-server-pid.json",
+    "local": "profile309e/diagnostic-server-pid.json",
+    "bytes": 20
+  },
+  {
+    "original": "profile309e/status.json",
+    "local": "profile309e/status.json",
+    "bytes": 91
+  },
+  {
+    "original": "profile309e/client-final-exit.json",
+    "local": "profile309e/client-final-exit.json",
+    "bytes": 42
+  },
+  {
+    "original": "minicpmo-profile309e-20261102",
+    "local": "minicpmo-profile309e-20261102",
+    "bytes": 0
+  },
+  {
+    "original": "minicpmo-profile309e-20261102/run.log",
+    "local": "minicpmo-profile309e-20261102/run.log",
+    "bytes": 3763
+  },
+  {
+    "original": "minicpmo-profile309e-20261102/exit-code",
+    "local": "minicpmo-profile309e-20261102/exit-code",
+    "bytes": 4
+  }
+]

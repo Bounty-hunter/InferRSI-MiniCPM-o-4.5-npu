@@ -1,0 +1,18 @@
+{
+  "order": [
+    "omni-c1",
+    "r337-c1B1",
+    "r337-c1B2"
+  ],
+  "concurrency": 1,
+  "prompts": 32,
+  "warmups": 2,
+  "same_engine_source_and_config": true,
+  "same_omni_source_and_deploy": true,
+  "prior_tiers": [
+    2,
+    4,
+    8
+  ],
+  "supplementary_measurement": true
+}

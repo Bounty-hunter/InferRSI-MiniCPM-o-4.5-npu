@@ -1,0 +1,25 @@
+{
+  "tag": "r348",
+  "engine": "engine-r348",
+  "config": "config-r348.json",
+  "engine_sha256": "e91a05501905fec2ed656098a214f05e03d846722e2753e0334a99d70adbfb92",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19237,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "After three full-service OpExecCache/task-update crashes but224isolatedPAchecks pass: transfer existing Talker device-masked constant-shape FIA graph path to Thinker capacity512, eliminating host task-update transactions for covered contexts. Larger contexts retain PA fallback; source cache/math/model unchanged apart from qualified attention implementation. Strict16Thinker and speech gates, actual static/fallback counters and memory required; not a claimed fix before validation",
+  "kind": "thinker-static-fia"
+}

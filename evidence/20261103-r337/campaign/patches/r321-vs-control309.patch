@@ -1,0 +1,65 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        decoder_mask_cache: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -209,6 +210,8 @@
+         torch.npu.empty_cache()
+         self.tkv = NpuPagedKV(self.tspec, thinker_pages, page_size, device=device)
+         self.akv = NpuPagedKV(self.aspec, talker_pages, page_size, device=device)
++        self.tkv.decoder_mask_cache = bool(decoder_mask_cache)
++        self.akv.decoder_mask_cache = bool(decoder_mask_cache)
+         self.trun = NpuDecoderRunner(
+             self.thinker.w,
+             self.tspec,
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -689,10 +689,21 @@
+         )
+         return out
+ 
++    def _causal_mask(self, query, width):
++        if not getattr(self.kv, "decoder_mask_cache", False):
++            return torch.triu(torch.ones(width, width, device=query.device, dtype=torch.int8), diagonal=1)
++        cache = getattr(self.kv, "decoder_causal_masks", None)
++        if cache is None:
++            cache = self.kv.decoder_causal_masks = {}
++        key = (str(query.device), width)
++        if key not in cache:
++            cache[key] = torch.triu(torch.ones(width, width, device=query.device, dtype=torch.int8), diagonal=1)
++        return cache[key]
++
+     def _fresh_prefill(self, query: torch.Tensor, key: torch.Tensor, value: torch.Tensor, layout: NpuBatchLayout) -> torch.Tensor:
+         cumulative = layout.qo_indptr[1:].to("cpu").tolist()
+         width = max(2048, max(layout.new_tokens))
+-        causal_mask = torch.triu(torch.ones(width, width, device=query.device, dtype=torch.int8), diagonal=1)
++        causal_mask = self._causal_mask(query, width)
+         return self.npu.npu_fused_infer_attention_score(
+             query=query.contiguous(),
+             key=key.contiguous(),
+@@ -744,9 +755,7 @@
+             total += length
+             cumulative_kv.append(total)
+         width = max(2048, max(layout.lengths))
+-        causal_mask = torch.triu(
+-            torch.ones(width, width, device=query.device, dtype=torch.int8), diagonal=1
+-        )
++        causal_mask = self._causal_mask(query, width)
+         return self.npu.npu_fused_infer_attention_score(
+             query=query.contiguous(),
+             key=torch.cat(keys).contiguous(),
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "decoder_mask_cache": true
+ }

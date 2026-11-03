@@ -1,0 +1,1282 @@
+[
+  {
+    "cache": "10000",
+    "batch": 1,
+    "capture_len": 1,
+    "exit_code": 0,
+    "elapsed_s": 15.837812909856439,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "10000",
+    "batch": 1,
+    "capture_len": 6144,
+    "exit_code": 0,
+    "elapsed_s": 14.83525908458978,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "10000",
+    "batch": 2,
+    "capture_len": 1,
+    "exit_code": 0,
+    "elapsed_s": 14.48631803970784,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "10000",
+    "batch": 2,
+    "capture_len": 6144,
+    "exit_code": 0,
+    "elapsed_s": 14.285405964590609,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "10000",
+    "batch": 4,
+    "capture_len": 1,
+    "exit_code": 0,
+    "elapsed_s": 15.28709166124463,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "10000",
+    "batch": 4,
+    "capture_len": 6144,
+    "exit_code": 0,
+    "elapsed_s": 14.486125277355313,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "10000",
+    "batch": 8,
+    "capture_len": 1,
+    "exit_code": 0,
+    "elapsed_s": 16.085749190300703,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "10000",
+    "batch": 8,
+    "capture_len": 6144,
+    "exit_code": 0,
+    "elapsed_s": 15.287037715315819,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "100000",
+    "batch": 1,
+    "capture_len": 1,
+    "exit_code": 0,
+    "elapsed_s": 14.686217484995723,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "100000",
+    "batch": 1,
+    "capture_len": 6144,
+    "exit_code": 0,
+    "elapsed_s": 15.28621293604374,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "100000",
+    "batch": 2,
+    "capture_len": 1,
+    "exit_code": 0,
+    "elapsed_s": 14.885007037781179,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "100000",
+    "batch": 2,
+    "capture_len": 6144,
+    "exit_code": 0,
+    "elapsed_s": 15.486964399926364,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "100000",
+    "batch": 4,
+    "capture_len": 1,
+    "exit_code": 0,
+    "elapsed_s": 14.48562948871404,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "100000",
+    "batch": 4,
+    "capture_len": 6144,
+    "exit_code": 0,
+    "elapsed_s": 15.236645598895848,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "100000",
+    "batch": 8,
+    "capture_len": 1,
+    "exit_code": 0,
+    "elapsed_s": 14.485329531133175,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  },
+  {
+    "cache": "100000",
+    "batch": 8,
+    "capture_len": 6144,
+    "exit_code": 0,
+    "elapsed_s": 14.285764177329838,
+    "checks": [
+      {
+        "length": 1,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 31,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 127,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 128,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 129,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 255,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 256,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 257,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 511,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 512,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 513,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 1024,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 4096,
+        "exact": true,
+        "max_abs": 0.0
+      },
+      {
+        "length": 6144,
+        "exact": true,
+        "max_abs": 0.0
+      }
+    ],
+    "supported": true
+  }
+]

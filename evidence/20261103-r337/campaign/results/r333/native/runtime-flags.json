@@ -1,0 +1,7 @@
+{
+  "TASK_QUEUE_ENABLE": "0",
+  "ACLNN_CACHE_LIMIT": "<unset>",
+  "HOST_CACHE_CAPACITY": "<unset>",
+  "ASCEND_LAUNCH_BLOCKING": "<unset>",
+  "OMP_NUM_THREADS": "1"
+}

@@ -1,5 +1,12 @@
 # These two experimental configurations preserve the exact measured bytes/hash.
 /configs/engine/ascend_r292_control.json -text whitespace=cr-at-eol
 /configs/engine/ascend_r305_experimental.json -text whitespace=cr-at-eol
+/configs/engine/ascend_r337_experimental.json -text whitespace=cr-at-eol
+# Frozen artifacts retain their original bytes for SHA verification.
+/evidence/20261103-r337/** -text whitespace=cr-at-eol
+/evidence/20261103-r337/**/*.patch whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+/evidence/20261103-r337/**/*.log whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+/evidence/20261103-r337/**/*.log.txt whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+/evidence/20261103-r337/**/*.svg whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 # Unified diff artifacts retain their single-space blank context lines.
 /evidence/20261102-r305/patches/*.patch whitespace=-blank-at-eol

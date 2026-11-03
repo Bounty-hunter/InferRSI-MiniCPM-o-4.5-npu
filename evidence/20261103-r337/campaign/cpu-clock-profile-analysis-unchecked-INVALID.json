@@ -1,0 +1,372 @@
+{
+  "window_wall_s": 12.116866647,
+  "thread_cpu_s": 9.47195949,
+  "attributed_profile_cpu_s": -614.0824791389967,
+  "native_c_call_exclusive_cpu_s": 2404.0243158660014,
+  "python_function_exclusive_cpu_s": -3018.106795005,
+  "native_c_call_fraction_pct": -391.4823167136566,
+  "python_function_fraction_pct": 491.4823167136569,
+  "top_functions": [
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'send' of '_socket.socket' objects>",
+      "primitive_calls": 758,
+      "calls": 919,
+      "exclusive_cpu_s": 8845.338212177001,
+      "inclusive_cpu_s": 6438.976558248
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'reshape' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 1712,
+      "calls": 13914,
+      "exclusive_cpu_s": 7336.212170423,
+      "inclusive_cpu_s": 563.978937052
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'recv' of '_socket.socket' objects>",
+      "primitive_calls": 384,
+      "calls": 384,
+      "exclusive_cpu_s": 6318.759814221,
+      "inclusive_cpu_s": 5409.926250060001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'index_select' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 6776,
+      "calls": 6776,
+      "exclusive_cpu_s": 5623.977375401,
+      "inclusive_cpu_s": 5089.3333444830005
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._ops.npu.npu_fused_infer_attention_score>",
+      "primitive_calls": 2936,
+      "calls": 2936,
+      "exclusive_cpu_s": 4455.6110649130005,
+      "inclusive_cpu_s": 4200.2560299550005
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.tensor>",
+      "primitive_calls": 2041,
+      "calls": 7499,
+      "exclusive_cpu_s": 4265.477001609001,
+      "inclusive_cpu_s": 652.810788484
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'contiguous' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 2997,
+      "calls": 15056,
+      "exclusive_cpu_s": 4149.834272277,
+      "inclusive_cpu_s": 436.14871247900004
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'poll' of 'select.epoll' objects>",
+      "primitive_calls": 40,
+      "calls": 436,
+      "exclusive_cpu_s": 3915.8098467910004,
+      "inclusive_cpu_s": 260.58730638000003
+    },
+    {
+      "file": "/usr/local/python3.12.13/lib/python3.12/site-packages/numpy/core/_methods.py",
+      "line": 90,
+      "function": "_clip",
+      "primitive_calls": 109,
+      "calls": 109,
+      "exclusive_cpu_s": 3826.50665741,
+      "inclusive_cpu_s": 3354.3714147200003
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._ops.npu.npu_add_rms_norm>",
+      "primitive_calls": 1973,
+      "calls": 3548,
+      "exclusive_cpu_s": 3816.0986817340004,
+      "inclusive_cpu_s": 1320.3686222810002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'sendmsg' of '_socket.socket' objects>",
+      "primitive_calls": 109,
+      "calls": 109,
+      "exclusive_cpu_s": 3779.5665943910003,
+      "inclusive_cpu_s": 3433.373305201
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'astype' of 'numpy.ndarray' objects>",
+      "primitive_calls": 223,
+      "calls": 223,
+      "exclusive_cpu_s": 2914.72626406,
+      "inclusive_cpu_s": 2555.62333683
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._ops.npu.npu_scatter_pa_kv_cache>",
+      "primitive_calls": 1776,
+      "calls": 1776,
+      "exclusive_cpu_s": 2854.1648035820003,
+      "inclusive_cpu_s": 2540.589143144
+    },
+    {
+      "file": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/paged.py",
+      "line": 150,
+      "function": "hf_rms_norm",
+      "primitive_calls": 2652,
+      "calls": 2652,
+      "exclusive_cpu_s": 2835.342956756,
+      "inclusive_cpu_s": 3714.576609298
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.arange>",
+      "primitive_calls": 4056,
+      "calls": 4126,
+      "exclusive_cpu_s": 2764.416322691,
+      "inclusive_cpu_s": 2468.161373537
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'to' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 1255,
+      "calls": 9271,
+      "exclusive_cpu_s": 2529.8946093460004,
+      "inclusive_cpu_s": -619.992983447
+    },
+    {
+      "file": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/paged.py",
+      "line": 166,
+      "function": "hf_rope",
+      "primitive_calls": 945,
+      "calls": 1775,
+      "exclusive_cpu_s": 2300.915853603,
+      "inclusive_cpu_s": 782.3632501320001
+    },
+    {
+      "file": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/paged.py",
+      "line": 171,
+      "function": "rot",
+      "primitive_calls": 464,
+      "calls": 3548,
+      "exclusive_cpu_s": 2246.7834924870003,
+      "inclusive_cpu_s": 334.988282253
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.rsqrt>",
+      "primitive_calls": 2652,
+      "calls": 2652,
+      "exclusive_cpu_s": 2154.14499753,
+      "inclusive_cpu_s": 1811.834378451
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'mean' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 309,
+      "calls": 2671,
+      "exclusive_cpu_s": 2107.238632948,
+      "inclusive_cpu_s": 191.34198307100002
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'float' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 117,
+      "calls": 3813,
+      "exclusive_cpu_s": 2078.1480770010003,
+      "inclusive_cpu_s": 7.818133110000001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'pow' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 2756,
+      "calls": 2773,
+      "exclusive_cpu_s": 1599.6858246170002,
+      "inclusive_cpu_s": 1225.159827119
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'chunk' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 1126,
+      "calls": 1775,
+      "exclusive_cpu_s": 1257.3532298490002,
+      "inclusive_cpu_s": 658.77878438
+    },
+    {
+      "file": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/server.py",
+      "line": 93,
+      "function": "wav_pcm16",
+      "primitive_calls": 109,
+      "calls": 109,
+      "exclusive_cpu_s": 1008.952494794,
+      "inclusive_cpu_s": 2681.742239743
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _hashlib.openssl_sha256>",
+      "primitive_calls": 69,
+      "calls": 69,
+      "exclusive_cpu_s": 909.4629646400001,
+      "inclusive_cpu_s": 918.9570044300001
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method '_accept' of '_socket.socket' objects>",
+      "primitive_calls": 43,
+      "calls": 43,
+      "exclusive_cpu_s": 850.18511731,
+      "inclusive_cpu_s": 738.50800382
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch.triu>",
+      "primitive_calls": 1060,
+      "calls": 1060,
+      "exclusive_cpu_s": 792.251967624,
+      "inclusive_cpu_s": 731.5757566420001
+    },
+    {
+      "file": "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/nn/modules/linear.py",
+      "line": 130,
+      "function": "forward",
+      "primitive_calls": 3209,
+      "calls": 4055,
+      "exclusive_cpu_s": 742.983281982,
+      "inclusive_cpu_s": -4630.47201337
+    },
+    {
+      "file": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+      "line": 764,
+      "function": "_append_prefill",
+      "primitive_calls": 110,
+      "calls": 1459,
+      "exclusive_cpu_s": 666.0590721970001,
+      "inclusive_cpu_s": 133.291695232
+    },
+    {
+      "file": "/usr/local/python3.12.13/lib/python3.12/site-packages/soundfile.py",
+      "line": 1287,
+      "function": "<lambda>",
+      "primitive_calls": 43,
+      "calls": 43,
+      "exclusive_cpu_s": 657.40486419,
+      "inclusive_cpu_s": 585.36421465
+    },
+    {
+      "file": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+      "line": 665,
+      "function": "_scatter",
+      "primitive_calls": 360,
+      "calls": 1774,
+      "exclusive_cpu_s": 644.558579203,
+      "inclusive_cpu_s": 202.65381497
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'squeeze' of 'torch._C.TensorBase' objects>",
+      "primitive_calls": 936,
+      "calls": 2016,
+      "exclusive_cpu_s": 545.217349378,
+      "inclusive_cpu_s": 182.330210931
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<function socket.close at 0xffff86bdb060>",
+      "primitive_calls": 23,
+      "calls": 23,
+      "exclusive_cpu_s": 540.8972044000001,
+      "inclusive_cpu_s": 513.12410759
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'run' of '_contextvars.Context' objects>",
+      "primitive_calls": 163,
+      "calls": 1368,
+      "exclusive_cpu_s": 534.0421902300001,
+      "inclusive_cpu_s": 711.4255877100001
+    },
+    {
+      "file": "/workspace/minicpmo-r182/venv/lib/python3.12/site-packages/s3tokenizer/model.py",
+      "line": 57,
+      "function": "forward",
+      "primitive_calls": 672,
+      "calls": 720,
+      "exclusive_cpu_s": 446.031349126,
+      "inclusive_cpu_s": -2096.168537943
+    },
+    {
+      "file": "/workspace/minicpmo-r182/venv/lib/python3.12/site-packages/stepaudio2/cosyvoice2/transformer/attention.py",
+      "line": 225,
+      "function": "rel_shift",
+      "primitive_calls": 422,
+      "calls": 539,
+      "exclusive_cpu_s": 338.338251861,
+      "inclusive_cpu_s": -594.3071625900001
+    },
+    {
+      "file": "/usr/local/python3.12.13/lib/python3.12/site-packages/soundfile.py",
+      "line": 760,
+      "function": "extra_info",
+      "primitive_calls": 23,
+      "calls": 23,
+      "exclusive_cpu_s": 311.72533327,
+      "inclusive_cpu_s": 270.95958632
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._ops.atb._npu_paged_attention>",
+      "primitive_calls": 432,
+      "calls": 432,
+      "exclusive_cpu_s": 305.401066795,
+      "inclusive_cpu_s": 260.39000164600003
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method torch._C._nn.silu>",
+      "primitive_calls": 1750,
+      "calls": 2315,
+      "exclusive_cpu_s": 304.342813883,
+      "inclusive_cpu_s": 194.69778976
+    },
+    {
+      "file": "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-control309/engine/runtime/npu_paged.py",
+      "line": 729,
+      "function": "_append_prefill_batched",
+      "primitive_calls": 374,
+      "calls": 755,
+      "exclusive_cpu_s": 280.61719842400004,
+      "inclusive_cpu_s": 298.02770313
+    }
+  ],
+  "limitation": "CPU-clock cProfile on actual engine owner in a separate diagnostic run. Exclusive Python time includes Python machinery and unobserved code, native time includes CANN/PyTorch dispatch or busy polling, profiler changes timing. Fractions are not E2E shares or direct GIL ownership and are not a predicted C++/Rust speedup."
+}

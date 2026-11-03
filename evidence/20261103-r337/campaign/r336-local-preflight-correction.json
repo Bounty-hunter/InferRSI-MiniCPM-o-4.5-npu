@@ -1,0 +1,7 @@
+{
+  "before": "11556d00d31070678df0b84f7be2ff5a7991d0734cf4712b496a59954b9c76c7",
+  "after": "edc3a7c510abd33193e8b01b4b4543cc62a62311d54ba8ba333b453a41dde847",
+  "uploaded": false,
+  "started": false,
+  "reason": "Select NPU event also for empty PCM output, before any submission"
+}

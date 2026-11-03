@@ -1,0 +1,383 @@
+{
+  "order": [
+    "control309-finalA1",
+    "r337-finalB1",
+    "r343-capturecontrol",
+    "r343-finalB1",
+    "control309-finalA2"
+  ],
+  "rows": [
+    {
+      "c": 2,
+      "candidate": "r337-finalB1",
+      "metrics": {
+        "mean_audio_ttfp_ms": 794.1753315681126,
+        "mean_audio_rtf": 0.3347740438494865,
+        "request_throughput": 1.4349796424010486
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 1.6094136640283252,
+          "mean_audio_rtf": 9.539247272041507,
+          "request_throughput": 11.991725298447697
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 0.10849665401069242,
+          "mean_audio_rtf": 8.943056338297772,
+          "request_throughput": 11.828935211443593
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 807.1659709967207,
+          "mean_audio_rtf": 0.3700765622150507,
+          "request_throughput": 1.2813264895928331
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 795.0379211106338,
+          "mean_audio_rtf": 0.36765350382640793,
+          "request_throughput": 1.2831917246532143
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 138.2,
+        "r337-finalB1": 136.92,
+        "r343-capturecontrol": 137.04,
+        "r343-finalB1": 137.08,
+        "control309-finalA2": 139.4
+      },
+      "source": "r337"
+    },
+    {
+      "c": 2,
+      "candidate": "r343-capturecontrol",
+      "metrics": {
+        "mean_audio_ttfp_ms": 823.8128658558708,
+        "mean_audio_rtf": 0.356325115492237,
+        "request_throughput": 1.3255651412231488
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": -2.0623880908400727,
+          "mean_audio_rtf": 3.71583832288811,
+          "request_throughput": 3.4525666947206712
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": -3.6193172654003236,
+          "mean_audio_rtf": 3.081267611016636,
+          "request_throughput": 3.30218904594215
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 807.1659709967207,
+          "mean_audio_rtf": 0.3700765622150507,
+          "request_throughput": 1.2813264895928331
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 795.0379211106338,
+          "mean_audio_rtf": 0.36765350382640793,
+          "request_throughput": 1.2831917246532143
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 138.2,
+        "r337-finalB1": 136.92,
+        "r343-capturecontrol": 137.04,
+        "r343-finalB1": 137.08,
+        "control309-finalA2": 139.4
+      },
+      "source": "r343-capturecontrol"
+    },
+    {
+      "c": 2,
+      "candidate": "r343-finalB1",
+      "metrics": {
+        "mean_audio_ttfp_ms": 822.1556978242006,
+        "mean_audio_rtf": 0.3495224372441174,
+        "request_throughput": 1.363328004394471
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": -1.8570811166593204,
+          "mean_audio_rtf": 5.554019646072406,
+          "request_throughput": 6.399736169326808
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": -3.4108783988170632,
+          "mean_audio_rtf": 4.931563658060856,
+          "request_throughput": 6.2450745435499
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 807.1659709967207,
+          "mean_audio_rtf": 0.3700765622150507,
+          "request_throughput": 1.2813264895928331
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 795.0379211106338,
+          "mean_audio_rtf": 0.36765350382640793,
+          "request_throughput": 1.2831917246532143
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 138.2,
+        "r337-finalB1": 136.92,
+        "r343-capturecontrol": 137.04,
+        "r343-finalB1": 137.08,
+        "control309-finalA2": 139.4
+      },
+      "source": "r343"
+    },
+    {
+      "c": 4,
+      "candidate": "r337-finalB1",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1202.2007612977177,
+        "mean_audio_rtf": 0.5390972250731492,
+        "request_throughput": 1.6821994026457288
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": -1.8182216790513683,
+          "mean_audio_rtf": 3.5359362027057806,
+          "request_throughput": 3.393934161207257
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 3.140536976196373,
+          "mean_audio_rtf": 3.2334577440673473,
+          "request_throughput": 1.233004201282939
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 1180.7324283145135,
+          "mean_audio_rtf": 0.5588580906211735,
+          "request_throughput": 1.6269807472679372
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1241.1804936418775,
+          "mean_audio_rtf": 0.557111179654761,
+          "request_throughput": 1.6617104430695242
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 289.44,
+        "r337-finalB1": 288.52,
+        "r343-capturecontrol": 280.88,
+        "r343-finalB1": 288.8,
+        "control309-finalA2": 282.64
+      },
+      "source": "r337"
+    },
+    {
+      "c": 4,
+      "candidate": "r343-capturecontrol",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1247.8591301623965,
+        "mean_audio_rtf": 0.5500837950363875,
+        "request_throughput": 1.676212920182411
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": -5.6851747473138925,
+          "mean_audio_rtf": 1.5700400033635264,
+          "request_throughput": 3.0259837430249625
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": -0.5380874542204817,
+          "mean_audio_rtf": 1.2613971636197152,
+          "request_throughput": 0.872743935224829
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 1180.7324283145135,
+          "mean_audio_rtf": 0.5588580906211735,
+          "request_throughput": 1.6269807472679372
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1241.1804936418775,
+          "mean_audio_rtf": 0.557111179654761,
+          "request_throughput": 1.6617104430695242
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 289.44,
+        "r337-finalB1": 288.52,
+        "r343-capturecontrol": 280.88,
+        "r343-finalB1": 288.8,
+        "control309-finalA2": 282.64
+      },
+      "source": "r343-capturecontrol"
+    },
+    {
+      "c": 4,
+      "candidate": "r343-finalB1",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1208.450158505002,
+        "mean_audio_rtf": 0.5397361414982892,
+        "request_throughput": 1.6680178445346585
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": -2.3475030858647106,
+          "mean_audio_rtf": 3.4216108603939532,
+          "request_throughput": 2.5222853642018706
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 2.6370326720844606,
+          "mean_audio_rtf": 3.118773916409112,
+          "request_throughput": 0.37957283661786967
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 1180.7324283145135,
+          "mean_audio_rtf": 0.5588580906211735,
+          "request_throughput": 1.6269807472679372
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1241.1804936418775,
+          "mean_audio_rtf": 0.557111179654761,
+          "request_throughput": 1.6617104430695242
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 289.44,
+        "r337-finalB1": 288.52,
+        "r343-capturecontrol": 280.88,
+        "r343-finalB1": 288.8,
+        "control309-finalA2": 282.64
+      },
+      "source": "r343"
+    },
+    {
+      "c": 8,
+      "candidate": "r337-finalB1",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1686.193266796181,
+        "mean_audio_rtf": 0.7814887819694083,
+        "request_throughput": 2.4622199908765685
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 3.928164477411822,
+          "mean_audio_rtf": 4.048354905763718,
+          "request_throughput": 3.284383764081622
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 7.381606849763312,
+          "mean_audio_rtf": 7.03047949062422,
+          "request_throughput": 7.248506610534222
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 1755.137973188539,
+          "mean_audio_rtf": 0.8144610560891274,
+          "request_throughput": 2.3839228169291116
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1820.5814303655643,
+          "mean_audio_rtf": 0.8405860089281592,
+          "request_throughput": 2.2958081829688832
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 537.96,
+        "r337-finalB1": 542.92,
+        "r343-capturecontrol": 537.68,
+        "r343-finalB1": 545.2,
+        "control309-finalA2": 542.68
+      },
+      "source": "r337"
+    },
+    {
+      "c": 8,
+      "candidate": "r343-capturecontrol",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1705.4383435388445,
+        "mean_audio_rtf": 0.8017004628580526,
+        "request_throughput": 2.4303371915116796
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 2.8316651117408,
+          "mean_audio_rtf": 1.5667530246748163,
+          "request_throughput": 1.946974719691541
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 6.324522754447715,
+          "mean_audio_rtf": 4.626004437034337,
+          "request_throughput": 5.859766923943388
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 1755.137973188539,
+          "mean_audio_rtf": 0.8144610560891274,
+          "request_throughput": 2.3839228169291116
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1820.5814303655643,
+          "mean_audio_rtf": 0.8405860089281592,
+          "request_throughput": 2.2958081829688832
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 537.96,
+        "r337-finalB1": 542.92,
+        "r343-capturecontrol": 537.68,
+        "r343-finalB1": 545.2,
+        "control309-finalA2": 542.68
+      },
+      "source": "r343-capturecontrol"
+    },
+    {
+      "c": 8,
+      "candidate": "r343-finalB1",
+      "metrics": {
+        "mean_audio_ttfp_ms": 1780.7056221499806,
+        "mean_audio_rtf": 0.8453828439416742,
+        "request_throughput": 2.2738459832941382
+      },
+      "gain_pct": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": -1.456731570509695,
+          "mean_audio_rtf": -3.7965950147483607,
+          "request_throughput": -4.617466339651488
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 2.1902787510898025,
+          "mean_audio_rtf": -0.5706536823794517,
+          "request_throughput": -0.9566217176882774
+        }
+      },
+      "control_metrics": {
+        "control309-finalA1": {
+          "mean_audio_ttfp_ms": 1755.137973188539,
+          "mean_audio_rtf": 0.8144610560891274,
+          "request_throughput": 2.3839228169291116
+        },
+        "control309-finalA2": {
+          "mean_audio_ttfp_ms": 1820.5814303655643,
+          "mean_audio_rtf": 0.8405860089281592,
+          "request_throughput": 2.2958081829688832
+        }
+      },
+      "audio_s": {
+        "control309-finalA1": 537.96,
+        "r337-finalB1": 542.92,
+        "r343-capturecontrol": 537.68,
+        "r343-finalB1": 545.2,
+        "control309-finalA2": 542.68
+      },
+      "source": "r343"
+    }
+  ],
+  "speech_gate": "NOT_RUN",
+  "adopted": false,
+  "scope": "Both bracketing controls retained; point estimates across separate runs, not a confidence interval or statistical proof. All same official client/input/config contracts verified by runner, retain output-duration variation."
+}

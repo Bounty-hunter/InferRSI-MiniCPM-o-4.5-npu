@@ -1,0 +1,24 @@
+{
+  "sources_verified": true,
+  "files_verified": [
+    "独立引擎vs-vLLM-Omni-均值.png",
+    "独立引擎vs-vLLM-Omni-均值.svg",
+    "独立引擎vs-vLLM-Omni-均值.pdf",
+    "独立引擎vs-vLLM-Omni-性能差值.png",
+    "独立引擎vs-vLLM-Omni-性能差值.svg",
+    "独立引擎vs-vLLM-Omni-性能差值.pdf",
+    "独立引擎vs-vLLM-Omni-P99.png",
+    "独立引擎vs-vLLM-Omni-P99.svg",
+    "独立引擎vs-vLLM-Omni-P99.pdf"
+  ],
+  "document_links_verified": 26,
+  "candidate_repeats_shown": 0,
+  "candidate_curves_shown": 1,
+  "candidate_source_runs_per_tier": 2,
+  "source_rows": 4,
+  "aggregation_verified": true,
+  "speech_gate": "NOT_RUN",
+  "supplementary_inference_jobs": 3,
+  "new_algorithm_rounds": 0,
+  "c1_supplement_verified": true
+}

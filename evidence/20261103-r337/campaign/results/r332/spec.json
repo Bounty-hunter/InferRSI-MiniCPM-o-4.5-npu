@@ -1,0 +1,25 @@
+{
+  "tag": "r332",
+  "engine": "engine-r332",
+  "config": "config-r332.json",
+  "engine_sha256": "da50bbee726fc5b6d8c42129d63322cdc5999d74161804a325873db95f92c9d5",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19221,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "r319",
+  "hypothesis": "After standalone pagedTND causal/mixed-length/512-boundary qualification: use page-table FIA for Thinker suffix verification to avoid full-KV gathers+concatenations each layer. Host metadata parent held fixed; per-seqQ<=16 eligibility and original dense fallback retained; numerical grouping still requires16-row exact Thinker and frozen speech gates",
+  "kind": "paged-suffix"
+}

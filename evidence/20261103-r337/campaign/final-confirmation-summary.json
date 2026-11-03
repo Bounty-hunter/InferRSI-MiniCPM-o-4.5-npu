@@ -1,0 +1,127 @@
+{
+  "rows": [
+    {
+      "source": "r337",
+      "c": 2,
+      "gain_point_range_pct": {
+        "mean_audio_ttfp_ms": [
+          0.10849665401069242,
+          11.537177679922838
+        ],
+        "mean_audio_rtf": [
+          8.943056338297772,
+          11.329137634717501
+        ],
+        "request_throughput": [
+          11.828935211443593,
+          15.130590265481603
+        ]
+      },
+      "rtf_and_throughput_sign_positive_all_comparisons": true,
+      "all_three_sign_positive_all_comparisons": true
+    },
+    {
+      "source": "r337",
+      "c": 4,
+      "gain_point_range_pct": {
+        "mean_audio_ttfp_ms": [
+          -1.8182216790513683,
+          5.434750408159783
+        ],
+        "mean_audio_rtf": [
+          3.2334577440673473,
+          9.369328551485644
+        ],
+        "request_throughput": [
+          1.233004201282939,
+          10.085595605534792
+        ]
+      },
+      "rtf_and_throughput_sign_positive_all_comparisons": true,
+      "all_three_sign_positive_all_comparisons": false
+    },
+    {
+      "source": "r337",
+      "c": 8,
+      "gain_point_range_pct": {
+        "mean_audio_ttfp_ms": [
+          3.758084830074082,
+          8.265192120561093
+        ],
+        "mean_audio_rtf": [
+          3.614135382953121,
+          7.272787506673561
+        ],
+        "request_throughput": [
+          3.284383764081622,
+          9.24499528329732
+        ]
+      },
+      "rtf_and_throughput_sign_positive_all_comparisons": true,
+      "all_three_sign_positive_all_comparisons": true
+    },
+    {
+      "source": "r343",
+      "c": 2,
+      "gain_point_range_pct": {
+        "mean_audio_ttfp_ms": [
+          -9.879158023347777,
+          -1.8570811166593204
+        ],
+        "mean_audio_rtf": [
+          3.385840535023943,
+          5.554019646072406
+        ],
+        "request_throughput": [
+          4.710240628920226,
+          6.399736169326808
+        ]
+      },
+      "rtf_and_throughput_sign_positive_all_comparisons": true,
+      "all_three_sign_positive_all_comparisons": false
+    },
+    {
+      "source": "r343",
+      "c": 4,
+      "gain_point_range_pct": {
+        "mean_audio_ttfp_ms": [
+          -2.3475030858647106,
+          2.6370326720844606
+        ],
+        "mean_audio_rtf": [
+          2.8624280520035517,
+          3.4216108603939532
+        ],
+        "request_throughput": [
+          0.37957283661786967,
+          2.5222853642018706
+        ]
+      },
+      "rtf_and_throughput_sign_positive_all_comparisons": true,
+      "all_three_sign_positive_all_comparisons": false
+    },
+    {
+      "source": "r343",
+      "c": 8,
+      "gain_point_range_pct": {
+        "mean_audio_ttfp_ms": [
+          -1.456731570509695,
+          3.2990511334726524
+        ],
+        "mean_audio_rtf": [
+          -3.7965950147483607,
+          2.2869424998215537
+        ],
+        "request_throughput": [
+          -4.617466339651488,
+          3.051588769638358
+        ]
+      },
+      "rtf_and_throughput_sign_positive_all_comparisons": false,
+      "all_three_sign_positive_all_comparisons": false
+    }
+  ],
+  "speech_gate": "NOT_RUN",
+  "adopted": false,
+  "scope": "Four observed paired-control point differences per candidate/tier; no confidence interval or equal-quality acceptance"
+}

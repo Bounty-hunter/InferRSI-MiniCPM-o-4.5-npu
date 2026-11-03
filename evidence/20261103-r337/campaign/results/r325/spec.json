@@ -1,0 +1,21 @@
+{
+  "tag": "r325",
+  "engine": "engine-r325",
+  "config": "config-r325.json",
+  "engine_sha256": "b53e4b7b9069500a175c478b93b368edc9b4cf9deb73536b66e4baf174b0a3b6",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19214,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Source audit after native engine82% CPU: suffix attention creates identical NPU page-index tensor per row on every decoder layer; retain one immutable tensor per layout/seq/length forward lifetime, keeping the same gathers/math and no cross-request cache",
+  "kind": "page-id-cache"
+}

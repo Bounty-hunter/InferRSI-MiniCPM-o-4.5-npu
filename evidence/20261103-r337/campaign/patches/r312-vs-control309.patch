@@ -1,0 +1,96 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        thinker_startup_graph_rows: tuple = (),
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -351,10 +352,21 @@
+         self.t2w_startup_ready = threading.Event()
+         self.t2w_startup_error = None
+         self.t2w_startup_stats = {"request_rows": list(startup_rows), "keys": [], "duration_s": 0.0}
++        self.thinker_startup_graph_rows = tuple(dict.fromkeys(int(n) for n in thinker_startup_graph_rows))
++        if any(n < 1 or n > self.trun.graph_max_batch for n in self.thinker_startup_graph_rows):
++            raise ValueError("Thinker initialization exceeds configured graph capacity")
++        self.thinker_startup_ready = threading.Event()
++        self.thinker_startup_error = None
++        self.thinker_startup_stats = {}
+         self.thread = threading.Thread(target=self._run, daemon=True, name="npu-engine")
+         self.t2w_first_audio_priority = bool(t2w_first_audio_priority)
+         self.t2w_first_audio_priority_stats = {"batches": 0, "reordered": 0}
+         self.thread.start()
++        if self.thinker_startup_graph_rows:
++            if not self.thinker_startup_ready.wait(180):
++                raise RuntimeError("Thinker owner initialization timeout")
++            if self.thinker_startup_error is not None:
++                raise RuntimeError("Thinker owner initialization failed") from self.thinker_startup_error
+         if self.prompt_setup_batching:
+             self.prompt_setup_thread = threading.Thread(
+                 target=self._run_prompt_setups,
+@@ -767,6 +779,7 @@
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                 "t2w_startup_stats": dict(self.t2w_startup_stats),
++                "thinker_startup_stats": dict(self.thinker_startup_stats),
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+@@ -783,8 +796,41 @@
+                 "live_requests": self._live_diagnostics(),
+                 **profile_stats, **self.sched}
+ 
++    def _warm_thinker_on_owner(self):
++        import time
++
++        with torch.inference_mode():
++            for rows in self.thinker_startup_graph_rows:
++                seqs = [-30_000 - i for i in range(rows)]
++                if not self.tkv.can_fit({seq: 1 for seq in seqs}):
++                    raise RuntimeError("insufficient inert KV for Thinker initialization")
++                started = time.perf_counter()
++                try:
++                    for seq in seqs:
++                        self.tkv.reserve(seq, 1)
++                    layout = self.tkv.layout(seqs, [1] * rows)
++                    inputs = torch.zeros(rows, self.tspec.hidden_size, dtype=self.thinker.dtype, device=self.device)
++                    self.trun.forward(inputs, layout)
++                    torch.npu.synchronize()
++                    self.thinker_startup_stats[rows] = time.perf_counter() - started
++                finally:
++                    torch.npu.synchronize()
++                    for seq in seqs:
++                        if seq in self.tkv.pages:
++                            self.tkv.release(seq)
++
+     def _run(self) -> None:
+         torch.npu.set_device(torch.device(self.device).index or 0)
++        if self.thinker_startup_graph_rows:
++            try:
++                self._warm_thinker_on_owner()
++            except BaseException as error:
++                traceback.print_exc()
++                self.thinker_startup_error = error
++            finally:
++                self.thinker_startup_ready.set()
++            if self.thinker_startup_error is not None:
++                return
+         while True:
+             try:
+                 while True:
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,10 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "thinker_startup_graph_rows": [
++    2,
++    4,
++    8
++  ]
+ }

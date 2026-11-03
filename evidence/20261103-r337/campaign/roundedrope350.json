@@ -1,0 +1,13 @@
+{
+  "tag": "roundedrope350",
+  "engine": "engine-r350",
+  "config": "config-r350.json",
+  "engine_sha256": "c8f628a428b35d8e60dd5038c55c6ba797ccbdcd7868c151bbea406dfe1c5b47",
+  "native": [],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19097,
+  "runner": "probe_rounded_rotary.py",
+  "algorithm_round": false,
+  "hypothesis": "Strict exact operator qualification for r350 two-product native RoPE; no tolerance or speech-quality waiver"
+}

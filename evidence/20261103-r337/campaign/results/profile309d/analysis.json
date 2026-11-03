@@ -1,0 +1,74 @@
+{
+  "tag": "profile309d",
+  "timing": [
+    {
+      "mode": "diagnostic",
+      "concurrency": 8,
+      "ttfp_ms": 2093.9904884653515,
+      "rtf": 0.9646410088038259,
+      "req_s": 1.99188020454717,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "native_tails": {},
+  "diagnostic": {
+    "c8": {
+      "native": {
+        "ttfp_ms": 2093.9904884653515,
+        "rtf": 0.9646410088038259,
+        "req_s": 1.99188020454717
+      },
+      "underrun": 10,
+      "n": 128,
+      "buffer": {
+        "n": 128,
+        "mean": 0.013607850807602517,
+        "p50": 0.0,
+        "p95": 0.13706175610423088,
+        "max": 0.39879594091326
+      },
+      "buffer_scenarios": [
+        {
+          "initial_buffer_s": 0,
+          "requests_with_underrun": 10
+        },
+        {
+          "initial_buffer_s": 0.2,
+          "requests_with_underrun": 5
+        },
+        {
+          "initial_buffer_s": 0.5,
+          "requests_with_underrun": 0
+        },
+        {
+          "initial_buffer_s": 1.0,
+          "requests_with_underrun": 0
+        }
+      ],
+      "first_audio_ledger_ms": {
+        "dispatch_to_admit": 140.70512434409466,
+        "admit_to_prefilled": 233.23928211902967,
+        "prefilled_to_first_text_chunk": 697.5727997341892,
+        "text_to_first_window_ready": 660.2226424874971,
+        "first_window_queue": 102.29765324038453,
+        "first_window_decode": 257.185195965576,
+        "emit_to_client": 2.3880458320491016
+      },
+      "queue_ms": {
+        "n": 578,
+        "mean": 151.293525362716,
+        "p50": 108.57120016589761,
+        "p95": 497.3012153059244,
+        "max": 1002.4157157167792
+      },
+      "decode_ms": {
+        "n": 578,
+        "mean": 278.6401103663171,
+        "p50": 243.18420002236962,
+        "p95": 470.8044044673443,
+        "max": 742.7811976522207
+      }
+    }
+  }
+}

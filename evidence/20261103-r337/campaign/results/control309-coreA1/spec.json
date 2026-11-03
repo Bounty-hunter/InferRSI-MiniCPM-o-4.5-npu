@@ -1,0 +1,16 @@
+{
+  "tag": "control309-coreA1",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19255,
+  "runner": "run_lowc.py",
+  "hypothesis": "Fresh adjacent A/B/A confirmation of exact core-cap source; no unrelated profiling/export, not an algorithm round"
+}

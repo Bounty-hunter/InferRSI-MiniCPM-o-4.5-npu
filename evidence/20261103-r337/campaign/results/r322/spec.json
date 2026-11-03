@@ -1,0 +1,21 @@
+{
+  "tag": "r322",
+  "engine": "engine-r322",
+  "config": "config-r322.json",
+  "engine_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19211,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "User MPS/concurrent-sharing hypothesis adapted to A2: process-local Cube/Vector cap before all graphs, testing whether current independent streams overlap better with narrower kernels; no multiprocess duplication or shared-device setting",
+  "kind": "cores75"
+}

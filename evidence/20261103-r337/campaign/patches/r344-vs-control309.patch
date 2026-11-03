@@ -1,0 +1,77 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        euler_exact_rows: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -347,6 +348,7 @@
+         if talker_full_block_warmup:
+             self._warm_full_talker_blocks()
+         self.t2w_startup_graph_rows = startup_rows
++        self.euler_exact_rows = bool(euler_exact_rows)
+         self.t2w_startup_extended = bool(t2w_startup_extended)
+         self.t2w_startup_ready = threading.Event()
+         self.t2w_startup_error = None
+@@ -454,6 +456,10 @@
+                     self.t2w_startup_stats["keys"].append(record)
+                     print({"media_graph_startup": record}, flush=True)
+             if self.t2w_startup_extended:
++                if self.euler_exact_rows:
++                    for requests in (3,5,6,7):
++                        for frames in (50,56):
++                            self._prime_euler_key(2*requests, frames, 512, "exact_audio_rows")
+                 self._prime_euler_key(2, 56, 512, "audio_tail")
+         self.t2w_startup_stats.update(duration_s=time.perf_counter() - started,
+             allocated_before_bytes=before, allocated_after_bytes=int(torch.npu.memory_allocated()),
+@@ -767,6 +773,7 @@
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                 "t2w_startup_stats": dict(self.t2w_startup_stats),
++                "euler_exact_row_use": dict(self.t2w_batch.euler_row_use),
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+--- a/engine/runtime/dit_graph.py
++++ b/engine/runtime/dit_graph.py
+@@ -15,7 +15,7 @@
+ 
+ import torch
+ 
+-ROW_BUCKETS = (2, 4, 8, 16, 32, 64)
++ROW_BUCKETS = (2, 4, 6, 8, 10, 12, 14, 16, 32, 64)
+ # Cache-length buckets: graphs captured in sequence do not reuse each other's pool memory (~1.7-4 GB each at 64 rows),
+ # so few buckets; attention over padded keys costs little next to the block GEMMs.
+ L_BUCKETS = (512, 1024)
+--- a/engine/runtime/token2wav_batch.py
++++ b/engine/runtime/token2wav_batch.py
+@@ -162,6 +162,7 @@
+         self.max_flow_streams = 32  # the staged per-step solve keeps a 32-stream call's transient memory small
+         self.offload_flow_cache = False
+         self.flow_batch_hist: dict[int, int] = defaultdict(int)
++        self.euler_row_use = {}
+         self.flow_cache_bucket_hist: dict[int, int] = defaultdict(int)
+         self.offload_stats = {
+             "h2d_tensor_copies": 0,
+@@ -697,6 +698,8 @@
+         real = list(t_real) if t_real is not None else [T] * n
+         key = eg.key(2 * n, G, L)
+         eg.capture(*key)
++        row_key = str((n, key[0], G, L))
++        self.euler_row_use[row_key] = self.euler_row_use.get(row_key,0)+1
+         g, w, _ = eg.graphs[key]
+         R = key[0]
+         H = R // 2  # graph rows: [cond rows 0..H-1 | uncond rows H..R-1] (x.repeat(2, 1, 1) of H request rows)
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "euler_exact_rows": true
+ }

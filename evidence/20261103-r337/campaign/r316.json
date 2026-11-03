@@ -1,0 +1,21 @@
+{
+  "tag": "r316",
+  "engine": "engine-r316",
+  "config": "config-r316.json",
+  "engine_sha256": "07aecdc717baa09c0b21da0053b8bccf56d9c4ffc866e3435c8c45aa86de8554",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19205,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Ordinary Thinker uploads one tiny token tensor per row then concatenates embeddings. Consolidate identical token order into one upload/embedding gather; original multimodal embedding fallback retained",
+  "kind": "batch-embedding"
+}

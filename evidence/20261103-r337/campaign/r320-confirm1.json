@@ -1,0 +1,16 @@
+{
+  "tag": "r320-confirm1",
+  "engine": "engine-r320",
+  "config": "config-r320.json",
+  "engine_sha256": "842af75958017cd767a5cd8841f162ded0aa59085c3f86db0dc52308d670b44a",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19256,
+  "runner": "run_lowc.py",
+  "hypothesis": "Fresh adjacent A/B/A confirmation of exact core-cap source; no unrelated profiling/export, not an algorithm round"
+}

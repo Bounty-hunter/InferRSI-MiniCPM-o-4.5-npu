@@ -1,0 +1,16 @@
+{
+  "phase": "completed",
+  "utc": "2026-11-03T01:23:38Z",
+  "measurements": [
+    {
+      "mode": "native",
+      "concurrency": 1,
+      "ttfp_ms": 509.9688179907389,
+      "rtf": 0.21711627066814843,
+      "req_s": 1.088306250334358,
+      "completed": 32,
+      "failed": 0
+    }
+  ],
+  "quality": "generation only, not scored gate"
+}

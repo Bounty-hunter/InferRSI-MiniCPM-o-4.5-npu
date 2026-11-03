@@ -1,0 +1,25 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m    │ [36;1mDURATION[0;22m │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                          │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m │ [36;1mUTIL[0;22m 
+─────┼──────────────┼─────────┼──────────┼──────┼──────────────────────────────────────────────────┼────────────────────────────────────────┼──────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown │ [2m-[22m        │ [2m-[22m    │ used by PID 3478278 (4h48m), PID 3497609 (4h47m) │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m    │ 0%   
+ 1   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 1h 46m 43s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 0m 7s                                │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 4h 50m 10s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 3h 52m 13s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 1h 1m 16s                               │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 3h 7m 47s                               │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 3h 52m 14s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 5m 0s)
+Released automatically if no GPU usage is detected for 30m
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+[W1102 19:00:22.860122911 op_api_common.cpp:43] Warning: A common user is using the files of the root user. (function operator())
+[W1102 19:00:22.866548217 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+{"cases": 12, "repeated_comparisons": 72, "exact": true}

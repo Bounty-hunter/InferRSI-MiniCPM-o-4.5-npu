@@ -1,0 +1,34 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m     │ [36;1mDURATION[0;22m   │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                               │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                    │ [36;1mUTIL[0;22m 
+─────┼──────────────┼──────────┼────────────┼──────┼───────────────────────────────────────────────────────┼────────────────────────────────────────┼─────────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown  │ [2m-[22m          │ [2m-[22m    │ used by PID 3478278 (2h23m), PID 3497609 (2h22m)      │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                       │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ zhanghan │ 0h 13m 11s │ RUN  │ heartbeat 0h 0m 11s ago, processes: PID 2165893 (11m) │ [2m36660MB, 1 processes[22m                   │ pr553-full-pair-product │ 46%  
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 0h 0m 8s                                     │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 2h 24m 50s                                   │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 1h 26m 53s                                   │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 2h 50m 42s                                   │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 0h 42m 27s                                   │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m          │ [2m-[22m    │ free for 1h 26m 53s                                   │ [2m0MB used[22m                               │ [2m-[22m                       │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 10m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"cache": "10000", "batch": 1, "capture_len": 1, "exit_code": 0, "elapsed_s": 15.837812909856439, "supported": true}
+{"cache": "10000", "batch": 1, "capture_len": 6144, "exit_code": 0, "elapsed_s": 14.83525908458978, "supported": true}
+{"cache": "10000", "batch": 2, "capture_len": 1, "exit_code": 0, "elapsed_s": 14.48631803970784, "supported": true}
+{"cache": "10000", "batch": 2, "capture_len": 6144, "exit_code": 0, "elapsed_s": 14.285405964590609, "supported": true}
+{"cache": "10000", "batch": 4, "capture_len": 1, "exit_code": 0, "elapsed_s": 15.28709166124463, "supported": true}
+{"cache": "10000", "batch": 4, "capture_len": 6144, "exit_code": 0, "elapsed_s": 14.486125277355313, "supported": true}
+{"cache": "10000", "batch": 8, "capture_len": 1, "exit_code": 0, "elapsed_s": 16.085749190300703, "supported": true}
+{"cache": "10000", "batch": 8, "capture_len": 6144, "exit_code": 0, "elapsed_s": 15.287037715315819, "supported": true}
+{"cache": "100000", "batch": 1, "capture_len": 1, "exit_code": 0, "elapsed_s": 14.686217484995723, "supported": true}
+{"cache": "100000", "batch": 1, "capture_len": 6144, "exit_code": 0, "elapsed_s": 15.28621293604374, "supported": true}
+{"cache": "100000", "batch": 2, "capture_len": 1, "exit_code": 0, "elapsed_s": 14.885007037781179, "supported": true}
+{"cache": "100000", "batch": 2, "capture_len": 6144, "exit_code": 0, "elapsed_s": 15.486964399926364, "supported": true}
+{"cache": "100000", "batch": 4, "capture_len": 1, "exit_code": 0, "elapsed_s": 14.48562948871404, "supported": true}
+{"cache": "100000", "batch": 4, "capture_len": 6144, "exit_code": 0, "elapsed_s": 15.236645598895848, "supported": true}
+{"cache": "100000", "batch": 8, "capture_len": 1, "exit_code": 0, "elapsed_s": 14.485329531133175, "supported": true}
+{"cache": "100000", "batch": 8, "capture_len": 6144, "exit_code": 0, "elapsed_s": 14.285764177329838, "supported": true}
+Diagnostic complete; inspect every child exit/check, not only parent receipt.
+ERROR: Failed to send heartbeat (attempt 1): failed to get state for GPU 2: context canceled
+GPU reservations may be at risk of expiring!
+WARNING: Redis health check failed: context canceled
+Attempting Redis reconnection...
+Redis reconnection successful

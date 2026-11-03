@@ -1,0 +1,17 @@
+{
+  "tag": "nativep337",
+  "engine": "engine-r337",
+  "config": "config-r337.json",
+  "engine_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+  "native": [
+    8
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19284,
+  "runner": "run_native_austinp.py",
+  "diagnostic_only": true,
+  "algorithm_round": false,
+  "repair_of": "nativecpu337",
+  "hypothesis": "libunwind native/onCPU20ms20s retry after frame-pointer sampler had zero engine/audio coverage. Exact r337 source, original failed job/status kept; profiler observer/timers never performance acceptance"
+}

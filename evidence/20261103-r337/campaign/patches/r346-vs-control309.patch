@@ -1,0 +1,83 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        thinker_native_rotary: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -235,6 +236,7 @@
+             static_shape_capacity=talker_static_kv_capacity,
+         )
+         self.trun.capture_context = self._graph_capture_context
++        self.trun.native_rotary_enabled = bool(thinker_native_rotary)
+         self.arun.capture_context = self._graph_capture_context
+         if self.t2w_batch.euler is not None:
+             self.t2w_batch.euler.capture_context = self._graph_capture_context
+@@ -772,6 +774,8 @@
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+                 "thinker_prefix_cache_stats": dict(self._thinker_prefix_stats),
+                 "thinker_batch_append_prefill": self.trun.batch_append_prefill,
++                "thinker_native_rotary_host_calls": getattr(self.trun,"native_rotary_host_calls",0),
++                "thinker_native_rotary_failures": getattr(self.trun,"native_rotary_failures",[]),
+                 "thinker_batch_append_prefill_failures": list(self.trun.batch_append_prefill_failures),
+                 "talker_graph_buckets": sorted(self.arun.decode_graphs),
+                 "prompt_cache_entries": prompt_entries, "prompt_cache_refs": prompt_refs,
+--- a/engine/runtime/native_rotary.py
++++ b/engine/runtime/native_rotary.py
+@@ -0,0 +1,11 @@
++"""Standalone use of the same rotary operator seen in Ascend Qwen2.
++
++The fused arithmetic may have different intermediate rounding; it is not
++bitwise-qualified by construction and requires the existing quality gates.
++"""
++def apply(query,key,tables):
++    import torch_npu
++    cos,sin=tables
++    cosine,sine=cos.unsqueeze(0),sin.unsqueeze(0)
++    return (torch_npu.npu_rotary_mul(query.unsqueeze(0),cosine,sine).squeeze(0),
++            torch_npu.npu_rotary_mul(key.unsqueeze(0),cosine,sine).squeeze(0))
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -787,6 +787,20 @@
+             return self._fresh_prefill(query, key, value, layout)
+         return self._append_prefill(query, layer, layout)
+ 
++    def _native_rotary(self, query,key,layout,tables):
++        if getattr(self,"native_rotary_enabled",False):
++            from engine.runtime.native_rotary import apply
++            try:
++                result=apply(query,key,tables)
++                self.native_rotary_host_calls=getattr(self,"native_rotary_host_calls",0)+1
++                return result
++            except RuntimeError as error:
++                if not hasattr(self,"native_rotary_failures"):
++                    self.native_rotary_failures=[]
++                self.native_rotary_failures.append(f"{type(error).__name__}: {error}")
++                self.native_rotary_enabled=False
++        return hf_rope(query,key,layout.positions,self.spec.rope_theta,tables)
++
+     def _forward_reference(self, x: torch.Tensor, layout: NpuBatchLayout) -> torch.Tensor:
+         spec = self.spec
+         nq, nk = spec.num_heads * spec.head_dim, spec.num_kv_heads * spec.head_dim
+@@ -836,7 +850,7 @@
+             if spec.qk_norm:
+                 query = rms_norm(query, weights["q_norm"])
+                 key = rms_norm(key, weights["k_norm"])
+-            query, key = hf_rope(query, key, layout.positions, spec.rope_theta, tables)
++            query, key = self._native_rotary(query,key,layout,tables)
+             attended = self._attention(query, key, value, layer, layout)
+             attention_branch = linear(attended.reshape(-1, nq), weights["o"])
+             if native_add_rms:
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "thinker_native_rotary": true
+ }

@@ -1,0 +1,39 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        t2w_startup_tail_all: bool = False,
+         thinker_startup_graph_rows: tuple = (),
+         **_future_track_s_options,
+     ):
+@@ -349,6 +350,7 @@
+             self._warm_full_talker_blocks()
+         self.t2w_startup_graph_rows = startup_rows
+         self.t2w_startup_extended = bool(t2w_startup_extended)
++        self.t2w_startup_tail_all = bool(t2w_startup_tail_all)
+         self.t2w_startup_ready = threading.Event()
+         self.t2w_startup_error = None
+         self.t2w_startup_stats = {"request_rows": list(startup_rows), "keys": [], "duration_s": 0.0}
+@@ -466,7 +468,9 @@
+                     self.t2w_startup_stats["keys"].append(record)
+                     print({"media_graph_startup": record}, flush=True)
+             if self.t2w_startup_extended:
+-                self._prime_euler_key(2, 56, 512, "audio_tail")
++                tail_rows = [2 * n for n in self.t2w_startup_graph_rows] if self.t2w_startup_tail_all else [2]
++                for rows in tail_rows:
++                    self._prime_euler_key(rows, 56, 512, "audio_tail")
+         self.t2w_startup_stats.update(duration_s=time.perf_counter() - started,
+             allocated_before_bytes=before, allocated_after_bytes=int(torch.npu.memory_allocated()),
+             reserved_after_bytes=int(torch.npu.memory_reserved()))
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -51,5 +51,6 @@
+     2,
+     4,
+     8
+-  ]
++  ],
++  "t2w_startup_tail_all": true
+ }

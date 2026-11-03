@@ -1,0 +1,52 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        npu_core_fraction: float = 1.0,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -111,6 +112,23 @@
+         if startup_rows and not (t2w_threaded and t2w_euler_graphs and t2w_hift_graphs):
+             raise ValueError("media startup requires the threaded Euler and HiFT graph paths")
+         import torch_npu  # noqa: F401
++        fraction = float(npu_core_fraction)
++        if not 0 < fraction <= 1:
++            raise ValueError("npu_core_fraction must be in (0,1]")
++        self.npu_core_policy = None
++        if fraction < 1:
++            device_id = torch.device(device).index or 0
++            torch.npu.set_device(device_id)
++            original_limit = torch.npu.get_device_limit(device_id)
++            cube = max(1, int(original_limit["cube_core_num"] * fraction))
++            vector = max(1, int(original_limit["vector_core_num"] * fraction))
++            # Current process only, before any model operators or graph
++            # capture. Every private stream inherits the same process limit;
++            # this is no reservation, global device change or MPS daemon.
++            torch.npu.set_device_limit(device_id, cube_num=cube, vector_num=vector)
++            self.npu_core_policy = dict(fraction=fraction, before=original_limit,
++                                       after=torch.npu.get_device_limit(device_id))
++
+         from transformers import AutoTokenizer
+ 
+         from engine.models.multimodal import MultimodalFrontend
+@@ -767,6 +785,7 @@
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                 "t2w_startup_stats": dict(self.t2w_startup_stats),
++                "npu_core_policy": self.npu_core_policy,
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "npu_core_fraction": 0.5
+ }

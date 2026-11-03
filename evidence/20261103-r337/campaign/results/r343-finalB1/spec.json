@@ -1,0 +1,18 @@
+{
+  "tag": "r343-finalB1",
+  "engine": "engine-r343",
+  "config": "config-r343.json",
+  "engine_sha256": "1af1507d58f86c8f92c9cb9f30a7da470151d65fbae4bc83d462e397dad835a2",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": false,
+  "port": 19344,
+  "runner": "run_lowc.py",
+  "confirmation_of": "r343",
+  "algorithm_round": false,
+  "hypothesis": "Fresh official unprofiled native confirmation, source/config unchanged; not an algorithm round"
+}

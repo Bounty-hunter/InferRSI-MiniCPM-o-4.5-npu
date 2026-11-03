@@ -1,0 +1,23 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m       │ [36;1mDURATION[0;22m  │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                             │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                                            │ [36;1mUTIL[0;22m 
+─────┼──────────────┼────────────┼───────────┼──────┼─────────────────────────────────────────────────────┼────────────────────────────────────────┼─────────────────────────────────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown    │ [2m-[22m         │ [2m-[22m    │ used by PID 3976932 (3h13m), PID 3953860 (3h14m)    │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                                               │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ why        │ 0h 5m 5s  │ RUN  │ heartbeat 0h 0m 5s ago, processes: PID 439412 (4m)  │ [2m2776MB, 1 processes[22m                    │ H3 Ref2VA 4x910B1 five-step operator diagnostic │ 0%   
+ 2   │ [34m● IN_USE   [0m  │ why        │ 0h 5m 5s  │ RUN  │ heartbeat 0h 0m 5s ago, processes: PID 439418 (4m)  │ [2m2776MB, 1 processes[22m                    │ H3 Ref2VA 4x910B1 five-step operator diagnostic │ 0%   
+ 3   │ [34m● IN_USE   [0m  │ why        │ 0h 5m 5s  │ RUN  │ heartbeat 0h 0m 5s ago, processes: PID 439419 (4m)  │ [2m2776MB, 1 processes[22m                    │ H3 Ref2VA 4x910B1 five-step operator diagnostic │ 0%   
+ 4   │ [34m● IN_USE   [0m  │ why        │ 0h 5m 5s  │ RUN  │ heartbeat 0h 0m 5s ago, processes: PID 439420 (4m)  │ [2m256MB, 1 processes[22m                     │ H3 Ref2VA 4x910B1 five-step operator diagnostic │ 0%   
+ 5   │ [34m● IN_USE   [0m  │ zhanghan   │ 0h 0m 3s  │ RUN  │ heartbeat 0h 0m 3s ago                              │ [2mno usage detected[22m                      │ pr553-onerec-sharded-long                       │ 0%   
+ 6   │ [34m● IN_USE   [0m  │ yangnanxin │ 0h 2m 39s │ RUN  │ heartbeat 0h 0m 39s ago, processes: PID 491723 (2m) │ [2m27471MB, 1 processes[22m                   │ -                                               │ 0%   
+ 7   │ [34m● IN_USE   [0m  │ zhanghan   │ 0h 0m 6s  │ RUN  │ heartbeat 0h 0m 5s ago                              │ [2mno usage detected[22m                      │ pr553-onerec-sharded-pilot                      │ 0%   
+Waiting for GPUs... (queue position: 3)
+Reserved 1 GPU(s): [7] for command execution (timeout: 0h 20m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T13:32:32Z", "mode": "quality", "pid": 199011, "device": "7"}
+{"phase": "quality_generation", "utc": "2026-11-02T13:33:41Z"}
+{"phase": "loading", "utc": "2026-11-02T13:33:56Z", "mode": "native", "pid": 199278, "device": "7"}
+{"phase": "benchmark", "utc": "2026-11-02T13:34:56Z", "mode": "native", "concurrency": 2}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:36:02Z", "mode": "native", "concurrency": 2, "ttfp_ms": 785.9521814098116, "rtf": 0.33444569140422237, "req_s": 1.4120854499146285, "completed": 32, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T13:36:02Z", "mode": "native", "concurrency": 4}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:37:20Z", "mode": "native", "concurrency": 4, "ttfp_ms": 1153.5144095832948, "rtf": 0.5212562791240394, "req_s": 1.7860181134171087, "completed": 64, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T13:37:20Z", "mode": "native", "concurrency": 8}
+{"phase": "benchmark_completed", "utc": "2026-11-02T13:39:00Z", "mode": "native", "concurrency": 8, "ttfp_ms": 1834.8324299004162, "rtf": 0.8679354335653084, "req_s": 2.2057895067112385, "completed": 128, "failed": 0}
+{"phase": "completed", "utc": "2026-11-02T13:39:07Z", "measurements": [{"mode": "native", "concurrency": 2, "ttfp_ms": 785.9521814098116, "rtf": 0.33444569140422237, "req_s": 1.4120854499146285, "completed": 32, "failed": 0}, {"mode": "native", "concurrency": 4, "ttfp_ms": 1153.5144095832948, "rtf": 0.5212562791240394, "req_s": 1.7860181134171087, "completed": 64, "failed": 0}, {"mode": "native", "concurrency": 8, "ttfp_ms": 1834.8324299004162, "rtf": 0.8679354335653084, "req_s": 2.2057895067112385, "completed": 128, "failed": 0}], "quality": "generation only, not scored gate"}

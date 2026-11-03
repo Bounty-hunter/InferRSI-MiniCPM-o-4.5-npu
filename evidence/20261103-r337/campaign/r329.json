@@ -1,0 +1,21 @@
+{
+  "tag": "r329",
+  "engine": "engine-r329",
+  "config": "config-r329.json",
+  "engine_sha256": "f65f73e764e82169beaa385cbb2c762da30947baac0050f5d4e7200ae2d87785",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19218,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Causal ablation after r32050% both-core gains and r32275% STFT invalidaiv36: cube50 separates Cube count from Vector count using already-supported24/48 Vector counts; all process-local before capture, no shared-device change or model/precision change",
+  "kind": "cube50"
+}

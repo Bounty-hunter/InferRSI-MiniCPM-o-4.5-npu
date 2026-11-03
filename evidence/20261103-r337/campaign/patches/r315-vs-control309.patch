@@ -1,0 +1,13 @@
+--- a/engine/runtime/thinker_lookup.py
++++ b/engine/runtime/thinker_lookup.py
+@@ -53,8 +53,8 @@
+     if not speculative:
+         return False
+     stats = backend.thinker_prompt_lookup_stats
+-    if ordinary:
+-        backend._thinker_step_group(ordinary, _skip_prompt_lookup=True)
++    speculative.extend(ordinary)
++    drafts.extend([] for _ in ordinary)
+     feeds = [[lv.generated[-1], *draft] for lv, draft in zip(speculative, drafts)]
+     demands = {lv.seq: len(feed) for lv, feed in zip(speculative, feeds)}
+     if not backend.tkv.can_fit(demands):

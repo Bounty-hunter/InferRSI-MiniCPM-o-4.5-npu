@@ -1,0 +1,22 @@
+{
+  "tag": "control309",
+  "engine": "engine-control309",
+  "config": "config-control309.json",
+  "engine_sha256": "2c76122486ba3b21d80c161825e22667948d8a8cf20508634bbc7d0d34a4f486",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19200,
+  "quality_first": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "hypothesis": "Fresh unmodified r309 baseline; not an optimization round"
+}

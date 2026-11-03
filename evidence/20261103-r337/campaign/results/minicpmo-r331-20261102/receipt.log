@@ -1,0 +1,22 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m       │ [36;1mDURATION[0;22m   │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                             │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                  │ [36;1mUTIL[0;22m 
+─────┼──────────────┼────────────┼────────────┼──────┼─────────────────────────────────────────────────────┼────────────────────────────────────────┼───────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown    │ [2m-[22m          │ [2m-[22m    │ used by PID 3478278 (22m), PID 3497609 (21m)        │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                     │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ zhanghan   │ 0h 59m 38s │ RUN  │ heartbeat 0h 0m 38s ago                             │ [2mno usage detected[22m                      │ pr553-full-pair-video │ 0%   
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 0m 1s                                   │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 23m 45s                                 │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 33m 2s                                  │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 49m 37s                                 │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 6   │ [34m● IN_USE   [0m  │ yangnanxin │ 0h 2m 56s  │ RUN  │ heartbeat 0h 0m 56s ago, processes: PID 754881 (2m) │ [2m26555MB, 1 processes[22m                   │ -                     │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m          │ [2m-[22m          │ [2m-[22m    │ free for 0h 49m 40s                                 │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 20m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T14:33:48Z", "mode": "quality", "pid": 210381, "device": "2"}
+{"phase": "failed", "utc": "2026-11-02T14:34:39Z", "error": "AssertionError(1)"}
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_runtime_env.py", line 126, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_runtime_env.py", line 70, in main
+    assert server.poll() is None,server.returncode
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1

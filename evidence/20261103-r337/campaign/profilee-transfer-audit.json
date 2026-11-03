@@ -1,0 +1,8 @@
+{
+  "archive": "D:\\huawei\\code\\codex_workspace\\outputs\\rsi-r312-r351-20261102\\profile309e-evidence.tgz",
+  "sha256": "72f60bc67e8d1736a78b3371c125bf72d6146bbeb1c659fd153c0232c6b5d14c",
+  "remote_sha256": "72f60bc67e8d1736a78b3371c125bf72d6146bbeb1c659fd153c0232c6b5d14c",
+  "original_job_exit": 137,
+  "transfer_complete": true,
+  "note": "Original generic extraction exceeded Windows MAX_PATH. Original archive preserved, trace paths shortened in a separate mapping; no profiler success claim."
+}

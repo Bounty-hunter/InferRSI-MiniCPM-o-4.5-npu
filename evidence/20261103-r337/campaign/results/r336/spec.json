@@ -1,0 +1,25 @@
+{
+  "tag": "r336",
+  "engine": "engine-r336",
+  "config": "config-r336.json",
+  "engine_sha256": "edc3a7c510abd33193e8b01b4b4543cc62a62311d54ba8ba333b453a41dde847",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19225,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Recovered audio sync spans motivate narrow first step: NPU-event-owned pinned PCM D2H instead of pageable .cpu; retain device source and both scratch/graph gates until completion. No pipelining or unsafe early lock release; compare actual native gains before wider rewrite",
+  "kind": "pinned-pcm"
+}

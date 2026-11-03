@@ -1,0 +1,21 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m     │ [36;1mDURATION[0;22m  │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                                               │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                  │ [36;1mUTIL[0;22m 
+─────┼──────────────┼──────────┼───────────┼──────┼───────────────────────────────────────────────────────────────────────┼────────────────────────────────────────┼───────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown  │ [2m-[22m         │ [2m-[22m    │ used by PID 3478278 (47m), PID 3497609 (46m)                          │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                     │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ zhanghan │ 1h 25m 5s │ RUN  │ heartbeat 0h 0m 5s ago, processes: PID 810010 (25m), PID 783915 (26m) │ [2m38810MB, 2 processes; owner unverified[22m │ pr553-full-pair-video │ 63%  
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 0h 0m 2s                                                     │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 0h 49m 12s                                                   │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 0h 58m 28s                                                   │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 1h 15m 4s                                                    │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 0h 9m 6s                                                     │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m        │ [2m-[22m         │ [2m-[22m    │ free for 1h 15m 7s                                                    │ [2m0MB used[22m                               │ [2m-[22m                     │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 10m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T14:59:14Z", "mode": "diagnostic", "pid": 215454, "device": "2"}
+{"phase": "benchmark", "utc": "2026-11-02T15:00:14Z", "mode": "diagnostic", "concurrency": 8}
+supervisor: timeout reached after 0h 10m 0s, sending SIGINT to process 215358
+supervisor: waiting 30s for graceful shutdown...
+{"phase": "failed", "utc": "2026-11-02T15:09:14Z", "error": "KeyboardInterrupt()"}
+supervisor: grace period expired, sending SIGKILL to process 215358
+WARNING: Redis health check failed: context canceled
+Attempting Redis reconnection...
+Redis reconnection successful

@@ -1,0 +1,20 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m    │ [36;1mDURATION[0;22m │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                          │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m │ [36;1mUTIL[0;22m 
+─────┼──────────────┼─────────┼──────────┼──────┼──────────────────────────────────────────────────┼────────────────────────────────────────┼──────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown │ [2m-[22m        │ [2m-[22m    │ used by PID 3478278 (5h13m), PID 3497609 (5h12m) │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m    │ 0%   
+ 1   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 2h 11m 14s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 0m 10s                               │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 5h 14m 41s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 4h 16m 43s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 1h 25m 46s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 0m 46s                               │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 4h 16m 44s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 10m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T19:24:43Z", "mode": "native", "pid": 264082, "device": "2"}
+{"phase": "benchmark", "utc": "2026-11-02T19:25:45Z", "mode": "native", "concurrency": 2}
+{"phase": "benchmark_completed", "utc": "2026-11-02T19:26:52Z", "mode": "native", "concurrency": 2, "ttfp_ms": 794.1753315681126, "rtf": 0.3347740438494865, "req_s": 1.4349796424010486, "completed": 32, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T19:26:52Z", "mode": "native", "concurrency": 4}
+{"phase": "benchmark_completed", "utc": "2026-11-02T19:28:12Z", "mode": "native", "concurrency": 4, "ttfp_ms": 1202.2007612977177, "rtf": 0.5390972250731492, "req_s": 1.6821994026457288, "completed": 64, "failed": 0}
+{"phase": "benchmark", "utc": "2026-11-02T19:28:12Z", "mode": "native", "concurrency": 8}
+{"phase": "benchmark_completed", "utc": "2026-11-02T19:29:46Z", "mode": "native", "concurrency": 8, "ttfp_ms": 1686.193266796181, "rtf": 0.7814887819694083, "req_s": 2.4622199908765685, "completed": 128, "failed": 0}
+{"phase": "completed", "utc": "2026-11-02T19:29:52Z", "measurements": [{"mode": "native", "concurrency": 2, "ttfp_ms": 794.1753315681126, "rtf": 0.3347740438494865, "req_s": 1.4349796424010486, "completed": 32, "failed": 0}, {"mode": "native", "concurrency": 4, "ttfp_ms": 1202.2007612977177, "rtf": 0.5390972250731492, "req_s": 1.6821994026457288, "completed": 64, "failed": 0}, {"mode": "native", "concurrency": 8, "ttfp_ms": 1686.193266796181, "rtf": 0.7814887819694083, "req_s": 2.4622199908765685, "completed": 128, "failed": 0}], "quality": "generation only, not scored gate"}

@@ -1,5 +1,13 @@
 # Ascend NPU test status
 
+## r337 publication checks — November 3, 2026
+
+The current publication passes 26 focused CPU tests covering prompt verification, NPU hot-path contracts, and host-length provenance/fallback cases. The artifact verifier reconstructs measured r337 and control309, verifies all 40 round receipts/patches, and checks the four-tier aggregation and local document links. The historical r305 verifier also passes after reconstruction from archived runtime files.
+
+The published runtime includes the existing optional CPU-affinity server API. This integrated tree has source binding to the measured NPU snapshot. Full current speech/statistical gates remain NOT_RUN.
+
+[Current checks](../evidence/20261103-r337/publication-checks.json) · [Current evidence](../evidence/20261103-r337/README.md)
+
 ## r305 publication checks — November 2, 2026
 
 The [experimental r305 update](rsi-profiling-20261102.zh-CN.md) includes 35 passing focused CPU tests for draft

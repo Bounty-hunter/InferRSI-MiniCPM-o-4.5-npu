@@ -1,0 +1,6 @@
+{
+  "phase": "completed",
+  "cases": 10,
+  "supported": 10,
+  "limitation": "Operator feasibility only, no model or quality gate pass; runtime errors retained per case"
+}

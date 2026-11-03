@@ -1,0 +1,43 @@
+{
+  "phase": "completed",
+  "utc": "2026-11-02T19:00:05Z",
+  "measurements": [
+    {
+      "mode": "native",
+      "concurrency": 2,
+      "ttfp_ms": 791.7741404671688,
+      "rtf": 0.3342108082336359,
+      "req_s": 1.4208324828435908,
+      "completed": 32,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 4,
+      "ttfp_ms": 1228.4614702512044,
+      "rtf": 0.5306348996796098,
+      "req_s": 1.7695963427920942,
+      "completed": 64,
+      "failed": 0
+    },
+    {
+      "mode": "native",
+      "concurrency": 8,
+      "ttfp_ms": 1783.3079203919624,
+      "rtf": 0.8391743222194945,
+      "req_s": 2.260051752617324,
+      "completed": 128,
+      "failed": 0
+    },
+    {
+      "mode": "diagnostic",
+      "concurrency": 8,
+      "ttfp_ms": 1802.222443962819,
+      "rtf": 0.8038676443880644,
+      "req_s": 2.392918860008278,
+      "completed": 128,
+      "failed": 0
+    }
+  ],
+  "quality": "generation only, not scored gate"
+}

@@ -1,0 +1,16 @@
+{
+  "tags": [
+    "control309-finalA1",
+    "r337-finalB1",
+    "r343-capturecontrol",
+    "r343-finalB1",
+    "control309-finalA2",
+    "r343-finalB2",
+    "r337-finalB2",
+    "control309-finalA3",
+    "omni-final"
+  ],
+  "predecessor": "r351",
+  "scope": "Fresh official native services in forward/reverse order; controls, not additional algorithm rounds. All before/after controls and duration drift retained. Speech gate remains required.",
+  "omni_repeat_reason": "Contemporary pinned Omni reference after visible same-source control drift; retain original reference too; not an algorithm round or equal-quality proof"
+}

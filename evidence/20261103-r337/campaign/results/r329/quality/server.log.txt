@@ -1,0 +1,206 @@
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-9.1.0/aarch64-linux/ascend_ops_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+[W1102 15:32:01.418064623 NPUCachingAllocator.cpp:202] Warning: The current CANN and HDK(driver) versions require processing for 32 padding size, with memory allocation. (function operator())
+[W1102 15:32:01.419285814 op_api_common.cpp:43] Warning: A common user is using the files of the root user. (function operator())
+[transformers] `MiniCPMOProcessor` defines `image_processor_class = 'AutoImageProcessor'`, which is deprecated. Register the correct mapping in `AutoImageProcessor` instead.
+[transformers] Requested torchvision backend is not available. Falling back to pil backend.
+[transformers] `MiniCPMOProcessor` defines `audio_processor_class = 'AutoFeatureExtractor'`, which is deprecated. Register the correct mapping in `AutoFeatureExtractor` instead.
+/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py:354: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at ../torch_npu/csrc/aten/common/TensorFactories.cpp:423.)
+  self.workspace_block_table = workspace_pages.remainder(runner.kv.num_pages).repeat(batch, 1)
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 50, 512], 'seconds': 1.1898988531902432}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [1, 50], 'seconds': 0.3352720560505986}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [1, 58], 'seconds': 0.1281055323779583}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [4, 50, 512], 'seconds': 0.6821924932301044}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [2, 50], 'seconds': 0.13722773920744658}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [2, 58], 'seconds': 0.1376984305679798}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [8, 50, 512], 'seconds': 0.7080801259726286}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [4, 50], 'seconds': 0.14102753717452288}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [4, 58], 'seconds': 0.13959556072950363}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [16, 50, 512], 'seconds': 0.7467055171728134}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [8, 50], 'seconds': 0.18876198586076498}}
+{'media_graph_startup': {'owner': 'HiFTGraphs', 'key': [8, 58], 'seconds': 0.14648628886789083}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 56, 512], 'lane': 'audio_tail', 'seconds': 0.6891546044498682}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 256, 0], 'lane': 'prompt_setup', 'seconds': 0.7089555785059929}}
+{'media_graph_startup': {'owner': 'EulerGraphs', 'key': [2, 512, 0], 'lane': 'prompt_setup', 'seconds': 0.7018885649740696}}
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 823, in _run
+    self._tick()
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 832, in _tick
+    self._tick_launched()
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 838, in _tick_launched
+    self._timed_stage("talker", self._talker_step,
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 654, in _timed_stage
+    return fn(*args)
+           ^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 1001, in _talker_step
+    hidden = self._decoder_forward(self.arun, torch.cat(feeds), lay)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 668, in _decoder_forward
+    return runner.forward(x, layout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 919, in forward
+    return self._forward_impl(x, layout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 877, in _forward_impl
+    return self._forward_reference(x, layout) if self.fused_mode == "reference" else self._forward_native(x, layout)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 840, in _forward_native
+    attended = self._attention(query, key, value, layer, layout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 788, in _attention
+    return self._append_prefill(query, layer, layout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 773, in _append_prefill
+    return self._append_prefill_reference(query, layer, layout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 720, in _append_prefill_reference
+    result = self.npu.npu_fused_infer_attention_score(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/_ops.py", line 1209, in __call__
+    return self._op(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: npu_fused_infer_attention_score_symint:../third_party/op-plugin/op_plugin/ops/opapi/FusedInferAttentionScoreKernelNpuOpApi.cpp:425 NPU function error: call aclnnFusedInferAttentionScoreV3 failed, error code is 561002
+[ERROR] 2026-11-02-15:32:44 (PID:218128, Device:0, RankID:-1) ERR00100 PTA call acl api failed.
+[PID: 218128] 2026-11-02-15:32:44.766.327 Execution_Error(EZ1008): Failed to execute operator FusedInferAttentionScore_0. Reason: Failed to execute tiling function.
+        Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function fails to be executed, check the implementation logic of the tiling function.
+TraceBack (most recent call last):
+        aicNum(12):aivNum(48) only support 1:1 or 1:2.[FUNC:SetPlatformInfo][FILE:fused_infer_attention_score_tiling.cpp][LINE:867]
+        tiling process for pfa failed[FUNC:TilingFusedInferAttentionScore][FILE:fused_infer_attention_score_tiling.cpp][LINE:2247]
+        Failed to execute operator FusedInferAttentionScore_0. Reason: Failed to execute tiling function.
+        Check NnopbaseExecutorDoTiling(executor) failed
+        Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed
+        Check NnopbaseExecutorMatchCache(executor) failed
+        Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 823, in _run
+    self._tick()
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 832, in _tick
+    self._tick_launched()
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 837, in _tick_launched
+    self._timed_stage("thinker", self._thinker_step, [x for x in self.live.values() if not x.thinker_done])
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 654, in _timed_stage
+    return fn(*args)
+           ^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 952, in _thinker_step
+    self._thinker_step_group(rows)
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 897, in _thinker_step_group
+    hidden = self._decoder_forward(self.trun, torch.cat(embs), lay)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 668, in _decoder_forward
+    return runner.forward(x, layout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 919, in forward
+    return self._forward_impl(x, layout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 877, in _forward_impl
+    return self._forward_reference(x, layout) if self.fused_mode == "reference" else self._forward_native(x, layout)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 840, in _forward_native
+    attended = self._attention(query, key, value, layer, layout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 788, in _attention
+    return self._append_prefill(query, layer, layout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 773, in _append_prefill
+    return self._append_prefill_reference(query, layer, layout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/npu_paged.py", line 720, in _append_prefill_reference
+    result = self.npu.npu_fused_infer_attention_score(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/torch/_ops.py", line 1209, in __call__
+    return self._op(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: npu_fused_infer_attention_score_symint:../third_party/op-plugin/op_plugin/ops/opapi/FusedInferAttentionScoreKernelNpuOpApi.cpp:425 NPU function error: call aclnnFusedInferAttentionScoreV3 failed, error code is 561002
+[ERROR] 2026-11-02-15:32:45 (PID:218128, Device:0, RankID:-1) ERR00100 PTA call acl api failed.
+[PID: 218128] 2026-11-02-15:32:45.087.358 Execution_Error(EZ1008): Failed to execute operator FusedInferAttentionScore_244618. Reason: Failed to execute tiling function.
+        Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function fails to be executed, check the implementation logic of the tiling function.
+TraceBack (most recent call last):
+        aicNum(12):aivNum(48) only support 1:1 or 1:2.[FUNC:GetNpuInfo][FILE:incre_flash_attention_tiling.cpp][LINE:143]
+        tiling process for ifa failed[FUNC:TilingFusedInferAttentionScore][FILE:fused_infer_attention_score_tiling.cpp][LINE:2243]
+        Failed to execute operator FusedInferAttentionScore_244618. Reason: Failed to execute tiling function.
+        Check NnopbaseExecutorDoTiling(executor) failed
+        Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed
+        Check NnopbaseExecutorMatchCache(executor) failed
+        Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed
+
+Error handling request from 127.0.0.1
+Traceback (most recent call last):
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/web_protocol.py", line 577, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.12.13/lib/python3.12/site-packages/aiohttp/web_app.py", line 563, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/quality_hooks_lowc.py", line 37, in generate
+    audio=row.pop('audio');assert row['ok'],row
+                                  ~~~^^^^^^
+AssertionError: {'request_id': 'common_voice_en_10933823-common_voice_en_10933825', 'seed': 563106715, 'target_text': 'The primary coil has fifty turns.', 'ref_text': 'Sometimes I overthink things which leads me to postpone and ultimately never achieve the goal I had in mind.', 'ref_wav': '/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_10933823.wav', 'thinker_text': 'The primary coil has fifty turns.', 'ok': False, 'ttfa_s': 2.8139860667288303, 'e2e_s': 2.898166180588305, 'samples': 24000, 'duration_s': 1.0, 'audio_sha256_float32': 'dd1d730b69489b7a2ba66ec07a08687c6e50a4f1d25e5e1f2f795bf982b0f435', 'finish_reason': None, 'usage': {}, 'error': 'RuntimeError: engine error: RuntimeError: npu_fused_infer_attention_score_symint:../third_party/op-plugin/op_plugin/ops/opapi/FusedInferAttentionScoreKernelNpuOpApi.cpp:425 NPU function error: call aclnnFusedInferAttentionScoreV3 failed, error code is 561002\n[ERROR] 2026-11-02-15:32:44 (PID:218128, Device:0, RankID:-1) ERR00100 PTA call acl api failed.\n[PID: 218128] 2026-11-02-15:32:44.766.327 Execution_Error(EZ1008): Failed to execute operator FusedInferAttentionScore_0. Reason: Failed to execute tiling function.\n        Solution: 1.If the tiling function does not exist, check whether the tiling function is registered successfully. 2.If the tiling function fails to be executed, check the implementation logic of the tiling function.\nTraceBack (most recent call last):\n        aicNum(12):aivNum(48) only support 1:1 or 1:2.[FUNC:SetPlatformInfo][FILE:fused_infer_attention_score_tiling.cpp][LINE:867]\n        tiling process for pfa failed[FUNC:TilingFusedInferAttentionScore][FILE:fused_infer_attention_score_tiling.cpp][LINE:2247]\n        Failed to execute operator FusedInferAttentionScore_0. Reason: Failed to execute tiling function.\n        Check NnopbaseExecutorDoTiling(executor) failed\n        Check NnopbaseExecutorTilingAndUpdateBinInfo(executor) failed\n        Check NnopbaseExecutorMatchCache(executor) failed\n        Check NnopbaseRunForWorkspace(*executor, workspaceSize) failed\n'}
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 1216, in _run_t2w
+    lv.prompt_future.result(), noise_seed=request_seed(lv.req), share_prompt=True)
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'result'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 1221, in _run_t2w
+    lv.emit(BadRequest(f"reference audio: {type(exc).__name__}: {exc}"))
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_s.py", line 112, in emit
+    self.loop.call_soon_threadsafe(self.out.put_nowait, ev)
+  File "/usr/local/python3.12.13/lib/python3.12/asyncio/base_events.py", line 844, in call_soon_threadsafe
+    self._check_closed()
+  File "/usr/local/python3.12.13/lib/python3.12/asyncio/base_events.py", line 545, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+Exception in thread npu-token2wav:
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 1216, in _run_t2w
+    lv.prompt_future.result(), noise_seed=request_seed(lv.req), share_prompt=True)
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'result'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 1221, in _run_t2w
+    lv.emit(BadRequest(f"reference audio: {type(exc).__name__}: {exc}"))
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_s.py", line 112, in emit
+    self.loop.call_soon_threadsafe(self.out.put_nowait, ev)
+  File "/usr/local/python3.12.13/lib/python3.12/asyncio/base_events.py", line 844, in call_soon_threadsafe
+    self._check_closed()
+  File "/usr/local/python3.12.13/lib/python3.12/asyncio/base_events.py", line 545, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python3.12.13/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/usr/local/python3.12.13/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_npu.py", line 1266, in _run_t2w
+    lv.emit(RuntimeError(f"token2wav error: {type(exc).__name__}: {exc}"))
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/engine-r329/engine/runtime/backend_s.py", line 112, in emit
+    self.loop.call_soon_threadsafe(self.out.put_nowait, ev)
+  File "/usr/local/python3.12.13/lib/python3.12/asyncio/base_events.py", line 844, in call_soon_threadsafe
+    self._check_closed()
+  File "/usr/local/python3.12.13/lib/python3.12/asyncio/base_events.py", line 545, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed

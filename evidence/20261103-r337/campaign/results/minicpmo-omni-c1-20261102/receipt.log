@@ -1,0 +1,17 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m    │ [36;1mDURATION[0;22m   │ [36;1mTYPE[0;22m   │ [36;1mDETAILS[0;22m                                              │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m                                       │ [36;1mUTIL[0;22m 
+─────┼──────────────┼─────────┼────────────┼────────┼──────────────────────────────────────────────────────┼────────────────────────────────────────┼────────────────────────────────────────────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown │ [2m-[22m          │ [2m-[22m      │ used by PID 3478278 (10h54m), PID 3497609 (10h53m)   │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m                                          │ 0%   
+ 1   │ [34m● IN_USE   [0m  │ why     │ 0h 13m 39s │ RUN    │ heartbeat 0h 0m 39s ago, processes: PID 295983 (12m) │ [2m20899MB, 1 processes[22m                   │ H3 Ref2VA 4x910B1 15s baseline feasibility │ 96%  
+ 2   │ [34m● IN_USE   [0m  │ why     │ 0h 13m 39s │ RUN    │ heartbeat 0h 0m 39s ago, processes: PID 295984 (12m) │ [2m20379MB, 1 processes[22m                   │ H3 Ref2VA 4x910B1 15s baseline feasibility │ 96%  
+ 3   │ [34m● IN_USE   [0m  │ why     │ 0h 13m 39s │ RUN    │ heartbeat 0h 0m 39s ago, processes: PID 295985 (12m) │ [2m20379MB, 1 processes[22m                   │ H3 Ref2VA 4x910B1 15s baseline feasibility │ 96%  
+ 4   │ [34m● IN_USE   [0m  │ why     │ 0h 13m 39s │ RUN    │ heartbeat 0h 0m 39s ago, processes: PID 295987 (12m) │ [2m20379MB, 1 processes[22m                   │ H3 Ref2VA 4x910B1 15s baseline feasibility │ 96%  
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m          │ [2m-[22m      │ free for 7h 7m 38s                                   │ [2m0MB used[22m                               │ [2m-[22m                                          │ 0%   
+ 6   │ [34m● IN_USE   [0m  │ wangwei │ 0h 26m 33s │ MANUAL │ expires in 1h 53m 25s, booked                        │ [2mno usage detected[22m                      │ vllm-gr test                               │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m          │ [2m-[22m      │ free for 9h 58m 36s                                  │ [2m0MB used[22m                               │ [2m-[22m                                          │ 0%   
+Reserved 1 GPU(s): [7] for command execution (timeout: 0h 20m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "preflight", "time_utc": "2026-11-03T01:06:35Z", "ref": "refs/heads/main", "commit": "9990f10d9e898c3d38b1fa640513d55f771b8685", "device": "7"}
+{"phase": "server_starting", "time_utc": "2026-11-03T01:07:08Z", "pid": 274829}
+{"phase": "benchmark_running", "time_utc": "2026-11-03T01:17:27Z", "concurrency": 1, "prompts": 32, "warmups": 2}
+{"phase": "benchmark_completed", "time_utc": "2026-11-03T01:18:53Z", "concurrency": 1, "completed": 32, "failed": 0, "ttfp_ms": 867.1766117913648, "rtf": 0.3113603539299176, "request_per_s": 0.8011817748554725}
+{"phase": "completed", "time_utc": "2026-11-03T01:18:57Z", "cells": 1, "completed": 32, "failed": 0, "quality_gate": "NOT_RUN", "frozen_lcb": "NOT_RUN"}

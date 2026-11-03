@@ -1,0 +1,24 @@
+{
+  "tag": "r307",
+  "engine": "engine-r307",
+  "config": "config-r307.json",
+  "engine_sha256": "920f1746acd89265997c40174d7d26a0d13ce645ca42e6c9e513d93ccbe7d212",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19121,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "r307-control",
+  "runner": "run_lowc.py",
+  "parent": "r307-control",
+  "hypothesis": "Bounded Euler/HiFT first-window capture on actual audio worker thread/stream before accepting requests; move evidenced first-use capture off request path"
+}

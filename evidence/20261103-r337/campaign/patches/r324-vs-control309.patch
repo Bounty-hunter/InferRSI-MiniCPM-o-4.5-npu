@@ -1,0 +1,16 @@
+--- a/engine/runtime/thinker_lookup.py
++++ b/engine/runtime/thinker_lookup.py
+@@ -53,7 +53,12 @@
+     if not speculative:
+         return False
+     stats = backend.thinker_prompt_lookup_stats
+-    if ordinary:
++    # The crossover is an actual work-cohort property, independent of
++    # benchmark tier, request IDs and dataset contents.
++    if len(rows) >= 5:
++        speculative.extend(ordinary)
++        drafts.extend([] for _ in ordinary)
++    elif ordinary:
+         backend._thinker_step_group(ordinary, _skip_prompt_lookup=True)
+     feeds = [[lv.generated[-1], *draft] for lv, draft in zip(speculative, drafts)]
+     demands = {lv.seq: len(feed) for lv, feed in zip(speculative, feeds)}

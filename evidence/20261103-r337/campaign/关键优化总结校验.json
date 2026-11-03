@@ -1,0 +1,15 @@
+{
+  "document": "鍏抽敭浼樺寲鍘嗙▼涓嶰mni瀵规瘮鎬荤粨.md",
+  "sha256": "10c2ee128514e4aba2a7e969be6f19412208550ef9b772723a74a4fcc9eb6403",
+  "verified_links": 26,
+  "metric_formulas_verified": true,
+  "concurrencies": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "c1_supplement_verified": true,
+  "scope": "Publication-relative document links adapted. Numeric data remains source-bound to the archived measurements.",
+  "speech_gate": "NOT_RUN"
+}

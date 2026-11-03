@@ -88,7 +88,8 @@ def main():
     }
     assert set(actual_files) == set(manifest["runtime_files"])
     for name, path in sorted(actual_files.items()):
-        content = path.read_bytes()
+        archived = manifest.get("archived_publication_files", {}).get(name)
+        content = (ROOT / archived).read_bytes() if archived else path.read_bytes()
         assert hashlib.sha256(content).hexdigest() == manifest["runtime_files"][name], name
         measured = exact_server if name == "engine/server.py" else content
         digest.update(name.encode())

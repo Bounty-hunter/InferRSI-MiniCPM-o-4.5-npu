@@ -1,0 +1,90 @@
+[
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 1,
+    "dim": 128,
+    "supported": true,
+    "unit_then_scale_exact": true,
+    "unit_then_scale_changed": 0,
+    "unit_then_scale_max_abs": 0.0,
+    "ordinary_weighted_changed": 36,
+    "ordinary_weighted_max_abs": 0.0078125
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 288,
+    "dim": 128,
+    "supported": true,
+    "unit_then_scale_exact": true,
+    "unit_then_scale_changed": 0,
+    "unit_then_scale_max_abs": 0.0,
+    "ordinary_weighted_changed": 9352,
+    "ordinary_weighted_max_abs": 0.0078125
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 2304,
+    "dim": 128,
+    "supported": true,
+    "unit_then_scale_exact": true,
+    "unit_then_scale_changed": 0,
+    "unit_then_scale_max_abs": 0.0,
+    "ordinary_weighted_changed": 74522,
+    "ordinary_weighted_max_abs": 0.0078125
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "rows": 9,
+    "dim": 4096,
+    "supported": true,
+    "unit_then_scale_exact": true,
+    "unit_then_scale_changed": 0,
+    "unit_then_scale_max_abs": 0.0,
+    "ordinary_weighted_changed": 9200,
+    "ordinary_weighted_max_abs": 0.0078125
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 1,
+    "dim": 128,
+    "supported": true,
+    "unit_then_scale_exact": true,
+    "unit_then_scale_changed": 0,
+    "unit_then_scale_max_abs": 0.0,
+    "ordinary_weighted_changed": 45,
+    "ordinary_weighted_max_abs": 0.0009765625
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 288,
+    "dim": 128,
+    "supported": true,
+    "unit_then_scale_exact": true,
+    "unit_then_scale_changed": 0,
+    "unit_then_scale_max_abs": 0.0,
+    "ordinary_weighted_changed": 9421,
+    "ordinary_weighted_max_abs": 0.0009765625
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 2304,
+    "dim": 128,
+    "supported": true,
+    "unit_then_scale_exact": true,
+    "unit_then_scale_changed": 0,
+    "unit_then_scale_max_abs": 0.0,
+    "ordinary_weighted_changed": 75947,
+    "ordinary_weighted_max_abs": 0.0009765625
+  },
+  {
+    "dtype": "torch.float16",
+    "rows": 9,
+    "dim": 4096,
+    "supported": true,
+    "unit_then_scale_exact": true,
+    "unit_then_scale_changed": 0,
+    "unit_then_scale_max_abs": 0.0,
+    "ordinary_weighted_changed": 9608,
+    "ordinary_weighted_max_abs": 0.0009765625
+  }
+]

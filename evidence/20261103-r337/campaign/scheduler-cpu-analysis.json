@@ -1,0 +1,413 @@
+{
+  "pid": 262376,
+  "seconds": 20.034668314,
+  "schedstats_enabled": false,
+  "cpu_max": null,
+  "cpuset": null,
+  "cgroup_cpu_stat_delta": {},
+  "pressure": {
+    "/sys/fs/cgroup/cpu.pressure": {},
+    "/proc/pressure/cpu": {}
+  },
+  "threads": [
+    {
+      "tid": 262426,
+      "roles": [
+        "engine"
+      ],
+      "comm": "python",
+      "runtime_ms": 14795.49949,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 73.84948559223749,
+      "runqueue_wall_pct": null,
+      "timeslices": 134508
+    },
+    {
+      "tid": 262412,
+      "roles": [],
+      "comm": "python",
+      "runtime_ms": 7410.40524,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 36.98791077475284,
+      "runqueue_wall_pct": null,
+      "timeslices": 37
+    },
+    {
+      "tid": 262397,
+      "roles": [],
+      "comm": "RT_RECYCLE_2",
+      "runtime_ms": 5884.15431,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 29.36986137119235,
+      "runqueue_wall_pct": null,
+      "timeslices": 293113
+    },
+    {
+      "tid": 262399,
+      "roles": [],
+      "comm": "acl_thread",
+      "runtime_ms": 5424.22489,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 27.07419361771821,
+      "runqueue_wall_pct": null,
+      "timeslices": 244038
+    },
+    {
+      "tid": 262427,
+      "roles": [
+        "audio"
+      ],
+      "comm": "python",
+      "runtime_ms": 5262.01798,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 26.264562495017504,
+      "runqueue_wall_pct": null,
+      "timeslices": 149364
+    },
+    {
+      "tid": 262428,
+      "roles": [
+        "prepare"
+      ],
+      "comm": "python",
+      "runtime_ms": 4625.02747,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 23.085121238408938,
+      "runqueue_wall_pct": null,
+      "timeslices": 36741
+    },
+    {
+      "tid": 262400,
+      "roles": [],
+      "comm": "release_thread",
+      "runtime_ms": 665.89443,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 3.323710777555925,
+      "runqueue_wall_pct": null,
+      "timeslices": 372304
+    },
+    {
+      "tid": 262376,
+      "roles": [
+        "HTTP/main"
+      ],
+      "comm": "python",
+      "runtime_ms": 404.87267,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 2.0208603589263294,
+      "runqueue_wall_pct": null,
+      "timeslices": 3422
+    },
+    {
+      "tid": 262390,
+      "roles": [],
+      "comm": "python",
+      "runtime_ms": 11.59496,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0578744794686597,
+      "runqueue_wall_pct": null,
+      "timeslices": 412
+    },
+    {
+      "tid": 262378,
+      "roles": [],
+      "comm": "PlogFlush",
+      "runtime_ms": 5.9608,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.02975242667648588,
+      "runqueue_wall_pct": null,
+      "timeslices": 997
+    },
+    {
+      "tid": 262395,
+      "roles": [],
+      "comm": "MONITOR_0",
+      "runtime_ms": 4.95436,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.024728934476733758,
+      "runqueue_wall_pct": null,
+      "timeslices": 1015
+    },
+    {
+      "tid": 262396,
+      "roles": [],
+      "comm": "REPORT_RAS",
+      "runtime_ms": 3.63098,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.018123484467485355,
+      "runqueue_wall_pct": null,
+      "timeslices": 40
+    },
+    {
+      "tid": 262393,
+      "roles": [],
+      "comm": "adx_data_dump_t",
+      "runtime_ms": 1.64499,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.008210717413527129,
+      "runqueue_wall_pct": null,
+      "timeslices": 39
+    },
+    {
+      "tid": 262377,
+      "roles": [],
+      "comm": "WatchdogMonitor",
+      "runtime_ms": 0.59379,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0029638124809137282,
+      "runqueue_wall_pct": null,
+      "timeslices": 120
+    },
+    {
+      "tid": 262394,
+      "roles": [],
+      "comm": "PlogReportRecv",
+      "runtime_ms": 0.34558,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0017249100139008172,
+      "runqueue_wall_pct": null,
+      "timeslices": 14
+    },
+    {
+      "tid": 262391,
+      "roles": [],
+      "comm": "python",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262392,
+      "roles": [],
+      "comm": "python",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262401,
+      "roles": [],
+      "comm": "python",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262413,
+      "roles": [],
+      "comm": "CaffeTaskThread",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262414,
+      "roles": [],
+      "comm": "CaffeTaskThread",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262415,
+      "roles": [],
+      "comm": "CaffeTaskThread",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262416,
+      "roles": [],
+      "comm": "CaffeTaskThread",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262417,
+      "roles": [],
+      "comm": "CaffeTaskThread",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262418,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262419,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262420,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262421,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262422,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262423,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262424,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262425,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262429,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262430,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262431,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262432,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262433,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262434,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262435,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    },
+    {
+      "tid": 262436,
+      "roles": [],
+      "comm": "AOE_RTKB",
+      "runtime_ms": 0.0,
+      "runqueue_ms": null,
+      "cpu_one_core_pct": 0.0,
+      "runqueue_wall_pct": null,
+      "timeslices": 0
+    }
+  ],
+  "scope": "C8 instrumented diagnostic only; host/container pressure is not service CPU attribution. No native performance claim or Python/CANN fraction. Runqueue values require enabled scheduler statistics."
+}

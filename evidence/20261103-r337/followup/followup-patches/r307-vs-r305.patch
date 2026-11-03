@@ -1,0 +1,113 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -81,6 +81,7 @@
+         thinker_prefix_cache_min_live: int = 1,
+         t2w_first_audio_priority: bool = False,
+         thinker_prompt_lookup_max_tokens: int = 0,
++        t2w_startup_graph_rows: tuple = (),
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -103,6 +104,11 @@
+             raise ValueError("thinker_prefix_cache_min_tokens must be positive")
+         if int(thinker_prefix_cache_min_live) < 1:
+             raise ValueError("thinker_prefix_cache_min_live must be positive")
++        startup_rows = tuple(dict.fromkeys(int(row) for row in t2w_startup_graph_rows))
++        if any(row not in (1, 2, 4, 8) for row in startup_rows):
++            raise ValueError("t2w_startup_graph_rows must use bounded request rows 1/2/4/8")
++        if startup_rows and not (t2w_threaded and t2w_euler_graphs and t2w_hift_graphs):
++            raise ValueError("media startup requires the threaded Euler and HiFT graph paths")
+         import torch_npu  # noqa: F401
+         from transformers import AutoTokenizer
+ 
+@@ -339,6 +345,10 @@
+         self._lock = threading.Lock()
+         if talker_full_block_warmup:
+             self._warm_full_talker_blocks()
++        self.t2w_startup_graph_rows = startup_rows
++        self.t2w_startup_ready = threading.Event()
++        self.t2w_startup_error = None
++        self.t2w_startup_stats = {"request_rows": list(startup_rows), "keys": [], "duration_s": 0.0}
+         self.thread = threading.Thread(target=self._run, daemon=True, name="npu-engine")
+         self.t2w_first_audio_priority = bool(t2w_first_audio_priority)
+         self.t2w_first_audio_priority_stats = {"batches": 0, "reordered": 0}
+@@ -353,6 +363,54 @@
+         if self.t2w_threaded:
+             self.t2w_thread = threading.Thread(target=self._run_t2w, daemon=True, name="npu-token2wav")
+             self.t2w_thread.start()
++            if startup_rows:
++                if not self.t2w_startup_ready.wait(180):
++                    raise RuntimeError("media graph initialization exceeded 180 seconds")
++                if self.t2w_startup_error is not None:
++                    raise RuntimeError("media graph initialization failed") from self.t2w_startup_error
++
++
++    def _warm_media_graphs_on_owner(self) -> None:
++        """Capture a bounded generic first-window set on its eventual owner.
++
++        Unlike prior main-thread warmup, capture/replay uses the audio worker's
++        real NPU stream before health readiness and before admitting requests.
++        Only deterministic zero inputs are used: no dataset or global RNG is
++        consumed. All real inputs/caches are rebound by the existing solver.
++        """
++        import time
++
++        started = time.perf_counter()
++        before = int(torch.npu.memory_allocated())
++        with self._t2w_lock, torch.npu.stream(self.t2w_stream), torch.inference_mode():
++            for requests in self.t2w_startup_graph_rows:
++                rows, frames, cache = 2 * requests, 50, 512
++                euler = self.t2w_batch.euler
++                if not euler.supports(rows, frames, cache):
++                    raise ValueError("unsupported bounded Euler initialization shape")
++                then = time.perf_counter()
++                w = euler.views(rows, frames, cache)
++                for name in ("x0", "mu", "spks", "cond", "cnn", "att"):
++                    w[name].zero_()
++                euler.capture(rows, frames, cache)
++                euler.graphs[(rows, frames, cache)][0].replay()
++                torch.npu.synchronize()
++                record = {"owner": "EulerGraphs", "key": [rows, frames, cache], "seconds": time.perf_counter() - then}
++                self.t2w_startup_stats["keys"].append(record)
++                print({"media_graph_startup": record}, flush=True)
++                hift = self.t2w_batch.hift_graphs
++                if requests not in hift._rows(50):
++                    raise ValueError("unsupported bounded HiFT initialization shape")
++                then = time.perf_counter()
++                hift._capture(requests, 50)
++                hift.graphs[(requests, 50)][0].replay()
++                torch.npu.synchronize()
++                record = {"owner": "HiFTGraphs", "key": [requests, 50], "seconds": time.perf_counter() - then}
++                self.t2w_startup_stats["keys"].append(record)
++                print({"media_graph_startup": record}, flush=True)
++        self.t2w_startup_stats.update(duration_s=time.perf_counter() - started,
++            allocated_before_bytes=before, allocated_after_bytes=int(torch.npu.memory_allocated()),
++            reserved_after_bytes=int(torch.npu.memory_reserved()))
+ 
+     def _warm_full_talker_blocks(self) -> None:
+         """Build configured static buckets before starting service workers.
+@@ -661,6 +719,7 @@
+                 "t2w_first_audio_priority_stats": dict(self.t2w_first_audio_priority_stats),
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
++                "t2w_startup_stats": dict(self.t2w_startup_stats),
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+@@ -1054,6 +1113,16 @@
+     def _run_t2w(self) -> None:
+         """Decode ready windows on a dedicated NPU stream while the engine feeds Thinker/Talker."""
+         torch.npu.set_device(torch.device(self.device).index or 0)
++        if self.t2w_startup_graph_rows:
++            try:
++                self._warm_media_graphs_on_owner()
++            except BaseException as error:
++                traceback.print_exc()
++                self.t2w_startup_error = error
++            finally:
++                self.t2w_startup_ready.set()
++            if self.t2w_startup_error is not None:
++                return
+         while True:
+             worked = False
+             try:

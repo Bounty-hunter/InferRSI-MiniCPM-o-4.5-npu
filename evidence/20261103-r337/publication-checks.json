@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-03",
+  "publication_base": "f0eeaa288fce5b6975dc6b4322f7e62ad148f751",
+  "focused_cpu_tests": {
+    "passed": 26,
+    "scope": "16 host-length and conservative fallback cases,5 NPU hot-path contracts,5 prompt-lookup invariants"
+  },
+  "compileall": "PASS",
+  "measured_candidate": "r337",
+  "direct_concurrencies": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "candidate_curve": "Arithmetic mean of two run-level values per metric/tier",
+  "p99": "Arithmetic mean of two run-level P99 values",
+  "source_reconstruction": {
+    "r337": true,
+    "control309": true,
+    "historical_r305": true
+  },
+  "algorithm_attempts": 40,
+  "successful_algorithm_receipts": 33,
+  "rejected_or_failed_algorithm_receipts": 7,
+  "plots": {
+    "exports": 9,
+    "format": [
+      "PNG",
+      "SVG",
+      "PDF"
+    ],
+    "candidate_curves": 1,
+    "baseline_curves": 1,
+    "visually_inspected": true
+  },
+  "integrated_publication_tree_rebenchmarked": false,
+  "default_configs_promoted": false,
+  "frozen_statistical_acceptance": "NOT_RUN",
+  "frozen_speech_gate": "NOT_RUN",
+  "remaining_quality_work": "NPU evaluator runtime/fingerprint and matched current reference/candidate speech gate"
+}

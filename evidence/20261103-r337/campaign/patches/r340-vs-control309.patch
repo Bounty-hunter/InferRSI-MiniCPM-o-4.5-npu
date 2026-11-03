@@ -1,0 +1,81 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        hift_exact_rows: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -160,6 +161,7 @@
+             # measured slower than eager, so keep their exact eager fallback.
+             self.t2w_batch.hift_graphs = HiFTGraphs(
+                 self.t2w.hift,
++                rows=(1,2,3,4,5,6,7,8,16) if hift_exact_rows else (1,2,4,8,16),
+                 final_frames={},
+                 decode_tf32=t2w_hift_decode_tf32,
+             )
+@@ -347,6 +349,7 @@
+         if talker_full_block_warmup:
+             self._warm_full_talker_blocks()
+         self.t2w_startup_graph_rows = startup_rows
++        self.hift_exact_rows = bool(hift_exact_rows)
+         self.t2w_startup_extended = bool(t2w_startup_extended)
+         self.t2w_startup_ready = threading.Event()
+         self.t2w_startup_error = None
+@@ -454,6 +457,15 @@
+                     self.t2w_startup_stats["keys"].append(record)
+                     print({"media_graph_startup": record}, flush=True)
+             if self.t2w_startup_extended:
++                if self.hift_exact_rows:
++                    hift = self.t2w_batch.hift_graphs
++                    for rows in (3,5,6,7):
++                        for frames in (50,58):
++                            started = time.perf_counter()
++                            hift._capture(rows, frames)
++                            self.t2w_startup_stats["keys"].append(dict(
++                                owner="HiFTGraphs",key=[rows,frames],lane="exact_rows",
++                                seconds=time.perf_counter()-started))
+                 self._prime_euler_key(2, 56, 512, "audio_tail")
+         self.t2w_startup_stats.update(duration_s=time.perf_counter() - started,
+             allocated_before_bytes=before, allocated_after_bytes=int(torch.npu.memory_allocated()),
+@@ -767,6 +779,8 @@
+                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
+                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                 "t2w_startup_stats": dict(self.t2w_startup_stats),
++                "hift_exact_requested_rows": dict(self.t2w_batch.hift_graphs.requested_rows),
++                "hift_exact_executed_rows": self.t2w_batch.hift_graphs.executed_rows,
+                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
+                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+--- a/engine/runtime/hift_graph.py
++++ b/engine/runtime/hift_graph.py
+@@ -35,6 +35,8 @@
+         self.pool = self.accel.graph_pool_handle()
+         self.failures: dict[tuple[int, int], str] = {}
+         self.counts = {"graph": 0, "eager": 0}
++        self.requested_rows = {}
++        self.executed_rows = 0
+         self.replays: dict[tuple[int, int], int] = {}  # (rows bucket, mel frames) -> replays
+         self.capture_context = nullcontext
+ 
+@@ -110,6 +112,8 @@
+             st["rand"][:b - a].copy_(rand_ini[a:b])
+             st["noise"][:b - a].copy_(noise[a:b])
+             g.replay()
++            self.requested_rows[b-a] = self.requested_rows.get(b-a,0)+1
++            self.executed_rows += k
+             self.counts["graph"] += 1
+             self.replays[(k, F)] = self.replays.get((k, F), 0) + 1
+             speech.append(out[0][:b - a].clone())
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "hift_exact_rows": true
+ }

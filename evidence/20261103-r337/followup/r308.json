@@ -1,0 +1,25 @@
+{
+  "tag": "r308",
+  "engine": "engine-r308",
+  "config": "config-r308.json",
+  "engine_sha256": "9efe648b4c047d7fb7ced19ca53b4f24830cc30e9f8de72ddcf0924f6abe55ab",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    2,
+    4,
+    8
+  ],
+  "quality": true,
+  "port": 19122,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "r307-control",
+  "probe_native_argmax": true,
+  "runner": "run_r308.py",
+  "parent": "r307-control",
+  "hypothesis": "Keep original LM-head output precision, skip redundant full-vocabulary FP32 cast before greedy argmax; actual NPU finite/tie/NaN and text-token checks mandatory"
+}

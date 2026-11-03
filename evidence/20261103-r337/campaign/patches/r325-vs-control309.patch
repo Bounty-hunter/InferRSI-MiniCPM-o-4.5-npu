@@ -1,0 +1,99 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        decoder_page_id_cache: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -209,6 +210,8 @@
+         torch.npu.empty_cache()
+         self.tkv = NpuPagedKV(self.tspec, thinker_pages, page_size, device=device)
+         self.akv = NpuPagedKV(self.aspec, talker_pages, page_size, device=device)
++        self.tkv.cache_dense_page_ids = bool(decoder_page_id_cache)
++        self.akv.cache_dense_page_ids = bool(decoder_page_id_cache)
+         self.trun = NpuDecoderRunner(
+             self.thinker.w,
+             self.tspec,
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -14,7 +14,7 @@
+ from __future__ import annotations
+ 
+ from contextlib import nullcontext
+-from dataclasses import dataclass
++from dataclasses import dataclass, field
+ from typing import Iterable
+ 
+ import torch
+@@ -77,6 +77,7 @@
+     block_table: torch.Tensor
+     context_lens: torch.Tensor
+     qo_indptr: torch.Tensor
++    dense_page_ids: dict = field(default_factory=dict)
+ 
+     @property
+     def last_token_index(self) -> torch.Tensor:
+@@ -208,11 +209,15 @@
+             qo_indptr=tensor(qo, torch.int32),
+         )
+ 
+-    def dense_layer(self, layer: int, seq: int, length: int | None = None) -> tuple[torch.Tensor, torch.Tensor]:
++    def dense_layer(self, layer: int, seq: int, length: int | None = None, *, page_ids: torch.Tensor | None = None) -> tuple[torch.Tensor, torch.Tensor]:
+         """Gather one sequence for the append-prefill correctness fallback."""
+         length = self.lengths[seq] if length is None else length
+         count = -(-length // self.page_size)
+-        ids = torch.tensor(self.pages[seq][:count], dtype=torch.long, device=self.k.device)
++        ids = page_ids
++        if ids is None:
++            ids = torch.tensor(self.pages[seq][:count], dtype=torch.long, device=self.k.device)
++        elif ids.dtype != torch.long or ids.device != self.k.device or ids.ndim != 1 or ids.numel() != count:
++            raise ValueError("invalid layout-owned dense page IDs")
+         keys = self.k[layer].index_select(0, ids).reshape(-1, self.spec.num_kv_heads, self.spec.head_dim)[:length]
+         vals = self.v[layer].index_select(0, ids).reshape(-1, self.spec.num_kv_heads, self.spec.head_dim)[:length]
+         return keys, vals
+@@ -707,12 +712,22 @@
+             sparse_mode=3,
+         )[0]
+ 
++    def _dense_page_ids(self, layout, seq, length):
++        if not getattr(self.kv, "cache_dense_page_ids", False):
++            return None
++        key = (seq, length)
++        if key not in layout.dense_page_ids:
++            count = -(-length // self.kv.page_size)
++            layout.dense_page_ids[key] = torch.tensor(
++                self.kv.pages[seq][:count], dtype=torch.long, device=self.kv.k.device)
++        return layout.dense_page_ids[key]
++
+     def _append_prefill_reference(self, query: torch.Tensor, layer: int, layout: NpuBatchLayout) -> torch.Tensor:
+         outputs = []
+         offset = 0
+         for seq, start, total, count in zip(layout.seqs, layout.starts, layout.lengths, layout.new_tokens):
+             q = query[offset:offset + count].transpose(0, 1).unsqueeze(0)
+-            key, value = self.kv.dense_layer(layer, seq, total)
++            key, value = self.kv.dense_layer(layer, seq, total, page_ids=self._dense_page_ids(layout, seq, total))
+             key, value = key.transpose(0, 1).unsqueeze(0), value.transpose(0, 1).unsqueeze(0)
+             qpos = torch.arange(start, total, device=query.device)[:, None]
+             kpos = torch.arange(total, device=query.device)[None, :]
+@@ -738,7 +753,7 @@
+         keys, values = [], []
+         cumulative_kv, total = [], 0
+         for seq, length in zip(layout.seqs, layout.lengths):
+-            key, value = self.kv.dense_layer(layer, seq, length)
++            key, value = self.kv.dense_layer(layer, seq, length, page_ids=self._dense_page_ids(layout, seq, length))
+             keys.append(key)
+             values.append(value)
+             total += length
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "decoder_page_id_cache": true
+ }

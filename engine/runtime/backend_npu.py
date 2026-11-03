@@ -81,6 +81,10 @@ class AscendTrackSBackend(TrackSBackend):
         thinker_prefix_cache_min_live: int = 1,
         t2w_first_audio_priority: bool = False,
         thinker_prompt_lookup_max_tokens: int = 0,
+        t2w_startup_graph_rows: tuple = (),
+        t2w_startup_extended: bool = False,
+        decoder_host_qo_lengths: bool = False,
+        npu_core_fraction: float = 1.0,
         **_future_track_s_options,
     ):
         if torch.device(device).type != "npu":
@@ -103,7 +107,29 @@ class AscendTrackSBackend(TrackSBackend):
             raise ValueError("thinker_prefix_cache_min_tokens must be positive")
         if int(thinker_prefix_cache_min_live) < 1:
             raise ValueError("thinker_prefix_cache_min_live must be positive")
+        startup_rows = tuple(dict.fromkeys(int(row) for row in t2w_startup_graph_rows))
+        if any(row not in (1, 2, 4, 8) for row in startup_rows):
+            raise ValueError("t2w_startup_graph_rows must use bounded request rows 1/2/4/8")
+        if startup_rows and not (t2w_threaded and t2w_euler_graphs and t2w_hift_graphs):
+            raise ValueError("media startup requires the threaded Euler and HiFT graph paths")
         import torch_npu  # noqa: F401
+        fraction = float(npu_core_fraction)
+        if not 0 < fraction <= 1:
+            raise ValueError("npu_core_fraction must be in (0,1]")
+        self.npu_core_policy = None
+        if fraction < 1:
+            device_id = torch.device(device).index or 0
+            torch.npu.set_device(device_id)
+            original_limit = torch.npu.get_device_limit(device_id)
+            cube = max(1, int(original_limit["cube_core_num"] * fraction))
+            vector = max(1, int(original_limit["vector_core_num"] * fraction))
+            # Current process only, before any model operators or graph
+            # capture. Every private stream inherits the same process limit;
+            # this is no reservation, global device change or MPS daemon.
+            torch.npu.set_device_limit(device_id, cube_num=cube, vector_num=vector)
+            self.npu_core_policy = dict(fraction=fraction, before=original_limit,
+                                       after=torch.npu.get_device_limit(device_id))
+
         from transformers import AutoTokenizer
 
         from engine.models.multimodal import MultimodalFrontend
@@ -202,6 +228,8 @@ class AscendTrackSBackend(TrackSBackend):
         torch.npu.empty_cache()
         self.tkv = NpuPagedKV(self.tspec, thinker_pages, page_size, device=device)
         self.akv = NpuPagedKV(self.aspec, talker_pages, page_size, device=device)
+        self.tkv.host_qo_lengths = bool(decoder_host_qo_lengths)
+        self.akv.host_qo_lengths = bool(decoder_host_qo_lengths)
         self.trun = NpuDecoderRunner(
             self.thinker.w,
             self.tspec,
@@ -339,6 +367,11 @@ class AscendTrackSBackend(TrackSBackend):
         self._lock = threading.Lock()
         if talker_full_block_warmup:
             self._warm_full_talker_blocks()
+        self.t2w_startup_graph_rows = startup_rows
+        self.t2w_startup_extended = bool(t2w_startup_extended)
+        self.t2w_startup_ready = threading.Event()
+        self.t2w_startup_error = None
+        self.t2w_startup_stats = {"request_rows": list(startup_rows), "keys": [], "duration_s": 0.0}
         self.thread = threading.Thread(target=self._run, daemon=True, name="npu-engine")
         self.t2w_first_audio_priority = bool(t2w_first_audio_priority)
         self.t2w_first_audio_priority_stats = {"batches": 0, "reordered": 0}
@@ -353,6 +386,99 @@ class AscendTrackSBackend(TrackSBackend):
         if self.t2w_threaded:
             self.t2w_thread = threading.Thread(target=self._run_t2w, daemon=True, name="npu-token2wav")
             self.t2w_thread.start()
+            if startup_rows:
+                if not self.t2w_startup_ready.wait(180):
+                    raise RuntimeError("media graph initialization exceeded 180 seconds")
+                if self.t2w_startup_error is not None:
+                    raise RuntimeError("media graph initialization failed") from self.t2w_startup_error
+                if self.t2w_startup_extended:
+                    self.pool.submit(self._warm_media_setup_graphs).result(timeout=180)
+
+
+
+    def _prime_euler_key(self, rows, frames, cache, lane):
+        import time
+
+        euler = self.t2w_batch.euler
+        if not euler.supports(rows, frames, cache):
+            raise ValueError("unsupported extended Euler initialization shape")
+        then = time.perf_counter()
+        w = euler.views(rows, frames, cache)
+        for name in ("x0", "mu", "spks", "cond", "cnn", "att"):
+            w[name].zero_()
+        euler.capture(rows, frames, cache)
+        euler.graphs[(rows, frames, cache)][0].replay()
+        torch.npu.synchronize()
+        record = {"owner": "EulerGraphs", "key": [rows, frames, cache], "lane": lane, "seconds": time.perf_counter() - then}
+        self.t2w_startup_stats["keys"].append(record)
+        print({"media_graph_startup": record}, flush=True)
+
+    def _warm_media_setup_graphs(self):
+        # Prompt setup owns the same arena under the existing scratch lock,
+        # but replays on prompt_stream, not the audio stream. Initialize its
+        # bounded keys on that same stream in the actual preparation pool.
+        import time
+
+        started = time.perf_counter()
+        torch.npu.set_device(torch.device(self.device).index or 0)
+        with self._t2w_lock, torch.npu.stream(self.prompt_stream), torch.inference_mode():
+            for frames in (256, 512):
+                self._prime_euler_key(2, frames, 0, "prompt_setup")
+        self.t2w_startup_stats["duration_s"] += time.perf_counter() - started
+        self.t2w_startup_stats["allocated_after_bytes"] = int(torch.npu.memory_allocated())
+        self.t2w_startup_stats["reserved_after_bytes"] = int(torch.npu.memory_reserved())
+
+    def _warm_media_graphs_on_owner(self) -> None:
+        """Capture a bounded generic first-window set on its eventual owner.
+
+        Unlike prior main-thread warmup, capture/replay uses the audio worker's
+        real NPU stream before health readiness and before admitting requests.
+        Only deterministic zero inputs are used: no dataset or global RNG is
+        consumed. All real inputs/caches are rebound by the existing solver.
+        """
+        import time
+
+        started = time.perf_counter()
+        before = int(torch.npu.memory_allocated())
+        with self._t2w_lock, torch.npu.stream(self.t2w_stream), torch.inference_mode():
+            for requests in self.t2w_startup_graph_rows:
+                rows, frames, cache = 2 * requests, 50, 512
+                euler = self.t2w_batch.euler
+                if not euler.supports(rows, frames, cache):
+                    raise ValueError("unsupported bounded Euler initialization shape")
+                then = time.perf_counter()
+                w = euler.views(rows, frames, cache)
+                for name in ("x0", "mu", "spks", "cond", "cnn", "att"):
+                    w[name].zero_()
+                euler.capture(rows, frames, cache)
+                euler.graphs[(rows, frames, cache)][0].replay()
+                torch.npu.synchronize()
+                record = {"owner": "EulerGraphs", "key": [rows, frames, cache], "seconds": time.perf_counter() - then}
+                self.t2w_startup_stats["keys"].append(record)
+                print({"media_graph_startup": record}, flush=True)
+                hift = self.t2w_batch.hift_graphs
+                if requests not in hift._rows(50):
+                    raise ValueError("unsupported bounded HiFT initialization shape")
+                then = time.perf_counter()
+                hift._capture(requests, 50)
+                hift.graphs[(requests, 50)][0].replay()
+                torch.npu.synchronize()
+                record = {"owner": "HiFTGraphs", "key": [requests, 50], "seconds": time.perf_counter() - then}
+                self.t2w_startup_stats["keys"].append(record)
+                print({"media_graph_startup": record}, flush=True)
+                if self.t2w_startup_extended:
+                    then = time.perf_counter()
+                    hift._capture(requests, 58)
+                    hift.graphs[(requests, 58)][0].replay()
+                    torch.npu.synchronize()
+                    record = {"owner": "HiFTGraphs", "key": [requests, 58], "seconds": time.perf_counter() - then}
+                    self.t2w_startup_stats["keys"].append(record)
+                    print({"media_graph_startup": record}, flush=True)
+            if self.t2w_startup_extended:
+                self._prime_euler_key(2, 56, 512, "audio_tail")
+        self.t2w_startup_stats.update(duration_s=time.perf_counter() - started,
+            allocated_before_bytes=before, allocated_after_bytes=int(torch.npu.memory_allocated()),
+            reserved_after_bytes=int(torch.npu.memory_reserved()))
 
     def _warm_full_talker_blocks(self) -> None:
         """Build configured static buckets before starting service workers.
@@ -661,6 +787,8 @@ class AscendTrackSBackend(TrackSBackend):
                 "t2w_first_audio_priority_stats": dict(self.t2w_first_audio_priority_stats),
                 "thinker_graph_buckets": sorted(self.trun.decode_graphs),
                 "thinker_prompt_lookup_stats": dict(self.thinker_prompt_lookup_stats),
+                "t2w_startup_stats": dict(self.t2w_startup_stats),
+                "npu_core_policy": self.npu_core_policy,
                 "thinker_prefix_cache_enabled": self.thinker_prefix_cache,
                 "thinker_prefix_cache_tokens": len(self._thinker_prefix_ids or ()),
                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
@@ -1054,6 +1182,16 @@ class AscendTrackSBackend(TrackSBackend):
     def _run_t2w(self) -> None:
         """Decode ready windows on a dedicated NPU stream while the engine feeds Thinker/Talker."""
         torch.npu.set_device(torch.device(self.device).index or 0)
+        if self.t2w_startup_graph_rows:
+            try:
+                self._warm_media_graphs_on_owner()
+            except BaseException as error:
+                traceback.print_exc()
+                self.t2w_startup_error = error
+            finally:
+                self.t2w_startup_ready.set()
+            if self.t2w_startup_error is not None:
+                return
         while True:
             worked = False
             try:

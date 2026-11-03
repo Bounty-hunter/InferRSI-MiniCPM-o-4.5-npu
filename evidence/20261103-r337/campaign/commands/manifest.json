@@ -1,0 +1,20 @@
+{
+  "origin": "frozen official-tag native commands; new C2 tier explicitly requested by user",
+  "c2_changes_from_c4": {
+    "--num-prompts": [
+      64,
+      32
+    ],
+    "--max-concurrency": [
+      4,
+      2
+    ]
+  },
+  "policy": "C2 uses32 requests (16 per concurrent slot), C4=64 C8=128; frozen sampler and first rows unchanged",
+  "sha256": {
+    "command-c1.json": "4924955b56fd324f6f6931f9f08632770e2931fb5309636eed40cc967ac1f0d9",
+    "command-c2.json": "f573e2f0f398f4580d2c9a5a51c7966a1e73268dbf74614a4295cdd8a0bbb07e",
+    "command-c4.json": "f4a2ac6a751e80e9c15f7052fb5483248666f1f9071e248c9fa6a4db4f3974a6",
+    "command-c8.json": "d9118a6a90e3b4fddf43bf5f9c3e86cbb3489270df7710898fa9078aa40ee815"
+  }
+}

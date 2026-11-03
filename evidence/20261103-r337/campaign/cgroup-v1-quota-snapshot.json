@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-02T19:20:45.672435+00:00",
+  "scope": "Read-only cgroup v1 static container quota snapshot, after mount discovery. No CPU/NPU configuration changed.",
+  "files": {
+    "/sys/fs/cgroup/cpu,cpuacct/cpu.cfs_quota_us": "-1\n",
+    "/sys/fs/cgroup/cpu,cpuacct/cpu.cfs_period_us": "100000\n",
+    "/sys/fs/cgroup/cpu,cpuacct/cpu.stat": "nr_periods 0\nnr_throttled 0\nthrottled_time 0\nnr_bursts 0\nburst_time 0\n",
+    "/sys/fs/cgroup/cpuset/cpuset.cpus": "0-191\n",
+    "/sys/fs/cgroup/cpuset/cpuset.effective_cpus": "0-191\n",
+    "/proc/sys/kernel/sched_schedstats": "0\n"
+  }
+}

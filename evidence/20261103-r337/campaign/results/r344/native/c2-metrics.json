@@ -1,0 +1,429 @@
+{
+  "live": 0,
+  "queued": 0,
+  "admitted": 0,
+  "max_live": 32,
+  "first_chunk": 25,
+  "steady_chunk": 25,
+  "t2w_cache_offload": false,
+  "t2w_timesteps": 6,
+  "t2w_euler_graph_failures": {},
+  "t2w_npu_fused_body": true,
+  "t2w_npu_fused_variant": "hybrid",
+  "t2w_hift_graph_failures": {},
+  "t2w_encoder_graph_failures": {},
+  "t2w_offload_stats": {
+    "h2d_tensor_copies": 0,
+    "h2d_tensor_reuses": 0,
+    "d2h_tensor_copies": 0,
+    "d2h_tensor_reuses": 0
+  },
+  "t2w_flow_batch_hist": {
+    "1": 63,
+    "2": 45
+  },
+  "t2w_flow_cache_bucket_hist": {
+    "512": 108
+  },
+  "t2w_threaded": true,
+  "t2w_live": 0,
+  "t2w_batch_wait_ms": 10.0,
+  "t2w_batch_wait_min_active": 1,
+  "t2w_batch_min_ready": 4,
+  "prompt_setup_batches": {},
+  "talker_graph_ring_failures": {},
+  "talker_graph_ring_capture_retries": {},
+  "talker_graph_ring_capture_retry_errors": {},
+  "talker_static_shape_attention": true,
+  "talker_static_kv_capacity": 256,
+  "talker_static_graph_buckets": [],
+  "talker_static_graph_failures": {},
+  "talker_post_graph_failures": {},
+  "talker_post_graph_replays": {},
+  "talker_full_block_graphs_enabled": true,
+  "talker_full_block_graph_batches": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "talker_full_block_graphs": [
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      8,
+      10
+    ]
+  ],
+  "talker_full_block_replays": {
+    "2": 52,
+    "1": 255
+  },
+  "talker_full_block_warmup_s": {
+    "1": 2.0448289047926664,
+    "2": 0.9964233180508018,
+    "4": 0.9364924253895879,
+    "5": 1.0027247928082943,
+    "6": 0.961224265396595,
+    "7": 0.9724479177966714,
+    "8": 0.9929170468822122
+  },
+  "t2w_first_audio_priority": true,
+  "t2w_first_audio_priority_stats": {
+    "batches": 108,
+    "reordered": 21
+  },
+  "thinker_graph_buckets": [
+    2
+  ],
+  "thinker_prompt_lookup_stats": {
+    "verification_calls": 56,
+    "draft_tokens": 464,
+    "matched_draft_tokens": 334,
+    "target_tokens": 392,
+    "kv_fallbacks": 0
+  },
+  "t2w_startup_stats": {
+    "request_rows": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "keys": [
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          50,
+          512
+        ],
+        "seconds": 1.2792175896465778
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          1,
+          50
+        ],
+        "seconds": 0.3496974539011717
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          1,
+          58
+        ],
+        "seconds": 0.1428661933168769
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          4,
+          50,
+          512
+        ],
+        "seconds": 0.7631171308457851
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          2,
+          50
+        ],
+        "seconds": 0.15333672519773245
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          2,
+          58
+        ],
+        "seconds": 0.14890296012163162
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          8,
+          50,
+          512
+        ],
+        "seconds": 0.7011683853343129
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          4,
+          50
+        ],
+        "seconds": 0.13864652439951897
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          4,
+          58
+        ],
+        "seconds": 0.13915230613201857
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          16,
+          50,
+          512
+        ],
+        "seconds": 0.7620823234319687
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          8,
+          50
+        ],
+        "seconds": 0.14433205127716064
+      },
+      {
+        "owner": "HiFTGraphs",
+        "key": [
+          8,
+          58
+        ],
+        "seconds": 0.14189272746443748
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          6,
+          50,
+          512
+        ],
+        "lane": "exact_audio_rows",
+        "seconds": 0.7126656239852309
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          6,
+          56,
+          512
+        ],
+        "lane": "exact_audio_rows",
+        "seconds": 0.7098271204158664
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          10,
+          50,
+          512
+        ],
+        "lane": "exact_audio_rows",
+        "seconds": 0.7275832192972302
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          10,
+          56,
+          512
+        ],
+        "lane": "exact_audio_rows",
+        "seconds": 0.7095572026446462
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          12,
+          50,
+          512
+        ],
+        "lane": "exact_audio_rows",
+        "seconds": 0.734383556060493
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          12,
+          56,
+          512
+        ],
+        "lane": "exact_audio_rows",
+        "seconds": 1.2559299357235432
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          14,
+          50,
+          512
+        ],
+        "lane": "exact_audio_rows",
+        "seconds": 1.278118010610342
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          14,
+          56,
+          512
+        ],
+        "lane": "exact_audio_rows",
+        "seconds": 1.2566372230648994
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          56,
+          512
+        ],
+        "lane": "audio_tail",
+        "seconds": 1.2368043400347233
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          256,
+          0
+        ],
+        "lane": "prompt_setup",
+        "seconds": 0.7032742304727435
+      },
+      {
+        "owner": "EulerGraphs",
+        "key": [
+          2,
+          512,
+          0
+        ],
+        "lane": "prompt_setup",
+        "seconds": 0.7006401810795069
+      }
+    ],
+    "duration_s": 14.894502187147737,
+    "allocated_before_bytes": 27174896128,
+    "allocated_after_bytes": 34312005632,
+    "reserved_after_bytes": 35764830208
+  },
+  "euler_exact_row_use": {
+    "(1, 2, 256, 0)": 21,
+    "(2, 4, 50, 196)": 1,
+    "(2, 4, 50, 246)": 2,
+    "(2, 4, 50, 296)": 2,
+    "(1, 2, 50, 196)": 1,
+    "(1, 2, 50, 296)": 2,
+    "(1, 2, 512, 0)": 10,
+    "(1, 2, 50, 324)": 3,
+    "(1, 2, 50, 374)": 1,
+    "(2, 4, 50, 424)": 3,
+    "(1, 2, 50, 424)": 2,
+    "(1, 2, 50, 384)": 1,
+    "(1, 2, 50, 434)": 1,
+    "(2, 4, 50, 484)": 3,
+    "(1, 2, 50, 298)": 1,
+    "(2, 4, 50, 348)": 1,
+    "(1, 2, 50, 348)": 1,
+    "(2, 4, 50, 398)": 4,
+    "(1, 2, 50, 398)": 2,
+    "(1, 2, 50, 286)": 1,
+    "(1, 2, 50, 186)": 1,
+    "(1, 2, 50, 236)": 1,
+    "(2, 4, 50, 286)": 1,
+    "(1, 2, 50, 276)": 1,
+    "(1, 2, 50, 326)": 4,
+    "(2, 4, 50, 326)": 4,
+    "(1, 2, 50, 300)": 4,
+    "(2, 4, 50, 300)": 3,
+    "(1, 2, 50, 250)": 1,
+    "(1, 2, 50, 350)": 2,
+    "(1, 2, 50, 232)": 1,
+    "(1, 2, 50, 282)": 1,
+    "(1, 2, 50, 332)": 1,
+    "(2, 4, 50, 332)": 1,
+    "(1, 2, 50, 274)": 1,
+    "(2, 4, 50, 324)": 2,
+    "(1, 2, 56, 324)": 1,
+    "(1, 2, 50, 328)": 1,
+    "(1, 2, 50, 378)": 1,
+    "(2, 4, 50, 428)": 2,
+    "(1, 2, 50, 428)": 2,
+    "(1, 2, 50, 158)": 2,
+    "(1, 2, 50, 208)": 3,
+    "(2, 4, 50, 258)": 3,
+    "(1, 2, 50, 258)": 3,
+    "(1, 2, 50, 294)": 3,
+    "(2, 4, 50, 294)": 2,
+    "(2, 4, 50, 318)": 2,
+    "(1, 2, 50, 318)": 2,
+    "(2, 4, 50, 268)": 1,
+    "(1, 2, 50, 368)": 2,
+    "(2, 4, 50, 368)": 2,
+    "(1, 2, 56, 368)": 1,
+    "(1, 2, 50, 308)": 3,
+    "(2, 4, 50, 358)": 2,
+    "(1, 2, 50, 344)": 2,
+    "(1, 2, 50, 244)": 1,
+    "(2, 4, 50, 344)": 2,
+    "(1, 2, 50, 342)": 2,
+    "(2, 4, 50, 342)": 2
+  },
+  "thinker_prefix_cache_enabled": true,
+  "thinker_prefix_cache_tokens": 0,
+  "thinker_prefix_cache_min_live": 9,
+  "thinker_prefix_cache_stats": {
+    "hits": 0,
+    "misses": 0,
+    "tokens_reused": 0,
+    "tokens_computed": 0,
+    "requests_bypassed_below_min_live": 34
+  },
+  "thinker_batch_append_prefill": true,
+  "thinker_batch_append_prefill_failures": [],
+  "talker_graph_buckets": [],
+  "prompt_cache_entries": 0,
+  "prompt_cache_refs": 0,
+  "thinker_kv_pages_used": 1,
+  "talker_kv_pages_used": 0,
+  "thinker_kv_pages": 128,
+  "talker_kv_pages": 128,
+  "npu_memory_allocated_bytes": 34719873536,
+  "npu_memory_reserved_bytes": 40644902912,
+  "rss_max_kib": 7261340,
+  "rss_kib": 4556252,
+  "live_requests": [],
+  "prefill_token_budget": null,
+  "prefill_tokens_tick_max": 0,
+  "prefill_chunked_ticks": 0,
+  "prefill_kv_wait_ticks": 0,
+  "talker_starts_deferred_ticks": 0,
+  "talker_kv_wait_ticks": 0,
+  "cancelled_streams": 0,
+  "failed_streams": 0
+}

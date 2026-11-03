@@ -1,0 +1,106 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        thinker_script_elementwise: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -235,6 +236,7 @@
+             static_shape_capacity=talker_static_kv_capacity,
+         )
+         self.trun.capture_context = self._graph_capture_context
++        self.trun.script_elementwise = bool(thinker_script_elementwise)
+         self.arun.capture_context = self._graph_capture_context
+         if self.t2w_batch.euler is not None:
+             self.t2w_batch.euler.capture_context = self._graph_capture_context
+@@ -772,6 +774,7 @@
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+                 "thinker_prefix_cache_stats": dict(self._thinker_prefix_stats),
+                 "thinker_batch_append_prefill": self.trun.batch_append_prefill,
++                "thinker_script_forward_host_calls": getattr(self.trun,"script_forward_host_calls",0),
+                 "thinker_batch_append_prefill_failures": list(self.trun.batch_append_prefill_failures),
+                 "talker_graph_buckets": sorted(self.arun.decode_graphs),
+                 "prompt_cache_entries": prompt_entries, "prompt_cache_refs": prompt_refs,
+--- a/engine/runtime/npu_paged.py
++++ b/engine/runtime/npu_paged.py
+@@ -818,6 +818,10 @@
+         spec = self.spec
+         nq, nk = spec.num_heads * spec.head_dim, spec.num_kv_heads * spec.head_dim
+         tables = hf_rope_tables(layout.positions, spec.head_dim, spec.rope_theta, x.dtype)
++        script = None
++        if getattr(self, "script_elementwise", False):
++            from engine.runtime import script_elementwise as script
++            self.script_forward_host_calls = getattr(self,"script_forward_host_calls",0)+1
+         native_rms = self.fused_mode in ("rms", "full")
+         native_add_rms = self.fused_mode in ("add-rms", "full")
+         native_swiglu = self.fused_mode in ("swiglu", "full")
+@@ -825,7 +829,7 @@
+         def rms_norm(tensor: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
+             if native_rms:
+                 return self.npu.npu_rms_norm(tensor, weight, epsilon=spec.rms_eps)[0]
+-            return hf_rms_norm(tensor, weight, spec.rms_eps)
++            return script.rms(tensor, weight, spec.rms_eps) if script is not None else hf_rms_norm(tensor, weight, spec.rms_eps)
+ 
+         hidden = rms_norm(x, self.layers[0]["ln1"])
+         for layer, weights in enumerate(self.layers):
+@@ -836,7 +840,7 @@
+             if spec.qk_norm:
+                 query = rms_norm(query, weights["q_norm"])
+                 key = rms_norm(key, weights["k_norm"])
+-            query, key = hf_rope(query, key, layout.positions, spec.rope_theta, tables)
++            query, key = script.rope(query,key,tables[0],tables[1]) if script is not None else hf_rope(query, key, layout.positions, spec.rope_theta, tables)
+             attended = self._attention(query, key, value, layer, layout)
+             attention_branch = linear(attended.reshape(-1, nq), weights["o"])
+             if native_add_rms:
+@@ -854,7 +858,7 @@
+                 activated = self.npu.npu_swiglu(gate_up, dim=-1)
+             else:
+                 gate, up = gate_up.chunk(2, dim=-1)
+-                activated = F.silu(gate) * up
++                activated = script.silu_mul(gate_up) if script is not None else F.silu(gate) * up
+             mlp_branch = linear(activated, weights["down"])
+             next_norm = self.final_norm if layer + 1 == len(self.layers) else self.layers[layer + 1]["ln1"]
+             if native_add_rms:
+--- a/engine/runtime/script_elementwise.py
++++ b/engine/runtime/script_elementwise.py
+@@ -0,0 +1,27 @@
++"""Small reference-rounding chains executed by the C++ JIT interpreter.
++
++No lowered precision, tensor-expression fusion, or accelerator-specific
++approximation is requested. Exact operator probes and Thinker parity are
++required before native timing; unsupported scripting is a rejected attempt.
++"""
++import torch
++import torch.nn.functional as F
++
++@torch.jit.script
++def rms(x: torch.Tensor, weight: torch.Tensor, eps: float) -> torch.Tensor:
++    xf = x.float()
++    return weight * (xf * torch.rsqrt(xf.pow(2).mean(-1, keepdim=True) + eps)).to(x.dtype)
++
++@torch.jit.script
++def rotate(x: torch.Tensor) -> torch.Tensor:
++    d = x.shape[-1]
++    return torch.cat([-x[..., d // 2:], x[..., :d // 2]], dim=-1)
++
++@torch.jit.script
++def rope(q: torch.Tensor, k: torch.Tensor, cos: torch.Tensor, sin: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
++    return q * cos + rotate(q) * sin, k * cos + rotate(k) * sin
++
++@torch.jit.script
++def silu_mul(gate_up: torch.Tensor) -> torch.Tensor:
++    gate, up = gate_up.chunk(2, dim=-1)
++    return F.silu(gate) * up
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "thinker_script_elementwise": true
+ }

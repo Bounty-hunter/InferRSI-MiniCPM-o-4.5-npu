@@ -1,0 +1,21 @@
+{
+  "tag": "r343-capturecontrol",
+  "engine": "engine-r343",
+  "config": "config-r343-capturecontrol.json",
+  "engine_sha256": "1af1507d58f86c8f92c9cb9f30a7da470151d65fbae4bc83d462e397dad835a2",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19340,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "confirmation_of": "r343-capturecontrol",
+  "algorithm_round": false,
+  "hypothesis": "Causal ablation for r343: explicit current-stream capture retained, audio quota disabled; no change to math/requests/precision"
+}

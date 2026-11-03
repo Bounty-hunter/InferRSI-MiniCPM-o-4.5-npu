@@ -1,0 +1,80 @@
+{
+  "order": [
+    "r315-confirm1",
+    "control309-after1"
+  ],
+  "excluded": [
+    "control309-mid1"
+  ],
+  "exclusion_audit": "confirmation-overlap-audit.json",
+  "rows": [
+    {
+      "c": 2,
+      "control": {
+        "mean_audio_ttfp_ms": 807.1950512530748,
+        "mean_audio_rtf": 0.36448947100563334,
+        "request_throughput": 1.2835298802426163
+      },
+      "candidate": {
+        "mean_audio_ttfp_ms": 779.8528324055951,
+        "mean_audio_rtf": 0.35907295496523384,
+        "request_throughput": 1.302832578689824
+      },
+      "gain_pct": {
+        "mean_audio_ttfp_ms": 3.387312497150985,
+        "mean_audio_rtf": 1.4860555575049172,
+        "request_throughput": 1.5038760487258163
+      },
+      "audio_s": {
+        "control": 139.84,
+        "candidate": 140.08
+      }
+    },
+    {
+      "c": 4,
+      "control": {
+        "mean_audio_ttfp_ms": 1236.6223587159766,
+        "mean_audio_rtf": 0.5582493894912683,
+        "request_throughput": 1.6589257586852357
+      },
+      "candidate": {
+        "mean_audio_ttfp_ms": 1211.7459796718322,
+        "mean_audio_rtf": 0.5750128132702013,
+        "request_throughput": 1.6036050420637857
+      },
+      "gain_pct": {
+        "mean_audio_ttfp_ms": 2.0116391126854927,
+        "mean_audio_rtf": -3.002855729803744,
+        "request_throughput": -3.334731306197447
+      },
+      "audio_s": {
+        "control": 282.0,
+        "candidate": 283.92
+      }
+    },
+    {
+      "c": 8,
+      "control": {
+        "mean_audio_ttfp_ms": 1757.4162533564959,
+        "mean_audio_rtf": 0.8230931274489159,
+        "request_throughput": 2.3218692958315836
+      },
+      "candidate": {
+        "mean_audio_ttfp_ms": 1678.1686029571574,
+        "mean_audio_rtf": 0.8020464037673223,
+        "request_throughput": 2.416721312558801
+      },
+      "gain_pct": {
+        "mean_audio_ttfp_ms": 4.509327272237473,
+        "mean_audio_rtf": 2.557028236504122,
+        "request_throughput": 4.0851574590138995
+      },
+      "audio_s": {
+        "control": 546.56,
+        "candidate": 539.8
+      }
+    }
+  ],
+  "verdict": "C8 benefit repeated, C4 RTF and throughput regressed. No unconditional adoption; trial a generic actual-row crossover independently.",
+  "speech_gate": "NOT_RUN"
+}

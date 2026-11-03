@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-02T18:45:03.733304+00:00",
+  "endpoint": "106.15.124.84:31014",
+  "route": "skill-configured root entry then su - dyy",
+  "exit_code": 255,
+  "stdout": "",
+  "stderr": "Connection closed by 106.15.124.84 port 31014\r\n",
+  "scorer_started": false,
+  "thresholds_changed": false
+}

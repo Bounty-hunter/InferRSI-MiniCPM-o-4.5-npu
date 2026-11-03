@@ -1,0 +1,29 @@
+[
+  {
+    "mode": "native",
+    "concurrency": 2,
+    "ttfp_ms": 795.0379211106338,
+    "rtf": 0.36765350382640793,
+    "req_s": 1.2831917246532143,
+    "completed": 32,
+    "failed": 0
+  },
+  {
+    "mode": "native",
+    "concurrency": 4,
+    "ttfp_ms": 1241.1804936418775,
+    "rtf": 0.557111179654761,
+    "req_s": 1.6617104430695242,
+    "completed": 64,
+    "failed": 0
+  },
+  {
+    "mode": "native",
+    "concurrency": 8,
+    "ttfp_ms": 1820.5814303655643,
+    "rtf": 0.8405860089281592,
+    "req_s": 2.2958081829688832,
+    "completed": 128,
+    "failed": 0
+  }
+]

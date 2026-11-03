@@ -46,5 +46,10 @@
   "measured_server_sha256": "f7900b7cae6c46456034957fa78ad7f59f39c2bfab246e74a3ee776a98afd016",
   "config_sha256": "ce94705f0fcda1b1af49fd8cd38bf708feca32355496c029502db924dd509e7d",
   "public_default_config_unchanged": true,
-  "experimental_config": "configs/engine/ascend_r305_experimental.json"
+  "experimental_config": "configs/engine/ascend_r305_experimental.json",
+  "archived_publication_files": {
+    "engine/runtime/backend_npu.py": "evidence/20261102-r305/source/engine/runtime/backend_npu.py.txt",
+    "engine/runtime/npu_paged.py": "evidence/20261102-r305/source/engine/runtime/npu_paged.py.txt"
+  },
+  "archive_reason": "Preserve r305 source verification after opt-in r337 runtime integration."
 }

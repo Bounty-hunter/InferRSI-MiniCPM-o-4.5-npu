@@ -1,0 +1,21 @@
+{
+  "tag": "r315",
+  "engine": "engine-r315",
+  "config": "config-r315.json",
+  "engine_sha256": "363c3269d4e425f9b7067792a52d49f5e5dba016986a368bb848d3b8c50c624f",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [],
+  "quality": true,
+  "port": 19204,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "control309",
+  "hypothesis": "Mixed ordinary/speculative tick issues two decoder calls; pack ordinary zero-draft rows into original verified suffix call, with per-row accepted KV truncation and exact Thinker gate",
+  "kind": "unified-lookup"
+}

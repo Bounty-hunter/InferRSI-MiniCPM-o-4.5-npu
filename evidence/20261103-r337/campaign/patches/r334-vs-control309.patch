@@ -1,0 +1,68 @@
+--- a/engine/runtime/backend_npu.py
++++ b/engine/runtime/backend_npu.py
+@@ -83,6 +83,7 @@
+         thinker_prompt_lookup_max_tokens: int = 0,
+         t2w_startup_graph_rows: tuple = (),
+         t2w_startup_extended: bool = False,
++        thinker_split_mixed_prefill: bool = False,
+         **_future_track_s_options,
+     ):
+         if torch.device(device).type != "npu":
+@@ -306,6 +307,9 @@
+         self.t2wp = None
+         self.audio_live = {}
+         self.thinker_prefix_cache = bool(thinker_prefix_cache)
++        self.thinker_split_mixed_prefill = bool(thinker_split_mixed_prefill)
++        self.thinker_split_epoch_peak_live = 0
++        self.thinker_mixed_prefill_stats = {"ticks": 0, "decode_rows": 0, "prefill_rows": 0}
+         self.thinker_prefix_cache_min_tokens = int(thinker_prefix_cache_min_tokens)
+         self.thinker_prefix_cache_min_live = int(thinker_prefix_cache_min_live)
+         # Negative graph-padding sequences start at -1.  Keep the retained
+@@ -681,6 +685,9 @@
+         from engine.runtime.t2w_sched import AudioState
+         from engine.token2wav_chunker import StreamChunker
+ 
++        if not self.live and not self.t2w_live:
++            self.thinker_split_epoch_peak_live = 0
++        self.thinker_split_epoch_peak_live = max(self.thinker_split_epoch_peak_live, len(self.live) + 1)
+         lv.t_admit, lv.audio = time.perf_counter(), AudioState()
+         lv.mark("admitted", lv.t_admit)
+         if lv.wants_audio:
+@@ -772,6 +779,8 @@
+                 "thinker_prefix_cache_min_live": self.thinker_prefix_cache_min_live,
+                 "thinker_prefix_cache_stats": dict(self._thinker_prefix_stats),
+                 "thinker_batch_append_prefill": self.trun.batch_append_prefill,
++                "thinker_split_epoch_peak_live": self.thinker_split_epoch_peak_live,
++                "thinker_mixed_prefill_stats": dict(self.thinker_mixed_prefill_stats),
+                 "thinker_batch_append_prefill_failures": list(self.trun.batch_append_prefill_failures),
+                 "talker_graph_buckets": sorted(self.arun.decode_graphs),
+                 "prompt_cache_entries": prompt_entries, "prompt_cache_refs": prompt_refs,
+@@ -926,7 +935,17 @@
+             self.trun.batch_append_prefill = False
+             self.thinker_prefix_cache = False
+             try:
+-                self._thinker_step_group(rows)
++                prefills = [lv for lv in rows if lv.pending_prefill]
++                decodes = [lv for lv in rows if not lv.pending_prefill]
++                if (self.thinker_split_mixed_prefill and prefills and decodes
++                        and self.thinker_split_epoch_peak_live < self.thinker_prefix_cache_min_live):
++                    self.thinker_mixed_prefill_stats["ticks"] += 1
++                    self.thinker_mixed_prefill_stats["decode_rows"] += len(decodes)
++                    self.thinker_mixed_prefill_stats["prefill_rows"] += len(prefills)
++                    self._thinker_step_group(decodes)
++                    self._thinker_step_group(prefills)
++                else:
++                    self._thinker_step_group(rows)
+             finally:
+                 self.trun.batch_append_prefill = batch_append
+                 self.thinker_prefix_cache = cache_enabled
+--- a/experiment-config.json
++++ b/experiment-config.json
+@@ -46,5 +46,6 @@
+     4,
+     8
+   ],
+-  "t2w_startup_extended": true
++  "t2w_startup_extended": true,
++  "thinker_split_mixed_prefill": true
+ }

@@ -1,0 +1,23 @@
+{
+  "tag": "r349",
+  "engine": "engine-r349",
+  "config": "config-r349.json",
+  "engine_sha256": "250c2fde99f7f8117e1c250852f9af49f5f6033ac142e05b38241f3b72bdea31",
+  "native": [
+    2,
+    4,
+    8
+  ],
+  "diagnostic": [
+    8
+  ],
+  "quality": true,
+  "port": 19238,
+  "quality_first": true,
+  "require_exact_thinker": true,
+  "quality_reference": "control309",
+  "runner": "run_lowc.py",
+  "parent": "r337",
+  "hypothesis": "Resource-ladder after12Cube/24Vector fresh A/B/A gains: retune only process-local quota to8Cube/16Vector (same supported FIA1:2 ratio) on r337 host-length baseline, before all operators/graphs. Test memory-bound small-model stream overlap vs loss of per-kernel parallelism; STFT16support and exact16Thinker gate required, no expected gain assumed",
+  "kind": "cores-third"
+}

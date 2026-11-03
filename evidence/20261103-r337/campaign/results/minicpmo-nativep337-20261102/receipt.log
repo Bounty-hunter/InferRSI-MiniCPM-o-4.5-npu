@@ -1,0 +1,23 @@
+ [36;1mGPU[0;22m │ [36;1mSTATUS[0;22m       │ [36;1mUSER[0;22m    │ [36;1mDURATION[0;22m │ [36;1mTYPE[0;22m │ [36;1mDETAILS[0;22m                                          │ [36;1mMEMORY[0;22m                                 │ [36;1mNOTE[0;22m │ [36;1mUTIL[0;22m 
+─────┼──────────────┼─────────┼──────────┼──────┼──────────────────────────────────────────────────┼────────────────────────────────────────┼──────┼──────
+ 0   │ [33;1m⚠ UNRESERVED[0;22m │ unknown │ [2m-[22m        │ [2m-[22m    │ used by PID 3478278 (3h54m), PID 3497609 (3h53m) │ [2m32284MB, 2 processes; owner unverified[22m │ [2m-[22m    │ 0%   
+ 1   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 52m 9s                               │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 2   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 0m 7s                                │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 3   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 3h 55m 36s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 4   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 2h 57m 39s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 5   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 0h 6m 41s                               │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 6   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 2h 13m 13s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+ 7   │ [32;1m● AVAILABLE[0;22m  │ [2m-[22m       │ [2m-[22m        │ [2m-[22m    │ free for 2h 57m 40s                              │ [2m0MB used[22m                               │ [2m-[22m    │ 0%   
+Reserved 1 GPU(s): [2] for command execution (timeout: 0h 10m 0s)
+Released automatically if no GPU usage is detected for 30m
+{"phase": "loading", "utc": "2026-11-02T18:05:39Z", "mode": "native", "pid": 248006, "device": "2"}
+{"phase": "benchmark", "utc": "2026-11-02T18:06:37Z", "mode": "native", "concurrency": 8}
+{"phase": "failed", "utc": "2026-11-02T18:08:10Z", "error": "AssertionError('native profiler failed; inspect actual exit/log')"}
+Traceback (most recent call last):
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_native_austinp.py", line 174, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/minicpmo-r182/rsi-r312-r351-20261102/run_native_austinp.py", line 146, in main
+    assert (spy_code==0 or expected_exposure) and (group/'native-stacks.mojo').stat().st_size>0, 'native profiler failed; inspect actual exit/log'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: native profiler failed; inspect actual exit/log
