@@ -1,0 +1,2237 @@
+{
+  "schema": "optimization-retrospective/v1",
+  "as_of": "2026-11-03",
+  "scope": "official-benchmark era r182-r351; earlier r32-r181 incomplete and excluded",
+  "unit_warning": "Early manual proposal groups and later recorded rounds are exposed separately. No exact lifetime algorithm-run total is recoverable.",
+  "adoption_warning": "Retained means a mechanism/configuration node inherited by experimental r337. It does not certify isolated gain or the speech gate.",
+  "failure_warning": "Not retained includes negative, inconclusive, superseded and unfinished work. It is not a count of proven zero-value experiments.",
+  "primary_activities": {
+    "slots": 170,
+    "recorded": 165,
+    "missing": [
+      203,
+      205,
+      209,
+      211,
+      213
+    ]
+  },
+  "ledger_coverage": [
+    {
+      "range": [
+        182,
+        239
+      ],
+      "primary_slots": 58,
+      "recorded_primary_ids": 53,
+      "expanded_evidence_ids": 53,
+      "missing_primary_ids": [
+        203,
+        205,
+        209,
+        211,
+        213
+      ],
+      "records": {
+        "r182": {
+          "cells": [
+            "r182",
+            "基线/工程",
+            "在新镜像 `9fd63cd20600`、vLLM 0.32 环境建立隔离 workspace 和首个 Omni main 作业",
+            "首次作业因环境/依赖未完成而失败；无有效 benchmark",
+            "修依赖后重跑"
+          ],
+          "row_sha256": "d54cd5b7dc4f9b76d5b86909e97778e046983ca9227edb89e1e603900d1ea322"
+        },
+        "r183": {
+          "cells": [
+            "r183",
+            "基线/工程",
+            "修复依赖后重试 Omni 官方基线",
+            "仍因 NPU 原生算子兼容问题退出；无有效结果",
+            "用最小算子探针定位"
+          ],
+          "row_sha256": "f4668883a2e9d9ffdae3b52be7e1ea65574c979fa01be4877391f904e9994a53"
+        },
+        "r184": {
+          "cells": [
+            "r184",
+            "现场证据",
+            "单独探测新镜像内所需 NPU 原生算子和调用方式",
+            "探针通过，证明不是模型/数据本身不可运行",
+            "为 r185 解锁"
+          ],
+          "row_sha256": "cb05a368dbdc30651cd327c05756a257e2c312d6cc246ba96bc5d17b1cd795c4"
+        },
+        "r185": {
+          "cells": [
+            "r185",
+            "基线/工程",
+            "使用官方 CLI 跑 Seed-TTS C1/C4/C8 基线",
+            "Omni：C1 `860.24/0.3115/0.8022`；C4 `1507.57/0.6567/1.4700`；C8 `2177.56/1.1690/1.7300`；0 错误",
+            "冻结为正式对照"
+          ],
+          "row_sha256": "332f6080349f7312ac177c138dc42a37dbb27031466e18f4f06394ff477fb8fb"
+        },
+        "r186": {
+          "cells": [
+            "r186",
+            "基线/工程",
+            "首次把 r181 专有引擎接入相同官方客户端",
+            "健康检查把纯文本当 JSON 解析，作业失败；没有正式样本",
+            "修 harness，不改引擎"
+          ],
+          "row_sha256": "750086e288127e7170e4950a786014c313338a2d6d6e86001ba2f95f0b2b9897"
+        },
+        "r187": {
+          "cells": [
+            "r187",
+            "基线/工程",
+            "修正健康检查后完成初始专有引擎 C1/C4/C8",
+            "C1 `782.50/0.3261/0.7325`；C4 `2034.19/0.7773/1.2040`；C8 `3097.81/1.1883/1.6063`。除 C1 TTFP 外基本落后 Omni",
+            "作为 NPU RSI 初始点"
+          ],
+          "row_sha256": "efe6bb76a9ff0f7acb3aa65fa716b76e7bde83878ebf59fb6d6b28afd8fad1b1"
+        },
+        "r188": {
+          "cells": [
+            "r188",
+            "现场证据",
+            "尝试完整 NPU profiler，关联 CPU 栈、设备算子和请求标记",
+            "trace 不完整/退出异常；不能发布气泡占比",
+            "结果仅审计，不作根因"
+          ],
+          "row_sha256": "35e1b5a33afbaa99ace8cd817349dfe1fecde150633faff99ba086c0c4428db3"
+        },
+        "r189": {
+          "cells": [
+            "r189",
+            "现场证据",
+            "改成从 engine owner 线程挂 profiler block hooks",
+            "仍非零退出，缺少完整 CPU↔NPU 关联",
+            "拒绝据此优化"
+          ],
+          "row_sha256": "568ccd8613d4993f88ffeea65d119027f599d5a2dd7fa8f5b807cddd711a3c10"
+        },
+        "r190": {
+          "cells": [
+            "r190",
+            "现场证据",
+            "再改成线程级 profiler 接入",
+            "仍未获得可靠完整 trace",
+            "停止 profiler 盲试"
+          ],
+          "row_sha256": "2e6cdc8c94b33d9bb94f03c35623723f3e184c1556e5d340b352e1416d0dff26"
+        },
+        "r191": {
+          "cells": [
+            "r191",
+            "自主方案",
+            "消除 Talker 单行 K-block 中恒等索引 gather，先做 L0",
+            "首版 L0 失败；无服务结论",
+            "修正确性后再测"
+          ],
+          "row_sha256": "24fdd739e6a96c48ee025c1fcec5b76e4efa0b53f6b6bdbf6bc9f2f96daa4537"
+        },
+        "r192": {
+          "cells": [
+            "r192",
+            "自主方案",
+            "修复恒等 gather 消融实现，覆盖 B1/B3/B4/B8、EOS、连续 block",
+            "16 组 token/state 精确一致；局部 500 次约 `59.4→11.0 ms`，但只是微基准",
+            "允许进入服务 screen"
+          ],
+          "row_sha256": "4f104a9cf0614fbe6d8a5e8e06761bc9865c6d16f2cf71e3b5cd9ed2dd98e313"
+        },
+        "r193": {
+          "cells": [
+            "r193",
+            "自主方案",
+            "正式跑恒等 gather 消融 C1/C4/C8",
+            "相对后续原代码对照 r194，吞吐约回退 2.6%/7.2%/2.6%；三档没有稳定收益",
+            "拒绝采用"
+          ],
+          "row_sha256": "65108903c7f4121d8c99129006a183c731c993d4bdf363ba5aa560a03818ec5b"
+        },
+        "r194": {
+          "cells": [
+            "r194",
+            "基线/工程",
+            "立即回到未修改引擎做反向对照，排除时间漂移",
+            "`791.11/0.3211/0.7228`、`1941.07/0.7697/1.1954`、`3062.65/1.1923/1.5986`",
+            "证明 r193 负收益"
+          ],
+          "row_sha256": "a0de50d721ce6556f08c77b4c588aa18d5a4b7b94181ff599ea830b20af393ea"
+        },
+        "r195": {
+          "cells": [
+            "r195",
+            "现场证据",
+            "使用引擎已有同步阶段计时跑 C4 前 8 条",
+            "Thinker 累计约 7.90 s、Talker 4.98 s、Flow 7.96 s、其中 solve 6.88 s；线程有重叠，不能相加",
+            "将假设转向整块设备执行"
+          ],
+          "row_sha256": "391c8bf2211c0adaa5954ffbadcc74a54b25b50fdfd19393498c60353b49e828"
+        },
+        "r196": {
+          "cells": [
+            "r196",
+            "现场证据＋自主方案",
+            "尝试 Thinker 静态 FIA/graph 路径，要求文本、Thinker token、codec 与原路径复现",
+            "parity 未过，作业 exit 1",
+            "不进入性能测试"
+          ],
+          "row_sha256": "1186e2052e707667039e63dbb209fa30250ff0ef898b1151f1462dc524acea5f"
+        },
+        "r197": {
+          "cells": [
+            "r197",
+            "基线/工程",
+            "根据 r196 失败准备转向 Talker full-block 的实现与测试文件",
+            "没有独立启动的候选或性能样本",
+            "由 r198 接续"
+          ],
+          "row_sha256": "234accd3b186caff2b00454caad570705316085155dabae9b2fa892c4f13ab3a"
+        },
+        "r198": {
+          "cells": [
+            "r198",
+            "KB→适配＋自主方案",
+            "把 Talker embedding、decoder、projection、sampling、state update 组成完整 K-block 图；先跑基础 L0",
+            "基础函数检查通过；无服务收益结论",
+            "继续补边界"
+          ],
+          "row_sha256": "556b902f1bfbe799f44e9435259ff6f34c3085ab5c86a976bb596bf147ee56ff"
+        },
+        "r199": {
+          "cells": [
+            "r199",
+            "自主验证",
+            "增加真实权重、EOS、连续 block 边界检查",
+            "24 组实际权重＋8 组 EOS 检查通过",
+            "进入整模型验证"
+          ],
+          "row_sha256": "2ebdb3f2fdbbd8312beda8b3cd87880f63f6a398cb2ef6329790314272e2337f"
+        },
+        "r200": {
+          "cells": [
+            "r200",
+            "自主验证",
+            "用实际模型做完整 Talker block L2",
+            "通过；证明 block 不是只对 stub 成立",
+            "允许服务 screen"
+          ],
+          "row_sha256": "7b699e0582587c632a7855df9efe135a7fbbd4b061e0d667f84784379f890045"
+        },
+        "r201": {
+          "cells": [
+            "r201",
+            "自主方案",
+            "第一版 full-block 官方 C1/C4/C8",
+            "C1 `756.10/0.3091/0.7504`；C4 `2087.88/0.8113/1.1598`；C8 `3257.66/1.2118/1.5357`。C1 改善，C4/C8 仍明显差",
+            "暂不采用，继续查构图/状态"
+          ],
+          "row_sha256": "97a05f9bbbafcd7b9e00edad289746193f57fbbae23f55752e8f62df39c5cbaf"
+        },
+        "r202": {
+          "cells": [
+            "r202",
+            "自主验证",
+            "尝试 warmed full-graph 整模型 A/B/A",
+            "检查失败，暴露首次 capture、cohort 和状态轨迹未严格对齐",
+            "不把失败归因给 graph 数值"
+          ],
+          "row_sha256": "38ac741ca0697f599e6ab3f811c7486f5366742a47af1bee109bda770193b783"
+        },
+        "r204": {
+          "cells": [
+            "r204",
+            "自主验证",
+            "用独立 capture stream 复测完整模型",
+            "仍出现整模型差异；无性能结论",
+            "继续拆 metadata/状态所有权"
+          ],
+          "row_sha256": "d4e90811124be26b0f136bc2b5a04df99b8e5ba60c9d2c0edcd30117d7a2643a"
+        },
+        "r206": {
+          "cells": [
+            "r206",
+            "自主方案",
+            "把 position/slot/length 等逐帧整数 metadata 按原规则留在图外，只将 tensor copy/use 放图内",
+            "验证暴露物理页重绑定场景，未直接进入服务",
+            "增加 rebind 测试"
+          ],
+          "row_sha256": "977d1f0fb4d9ea2f8157b8dd4b280ed3edd72fd97d660b1f68a48a6337e59b0d"
+        },
+        "r207": {
+          "cells": [
+            "r207",
+            "自主验证",
+            "条件式 rebind L0 作业",
+            "前置状态未满足，未形成新的正式结果",
+            "由 r208 诊断替代"
+          ],
+          "row_sha256": "e98bbfdaae808d05304b17b209045c0cb2c1cc14cea5b0e45638a47339e194e4"
+        },
+        "r208": {
+          "cells": [
+            "r208",
+            "自主验证",
+            "专门测试碎片化物理页重新绑定和 EOS",
+            "8 组 rebind＋8 组 EOS 精确通过",
+            "修复一个正确性盲区"
+          ],
+          "row_sha256": "18e2326335673300588745334eff6d2cb2cecdeea3dea852b01ca7d8daa99436"
+        },
+        "r210": {
+          "cells": [
+            "r210",
+            "自主验证",
+            "做整模型 cohort A/B/A",
+            "失败；当时 warm/full 两边的 batch 轨迹不一致",
+            "追踪 Thinker 条件来源"
+          ],
+          "row_sha256": "9becf437477ca34e88251a2b26abe57cf0f7c045166cd53adab25e39616e3ae8"
+        },
+        "r212": {
+          "cells": [
+            "r212",
+            "现场证据",
+            "在进入 Talker 前记录 condition hash 和 batch 轨迹",
+            "发现差异已经在 Talker 之前产生，不能怪 graph",
+            "根因转向 admission 门控"
+          ],
+          "row_sha256": "17c97629ea8433e7ec82d23b0d1dbacba1933b5c411e4527fe1affdd7c7a781c"
+        },
+        "r214": {
+          "cells": [
+            "r214",
+            "自主方案",
+            "改为收齐、排序完整 cohort 后统一 admission，再做 A/B/A",
+            "5 组完整模型 token、条件、codec、帧数一致",
+            "通过严格 L2"
+          ],
+          "row_sha256": "150d4f9e81317c9d52eba20e347b28e787724f7a98982a84c4759b0a2abdd6e5"
+        },
+        "r215": {
+          "cells": [
+            "r215",
+            "自主方案",
+            "用修正后的 warmed K=10 block 跑正式 C1/C4/C8",
+            "相对 r194：TTFP +3.5/+3.1/+4.8%，RTF +1.8/+2.9/+3.2%，RPS +2.0/+3.7/+4.5%；相对 Omni 仍未全面领先",
+            "保留为后续控制基线"
+          ],
+          "row_sha256": "43503e478dd3754ebe951175e2307cdde0c35235ea4fd3b7d8fbcf0d39145e5c"
+        },
+        "r216": {
+          "cells": [
+            "r216",
+            "KB→适配",
+            "Talker Add+RMS 单因素融合；固定 4 条 Seed-TTS、fresh-process A/B/A、冻结 evaluator",
+            "开发筛查通过：WER=0，SIM/UTMOS 和静音、重复、截断均在门内；不是完整 speech gate",
+            "进入性能 screen"
+          ],
+          "row_sha256": "30bdf46f80e3208cf0aaf0f186d338235dd4d57f97e24e15c454314d7168b9c7"
+        },
+        "r217": {
+          "cells": [
+            "r217",
+            "KB→适配",
+            "Add+RMS 正式 C1/C4/C8",
+            "相对 r215：TTFP +1.72/+3.57/-1.90%，RTF +2.60/+3.26/+0.46%，RPS +3.35/+2.47/+1.31%；C8 TTFP 回退",
+            "有小收益但不作为通用冠军"
+          ],
+          "row_sha256": "1ad11c3c497302b1a9e84604249560e96119ba0f2ea7f2d39e2c12420e405f06"
+        },
+        "r218": {
+          "cells": [
+            "r218",
+            "KB：固定调制量",
+            "将 Flow 每步只依赖固定 temb/权重的 adaLN 调制预计算并复用",
+            "真实权重下 mel/cache 逐位一致；微基准仅快 0.48%–1.76%",
+            "收益太小，不优先进入正式服务"
+          ],
+          "row_sha256": "f1e84084a91046a6fc739d28a35d4f66b75e0acf3264f1fb46a03779b525c312"
+        },
+        "r219": {
+          "cells": [
+            "r219",
+            "现场证据",
+            "最小单线程 Flow profiler",
+            "段错误 exit 139，CPU FRAMEWORK 为空",
+            "只留失败证据"
+          ],
+          "row_sha256": "e1397a6ea0e3db82e68b920c77b412f25bade922f8abf7ef1fe6b0db6c63d3ba"
+        },
+        "r220": {
+          "cells": [
+            "r220",
+            "KB→适配",
+            "对 r218 做固定样本内容/数值 screen",
+            "正确性成立，但没有新增端到端性能证据",
+            "未推广"
+          ],
+          "row_sha256": "aa042cc6add0e0b8889ac293a6438a6a7621a854908a9fb892434733cbd0b0a7"
+        },
+        "r221": {
+          "cells": [
+            "r221",
+            "KB 启发＋自主方案",
+            "将 causal Conv1d 原型改成窗口 GEMM，保留 cache 语义",
+            "16 组数值/cache 通过；C8 常见 shape 慢 8%–12%",
+            "明确拒绝"
+          ],
+          "row_sha256": "72604c110010719af540873f6ea136185c290c29085293a59c2fd47f5b673520"
+        },
+        "r222": {
+          "cells": [
+            "r222",
+            "KB 融合方法＋自主组合",
+            "Thinker `full`：在 Add+RMS 上叠加原生 RMSNorm 和 SwiGLU，启动内容 screen",
+            "原定卡队列未真正启动模型，后取消；没有结果",
+            "换空闲卡重跑"
+          ],
+          "row_sha256": "0fd4c886b49515135f5bbc22b7f9d96c8465fe62e3775c632b0b05183fcbd3ae"
+        },
+        "r223": {
+          "cells": [
+            "r223",
+            "基线/工程",
+            "为 r222 准备替代调度/评分链",
+            "没有独立候选性能",
+            "由 r224 接续"
+          ],
+          "row_sha256": "b74e539133bdc9232c1b95a1a04dd9ddfadf9113b4cd2f790f0fa444283a313e"
+        },
+        "r224": {
+          "cells": [
+            "r224",
+            "KB 融合方法",
+            "在空闲同型号卡完成 15 条 A/B/A 内容生成",
+            "文本/token 一致，condition/codec 可变化；生成 15/15 成功",
+            "进入性能和质量评分"
+          ],
+          "row_sha256": "1611a0af91d084410ee0a79c668c54a26e1e236542df20b1612d5de124bc9c37"
+        },
+        "r225": {
+          "cells": [
+            "r225",
+            "KB 融合方法",
+            "Thinker full 正式 C1/C4/C8",
+            "相对 r215：C1 三项 +3.47/+4.05/+5.47%；C4 +1.68/+0.35/+0.79%；C8 TTFP -2.35%、RPS -1.07%；非全面收益",
+            "等待质量否决"
+          ],
+          "row_sha256": "8921cdca38df13c1d6d584c0c3d166d32c25f843a0822f9c0d8baf568bf27df6"
+        },
+        "r226": {
+          "cells": [
+            "r226",
+            "冻结质量门",
+            "对 r224 实际 WAV 跑 UTMOS/SIM/WER",
+            "C1 UTMOS `4.34866→4.03321`，下降 0.31545；C4 SIM `47.25215→43.93563`，下降 3.31652；超门限",
+            "拒绝 r225，不采用"
+          ],
+          "row_sha256": "fcc80b92dc94f8681d37d8d89c577a2122a468d7f7377e028fec81dd59e6aa72"
+        },
+        "r227": {
+          "cells": [
+            "r227",
+            "KB 融合知识＋自主组合",
+            "一次组合 packed QKV、AddLayerNorm、im2col causal conv、frames-major cache",
+            "FP16 CNN history 触发 Half/Float dtype 错误",
+            "拒绝首版"
+          ],
+          "row_sha256": "c180d431a7fd5d1fff7f3f224e2310ae0d3751bb7f7a9134820a065ea3fa069c"
+        },
+        "r228": {
+          "cells": [
+            "r228",
+            "现场修复",
+            "修 dtype 后复验完整融合",
+            "CNN cache max abs 0.0703、attention cache 0.0886，超过冻结数值门",
+            "拒绝完整融合"
+          ],
+          "row_sha256": "da33d77587d3f00a5fc88e67cf2895838303d578cc17aea4397bce64922ae773"
+        },
+        "r229": {
+          "cells": [
+            "r229",
+            "自主消融",
+            "分解 schedule-only、QKV、AddLayerNorm、conv、full",
+            "schedule-only 微基准 +12.74%，QKV +15.79%；AddLayerNorm/conv/full 虽快但 cache 数值失败",
+            "只保留 QKV 方向"
+          ],
+          "row_sha256": "448fc7a11734a7a95240391784a08c85071557f37a060174c5f38f3abda88b13"
+        },
+        "r230": {
+          "cells": [
+            "r230",
+            "自主验证",
+            "packed QKV 覆盖 5 shape×2 输入",
+            "逐元素一致；图重放中位数 +15.59%",
+            "进入语音筛选"
+          ],
+          "row_sha256": "42f50bb6c2d91ccdab89115ac9f44a6cc08b3a50d7a0979ec146efa82738344a"
+        },
+        "r231": {
+          "cells": [
+            "r231",
+            "自主验证",
+            "QKV 候选做 A/B/A Thinker→condition→codec→WAV",
+            "前三层一致，但 WAV 仅 1/5 byte exact；诊断发现误打包 conv 权重",
+            "修初始化，不做性能声明"
+          ],
+          "row_sha256": "2e8ba4cda1fd0be472916c52208b2f0cf4324d0fbe42a17e8cb4386f34233775"
+        },
+        "r232": {
+          "cells": [
+            "r232",
+            "现场修复",
+            "`pack_convs` 只在 full variant 开启，QKV-only 不再污染 conv",
+            "5 shape 再次逐元素一致，图重放中位数 +15.57%",
+            "进入质量门"
+          ],
+          "row_sha256": "20e6ea8c8ca236ca0959cba5440490c6f2d02344f094685695a2528c4711ddb1"
+        },
+        "r233": {
+          "cells": [
+            "r233",
+            "自主验证",
+            "修复后再做 A/B/A 内容筛查",
+            "Thinker/condition/codec 一致；4/5 WAV 非 byte exact",
+            "按用户授权交给质量门"
+          ],
+          "row_sha256": "e03c59c4fed1aa743fff061f73340685a484003d59557c4bcc2938abaa0e34b5"
+        },
+        "r234": {
+          "cells": [
+            "r234",
+            "基线/工程",
+            "打包冻结评分输入与证据身份",
+            "无独立性能结果",
+            "进入评分"
+          ],
+          "row_sha256": "4bf4b88f386ff8dbc106253e5e60578c285f120ce0139d3ce4b57e3a33237a9c"
+        },
+        "r235": {
+          "cells": [
+            "r235",
+            "冻结质量门",
+            "首次 QKV 评分作业",
+            "评分链准备/修订轮；不产生独立采用结论",
+            "r236 给出正式筛查"
+          ],
+          "row_sha256": "ea24180bd392c2df91ac26325e872dcec761f48268bb09db667cb06c30b75742"
+        },
+        "r236": {
+          "cells": [
+            "r236",
+            "冻结质量门",
+            "15 条、4 个唯一 row、seed0 的 UTMOS/SIM/WER",
+            "所有绝对门和相对门通过；仍只是开发筛查",
+            "进入官方性能"
+          ],
+          "row_sha256": "0935b969fbc477a1fa755453e5c7437420a434613c4e3e7cd06bec8eb566a262"
+        },
+        "r237": {
+          "cells": [
+            "r237",
+            "正式性能",
+            "packed-QKV 跑 C1/C4/C8",
+            "C1 `705.87/0.2839/0.8269`；C4 `1725.90/0.6587/1.3968`；C8 NPU graph cache 崩溃，52/128 失败",
+            "可靠性不合格，拒绝"
+          ],
+          "row_sha256": "982be960add8466fd3ee60af7312f8eabbc47643612b2d1eaac545f9c92bf72f"
+        },
+        "r238": {
+          "cells": [
+            "r238",
+            "现场失败日志＋自主路由",
+            "hybrid：rows<16 用 packed QKV，rows≥16 回退 schedule-only/native QKV",
+            "5 shape 精确；rows8/16 交替 1024 次、102.25 s 无 507000",
+            "进入复测"
+          ],
+          "row_sha256": "a2dc821f50cb9979484278c9c604c6674ceedc7e1bb7ebf93c5820f8615c9ec4"
+        },
+        "r239": {
+          "cells": [
+            "r239",
+            "正式性能",
+            "hybrid 正式 C1/C4/C8",
+            "`720.71/0.2906/0.8103`、`1797.96/0.7027/1.3123`、`2758.88/1.0938/1.7500`；0 错误。相对 r217 三档三指标均改善，但 C4 仍输 Omni",
+            "作为稳定基线"
+          ],
+          "row_sha256": "2cc5219f6da15678ccdd913eb0e721ad315dbe3cad0ad6a493012a4a6d445b81"
+        }
+      }
+    },
+    {
+      "range": [
+        240,
+        295
+      ],
+      "primary_slots": 56,
+      "recorded_primary_ids": 56,
+      "expanded_evidence_ids": 66,
+      "missing_primary_ids": [],
+      "records": {
+        "r240": {
+          "cells": [
+            "r240",
+            "用户问题＋现场证据",
+            "同 workload 扩到 C16/256、C32/512，对比 Omni",
+            "C16 `5992.92/2.2177/1.6429`，三项落后；C32 `12367.02/4.4625/1.5571`，相对 Omni +17.51/+9.57/+7.59%",
+            "证明并发收益非单调"
+          ],
+          "row_sha256": "da200c06c0af605dc5f14ef06706430f6c1941aa5ab816292d4a5029823f1034"
+        },
+        "r241": {
+          "cells": [
+            "r241",
+            "现场证据",
+            "第一版 TTFP 时间线诊断，加入阶段标记和 fingerprint",
+            "诊断产物/指纹需修订，不能作为最终因果表",
+            "r242 重跑"
+          ],
+          "row_sha256": "04d9cbb46aca6655324be196b61e4c059199be572091423ddf8ab23ac5affadc"
+        },
+        "r242": {
+          "cells": [
+            "r242",
+            "现场证据",
+            "完成 C4/C16 首包分段时间线",
+            "C16 相对 C4 新增 TTFP：prefill→首文本块 65.56%，首文本块→首 codec 20.15%，T2W queue 0.72%",
+            "优先优化 Thinker/Talker tick"
+          ],
+          "row_sha256": "b66f1f396efd28fa61225991bf7986f7ebe1dc8f61aa537297b081d44d538e82"
+        },
+        "r243": {
+          "cells": [
+            "r243",
+            "KB graph ownership＋自主方案",
+            "Talker K=10 exact-batch graph 扩到 batch 3/5/6/7，做实际权重 parity",
+            "420 个 codec token、KV、sampler state 精确一致",
+            "允许服务验证"
+          ],
+          "row_sha256": "9111f7b839de278ae20a028c6e1353676b1910d15473bf92902b3f9bcb0eecba"
+        },
+        "r244": {
+          "cells": [
+            "r244",
+            "自主验证",
+            "首次服务级 graph bucket parity",
+            "首次 harness/门控不完整；无正式性能结论",
+            "r244b 修订"
+          ],
+          "row_sha256": "2dd5bca8ac3cba791f48a2b2344fd7844f378be8a31723e52501ef62a7ec097f"
+        },
+        "r244b": {
+          "cells": [
+            "r244b",
+            "自主验证",
+            "修正服务 cohort 后复测 graph bucket",
+            "服务级 parity 通过",
+            "进入性能"
+          ],
+          "row_sha256": "dd5a4d85bbc9a7fd1f1f257be536e854b6ace36aecefb17c5df76e6d01393f60"
+        },
+        "r245": {
+          "cells": [
+            "r245",
+            "自主方案",
+            "batch 1–8 全部走 exact graph",
+            "C4 相对稳定版：TTFP -6.83%、RTF -5.75%、RPS -5.28%；C8/C16 有收益",
+            "一刀切策略拒绝"
+          ],
+          "row_sha256": "37168d150cd6e912763f6508adc81050b197a0eb4ab8def11eb747883e3fc1cf"
+        },
+        "r246": {
+          "cells": [
+            "r246",
+            "现场反馈＋自主路由",
+            "只启用 1/2/4/5/6/7/8；排除 row3；>8 有序分片，8+3 改 7+4",
+            "代码候选，不是独立测量轮",
+            "进入 r247"
+          ],
+          "row_sha256": "ec709107069cb6dc7977a724cb58343823585d9880411c06d04d13fe8c125472"
+        },
+        "r247": {
+          "cells": [
+            "r247",
+            "正式性能",
+            "选择性 graph 跑 C4/C8/C16",
+            "相对修改前：C4 TTFP -1.06%、RTF +0.01%、RPS +1.88%；C8 +5.99/+8.28/+9.59%；C16 +21.82/+21.84/+27.10%",
+            "保留为通用性能候选"
+          ],
+          "row_sha256": "682730b9a75506328f85d913e8498524b2457da623719416898c43d96fb8654c"
+        },
+        "r248": {
+          "cells": [
+            "r248",
+            "自主方案",
+            "Thinker C16 decode 拆成 8+8 graph，做服务级 parity",
+            "16/16 token 精确；小 cohort wall `14.49→8.11 s`",
+            "进入正式服务，不先宣称收益"
+          ],
+          "row_sha256": "c4055f61a931076a74d3940865e150be711f61a2c5a476ab27877b0957c2dfb4"
+        },
+        "r249": {
+          "cells": [
+            "r249",
+            "正式性能",
+            "8+8 microbatch 跑 C16/256",
+            "相对 r247：TTFP -9.37%、RTF -8.39%、RPS -7.72%",
+            "拒绝"
+          ],
+          "row_sha256": "4406d8fff8e8e63fdb8aee704ee332d915c2c867201ed1cbece0c079a3a945bf"
+        },
+        "r250": {
+          "cells": [
+            "r250",
+            "反事实验证",
+            "把 Thinker 1/2/4/8 graph 全部在启动阶段预捕获",
+            "预热约 1.59 s；用于排除 capture 污染",
+            "进入 r251"
+          ],
+          "row_sha256": "22f52fe7d5828f372a8dfc31f7a424de26ece75be00f1f2d4d5a3f565ff411ec"
+        },
+        "r251": {
+          "cells": [
+            "r251",
+            "正式性能",
+            "warmed Thinker graph 再跑 C16",
+            "相对 r247：TTFP -6.90%、RTF -6.58%、RPS -5.14%",
+            "该 Thinker 预热未消除回退，拒绝此 8+8 方案"
+          ],
+          "row_sha256": "5b0a7db7971a89f34571abd5a5510837846d1acaf1cc24daffa30cd0f21c466a"
+        },
+        "r252": {
+          "cells": [
+            "r252",
+            "现场分析",
+            "汇总 graph 命中、fallback 和首包时间线",
+            "确认 row 形状覆盖及串行 tick 是主要中并发损失",
+            "形成差距报告"
+          ],
+          "row_sha256": "c96c175f2ebacd0c00dd8b685ffe9bc8527e2e5488a16c739d700d657af29dff"
+        },
+        "r253": {
+          "cells": [
+            "r253",
+            "正式补测",
+            "对 r246 补 C1/C32，组成同一候选 C1–C32 表",
+            "C1 三项 +17.67/+7.97/+2.21%；C32 +32.04/+26.94/+34.82%；0 错误",
+            "得到完整通用候选表"
+          ],
+          "row_sha256": "d8e3b7888cd3413683a42520f12b63c3f8d4ca99419af1a93b7a54285a9ef893"
+        },
+        "r254": {
+          "cells": [
+            "r254",
+            "KB：固定前缀＋自主适配",
+            "对共享 ≥64-token Thinker 前缀建立 KV cache；先做 parity/probe，再跑 C4/C16",
+            "C16 `3796.90/1.4480/2.5068`，相对 Omni -4.85/+30.75/+38.44%；但 C4 `1889.72/0.7158/1.3099`，三项回退",
+            "C16 很强，不能全局启用"
+          ],
+          "row_sha256": "784ac8e3ed428fa341fbd16c57051f397041255bbf167e9b108a3dec9443cc45"
+        },
+        "r254b": {
+          "cells": [
+            "r254b",
+            "基线/工程",
+            "对 r254 probe/证据链进行补跑和审计",
+            "没有新的独立正式性能结论",
+            "保留审计"
+          ],
+          "row_sha256": "8147d020374e79bd9c3b88fdc53849645919fc8849819a23eee7893685b8c690"
+        },
+        "r255": {
+          "cells": [
+            "r255",
+            "自主路由",
+            "仅 active≥8 时启用 prefix cache，试图保护低并发",
+            "C16 `4207.42/1.5821/2.2855`；C4/C8 也未改善",
+            "阈值策略不理想"
+          ],
+          "row_sha256": "e9bd9568d9c89f43ab6f056d15229b5cd7b797b1bf458f441d2c930d5c3c6c5d"
+        },
+        "r256": {
+          "cells": [
+            "r256",
+            "自主路由",
+            "把启用阈值提高到 active≥12",
+            "C16 `4609.26/1.7004/2.1176`；C8 有 RTF/RPS 收益，C4 仍差",
+            "拒绝为通用方案"
+          ],
+          "row_sha256": "1dd2fea75eb3bc5119537e05173c9ce8f36faa0e23fb671a141a2f5145d0e892"
+        },
+        "r257": {
+          "cells": [
+            "r257",
+            "自主路由",
+            "改用 live-request 压力，`min_live=12`",
+            "C16 `4208.43/1.5966/2.2810`",
+            "未超过 r254/r247"
+          ],
+          "row_sha256": "092b94e6fdeeed764f5045463a0aef324e6661eabb5b50ab32c79b137501b300"
+        },
+        "r258": {
+          "cells": [
+            "r258",
+            "自主调参（有因果依据）",
+            "将 `min_live` 从 12 降到 9，提高实际 cache 覆盖",
+            "C16 `3867.70/1.5112/2.4028`；相对 Omni -6.81/+27.72/+32.69%，0 错误",
+            "保留为 C16 工程参照；非全档最终版"
+          ],
+          "row_sha256": "de83e2d34f36a63092ecbf0e0144fd6ae02a1d9e29f8e0efbb2a29f8b5cfe920"
+        },
+        "r259": {
+          "cells": [
+            "r259",
+            "自主方案",
+            "cache 一旦武装便 latch，避免压力波动反复开关",
+            "`4166.81/1.5743/2.3102`",
+            "比 r258 差，拒绝"
+          ],
+          "row_sha256": "2f24139c9061184e1749d21234c75dcbf51aad9d7241fff4b8427e4242dbb8f8"
+        },
+        "r260": {
+          "cells": [
+            "r260",
+            "KB 生命周期＋自主方案",
+            "服务启动时 preseed 固定前缀，避免首批请求负责建 cache",
+            "`4135.38/1.5835/2.2935`",
+            "未转化为端到端收益"
+          ],
+          "row_sha256": "86ed817cbd14aa68e31a2008d00053d29fb9973834c2f917951ec5ce2fd96efa"
+        },
+        "r260b": {
+          "cells": [
+            "r260b",
+            "基线/工程",
+            "在另一空闲同型号卡复核 preseed/部署链",
+            "无新的优胜结果",
+            "保留审计"
+          ],
+          "row_sha256": "9472dddccebd3eab2c6c98c81c55021c5c38bfc5e5d1565b4f0b4b4e5aa50d07"
+        },
+        "r261": {
+          "cells": [
+            "r261",
+            "自主方案",
+            "preseed + latch + 10 ms arm wait，尝试合并首批请求",
+            "`3912.12/1.5072/2.3909`；接近但没全面超过 r258",
+            "不替换 r258"
+          ],
+          "row_sha256": "c7f019bdaa5fa5983f1fcb0f8ab844550af84db1ad2f02346236c54d5acb3e05"
+        },
+        "r262": {
+          "cells": [
+            "r262",
+            "自主方案",
+            "cohort-aware admission，尝试让前缀复用批次更整齐",
+            "`3979.84/1.5720/2.3213`",
+            "等待成本抵消收益"
+          ],
+          "row_sha256": "74e3755ddcec1672e22eace0e18992c358e3857f9eba64aaf659e5ff2df46e05"
+        },
+        "r263": {
+          "cells": [
+            "r263",
+            "自主反事实",
+            "把 arm wait 增到 50 ms，验证“再多等会是否更好”",
+            "`4086.25/1.5610/2.3450`",
+            "更差；停止继续加等待"
+          ],
+          "row_sha256": "2164be148e1927ba7bcbfc74c60b55df7a167a5e8569bee9c7f9a8c29d3bfc10"
+        },
+        "r263b": {
+          "cells": [
+            "r263b",
+            "基线/工程",
+            "处理 r263 作业/证据收尾并复核退出状态",
+            "不产生新的性能候选",
+            "归档 r261–r263"
+          ],
+          "row_sha256": "6ac1c614c34d91337e7074c19a803b0b06a624e09c10ba52febd6ca13b4993d1"
+        },
+        "r264": {
+          "cells": [
+            "r264",
+            "自主方案",
+            "用静态 FIA 把 Thinker 10 token 组成一个全图 block",
+            "单步 0/16 token 差异，但 10 步后 13/160 token 不同，hidden L2=0.3017，KV 不精确",
+            "数值漂移，拒绝"
+          ],
+          "row_sha256": "30603f0d28361573d48453c62d5a1dd22131af421020679be18b9c4abd20770d"
+        },
+        "r264b": {
+          "cells": [
+            "r264b",
+            "自主诊断",
+            "逐步记录 hidden/cosine/KV，确认误差是否累积",
+            "hidden cosine min 0.3309，证明不是偶发末步误差",
+            "终止静态 FIA"
+          ],
+          "row_sha256": "e6200aaf1320600a71df4f76caa02b5f388b2eda3d45602baf5422f2d69d24fc"
+        },
+        "r265": {
+          "cells": [
+            "r265",
+            "自主方案",
+            "保留 dynamic paged attention 数值路径，把 10 步 host loop 变成 device block",
+            "batch16：160/160 token 精确、hidden L2=0、KV 精确",
+            "正确性通过"
+          ],
+          "row_sha256": "d25ea872352e441dae354bfce044d602ec7bad2f9cc42e06b4c3a6762ebdf6ef"
+        },
+        "r266": {
+          "cells": [
+            "r266",
+            "正式性能",
+            "只对 batch16 启用 device block 跑 C16",
+            "`4144.36/1.5928/2.2675`，replay=0",
+            "实际流量未命中，不能归因收益"
+          ],
+          "row_sha256": "36e12b365bc6bd97493f0f7a9f9a0e9a54148310828724b9b7f9d5ee0d2c19ca"
+        },
+        "r267": {
+          "cells": [
+            "r267",
+            "自主方案",
+            "将 device-block 支持扩成 batch range，并保留 eager fallback",
+            "代码准备轮；无独立性能",
+            "进入阈值验证"
+          ],
+          "row_sha256": "db70f2200c71eaea7ff1bd048e73fde8d2f94a16fa30a5188417cea3c8613baa"
+        },
+        "r268": {
+          "cells": [
+            "r268",
+            "正式性能",
+            "对 batch9–16 启用 block",
+            "`3953.74/1.5213/2.3779`，replay=0",
+            "仍未命中"
+          ],
+          "row_sha256": "021b582e79cf342273665bd9378272766d7c6ec5f7045724036a5db1cb0e694a"
+        },
+        "r269": {
+          "cells": [
+            "r269",
+            "自主验证",
+            "batch8 实际权重 10-step parity",
+            "token/hidden/KV 精确",
+            "允许 r270"
+          ],
+          "row_sha256": "ce59fe4c783441047e9cd47563a496bf79bfe5720c627c55cb4c6bc074f0d819"
+        },
+        "r270": {
+          "cells": [
+            "r270",
+            "正式性能",
+            "只对 batch8 启用 block",
+            "`4097.58/1.5261/2.3845`，replay=0",
+            "未命中"
+          ],
+          "row_sha256": "f799eef9327e67a9f3a03a4f4d8cae4328dab5b58ab5d63c94bd2744e45bd455"
+        },
+        "r271": {
+          "cells": [
+            "r271",
+            "自主验证",
+            "batch3 实际权重 10-step parity",
+            "30/30 token 精确、hidden L2=0、KV 精确",
+            "扩到小 batch"
+          ],
+          "row_sha256": "96037aeafe94c49b0aade0055c1ebba3c1c6c1beb383efcd62fe05faf189a65a"
+        },
+        "r272": {
+          "cells": [
+            "r272",
+            "正式性能",
+            "batch3–8 block",
+            "`4164.29/1.5603/2.3513`；只命中 1 次 batch4；3 个 early EOS 正确处理",
+            "命中太少且更慢"
+          ],
+          "row_sha256": "ccafc60000191eb0effeeee1a2569f9a906f522c62e72e0b8adbcaa8cf3088d6"
+        },
+        "r273": {
+          "cells": [
+            "r273",
+            "自主验证",
+            "batch1 实际权重 10-step parity",
+            "10/10 token 精确、hidden L2=0、KV 精确",
+            "允许覆盖 1–8"
+          ],
+          "row_sha256": "b9a48254e573bc18e524b710f8c84176173cd6104760fa2d5d5ff4f9a6c3e6e1"
+        },
+        "r274": {
+          "cells": [
+            "r274",
+            "正式性能",
+            "batch1–8 block",
+            "`3930.46/1.4922/2.4133`；replay 仍为空。RTF/RPS略优于 r258、TTFP 更差，但机制零命中",
+            "不能把波动归因给 block"
+          ],
+          "row_sha256": "22a8d79b823c7ddab8f63c0376199ba3204d2f7b2b9d756fb98fd7df27c21cc3"
+        },
+        "r275": {
+          "cells": [
+            "r275",
+            "现场计数器＋自主修复",
+            "找到 prefix 压力低于 9 时 `_thinker_step` 直接旁路 block；修成低压力且 prefill 完成时优先 block",
+            "远端 7 tests passed；batch1/3/8/16 parity 已精确；尚无服务成绩",
+            "进入 r276"
+          ],
+          "row_sha256": "4d33eebcfda44e26c4d27f2f028af316671656988405c4e361665f97f996d80e"
+        },
+        "r276": {
+          "cells": [
+            "r276",
+            "未完成验证",
+            "为 r275 路由准备 C16 runner，要求先证明 replay 非空",
+            "本地有准备文件，没有可用于本文的正式服务结果",
+            "保留备选，不是当前首要下一步"
+          ],
+          "row_sha256": "28f8be541f9f61d9a14d14b56355c21685678826c4c31c26690bf60d74402710"
+        },
+        "r277": {
+          "cells": [
+            "r277/r277b/r277c",
+            "用矩阵乘最小探针分离 profiler 故障",
+            "`with_stack=True` 在 stop_trace exit139；CPU+NPU 不含原生栈可正常导出；原生 msprof 也可采集",
+            "使用原生事件＋补充 Python 栈，明确采样限制"
+          ],
+          "row_sha256": "d5856d1c48ff923593d900e01145ffaf7d96a29734e12dbf8e8bf288e7fbf7e3"
+        },
+        "r277b": {
+          "cells": [
+            "r277/r277b/r277c",
+            "用矩阵乘最小探针分离 profiler 故障",
+            "`with_stack=True` 在 stop_trace exit139；CPU+NPU 不含原生栈可正常导出；原生 msprof 也可采集",
+            "使用原生事件＋补充 Python 栈，明确采样限制"
+          ],
+          "row_sha256": "d5856d1c48ff923593d900e01145ffaf7d96a29734e12dbf8e8bf288e7fbf7e3"
+        },
+        "r277c": {
+          "cells": [
+            "r277/r277b/r277c",
+            "用矩阵乘最小探针分离 profiler 故障",
+            "`with_stack=True` 在 stop_trace exit139；CPU+NPU 不含原生栈可正常导出；原生 msprof 也可采集",
+            "使用原生事件＋补充 Python 栈，明确采样限制"
+          ],
+          "row_sha256": "d5856d1c48ff923593d900e01145ffaf7d96a29734e12dbf8e8bf288e7fbf7e3"
+        },
+        "r278": {
+          "cells": [
+            "r278",
+            "r258 稳定源码，官方 C4/64、C16/256 无 profiler 对照与 8 秒关联 trace",
+            "0 失败、job exit0；控制 C4 `1809.26/0.7131/1.3217`，C16 `3598.06/1.3747/2.6319`；trace 解析强扰动，采集轮不算性能成绩",
+            "获得 CPU/NPU/调用栈线索，继续轻量复核"
+          ],
+          "row_sha256": "18e9f5db100c9f395dac2368ba451fcdbcaadbc7c8ccc3683e6081105a58d659"
+        },
+        "r279": {
+          "cells": [
+            "r279",
+            "同一源码/配置，只记录主机时间戳和 attention 路径计数",
+            "64/256 正式请求，0 失败、job exit0；C4 混合 Thinker batch3 中位157ms，纯 decode37ms；C16 batch>8 占纯 decode 次数30.3%、wall time46.9%",
+            "形成下一轮优化优先级；未实施新性能优化"
+          ],
+          "row_sha256": "409557dec3cfe2026042e5111e17afec1c00984ef13928889f06d96bd28f8917"
+        },
+        "r280": {
+          "cells": [
+            "r280",
+            "现场 trace＋自主方案",
+            "混合 tick 按 decode→prefill 分组；首次服务 harness",
+            "对照请求成功后 harness 读取错误字段，作业失败；不是有效完整 A/B",
+            "修 harness，保留失败"
+          ],
+          "row_sha256": "1f362397caf9f37cbdfc1db483d49a827f30edcb79977cc0729240bf1104258b"
+        },
+        "r280b": {
+          "cells": [
+            "r280b",
+            "单变量复测",
+            "同一源码重跑 C4 A/B/A、C16 B/A，开关分组策略",
+            "C4 TTFP +5.84%、RTF +3.59%、吞吐 +4.27%；C16 −3.54%/−7.66%/−6.21%；0 请求错误，exit0",
+            "暂不采纳"
+          ],
+          "row_sha256": "6e69165def618e9381da6889e05af88b4a835aea763f86b52f16de9b065cfd1e"
+        },
+        "r281": {
+          "cells": [
+            "r281",
+            "shape 频率＋自主图覆盖",
+            "Thinker exact dynamic-PA graph 9/10；权重 parity 后 C16 A/B/A",
+            "batch9/10 token/hidden/KV 精确；原 B/A1 差值约19%/20%/24%，但 A2 184/256 失败，507000，exit1",
+            "原差值不作独立收益；保留失败"
+          ],
+          "row_sha256": "536bc50cc6f27f8bbd491f4c2c63a3c437f01d61c03e5f314892e55e997f2596"
+        },
+        "r281b": {
+          "cells": [
+            "r281b",
+            "可靠性/热度复核",
+            "全新服务固定开启图，两次 C16/256",
+            "B1 3915.45/1.53317/2.34864；B2 3432.34/1.31704/2.76256；512 条零错误，exit0",
+            "单独证明此次未复现错误"
+          ],
+          "row_sha256": "f8847d412e61f62986d5ef8c314297b3ac7aef8f181ab1ed68d53ef969d20ab5"
+        },
+        "r281c": {
+          "cells": [
+            "r281c",
+            "匹配对照",
+            "另一全新服务固定关闭图，两次同 workload",
+            "冷窗口真实收益 +2.87%/+2.42%/+0.92%；热窗口 +2.55%/−0.28%/+1.00%；合计开关1024条零错误",
+            "候选待验收，非默认"
+          ],
+          "row_sha256": "c2fea82ad9daa97dcaa5fa105d65a758b9dd35fce0acd74616a2e1ecbe4822f2"
+        },
+        "r282": {
+          "cells": [
+            "r282",
+            "冗余主机工作＋自主复用",
+            "发布校验后的 host Q metadata，复用 causal mask",
+            "16 行 token/text 精确，命中数千次；C4 无一致收益，C16 吞吐仅 +0.07%；exit0",
+            "暂不采纳"
+          ],
+          "row_sha256": "d7530a7af59e3139869f7d2bf9dd39910e4605fdf3d18a9d0266479f1ced31fe"
+        },
+        "r283": {
+          "cells": [
+            "r283",
+            "r280 回退反馈＋自主门控",
+            "连续繁忙周期 peak-live 达9后禁用低压力拆分，空闲才重置",
+            "22 单测、16 行 parity 通过；C4 +5.11%/+3.58%/+3.63%；C16 −8.13%/−12.09%/−9.00%；exit0",
+            "暂不采纳"
+          ],
+          "row_sha256": "5347d6d4620181ac3adf41fcc2cc144aaa7d2ff942681ceeddf1cdcc6f2cc53a"
+        },
+        "r284": {
+          "cells": [
+            "r284",
+            "冻结质量工具",
+            "r283 48 WAV，16 行×control/candidate/control，绑定字节 hash",
+            "CUDA 无卡，3分钟排队超时、exit1；评分未启动",
+            "未完成，不能写质量 PASS/FAIL"
+          ],
+          "row_sha256": "04444a177d69571b6123e50b94c0e6ea19c3e9c358cf80bfca946d503db88942"
+        },
+        "r285": {
+          "cells": [
+            "r285",
+            "直接计时诊断",
+            "包装真实 scratch lock/capture context/请求标记，保留同步语义",
+            "C16/256 零错误、exit0；首窗等锁48.40ms、进入解码前队列885.36ms；20次capture context并集23.60s",
+            "诊断完成，未实施异步 D2H"
+          ],
+          "row_sha256": "8f7e3db1e248ae34def8c40d5d4bafc642fdfca8373b35d6deb5fa967dc71589"
+        },
+        "r286": {
+          "cells": [
+            "r286",
+            "锁与 capture 来源诊断；现场插桩",
+            "保持 r258，记录真实锁、capture 调用方、形状及请求阶段。",
+            "4014.06 / 1.56258 / 2.33296",
+            "+0.00% / +0.00% / +0.00%",
+            "诊断对照"
+          ],
+          "row_sha256": "37e06db927eb17941065aed686960b1e2375e469c0c13a050e3e84f24ac5b899"
+        },
+        "r287": {
+          "cells": [
+            "r287",
+            "公平 capture 门控；现场诊断→自主方案",
+            "等待 capture 时阻止新的非嵌套 reader；保留已有 reader 重入、nested capture 和异常恢复。",
+            "3738.24 / 1.40624 / 2.59648",
+            "+6.87% / +10.01% / +11.30%",
+            "保留供组合验证"
+          ],
+          "row_sha256": "1f663d292763ec31c3a93f07d0bc8568a96b8dd1d00b8a22c081fa05f3e46032"
+        },
+        "r288": {
+          "cells": [
+            "r288",
+            "HiFT 通用启动预热；一次性工作前移→自主适配",
+            "使用零输入预热 rows 1/2/4/8/16 × frames 50/58；不消费 benchmark 请求或随机数。",
+            "3891.33 / 1.45817 / 2.49755",
+            "+3.06% / +6.68% / +7.05%",
+            "未选为最终候选"
+          ],
+          "row_sha256": "2ce18e43acc9dd30eb2c31b686fe0c0717d32f452e7819d3035342fd60251b9c"
+        },
+        "r289": {
+          "cells": [
+            "r289",
+            "Euler 通用启动预热；capture 来源证据→自主方案",
+            "独立测试五个通用 steady 形状，保留 eager fallback。",
+            "171成功/85失败；不列收益",
+            "不适用；验证另表",
+            "拒绝；不计算成功子集收益"
+          ],
+          "row_sha256": "c14cc36b704f460efa4b47b7bb5620d14c9f3cffd0657715d6e66613df2f670e"
+        },
+        "r290": {
+          "cells": [
+            "r290",
+            "公平门控＋HiFT 预热；组合消融",
+            "只组合已分别测过的两项机制。",
+            "3761.42 / 1.40756 / 2.58145",
+            "+6.29% / +9.92% / +10.65%",
+            "不叠加到选中候选"
+          ],
+          "row_sha256": "1cbe0bcae355b84a4cdca40ad090ad116920a281d5f1f3d81eb4d55c98874e5c"
+        },
+        "r291": {
+          "cells": [
+            "r291",
+            "动态 PA task update 排他；失败日志→自主假设",
+            "在 _update_attention 周围使用 host launch 排他；不添加全局 device synchronize。",
+            "4387.62 / 1.62757 / 2.23729",
+            "-9.31% / -4.16% / -4.10%",
+            "拒绝"
+          ],
+          "row_sha256": "d354e587c2583e16e294b0a3e7ef8b36e102083f9e8e66b92b699bc1c2856247"
+        },
+        "r292": {
+          "cells": [
+            "r292",
+            "公平门控＋首包窗口优先；请求阶段证据→自主方案",
+            "对 ready 稳定排序，让 sample_offset==0 先于续包；保持请求绑定、消费次数及回退。",
+            "3597.84 / 1.36109 / 2.67127",
+            "+10.37% / +12.89% / +14.50%",
+            "选中作跨档验证，未正式采用"
+          ],
+          "row_sha256": "3cf06da58285dcfec82f69caefa68d8de81d63d207ac4220c472471bd658970b"
+        },
+        "r293": {
+          "cells": [
+            "r293",
+            "不可变 dense 页索引复用；重复元数据构造→自主方案",
+            "每请求按完整 physical-page tuple 缓存 page-ID tensor；增长、重绑、释放时安全失效。",
+            "3818.82 / 1.39856 / 2.57694",
+            "+4.86% / +10.50% / +10.46%",
+            "不纳入选中候选"
+          ],
+          "row_sha256": "112f92b6163b9e60bd9115c7c8784489264614948f7a27a18c624fa37cfeb2b2"
+        },
+        "r294": {
+          "cells": [
+            "r294",
+            "匹配反向验证与 A/B/A 质量生成；验证",
+            "新进程对照/候选均按 C4→C16；另用三个新服务生成 control_before/candidate/control_after 各16条。",
+            "见匹配对照表；验证轮不是新算法",
+            "不适用；验证另表",
+            "保留验证证据，进入全档复测"
+          ],
+          "row_sha256": "34f71d0acaba3176956a7adf88655a58f013ad7dcc35aa5b2d0fce741e3abece"
+        },
+        "r295": {
+          "cells": [
+            "r295",
+            "统一五档验收与配对 profiling；验证与再诊断",
+            "两边各一个新服务，完全相同 C1→C4→C8→C16→C32 顺序；原生两条预热。另起新服务采集8秒配对trace，再补采20秒配对trace以覆盖更多请求。",
+            "见匹配对照表；验证轮不是新算法",
+            "不适用；验证另表",
+            "不采用；保留性能和诊断失败各自证据"
+          ],
+          "row_sha256": "5de0ddeb32f480c1dc1709dcbdede6d146f84ce26ed56754b9aed7befd8a67cc"
+        }
+      }
+    }
+  ],
+  "stages": [
+    {
+      "stage": "knowledge-led-r182-r239",
+      "counting": "retrospective human grouping, not original automatic round count",
+      "groups": [
+        {
+          "representative": "r191",
+          "mechanism": "identity-gather",
+          "evidence_ids": [
+            "r191",
+            "r192",
+            "r193"
+          ],
+          "retained_current_experimental": false,
+          "reason": "micro_gain_service_regression"
+        },
+        {
+          "representative": "r196",
+          "mechanism": "thinker-static-fia",
+          "evidence_ids": [
+            "r196"
+          ],
+          "retained_current_experimental": false,
+          "reason": "numerical_check_failed"
+        },
+        {
+          "representative": "r198",
+          "mechanism": "talker-full-block",
+          "evidence_ids": [
+            "r198",
+            "r199",
+            "r200",
+            "r201",
+            "r202",
+            "r204",
+            "r206",
+            "r207",
+            "r208",
+            "r210",
+            "r212",
+            "r214",
+            "r215"
+          ],
+          "retained_current_experimental": true,
+          "reason": "corrected_block_retained"
+        },
+        {
+          "representative": "r216",
+          "mechanism": "talker-add-rms",
+          "evidence_ids": [
+            "r216",
+            "r217"
+          ],
+          "retained_current_experimental": true,
+          "reason": "retained_with_mixed_ttfp"
+        },
+        {
+          "representative": "r218",
+          "mechanism": "flow-fixed-adaln",
+          "evidence_ids": [
+            "r218",
+            "r220"
+          ],
+          "retained_current_experimental": false,
+          "reason": "local_gain_without_service_confirmation"
+        },
+        {
+          "representative": "r221",
+          "mechanism": "causal-conv-gemm",
+          "evidence_ids": [
+            "r221"
+          ],
+          "retained_current_experimental": false,
+          "reason": "common_shapes_slower"
+        },
+        {
+          "representative": "r222",
+          "mechanism": "thinker-full-fusion",
+          "evidence_ids": [
+            "r222",
+            "r224",
+            "r225",
+            "r226"
+          ],
+          "retained_current_experimental": false,
+          "reason": "speech_screen_failed"
+        },
+        {
+          "representative": "r227",
+          "mechanism": "cfm-full-fusion",
+          "evidence_ids": [
+            "r227",
+            "r228",
+            "r229"
+          ],
+          "retained_current_experimental": false,
+          "reason": "dtype_and_cache_numerical_failure"
+        },
+        {
+          "representative": "r230",
+          "mechanism": "cfm-packed-only",
+          "evidence_ids": [
+            "r230",
+            "r231",
+            "r232",
+            "r233",
+            "r234",
+            "r235",
+            "r236",
+            "r237"
+          ],
+          "retained_current_experimental": false,
+          "reason": "native_reliability_failure"
+        },
+        {
+          "representative": "r238",
+          "mechanism": "cfm-hybrid",
+          "evidence_ids": [
+            "r238",
+            "r239"
+          ],
+          "retained_current_experimental": true,
+          "reason": "qualified_hybrid_retained"
+        }
+      ]
+    },
+    {
+      "stage": "profiling-and-autonomy-r240-r295",
+      "counting": "retrospective human grouping, not original automatic round count",
+      "groups": [
+        {
+          "representative": "r243",
+          "mechanism": "talker-all-exact-rows",
+          "evidence_ids": [
+            "r243",
+            "r244",
+            "r244b",
+            "r245"
+          ],
+          "retained_current_experimental": false,
+          "reason": "c4_regression"
+        },
+        {
+          "representative": "r246",
+          "mechanism": "talker-selective-rows",
+          "evidence_ids": [
+            "r246",
+            "r247",
+            "r253"
+          ],
+          "retained_current_experimental": true,
+          "reason": "selective_route_retained"
+        },
+        {
+          "representative": "r248",
+          "mechanism": "thinker-eight-plus-eight",
+          "evidence_ids": [
+            "r248",
+            "r249"
+          ],
+          "retained_current_experimental": false,
+          "reason": "native_regression"
+        },
+        {
+          "representative": "r250",
+          "mechanism": "warmed-eight-plus-eight",
+          "evidence_ids": [
+            "r250",
+            "r251"
+          ],
+          "retained_current_experimental": false,
+          "reason": "native_regression"
+        },
+        {
+          "representative": "r254",
+          "mechanism": "prefix-always-on",
+          "evidence_ids": [
+            "r254",
+            "r254b"
+          ],
+          "retained_current_experimental": false,
+          "reason": "low_concurrency_regression"
+        },
+        {
+          "representative": "r255",
+          "mechanism": "prefix-active-eight",
+          "evidence_ids": [
+            "r255"
+          ],
+          "retained_current_experimental": false,
+          "reason": "no_general_gain"
+        },
+        {
+          "representative": "r256",
+          "mechanism": "prefix-active-twelve",
+          "evidence_ids": [
+            "r256"
+          ],
+          "retained_current_experimental": false,
+          "reason": "no_general_gain"
+        },
+        {
+          "representative": "r257",
+          "mechanism": "prefix-live-twelve",
+          "evidence_ids": [
+            "r257"
+          ],
+          "retained_current_experimental": false,
+          "reason": "no_general_gain"
+        },
+        {
+          "representative": "r258",
+          "mechanism": "prefix-live-nine",
+          "evidence_ids": [
+            "r258"
+          ],
+          "retained_current_experimental": true,
+          "reason": "conditional_pressure_route_retained"
+        },
+        {
+          "representative": "r259",
+          "mechanism": "prefix-latch",
+          "evidence_ids": [
+            "r259"
+          ],
+          "retained_current_experimental": false,
+          "reason": "worse_than_parent"
+        },
+        {
+          "representative": "r260",
+          "mechanism": "prefix-preseed",
+          "evidence_ids": [
+            "r260",
+            "r260b"
+          ],
+          "retained_current_experimental": false,
+          "reason": "no_service_gain"
+        },
+        {
+          "representative": "r261",
+          "mechanism": "prefix-preseed-latch-wait10",
+          "evidence_ids": [
+            "r261"
+          ],
+          "retained_current_experimental": false,
+          "reason": "no_general_gain"
+        },
+        {
+          "representative": "r262",
+          "mechanism": "prefix-cohort-admission",
+          "evidence_ids": [
+            "r262"
+          ],
+          "retained_current_experimental": false,
+          "reason": "waiting_offsets_gain"
+        },
+        {
+          "representative": "r263",
+          "mechanism": "prefix-wait50",
+          "evidence_ids": [
+            "r263",
+            "r263b"
+          ],
+          "retained_current_experimental": false,
+          "reason": "longer_wait_worse"
+        },
+        {
+          "representative": "r264",
+          "mechanism": "thinker-static-block",
+          "evidence_ids": [
+            "r264",
+            "r264b"
+          ],
+          "retained_current_experimental": false,
+          "reason": "accumulated_numerical_drift"
+        },
+        {
+          "representative": "r265",
+          "mechanism": "thinker-dynamic-block16",
+          "evidence_ids": [
+            "r265",
+            "r266"
+          ],
+          "retained_current_experimental": false,
+          "reason": "zero_native_replay"
+        },
+        {
+          "representative": "r267",
+          "mechanism": "thinker-dynamic-block9-16",
+          "evidence_ids": [
+            "r267",
+            "r268"
+          ],
+          "retained_current_experimental": false,
+          "reason": "zero_native_replay"
+        },
+        {
+          "representative": "r269",
+          "mechanism": "thinker-dynamic-block8",
+          "evidence_ids": [
+            "r269",
+            "r270"
+          ],
+          "retained_current_experimental": false,
+          "reason": "zero_native_replay"
+        },
+        {
+          "representative": "r271",
+          "mechanism": "thinker-dynamic-block3-8",
+          "evidence_ids": [
+            "r271",
+            "r272"
+          ],
+          "retained_current_experimental": false,
+          "reason": "one_native_replay_and_slower"
+        },
+        {
+          "representative": "r273",
+          "mechanism": "thinker-dynamic-block1-8",
+          "evidence_ids": [
+            "r273",
+            "r274"
+          ],
+          "retained_current_experimental": false,
+          "reason": "zero_native_replay"
+        },
+        {
+          "representative": "r275",
+          "mechanism": "thinker-block-routing-repair",
+          "evidence_ids": [
+            "r275",
+            "r276"
+          ],
+          "retained_current_experimental": false,
+          "reason": "no_archived_service_result"
+        },
+        {
+          "representative": "r280",
+          "mechanism": "mixed-tick-split",
+          "evidence_ids": [
+            "r280",
+            "r280b"
+          ],
+          "retained_current_experimental": false,
+          "reason": "concurrency_tradeoff"
+        },
+        {
+          "representative": "r281",
+          "mechanism": "thinker-graph9-10",
+          "evidence_ids": [
+            "r281",
+            "r281b",
+            "r281c"
+          ],
+          "retained_current_experimental": false,
+          "reason": "small_gain_unqualified"
+        },
+        {
+          "representative": "r282",
+          "mechanism": "host-metadata-and-mask",
+          "evidence_ids": [
+            "r282"
+          ],
+          "retained_current_experimental": false,
+          "reason": "no_consistent_service_gain"
+        },
+        {
+          "representative": "r283",
+          "mechanism": "busy-cycle-split-gating",
+          "evidence_ids": [
+            "r283",
+            "r284"
+          ],
+          "retained_current_experimental": false,
+          "reason": "c16_regression"
+        },
+        {
+          "representative": "r287",
+          "mechanism": "fair-capture-gate",
+          "evidence_ids": [
+            "r287"
+          ],
+          "retained_current_experimental": true,
+          "reason": "fairness_retained_not_uniform_gain"
+        },
+        {
+          "representative": "r288",
+          "mechanism": "hift-startup",
+          "evidence_ids": [
+            "r288"
+          ],
+          "retained_current_experimental": false,
+          "reason": "not_selected_in_matched_candidate"
+        },
+        {
+          "representative": "r289",
+          "mechanism": "euler-startup",
+          "evidence_ids": [
+            "r289"
+          ],
+          "retained_current_experimental": false,
+          "reason": "request_failure"
+        },
+        {
+          "representative": "r290",
+          "mechanism": "gate-plus-hift",
+          "evidence_ids": [
+            "r290"
+          ],
+          "retained_current_experimental": false,
+          "reason": "combination_not_selected"
+        },
+        {
+          "representative": "r291",
+          "mechanism": "pa-update-exclusive",
+          "evidence_ids": [
+            "r291"
+          ],
+          "retained_current_experimental": false,
+          "reason": "native_regression"
+        },
+        {
+          "representative": "r292",
+          "mechanism": "gate-plus-first-audio",
+          "evidence_ids": [
+            "r292",
+            "r294",
+            "r295"
+          ],
+          "retained_current_experimental": true,
+          "reason": "mechanism_retained_matched_c8_c32_regressed"
+        },
+        {
+          "representative": "r293",
+          "mechanism": "dense-page-id-cache",
+          "evidence_ids": [
+            "r293"
+          ],
+          "retained_current_experimental": false,
+          "reason": "not_selected_in_matched_candidate"
+        }
+      ]
+    },
+    {
+      "stage": "six-layer-r297-r306",
+      "counting": "10 recorded algorithm rounds; r306b is a repair",
+      "groups": [
+        {
+          "representative": "r297",
+          "mechanism": "thinker-graph16",
+          "retained_current_experimental": false,
+          "reason": "small_gain_not_qualified",
+          "spec": "evidence/20261102-r305/rounds/r297/spec.json"
+        },
+        {
+          "representative": "r298",
+          "mechanism": "thinker-graph32",
+          "retained_current_experimental": false,
+          "reason": "mean_tail_tradeoff",
+          "spec": "evidence/20261102-r305/rounds/r298/spec.json"
+        },
+        {
+          "representative": "r299",
+          "mechanism": "grouped-pcm-delivery",
+          "retained_current_experimental": false,
+          "reason": "high_concurrency_only_candidate",
+          "spec": "evidence/20261102-r305/rounds/r299/spec.json"
+        },
+        {
+          "representative": "r300",
+          "mechanism": "thinker-graph8-slices",
+          "retained_current_experimental": false,
+          "reason": "native_regression",
+          "spec": "evidence/20261102-r305/rounds/r300/spec.json"
+        },
+        {
+          "representative": "r301",
+          "mechanism": "thinker-startup-buckets",
+          "retained_current_experimental": false,
+          "reason": "native_regression",
+          "spec": "evidence/20261102-r305/rounds/r301/spec.json"
+        },
+        {
+          "representative": "r302",
+          "mechanism": "replay-event-wait",
+          "retained_current_experimental": false,
+          "reason": "no_stable_incremental_gain",
+          "spec": "evidence/20261102-r305/rounds/r302/spec.json"
+        },
+        {
+          "representative": "r303",
+          "mechanism": "audio-edf",
+          "retained_current_experimental": false,
+          "reason": "tail_and_continuity_tradeoff",
+          "spec": "evidence/20261102-r305/rounds/r303/spec.json"
+        },
+        {
+          "representative": "r304",
+          "mechanism": "adaln-outside-replay",
+          "retained_current_experimental": false,
+          "reason": "native_regression",
+          "spec": "evidence/20261102-r305/rounds/r304/spec.json"
+        },
+        {
+          "representative": "r305",
+          "mechanism": "prompt-lookup",
+          "retained_current_experimental": true,
+          "reason": "retained_with_control_confirmation",
+          "spec": "evidence/20261102-r305/rounds/r305/spec.json"
+        },
+        {
+          "representative": "r306",
+          "mechanism": "npu-pending-audio",
+          "retained_current_experimental": false,
+          "reason": "api_repaired_mixed_native_result",
+          "spec": "evidence/20261102-r305/rounds/r306b/spec.json"
+        }
+      ]
+    },
+    {
+      "stage": "owner-followup-r307-r309",
+      "counting": "3 recorded candidates; r310/r311 are confirmations/controls",
+      "groups": [
+        {
+          "representative": "r307",
+          "mechanism": "owner-startup",
+          "retained_current_experimental": false,
+          "reason": "narrow_candidate_superseded_by_r309",
+          "mechanism_reused": true
+        },
+        {
+          "representative": "r308",
+          "mechanism": "remove-head-fp32-cast",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_native_gain"
+        },
+        {
+          "representative": "r309",
+          "mechanism": "owner-startup-extended",
+          "retained_current_experimental": true,
+          "reason": "retained_extended_candidate"
+        }
+      ]
+    },
+    {
+      "stage": "continued-r312-r351",
+      "counting": "40 recorded algorithm rounds; controls/retries excluded",
+      "groups": [
+        {
+          "representative": "r312",
+          "mechanism": "thinker-init",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r313",
+          "mechanism": "split-three",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r314",
+          "mechanism": "draft4",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r315",
+          "mechanism": "unified-lookup",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "promising_needs_reverse_confirmation",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r316",
+          "mechanism": "batch-embedding",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r317",
+          "mechanism": "bind-uploads",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r318",
+          "mechanism": "tail-coverage",
+          "parent": "r312",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r319",
+          "mechanism": "host-lengths",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": true
+        },
+        {
+          "representative": "r320",
+          "mechanism": "cores50",
+          "parent": "control309",
+          "retained_current_experimental": true,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r321",
+          "mechanism": "mask-cache",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r322",
+          "mechanism": "cores75",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "rejected_operator_resource_limit",
+          "receipt_exit": 1,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r323",
+          "mechanism": "draft16",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r324",
+          "mechanism": "unified-min5",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r325",
+          "mechanism": "page-id-cache",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r326",
+          "mechanism": "hift-static-weightnorm",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r327",
+          "mechanism": "private-prompt-flow",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "rejected_native_crash",
+          "receipt_exit": 1,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r328",
+          "mechanism": "packed-rotary",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r329",
+          "mechanism": "cube50",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "rejected_operator_resource_limit",
+          "receipt_exit": 1,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r330",
+          "mechanism": "vector50",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "rejected_operator_resource_limit",
+          "receipt_exit": 1,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r331",
+          "mechanism": "taskqueue2",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "rejected_framework_graph_compatibility",
+          "receipt_exit": 1,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r332",
+          "mechanism": "paged-suffix",
+          "parent": "r319",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r333",
+          "mechanism": "taskqueue0",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r334",
+          "mechanism": "low-pressure-split",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "promising_needs_reverse_confirmation",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r335",
+          "mechanism": "aclnn-cache100k",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "rejected_native_crash",
+          "receipt_exit": 1,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r336",
+          "mechanism": "pinned-pcm",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r337",
+          "mechanism": "host-lengths",
+          "parent": "r320",
+          "retained_current_experimental": true,
+          "reason": "promising_needs_reverse_confirmation",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r338",
+          "mechanism": "mask-cache",
+          "parent": "r332",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r339",
+          "mechanism": "rope-invariant",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "rejected_diagnostic_crash",
+          "receipt_exit": 1,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r340",
+          "mechanism": "hift-exact-rows",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r341",
+          "mechanism": "script-elementwise",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r342",
+          "mechanism": "low-pressure-split",
+          "parent": "r320",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r343",
+          "mechanism": "audio-stream-cores",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "promising_needs_reverse_confirmation",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r344",
+          "mechanism": "euler-exact-rows",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r345",
+          "mechanism": "rounding-native-rms",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r346",
+          "mechanism": "native-rotary",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r347",
+          "mechanism": "mask-cache",
+          "parent": "r337",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r348",
+          "mechanism": "thinker-static-fia",
+          "parent": "control309",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r349",
+          "mechanism": "cores-third",
+          "parent": "r337",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r350",
+          "mechanism": "rounded-native-rotary",
+          "parent": "r346",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        },
+        {
+          "representative": "r351",
+          "mechanism": "host-lengths",
+          "parent": "r343",
+          "retained_current_experimental": false,
+          "reason": "no_consistent_gain_or_inconclusive",
+          "receipt_exit": 0,
+          "mechanism_reused": false
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "stage": "knowledge-led-r182-r239",
+      "groups": 10,
+      "retained": 3,
+      "not_retained": 7,
+      "not_retained_pct": 70.0
+    },
+    {
+      "stage": "profiling-and-autonomy-r240-r295",
+      "groups": 32,
+      "retained": 4,
+      "not_retained": 28,
+      "not_retained_pct": 87.5
+    },
+    {
+      "stage": "six-layer-r297-r306",
+      "groups": 10,
+      "retained": 1,
+      "not_retained": 9,
+      "not_retained_pct": 90.0
+    },
+    {
+      "stage": "owner-followup-r307-r309",
+      "groups": 3,
+      "retained": 1,
+      "not_retained": 2,
+      "not_retained_pct": 66.66666666666666
+    },
+    {
+      "stage": "continued-r312-r351",
+      "groups": 40,
+      "retained": 2,
+      "not_retained": 38,
+      "not_retained_pct": 95.0
+    }
+  ],
+  "reconstructed_group_total": 95,
+  "retained_nodes": 11,
+  "not_retained_groups": 84,
+  "exact_later_algorithm_rounds": 53,
+  "late_screening_counts": {
+    "no_consistent_gain_or_inconclusive": 29,
+    "promising_needs_reverse_confirmation": 4,
+    "rejected_operator_resource_limit": 3,
+    "rejected_native_crash": 2,
+    "rejected_framework_graph_compatibility": 1,
+    "rejected_diagnostic_crash": 1
+  },
+  "late_execution_counts": {
+    "successful_exit": 33,
+    "nonzero_exit": 7
+  },
+  "sources": [
+    {
+      "path": "docs/optimization-ledger-npu.zh-CN.md",
+      "sha256": "02af2b34e6d84cac5dbe7c8cb0cb1c85c3f319dcb6ac6058aedcbf214c2fccee"
+    },
+    {
+      "path": "evidence/20261103-r337/campaign/campaign-results.json",
+      "sha256": "6416c94c5deb77bd525e7e1d860f938dc4f9b024826fa52b0260dea4cd68c670"
+    },
+    {
+      "path": "docs/rsi-profiling-20261102.zh-CN.md",
+      "sha256": "bdfb02c4b441765272ab10083afdf7483b34b85b2659b7cd8ce3623361c4a979"
+    },
+    {
+      "path": "evidence/20261103-r337/followup/followup-results.json",
+      "sha256": "d3c78704def83888ccd92cdcc5fe1b5f2e000d0ac4675204d7af3adf46245a54"
+    },
+    {
+      "path": "evidence/20261103-r337/campaign/final-confirmation-summary.json",
+      "sha256": "42cce0801d4e16cf902445d9db14a4736b7db180cdb039af2d6b0156b878227c"
+    }
+  ],
+  "infer_rsi_reference": {
+    "repository": "https://github.com/InferMatrixLab/InferRSI",
+    "commit": "a1ee3266466194c16f4e2159ab845b758ed9561b",
+    "scope": "Current framework contract only; not proof of historical per-round execution"
+  }
+}

@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 
 from r337_comparison_data import CONCURRENCIES, REQUEST_COUNTS, load_direct_comparison
+from audit_optimization_retrospective import build as build_retrospective
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / 'evidence/20261103-r337'
@@ -136,7 +137,8 @@ def verify_links():
                  ROOT / 'docs/optimizations-npu.md', ROOT / 'docs/architecture-npu.md',
                  ROOT / 'docs/reproduce-benchmark.md', ROOT / 'docs/testing-npu.md',
                  ROOT / 'docs/c8-optimization-journey.zh-CN.md',
-                 ROOT / 'docs/adopted-optimizations.zh-CN.md', *EVIDENCE.rglob('*.md')]
+                 ROOT / 'docs/adopted-optimizations.zh-CN.md',
+                 ROOT / 'docs/optimization-method-retrospective.zh-CN.md', *EVIDENCE.rglob('*.md')]
     count = 0
     for document in documents:
         for link in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)', document.read_text(encoding='utf-8')):
@@ -152,6 +154,7 @@ def main():
     source_files = verify_measurements(manifest)
     rounds = verify_rounds()
     links = verify_links()
+    assert read(ROOT / 'docs/data/optimization-retrospective.json') == build_retrospective()
     for name, expected in read(EVIDENCE / 'bundle-sha256.json')['files'].items():
         assert sha256(EVIDENCE / name) == expected, name
     print(json.dumps(dict(direct_concurrencies=list(CONCURRENCIES), measured_source_files=source_files,

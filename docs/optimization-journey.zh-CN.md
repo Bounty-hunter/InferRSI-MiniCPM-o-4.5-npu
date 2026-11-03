@@ -1,5 +1,7 @@
 # MiniCPM-o 4.5 NPU 独立引擎：完整优化历程
 
+各阶段方案数量、未保留原因，以及 profiling 为何较晚转化为收益，另见[方法复盘与探索效率审计](optimization-method-retrospective.zh-CN.md)。
+
 ## C8关键阶段的完整曲线
 
 ![C8完整优化历程](figures/npu-c8-optimization-journey.svg)

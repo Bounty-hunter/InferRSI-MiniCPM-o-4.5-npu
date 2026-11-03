@@ -1,5 +1,7 @@
 # MiniCPM-o 4.5 NPU 独立引擎的已采用优化详解
 
+方案轮数、未保留探索与诊断流程的问题，另见[方法复盘与探索效率审计](optimization-method-retrospective.zh-CN.md)。
+
 本文按执行机制介绍当前 r337 实验配置中保留的优化，覆盖它解决的开销、实现方式、具体例子、适用条件及收益证据。历史方案的选择过程、失败实验和逐轮结果另见优化历程与实验账本。整理日期为 2026-11-03。[优化历程](optimization-journey.zh-CN.md) · [完整实验账本](optimization-ledger-npu.zh-CN.md)
 
 **本文的“采用”指进入 r337 实验配置并参与性能测量。r337 的完整语音质量门仍为 `NOT_RUN`。** 引擎采用 Flow FP16/6 步与 counter RNG，对照 Omni 采用 Flow FP32/10 步，二者的 codec 输出存在差异。下文将执行优化、数值配方和有条件启用的能力分别说明。[当前配置](../configs/engine/ascend_r337_experimental.json) · [源码与测量绑定](../evidence/20261103-r337/source-manifest.json) · [当前结果](current-results.md)
