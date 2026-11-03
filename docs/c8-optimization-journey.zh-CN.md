@@ -62,7 +62,7 @@ python tools/plot_c8_optimization_journey.py
 
 - [PNG](figures/npu-c8-optimization-journey.png) · [SVG](figures/npu-c8-optimization-journey.svg) · [PDF](figures/npu-c8-optimization-journey.pdf)
 - [源数据、逐点SHA与聚合口径](data/c8-optimization-journey.json)
-- [早期RSI到六层诊断的历程](optimization-journey.zh-CN.md)
+- [早期RSI到6层profiling 诊断的历程](optimization-journey.zh-CN.md)
 - [全NPU账本](optimization-ledger-npu.zh-CN.md)
 - [r337最新总结](rsi-r337-20261103.zh-CN.md)
 - [六层分析与r305匹配控制](rsi-profiling-20261102.zh-CN.md)

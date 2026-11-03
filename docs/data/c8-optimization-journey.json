@@ -208,7 +208,7 @@
       "tag": "r305",
       "label": "Thinker\nprompt-lookup\nr305",
       "optimization": "当前请求提供草稿，原Thinker整块验证并截断未接受KV",
-      "phase": "六层诊断",
+      "phase": "6层profiling 诊断",
       "sources": [
         {
           "path": "evidence/20261102-r305/native/r305-c8.json",
