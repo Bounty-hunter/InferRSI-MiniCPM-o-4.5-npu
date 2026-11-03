@@ -1,0 +1,101 @@
+{
+  "scope": "Fixed-work component and serial/multistream 2x2 only",
+  "tasks": [
+    [
+      "replay-A1",
+      [
+        "/workspace/minicpmo-r182/core-causality-20261103/replay_fixed.py",
+        "--tag",
+        "replay-A1",
+        "--role",
+        "A"
+      ]
+    ],
+    [
+      "replay-B1",
+      [
+        "/workspace/minicpmo-r182/core-causality-20261103/replay_fixed.py",
+        "--tag",
+        "replay-B1",
+        "--role",
+        "B"
+      ]
+    ],
+    [
+      "replay-B2",
+      [
+        "/workspace/minicpmo-r182/core-causality-20261103/replay_fixed.py",
+        "--tag",
+        "replay-B2",
+        "--role",
+        "B"
+      ]
+    ],
+    [
+      "replay-A2",
+      [
+        "/workspace/minicpmo-r182/core-causality-20261103/replay_fixed.py",
+        "--tag",
+        "replay-A2",
+        "--role",
+        "A"
+      ]
+    ],
+    [
+      "replay-A3",
+      [
+        "/workspace/minicpmo-r182/core-causality-20261103/replay_fixed.py",
+        "--tag",
+        "replay-A3",
+        "--role",
+        "A"
+      ]
+    ],
+    [
+      "replay-B3",
+      [
+        "/workspace/minicpmo-r182/core-causality-20261103/replay_fixed.py",
+        "--tag",
+        "replay-B3",
+        "--role",
+        "B"
+      ]
+    ],
+    [
+      "profile-A",
+      [
+        "/workspace/minicpmo-r182/core-causality-20261103/replay_fixed.py",
+        "--tag",
+        "profile-A",
+        "--role",
+        "A",
+        "--profile"
+      ]
+    ],
+    [
+      "profile-B",
+      [
+        "/workspace/minicpmo-r182/core-causality-20261103/replay_fixed.py",
+        "--tag",
+        "profile-B",
+        "--role",
+        "B",
+        "--profile"
+      ]
+    ]
+  ],
+  "visible_devices": "2",
+  "programs": {
+    "controller.py": "bbde72b35064baae31a5c11a3e73642e0325817a47c1c8636d8b68a36f74dee5",
+    "entry_lowc.py": "c67aff9d0697d234ef766619e172b8916961e6f3473abd9563375150592e1f57",
+    "prepare_native.py": "40f48cc94f73bf7796858e95aac046bd6198b4eb972ce4e00cb0f29c20b3f0fc",
+    "run_lowc.py": "939b883c796d06db15f5edb0ce638d404d8902de1668ee8d73c2d31c80ee336a",
+    "fixed_common.py": "ddba6256cc19aaf3f52568ae2f783aa8ab200909183bf374df3495b9133bd389",
+    "capture_fixed.py": "e3d132395cb5a2c83ec4772ddb3c3008b3d602485b4d152969d5953d4c64262d",
+    "replay_fixed.py": "7dbd4e2b9ddc8604d2b45a7f7313d26aaad612543f7c8a3c9626426732ded515",
+    "entry_trajectory.py": "61ae53480c85c73b6313644a3ec710f0c7a48ce65e94f50591743de1470d3797",
+    "run_trajectory.py": "fc2ce7dc0e8ec77292d8af6d5928fcc82eda2f6189a369bc7307936473988d18",
+    "inspect_runtime_files.py": "7ec7e98aa2db796bd51ec2fc422b686f5fa013cc6ce28f962d8fef646a4f0911",
+    "component_controller.py": "32c68220894e0ece9309e7cd307c174929a0d46d755b16c0aa5a99089b01e9b9"
+  }
+}

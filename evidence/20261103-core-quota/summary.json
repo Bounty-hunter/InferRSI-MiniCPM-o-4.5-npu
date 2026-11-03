@@ -1,0 +1,140 @@
+{
+  "aggregation": "Arithmetic mean of3 fresh-process medians; observed engineering comparisons, no CI claim",
+  "ordering": [
+    "A1",
+    "B1",
+    "B2",
+    "A2",
+    "A3",
+    "B3"
+  ],
+  "components": {
+    "thinker": {
+      "control_ms": 25.671525082240503,
+      "limited_ms": 28.847473363081615,
+      "reduction_pct": -12.371482686232094
+    },
+    "talker": {
+      "control_ms": 33.01386892174681,
+      "limited_ms": 30.575686289618414,
+      "reduction_pct": 7.38532838398206
+    },
+    "audio": {
+      "control_ms": 147.7618358718852,
+      "limited_ms": 123.40627641727527,
+      "reduction_pct": 16.48298379002755
+    }
+  },
+  "matrix": {
+    "1": {
+      "table_ms": {
+        "A": {
+          "serial": 204.27419183154902,
+          "parallel": 176.9656070197622
+        },
+        "B": {
+          "serial": 180.5556376154224,
+          "parallel": 154.68501035744944
+        }
+      },
+      "quota_reduction_pct": {
+        "serial": 11.611135994940414,
+        "parallel": 12.590354158378702
+      },
+      "stream_time_saved_ms": {
+        "A": 27.30858481178683,
+        "B": 25.870627257972956
+      }
+    },
+    "4": {
+      "table_ms": {
+        "A": {
+          "serial": 374.270296189934,
+          "parallel": 346.55397090439993
+        },
+        "B": {
+          "serial": 351.3138851461311,
+          "parallel": 325.3755030843119
+        }
+      },
+      "quota_reduction_pct": {
+        "serial": 6.133644929212611,
+        "parallel": 6.111160049564202
+      },
+      "stream_time_saved_ms": {
+        "A": 27.716325285534083,
+        "B": 25.938382061819198
+      }
+    }
+  },
+  "scope": "Fixed task replay, one submitting host thread with two NPU streams; not native service TTFP/RTF/request/s",
+  "shapes": {
+    "thinker": [
+      8,
+      4096
+    ],
+    "thinker_new_tokens": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "thinker_bucket": 8,
+    "talker_batch": 4,
+    "talker_frames": 10,
+    "audio_batch": 4,
+    "audio_windows": [
+      28,
+      28,
+      28,
+      28
+    ]
+  },
+  "numerical_differences": {
+    "thinker": {
+      "exact": false,
+      "shape": [
+        8,
+        4096
+      ],
+      "max_abs": 0.375,
+      "relative_l2": 0.01425368431955576
+    },
+    "talker": {
+      "exact": false,
+      "shape": [
+        10,
+        4
+      ],
+      "max_abs": 2192.0,
+      "relative_l2": 0.12142717093229294
+    },
+    "audio": {
+      "exact": false,
+      "shape": [
+        96000
+      ],
+      "max_abs": 1.0938864946365356,
+      "relative_l2": 1.3340071439743042
+    }
+  },
+  "initial_attempts": [
+    {
+      "stage": "input capture",
+      "outcome": "failed default model cache path; corrected explicit model directory"
+    },
+    {
+      "stage": "first replay metadata",
+      "outcome": "inspect.getsource rejected wrapped API; replaced with resource source-file fingerprint"
+    }
+  ],
+  "initial_native_scope": "Extra service repeats were stopped after user clarified scope; excluded from all reported fixed-work results",
+  "cleanup": {
+    "reservation_exit": 0,
+    "remaining_own_scheduler_jobs": 0
+  }
+}

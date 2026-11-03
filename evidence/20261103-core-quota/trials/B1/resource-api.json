@@ -1,0 +1,6 @@
+{
+  "torch_npu_path": "/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/__init__.py",
+  "set_device_limit_callable_type": "_call_once_class",
+  "source_file": "/usr/local/python3.12.13/lib/python3.12/site-packages/torch_npu/npu/npu_config.py",
+  "source_sha256": "77144ac4544e21eaaf447548c684832d35f48b4936a0f42b4630333ed820938b"
+}

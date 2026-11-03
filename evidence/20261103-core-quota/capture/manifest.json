@@ -1,0 +1,23 @@
+{
+  "cases": {
+    "thinker": {
+      "path": "/workspace/minicpmo-r182/artifacts/core-causality-20261103/fixed-inputs-r2/thinker.pt",
+      "bytes": 302125001,
+      "sha256": "77345938e5018da284265a2a05e36713b701508f9a428a378ae6bad712d66b5a",
+      "expected_digest": "fa191cbdf3597d3bbca4c8f3a845a0f82fcc3d616e57be52df7ee35377f55198"
+    },
+    "talker": {
+      "path": "/workspace/minicpmo-r182/artifacts/core-causality-20261103/fixed-inputs-r2/talker.pt",
+      "bytes": 39326138,
+      "sha256": "39de16ef7f036e0a51d52d259ee98fe99f0147b30009e9261ac1e864c16bdb03",
+      "expected_digest": "c838d5d0d574e646e210334a15f0a59a8e5e30d0867ac7504586377b2f12341f"
+    },
+    "audio": {
+      "path": "/workspace/minicpmo-r182/artifacts/core-causality-20261103/fixed-inputs-r2/audio.pt",
+      "bytes": 439136226,
+      "sha256": "24a114617576a10d9cf61ae5287b697b5f23d3aabb1d2eb27861ed39d543b0f0",
+      "expected_digest": "f63b748962da4eb40dd4eafb6f3ab0f45a234a374e60158006747432157ad5c7"
+    }
+  },
+  "scope": "fixed diagnostic inputs, excluded from native performance"
+}

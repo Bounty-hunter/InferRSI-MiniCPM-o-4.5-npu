@@ -1,0 +1,622 @@
+{
+  "role": "A",
+  "quota": {
+    "cube_core_num": 24,
+    "vector_core_num": 48
+  },
+  "diagnostic_only": true,
+  "scope": "Frozen real inputs, reused prefix/cache and fixed batch. Single host submitter; not native service latency.",
+  "shapes": {
+    "thinker": [
+      8,
+      4096
+    ],
+    "thinker_new_tokens": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "thinker_bucket": 8,
+    "talker_batch": 4,
+    "talker_frames": 10,
+    "audio_batch": 4,
+    "audio_windows": [
+      28,
+      28,
+      28,
+      28
+    ]
+  },
+  "isolated": {
+    "thinker": {
+      "host_completion": {
+        "n": 20,
+        "mean_ms": 25.719604780897498,
+        "median_ms": 25.685297325253487,
+        "min_ms": 25.573378428816795,
+        "max_ms": 26.217485778033733,
+        "samples_ms": [
+          25.748644024133682,
+          25.676721706986427,
+          25.584090501070023,
+          25.709722191095352,
+          25.62273107469082,
+          25.703173130750656,
+          25.667622685432434,
+          25.619971565902233,
+          26.217485778033733,
+          25.713972747325897,
+          25.899088010191917,
+          25.605009868741035,
+          25.6364019587636,
+          25.694482028484344,
+          25.89062787592411,
+          25.79506579786539,
+          25.677042081952095,
+          25.573378428816795,
+          25.69355256855488,
+          25.66331159323454
+        ]
+      },
+      "stream_elapsed": {
+        "n": 20,
+        "mean_ms": 25.609591960906982,
+        "median_ms": 25.572470664978027,
+        "min_ms": 25.49262046813965,
+        "max_ms": 26.113319396972656,
+        "samples_ms": [
+          25.631820678710938,
+          25.583599090576172,
+          25.49262046813965,
+          25.611839294433594,
+          25.52433967590332,
+          25.60300064086914,
+          25.55583953857422,
+          25.5079402923584,
+          26.113319396972656,
+          25.620759963989258,
+          25.73777961730957,
+          25.520259857177734,
+          25.530540466308594,
+          25.562480926513672,
+          25.776399612426758,
+          25.677860260009766,
+          25.582460403442383,
+          25.496959686279297,
+          25.514739990234375,
+          25.547279357910156
+        ]
+      },
+      "same_input_repeated_exact": true,
+      "digest": "fa191cbdf3597d3bbca4c8f3a845a0f82fcc3d616e57be52df7ee35377f55198",
+      "versus_capture": {
+        "exact": true,
+        "shape": [
+          8,
+          4096
+        ],
+        "max_abs": 0.0,
+        "relative_l2": 0.0
+      }
+    },
+    "talker": {
+      "host_completion": {
+        "n": 20,
+        "mean_ms": 33.21775901131332,
+        "median_ms": 33.19662343710661,
+        "min_ms": 33.129177056252956,
+        "max_ms": 33.59813056886196,
+        "samples_ms": [
+          33.15265662968159,
+          33.16208813339472,
+          33.205099403858185,
+          33.59813056886196,
+          33.39347429573536,
+          33.25500059872866,
+          33.210438676178455,
+          33.142377622425556,
+          33.24108012020588,
+          33.24923012405634,
+          33.13568793237209,
+          33.187768422067165,
+          33.13022758811712,
+          33.2341305911541,
+          33.19961857050657,
+          33.14606752246618,
+          33.129177056252956,
+          33.193628303706646,
+          33.1629877910018,
+          33.22631027549505
+        ]
+      },
+      "stream_elapsed": {
+        "n": 20,
+        "mean_ms": 33.10960426330566,
+        "median_ms": 33.09181022644043,
+        "min_ms": 33.015380859375,
+        "max_ms": 33.44776153564453,
+        "samples_ms": [
+          33.015380859375,
+          33.03588104248047,
+          33.05693817138672,
+          33.44776153564453,
+          33.29024124145508,
+          33.16680145263672,
+          33.112159729003906,
+          33.02888107299805,
+          33.14691925048828,
+          33.14099884033203,
+          33.04555892944336,
+          33.094600677490234,
+          33.032958984375,
+          33.129661560058594,
+          33.11088180541992,
+          33.0488395690918,
+          33.02766036987305,
+          33.089019775390625,
+          33.06441879272461,
+          33.10652160644531
+        ]
+      },
+      "same_input_repeated_exact": true,
+      "digest": "c838d5d0d574e646e210334a15f0a59a8e5e30d0867ac7504586377b2f12341f",
+      "versus_capture": {
+        "exact": true,
+        "shape": [
+          10,
+          4
+        ],
+        "max_abs": 0.0,
+        "relative_l2": 0.0
+      }
+    },
+    "audio": {
+      "host_completion": {
+        "n": 20,
+        "mean_ms": 147.71333527751267,
+        "median_ms": 147.78646873310208,
+        "min_ms": 146.89064491540194,
+        "max_ms": 149.51945282518864,
+        "samples_ms": [
+          148.1089172884822,
+          147.26976491510868,
+          147.0908811315894,
+          147.11246080696583,
+          147.86166045814753,
+          147.06705044955015,
+          146.89064491540194,
+          147.05551974475384,
+          147.23201468586922,
+          147.75016810745,
+          147.2240937873721,
+          148.05203583091497,
+          147.8334804996848,
+          147.695685736835,
+          148.26976228505373,
+          147.86870125681162,
+          149.51945282518864,
+          147.82276935875416,
+          148.52443803101778,
+          148.01720343530178
+        ]
+      },
+      "stream_elapsed": {
+        "n": 20,
+        "mean_ms": 147.53631973266602,
+        "median_ms": 147.60010528564453,
+        "min_ms": 146.7801055908203,
+        "max_ms": 149.3332977294922,
+        "samples_ms": [
+          147.85606384277344,
+          147.12124633789062,
+          146.92857360839844,
+          146.94638061523438,
+          147.6724395751953,
+          146.9115447998047,
+          146.7801055908203,
+          146.93704223632812,
+          147.0731658935547,
+          147.6107940673828,
+          147.05465698242188,
+          147.86758422851562,
+          147.6575469970703,
+          147.4991455078125,
+          148.09588623046875,
+          147.66775512695312,
+          149.3332977294922,
+          147.58941650390625,
+          148.259521484375,
+          147.86422729492188
+        ]
+      },
+      "same_input_repeated_exact": true,
+      "digest": "f63b748962da4eb40dd4eafb6f3ab0f45a234a374e60158006747432157ad5c7",
+      "versus_capture": {
+        "exact": true,
+        "shape": [
+          96000
+        ],
+        "max_abs": 0.0,
+        "relative_l2": 0.0
+      }
+    }
+  },
+  "matrix": {
+    "1": {
+      "serial": {
+        "n": 12,
+        "mean_ms": 204.5105534295241,
+        "median_ms": 204.27476707845926,
+        "min_ms": 203.1499771401286,
+        "max_ms": 206.79167285561562,
+        "samples_ms": [
+          206.43676444888115,
+          203.85770592838526,
+          203.46337649971247,
+          204.5630756765604,
+          204.6369155868888,
+          204.218746162951,
+          206.79167285561562,
+          203.8190057501197,
+          203.1499771401286,
+          204.33078799396753,
+          204.10869270563126,
+          204.74992040544748
+        ]
+      },
+      "parallel": {
+        "n": 12,
+        "mean_ms": 177.0011291373521,
+        "median_ms": 177.05021426081657,
+        "min_ms": 175.98219774663448,
+        "max_ms": 178.83197125047445,
+        "samples_ms": [
+          176.30071472376585,
+          175.98219774663448,
+          176.67021416127682,
+          178.83197125047445,
+          177.2115482017398,
+          176.88888031989336,
+          177.29407083243132,
+          176.21511220932007,
+          177.2738303989172,
+          177.32817213982344,
+          176.67041532695293,
+          177.3464223369956
+        ]
+      }
+    },
+    "4": {
+      "serial": {
+        "n": 12,
+        "mean_ms": 374.28071970740956,
+        "median_ms": 374.4879374280572,
+        "min_ms": 372.8506602346897,
+        "max_ms": 376.03786308318377,
+        "samples_ms": [
+          375.49468874931335,
+          373.61234053969383,
+          372.8506602346897,
+          373.89777693897486,
+          374.37727954238653,
+          375.1306300982833,
+          372.88776133209467,
+          374.7810395434499,
+          374.67609718441963,
+          376.03786308318377,
+          374.59859531372786,
+          373.0239039286971
+        ]
+      },
+      "parallel": {
+        "n": 12,
+        "mean_ms": 346.8456358338396,
+        "median_ms": 347.03095396980643,
+        "min_ms": 344.89305783063173,
+        "max_ms": 349.26299192011356,
+        "samples_ms": [
+          345.66713869571686,
+          345.2196577563882,
+          347.01609425246716,
+          345.9033537656069,
+          347.0458136871457,
+          349.26299192011356,
+          347.37987257540226,
+          348.07877242565155,
+          347.7935930714011,
+          348.6718963831663,
+          345.2153876423836,
+          344.89305783063173
+        ]
+      }
+    }
+  },
+  "input_templates_unchanged": true,
+  "stats_after": {
+    "live": 0,
+    "queued": 0,
+    "admitted": 0,
+    "max_live": 32,
+    "first_chunk": 25,
+    "steady_chunk": 25,
+    "t2w_cache_offload": false,
+    "t2w_timesteps": 6,
+    "t2w_euler_graph_failures": {},
+    "t2w_npu_fused_body": true,
+    "t2w_npu_fused_variant": "hybrid",
+    "t2w_hift_graph_failures": {},
+    "t2w_encoder_graph_failures": {},
+    "t2w_offload_stats": {
+      "h2d_tensor_copies": 0,
+      "h2d_tensor_reuses": 0,
+      "d2h_tensor_copies": 0,
+      "d2h_tensor_reuses": 0
+    },
+    "t2w_flow_batch_hist": {
+      "4": 78
+    },
+    "t2w_flow_cache_bucket_hist": {
+      "512": 78
+    },
+    "t2w_threaded": true,
+    "t2w_live": 0,
+    "t2w_batch_wait_ms": 10.0,
+    "t2w_batch_wait_min_active": 1,
+    "t2w_batch_min_ready": 4,
+    "prompt_setup_batches": {},
+    "talker_graph_ring_failures": {},
+    "talker_graph_ring_capture_retries": {},
+    "talker_graph_ring_capture_retry_errors": {},
+    "talker_static_shape_attention": true,
+    "talker_static_kv_capacity": 256,
+    "talker_static_graph_buckets": [],
+    "talker_static_graph_failures": {},
+    "talker_post_graph_failures": {},
+    "talker_post_graph_replays": {},
+    "talker_full_block_graphs_enabled": true,
+    "talker_full_block_graph_batches": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "talker_full_block_graphs": [
+      [
+        1,
+        10
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "talker_full_block_replays": {},
+    "talker_full_block_warmup_s": {
+      "1": 1.8634538790211082,
+      "2": 0.9652608968317509,
+      "4": 0.8927153674885631,
+      "5": 0.9452770138159394,
+      "6": 0.8996906811371446,
+      "7": 0.9010867075994611,
+      "8": 0.9045984987169504
+    },
+    "t2w_first_audio_priority": true,
+    "t2w_first_audio_priority_stats": {
+      "batches": 0,
+      "reordered": 0
+    },
+    "thinker_graph_buckets": [
+      8
+    ],
+    "thinker_prompt_lookup_stats": {
+      "verification_calls": 0,
+      "draft_tokens": 0,
+      "matched_draft_tokens": 0,
+      "target_tokens": 0,
+      "kv_fallbacks": 0
+    },
+    "t2w_startup_stats": {
+      "request_rows": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "keys": [
+        {
+          "owner": "EulerGraphs",
+          "key": [
+            2,
+            50,
+            512
+          ],
+          "seconds": 1.2686960203573108
+        },
+        {
+          "owner": "HiFTGraphs",
+          "key": [
+            1,
+            50
+          ],
+          "seconds": 0.342414072714746
+        },
+        {
+          "owner": "HiFTGraphs",
+          "key": [
+            1,
+            58
+          ],
+          "seconds": 0.12741564586758614
+        },
+        {
+          "owner": "EulerGraphs",
+          "key": [
+            4,
+            50,
+            512
+          ],
+          "seconds": 0.6801751451566815
+        },
+        {
+          "owner": "HiFTGraphs",
+          "key": [
+            2,
+            50
+          ],
+          "seconds": 0.1315748244524002
+        },
+        {
+          "owner": "HiFTGraphs",
+          "key": [
+            2,
+            58
+          ],
+          "seconds": 0.13054928835481405
+        },
+        {
+          "owner": "EulerGraphs",
+          "key": [
+            8,
+            50,
+            512
+          ],
+          "seconds": 0.6900455132126808
+        },
+        {
+          "owner": "HiFTGraphs",
+          "key": [
+            4,
+            50
+          ],
+          "seconds": 0.13687454350292683
+        },
+        {
+          "owner": "HiFTGraphs",
+          "key": [
+            4,
+            58
+          ],
+          "seconds": 0.1404884671792388
+        },
+        {
+          "owner": "EulerGraphs",
+          "key": [
+            16,
+            50,
+            512
+          ],
+          "seconds": 0.7238511675968766
+        },
+        {
+          "owner": "HiFTGraphs",
+          "key": [
+            8,
+            50
+          ],
+          "seconds": 0.13680873066186905
+        },
+        {
+          "owner": "HiFTGraphs",
+          "key": [
+            8,
+            58
+          ],
+          "seconds": 0.13791908975690603
+        },
+        {
+          "owner": "EulerGraphs",
+          "key": [
+            2,
+            56,
+            512
+          ],
+          "lane": "audio_tail",
+          "seconds": 0.6689642611891031
+        },
+        {
+          "owner": "EulerGraphs",
+          "key": [
+            2,
+            256,
+            0
+          ],
+          "lane": "prompt_setup",
+          "seconds": 0.7153313243761659
+        },
+        {
+          "owner": "EulerGraphs",
+          "key": [
+            2,
+            512,
+            0
+          ],
+          "lane": "prompt_setup",
+          "seconds": 0.7031200956553221
+        }
+      ],
+      "duration_s": 6.736775344237685,
+      "allocated_before_bytes": 27174896128,
+      "allocated_after_bytes": 34311485440,
+      "reserved_after_bytes": 35764830208
+    },
+    "npu_core_policy": null,
+    "thinker_prefix_cache_enabled": true,
+    "thinker_prefix_cache_tokens": 0,
+    "thinker_prefix_cache_min_live": 9,
+    "thinker_prefix_cache_stats": {
+      "hits": 0,
+      "misses": 0,
+      "tokens_reused": 0,
+      "tokens_computed": 0,
+      "requests_bypassed_below_min_live": 0
+    },
+    "thinker_batch_append_prefill": false,
+    "thinker_batch_append_prefill_failures": [],
+    "talker_graph_buckets": [],
+    "prompt_cache_entries": 0,
+    "prompt_cache_refs": 0,
+    "thinker_kv_pages_used": 16,
+    "talker_kv_pages_used": 5,
+    "thinker_kv_pages": 128,
+    "talker_kv_pages": 128,
+    "npu_memory_allocated_bytes": 35028448256,
+    "npu_memory_reserved_bytes": 38480642048,
+    "rss_max_kib": 7261812,
+    "rss_kib": 4585600,
+    "live_requests": [],
+    "prefill_token_budget": null,
+    "prefill_tokens_tick_max": 0,
+    "prefill_chunked_ticks": 0,
+    "prefill_kv_wait_ticks": 0,
+    "talker_starts_deferred_ticks": 0,
+    "talker_kv_wait_ticks": 0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "thread": "npu-t2w-prepare_0",
+  "tid": 283910,
+  "device_limit": {
+    "cube_core_num": 24,
+    "vector_core_num": 48
+  },
+  "stream": "<torch_npu.npu.Stream device=npu:0 npu_stream=0xaaab21630f28>",
+  "stream_limit": {
+    "cube_core_num": 24,
+    "vector_core_num": 48
+  }
+}

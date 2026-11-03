@@ -335,7 +335,9 @@ C1 已就绪 1 条          → wait_target = 1，直接执行
 
 Thinker、Talker 和音频阶段有不同的计算、访存及发射特征，共享一张卡时可能产生竞争。r337 在模型算子和图捕获前，读取设备/进程当前限额，再通过 `torch.npu.set_device_limit` 设置当前进程的 0.5 比例。本次 24 Cube/48 Vector 被设置为 12 Cube/24 Vector，私有 stream 继承该进程设置。[资源限制实现](../engine/runtime/backend_npu.py#L116)
 
-设备资源上限会影响算子的 tiling、workspace 和执行竞争。当前记录能证明设置生效及对应服务指标变化，尚未将收益根因分解到 tiling、带宽或重叠中的某一项。此前用户提出的多进程并行使用设备资源，给资源实验提供了方向，当前落地机制作用在独立引擎进程内。
+设备资源上限会影响算子的 tiling、workspace 和执行竞争。此前用户提出的多进程并行使用设备资源，给资源实验提供了方向，当前落地机制作用在独立引擎进程内。
+
+11 月 3 日补充了固定真实输入的单组件与 2×2 验证。12/24 配额下，Talker 快 7.39%、Token2Wav 快 16.48%、Thinker 慢 12.37%。一个 Thinker+Talker+音频任务包在串行下快 11.61%，多 stream 下快 12.59%，说明收益包含独立于跨组件并发的执行路径改善。同 shape profile 观察到分块数和耗时改变，精确 CANN 内部 tiling 原因及真实服务流水线的贡献比例仍待分解。跨配额输出存在可复现数值差异，speech gate 为 `NOT_RUN`。[固定工作量、2×2 与 kernel 证据](core-quota-causality.zh-CN.md)
 
 ### A/B/A 确认结果
 

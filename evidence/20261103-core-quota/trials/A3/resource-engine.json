@@ -1,0 +1,13 @@
+{
+  "thread": "npu-engine",
+  "tid": 284083,
+  "device_limit": {
+    "cube_core_num": 24,
+    "vector_core_num": 48
+  },
+  "stream": "<torch_npu.npu.Stream device=npu:0 npu_stream=0xaaab1f79c748>",
+  "stream_limit": {
+    "cube_core_num": 24,
+    "vector_core_num": 48
+  }
+}

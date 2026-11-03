@@ -9,6 +9,7 @@ against pinned vLLM-Omni main `9990f10d9`, using the official client `5917730a` 
 The engine uses Flow FP16/6 steps and Omni uses FP32/10 steps. Final paired speech-quality acceptance is pending.
 
 [已采用优化详解与图示](docs/adopted-optimizations.zh-CN.md) ·
+[核配额固定工作量与2×2验证](docs/core-quota-causality.zh-CN.md) ·
 [方法复盘与探索效率审计](docs/optimization-method-retrospective.zh-CN.md) ·
 [C8完整演进曲线](docs/c8-optimization-journey.zh-CN.md) ·
 [中文优化历程与最新结果](docs/rsi-r337-20261103.zh-CN.md) ·

@@ -1,0 +1,286 @@
+{
+  "scope": "Fixed-work component and2x2 diagnostics; native service timing excluded",
+  "complete": true,
+  "server_pairs": 3,
+  "fixture_sha256": {
+    "thinker": "77345938e5018da284265a2a05e36713b701508f9a428a378ae6bad712d66b5a",
+    "talker": "39de16ef7f036e0a51d52d259ee98fe99f0147b30009e9261ac1e864c16bdb03",
+    "audio": "24a114617576a10d9cf61ae5287b697b5f23d3aabb1d2eb27861ed39d543b0f0"
+  },
+  "aggregate_isolated": {
+    "thinker": {
+      "mean_paired_reduction_pct": -12.371796537520371,
+      "min_pct": -13.069627603639212,
+      "max_pct": -11.71306356550561
+    },
+    "talker": {
+      "mean_paired_reduction_pct": 7.384405792869324,
+      "min_pct": 7.059810437441028,
+      "max_pct": 7.629664159816841
+    },
+    "audio": {
+      "mean_paired_reduction_pct": 16.482993047040836,
+      "min_pct": 15.965120414634038,
+      "max_pct": 16.952757910299667
+    }
+  },
+  "pairs": [
+    {
+      "pair": 1,
+      "isolated": {
+        "thinker": {
+          "host_completion": {
+            "control_ms": 25.685297325253487,
+            "limited_ms": 29.04227003455162,
+            "reduction_pct": -13.069627603639212
+          },
+          "stream_elapsed": {
+            "control_ms": 25.572470664978027,
+            "limited_ms": 28.910029411315918,
+            "reduction_pct": -13.051373838933511
+          }
+        },
+        "talker": {
+          "host_completion": {
+            "control_ms": 33.19662343710661,
+            "limited_ms": 30.663832556456327,
+            "reduction_pct": 7.629664159816841
+          },
+          "stream_elapsed": {
+            "control_ms": 33.09181022644043,
+            "limited_ms": 30.541979789733887,
+            "reduction_pct": 7.705321707270107
+          }
+        },
+        "audio": {
+          "host_completion": {
+            "control_ms": 147.78646873310208,
+            "limited_ms": 124.19218104332685,
+            "reduction_pct": 15.965120414634038
+          },
+          "stream_elapsed": {
+            "control_ms": 147.60010528564453,
+            "limited_ms": 124.01065063476562,
+            "reduction_pct": 15.982003945882816
+          }
+        }
+      },
+      "matrix": {
+        "1": {
+          "table_ms": {
+            "A": {
+              "serial": 204.27476707845926,
+              "parallel": 177.05021426081657
+            },
+            "B": {
+              "serial": 181.5043264068663,
+              "parallel": 155.2011677995324
+            }
+          },
+          "quota_reduction_pct": {
+            "serial": 11.146966900149312,
+            "parallel": 12.34059306423535
+          },
+          "parallel_reduction_pct": {
+            "A": 13.327418362536225,
+            "B": 14.491752967018446
+          }
+        },
+        "4": {
+          "table_ms": {
+            "A": {
+              "serial": 374.4879374280572,
+              "parallel": 347.03095396980643
+            },
+            "B": {
+              "serial": 353.08289248496294,
+              "parallel": 326.84046495705843
+            }
+          },
+          "quota_reduction_pct": {
+            "serial": 5.715816933945006,
+            "parallel": 5.818065732114686
+          },
+          "parallel_reduction_pct": {
+            "A": 7.331873930792632,
+            "B": 7.432370156257884
+          }
+        }
+      }
+    },
+    {
+      "pair": 2,
+      "isolated": {
+        "thinker": {
+          "host_completion": {
+            "control_ms": 25.726913008838892,
+            "limited_ms": 28.740322683006525,
+            "reduction_pct": -11.71306356550561
+          },
+          "stream_elapsed": {
+            "control_ms": 25.603519439697266,
+            "limited_ms": 28.614190101623535,
+            "reduction_pct": -11.758815693354796
+          }
+        },
+        "talker": {
+          "host_completion": {
+            "control_ms": 32.86272473633289,
+            "limited_ms": 30.54267866536975,
+            "reduction_pct": 7.059810437441028
+          },
+          "stream_elapsed": {
+            "control_ms": 32.7259407043457,
+            "limited_ms": 30.40017032623291,
+            "reduction_pct": 7.10680985192872
+          }
+        },
+        "audio": {
+          "host_completion": {
+            "control_ms": 147.71387074142694,
+            "limited_ms": 123.29514184966683,
+            "reduction_pct": 16.531100816188804
+          },
+          "stream_elapsed": {
+            "control_ms": 147.5486297607422,
+            "limited_ms": 123.12366104125977,
+            "reduction_pct": 16.553843135709755
+          }
+        }
+      },
+      "matrix": {
+        "1": {
+          "table_ms": {
+            "A": {
+              "serial": 205.25676291435957,
+              "parallel": 177.62464424595237
+            },
+            "B": {
+              "serial": 179.82284212484956,
+              "parallel": 154.17041489854455
+            }
+          },
+          "quota_reduction_pct": {
+            "serial": 12.391270537634835,
+            "parallel": 13.204377943711087
+          },
+          "parallel_reduction_pct": {
+            "A": 13.462220818485914,
+            "B": 14.265388603131257
+          }
+        },
+        "4": {
+          "table_ms": {
+            "A": {
+              "serial": 374.9731546267867,
+              "parallel": 346.5278553776443
+            },
+            "B": {
+              "serial": 350.0267267227173,
+              "parallel": 324.39935160800815
+            }
+          },
+          "quota_reduction_pct": {
+            "serial": 6.652857036898752,
+            "parallel": 6.3857792169465295
+          },
+          "parallel_reduction_pct": {
+            "A": 7.585956193971866,
+            "B": 7.321548087100938
+          }
+        }
+      }
+    },
+    {
+      "pair": 3,
+      "isolated": {
+        "thinker": {
+          "host_completion": {
+            "control_ms": 25.602364912629128,
+            "limited_ms": 28.759827371686697,
+            "reduction_pct": -12.332698443416291
+          },
+          "stream_elapsed": {
+            "control_ms": 25.504730224609375,
+            "limited_ms": 28.637849807739258,
+            "reduction_pct": -12.284464707283016
+          }
+        },
+        "talker": {
+          "host_completion": {
+            "control_ms": 32.98225859180093,
+            "limited_ms": 30.52054764702916,
+            "reduction_pct": 7.463742781350103
+          },
+          "stream_elapsed": {
+            "control_ms": 32.863168716430664,
+            "limited_ms": 30.405150413513184,
+            "reduction_pct": 7.479553551659002
+          }
+        },
+        "audio": {
+          "host_completion": {
+            "control_ms": 147.78516814112663,
+            "limited_ms": 122.73150635883212,
+            "reduction_pct": 16.952757910299667
+          },
+          "stream_elapsed": {
+            "control_ms": 147.6258316040039,
+            "limited_ms": 122.5773696899414,
+            "reduction_pct": 16.96753314911259
+          }
+        }
+      },
+      "matrix": {
+        "1": {
+          "table_ms": {
+            "A": {
+              "serial": 203.2910455018282,
+              "parallel": 176.22196255251765
+            },
+            "B": {
+              "serial": 180.33974431455135,
+              "parallel": 154.6834483742714
+            }
+          },
+          "quota_reduction_pct": {
+            "serial": 11.289873162204989,
+            "parallel": 12.222377884270442
+          },
+          "parallel_reduction_pct": {
+            "A": 13.31543299533432,
+            "B": 14.22664540076638
+          }
+        },
+        "4": {
+          "table_ms": {
+            "A": {
+              "serial": 373.34979651495814,
+              "parallel": 346.1031033657491
+            },
+            "B": {
+              "serial": 350.83203623071313,
+              "parallel": 324.8866926878691
+            }
+          },
+          "quota_reduction_pct": {
+            "serial": 6.031276967186683,
+            "parallel": 6.1300839176409605
+          },
+          "parallel_reduction_pct": {
+            "A": 7.2978995578794725,
+            "B": 7.39537467033996
+          }
+        }
+      }
+    }
+  ],
+  "raw_result_sha256": {
+    "A1": "8e841ad5c2bc8b21dacbee70de20fe6556184713f9320e277722516490494bdb",
+    "B1": "5eadf6248aba0e3d4b3dc39a232df3ce869caa3a8f9e25ac0a92d1d28a5e0f26",
+    "B2": "8758cc40f1f83035fc0ce6cafb8e6060e6b96844c9fd1640c986e8d864a5d4cb",
+    "A2": "71dd2a20a95a68ccff3b56d6f3942cdec07ba630aa438663138d9063348ca1df",
+    "A3": "87c05e8f9ec59b21e40d47156b3b285d94758ff00113dc8faea0bea0f247c06e",
+    "B3": "e7abfc0f99729f2cfafeccce5a2c8d52c041dec049375307b4aab6ab8db3b752"
+  }
+}

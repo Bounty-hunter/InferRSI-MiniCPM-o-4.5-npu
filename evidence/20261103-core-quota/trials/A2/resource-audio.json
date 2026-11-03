@@ -1,0 +1,13 @@
+{
+  "thread": "npu-token2wav",
+  "tid": 284031,
+  "device_limit": {
+    "cube_core_num": 24,
+    "vector_core_num": 48
+  },
+  "stream": "<torch_npu.npu.Stream device=npu:0 npu_stream=0xaaab30a8ca78>",
+  "stream_limit": {
+    "cube_core_num": 24,
+    "vector_core_num": 48
+  }
+}

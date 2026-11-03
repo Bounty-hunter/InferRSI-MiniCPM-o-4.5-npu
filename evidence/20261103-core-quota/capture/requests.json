@@ -1,0 +1,722 @@
+[
+  {
+    "row": {
+      "row_id": "common_voice_en_10119832-common_voice_en_10119840",
+      "ref_text": "We asked over twenty different people, and they all said it was his.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_10119832.wav",
+      "target_text": "Get the trust fund to the bank early."
+    },
+    "seed": 1198369708,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Get the trust fund to the bank early."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_10119832-common_voice_en_10119847",
+      "ref_text": "We asked over twenty different people, and they all said it was his.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_10119832.wav",
+      "target_text": "The stained glass offered a hypnotic atmosphere."
+    },
+    "seed": 804638780,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "The stained glass offered a hypnotic atmosphere."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_103675-common_voice_en_103676",
+      "ref_text": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_103675.wav",
+      "target_text": "One by one, the campfires were extinguished, and the oasis fell as quiet as the desert."
+    },
+    "seed": 141019469,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "One by one, the campfires were extinguished, and the oasis fell as quiet as the desert."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_103675-common_voice_en_103677",
+      "ref_text": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_103675.wav",
+      "target_text": "The boy knew the desert sensed his fear."
+    },
+    "seed": 507950992,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "The boy knew the desert sensed his fear."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_10933823-common_voice_en_10933822",
+      "ref_text": "Sometimes I overthink things which leads me to postpone and ultimately never achieve the goal I had in mind.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_10933823.wav",
+      "target_text": "When it comes to the crunch, our company will become insolvent."
+    },
+    "seed": 2129616144,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "When it comes to the crunch, our company will become insolvent."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_10933823-common_voice_en_10933825",
+      "ref_text": "Sometimes I overthink things which leads me to postpone and ultimately never achieve the goal I had in mind.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_10933823.wav",
+      "target_text": "The primary coil has fifty turns."
+    },
+    "seed": 563106715,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "The primary coil has fifty turns."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_120405-common_voice_en_120402",
+      "ref_text": "He approached the mass and was surprised at the size and the shape.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_120405.wav",
+      "target_text": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing."
+    },
+    "seed": 1775089332,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "I'm never more aware of a room's acoustics than when I'm trying to enjoy a snack I have no intention of sharing."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_120405-common_voice_en_120406",
+      "ref_text": "He approached the mass and was surprised at the size and the shape.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_120405.wav",
+      "target_text": "The only shadow was that of the few scattered pine trees."
+    },
+    "seed": 883165113,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "The only shadow was that of the few scattered pine trees."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_1205005-common_voice_en_1205007",
+      "ref_text": "Roaming endlessly around the park, she wants to go home.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_1205005.wav",
+      "target_text": "The work of the tailor is seen on each side."
+    },
+    "seed": 1285022849,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "The work of the tailor is seen on each side."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_1205005-common_voice_en_1205008",
+      "ref_text": "Roaming endlessly around the park, she wants to go home.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_1205005.wav",
+      "target_text": "NASA plans to launch the rocket tomorrow."
+    },
+    "seed": 564932261,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "NASA plans to launch the rocket tomorrow."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_123125-common_voice_en_123126",
+      "ref_text": "\"There's no danger,\" the boy said, when they had moved on past the encampment.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_123125.wav",
+      "target_text": "After all, who doesn\u2019t want to overcome new challenges and achieve great heights?"
+    },
+    "seed": 23533053,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "After all, who doesn\u2019t want to overcome new challenges and achieve great heights?"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_123125-common_voice_en_123127",
+      "ref_text": "\"There's no danger,\" the boy said, when they had moved on past the encampment.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_123125.wav",
+      "target_text": "Later, we simply let life proceed, in its own direction, toward its own fate."
+    },
+    "seed": 756768178,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Later, we simply let life proceed, in its own direction, toward its own fate."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_125386-common_voice_en_125388",
+      "ref_text": "It was, however, still so hot from its flight through the air.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_125386.wav",
+      "target_text": "The two men hurried back and found the cylinder still lying in the same position."
+    },
+    "seed": 2137681699,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "The two men hurried back and found the cylinder still lying in the same position."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_125386-common_voice_en_125389",
+      "ref_text": "It was, however, still so hot from its flight through the air.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_125386.wav",
+      "target_text": "I thought about the difficulties in translation that might arise."
+    },
+    "seed": 1432987528,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "I thought about the difficulties in translation that might arise."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_137148-common_voice_en_137152",
+      "ref_text": "She walked across the street wearing stereo headphones and staring at her smartphone.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_137148.wav",
+      "target_text": "Elvis Presley is often called the \"King of Rock and Roll\"."
+    },
+    "seed": 1679483474,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Elvis Presley is often called the \"King of Rock and Roll\"."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "row": {
+      "row_id": "common_voice_en_13900-common_voice_en_13901",
+      "ref_text": "Television can make you dumb, but it can also be good education.",
+      "ref_wav_path": "/dataset/models/seed-tts-eval/en/prompt-wavs/common_voice_en_13900.wav",
+      "target_text": "We don't have the budget to produce it in studio quality."
+    },
+    "seed": 525285657,
+    "thinker": {
+      "temperature": 0.0,
+      "max_tokens": 256
+    },
+    "talker": {
+      "temperature": 0.8,
+      "top_p": 0.85,
+      "top_k": 25,
+      "repetition_penalty": 1.05,
+      "repetition_window": 16,
+      "min_new_tokens": 50,
+      "max_new_tokens": 2048
+    },
+    "enable_thinking": false,
+    "use_tts_template": true,
+    "stream": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": [
+          {
+            "type": "text",
+            "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech.\nFor this request you act as a text-to-speech engine with zero-shot voice cloning: the API provides reference audio and its transcript (ref_audio, ref_text) and task_type Base. The user message is the exact text you must speak. Synthesize natural speech in the same language as that user text, matching the timbre, prosody, and speaking style of the reference audio while reading the new content clearly."
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "We don't have the budget to produce it in studio quality."
+          }
+        ]
+      }
+    ]
+  }
+]
